@@ -1,0 +1,28 @@
+id: sle
+term: SLE
+expansion: Space Link Extension
+plain_definition: Standard services that carry space-link data between a ground station
+  and the mission over ordinary ground networks.
+precise_meaning: CCSDS transfer services such as Return All Frames (911.1), Return
+  Channel Frames (911.2) and Forward CLTU (912.1), with online and offline delivery
+  modes.
+layer: Ground segment
+aliases:
+- Space Link Extension
+- RAF
+- RCF
+- FCLTU
+example_usage: '''The RAF bind failed, so no frames reached us.'' (fictional)'
+related_terms:
+- transfer-frame
+- cltu
+topics:
+- ground-stations-and-networks
+- end-to-end-system
+label: standard
+sources:
+- id: CCSDS-911.1-B-5
+  loc: §1.1, §2.1
+- id: CCSDS-912.1-B-5
+  loc: §1.1
+last_reviewed: pending

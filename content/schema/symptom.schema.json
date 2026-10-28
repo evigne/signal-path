@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-path.local/schema/symptom.schema.json",
+  "title": "Troubleshooting symptom",
+  "description": "Brief §4K symptom pages.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "layer",
+    "observables",
+    "evidence_to_gather",
+    "questions_to_ask",
+    "likely_causes",
+    "sources"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "observables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_to_gather": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "questions_to_ask": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "likely_causes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "cause",
+          "test",
+          "label"
+        ],
+        "properties": {
+          "cause": {
+            "type": "string"
+          },
+          "test": {
+            "type": "string"
+          },
+          "label": {
+            "enum": [
+              "standard",
+              "practice",
+              "example",
+              "mission"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sample_log": {
+      "type": "string",
+      "description": "Fictional log only."
+    },
+    "coordinate_with": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Za-z0-9.\\-]*$"
+          },
+          "loc": {
+            "type": "string",
+            "description": "Section, figure or table inside the source, e.g. §9.3.1"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

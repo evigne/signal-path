@@ -1,0 +1,19 @@
+id: vcid
+term: VCID
+expansion: Virtual Channel Identifier
+plain_definition: A small number in each frame header that says which logical lane of telemetry the frame belongs to.
+precise_meaning: Bits 12–14 of the TM transfer frame primary header (3 bits); each virtual channel has its own modulo-256 frame count.
+layer: Data link layer
+aliases:
+- virtual channel
+- VC
+example_usage: '''Science is on VC2, housekeeping on VC0.'' (fictional)'
+related_terms:
+- transfer-frame
+topics:
+- tm-space-data-link-protocol
+label: standard
+sources:
+- id: CCSDS-132.0-B-3
+  loc: §4.1.2.3, §4.1.2.6
+last_reviewed: pending

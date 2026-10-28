@@ -1,0 +1,68 @@
+id: communications-deep-dive
+title: Communications deep dive
+level: advanced
+audience: Engineers who need to reason about link performance, coding, data links and contact capacity
+prerequisites:
+- operator-conversation-fluency
+modules:
+- title: Signals and spectrum
+  topics:
+  - rf-basics
+  - frequency-bands
+  - bandwidth-efficient-modulation
+- title: Link budgets
+  topics:
+  - bits-symbols-and-rates
+  - link-budgets
+  labs:
+  - data-budget-calculator
+- title: Synchronization
+  topics:
+  - carrier-and-symbol-sync
+  - sync-markers
+  - pseudo-randomization
+  labs:
+  - sync-marker-visualiser
+- title: Coding
+  topics:
+  - channel-coding
+  - high-rate-coding-and-modulation
+  labs:
+  - channel-coding-sandbox
+- title: Data links
+  topics:
+  - tm-space-data-link-protocol
+  - tc-space-data-link-protocol
+  - aos-and-uslp
+  - cfdp-file-delivery
+  labs:
+  - cop1-farm-simulator
+- title: Tracking
+  topics:
+  - ranging-and-doppler
+- title: Contact planning
+  topics:
+  - contact-planning
+  - ground-stations-and-networks
+  labs:
+  - data-budget-calculator
+- title: Anomalies
+  topics:
+  - layered-fault-isolation
+  labs:
+  - anomaly-decision-tree
+est_hours:
+- 12
+- 18
+milestones:
+- Quiz after each module
+- Link budget worked example by hand
+- 'Coding sandbox: find the cliff'
+- VCM pass plan exercise
+- Troubleshooting case study
+- Path summary stored locally
+outcomes:
+- Build and critique a simple link budget
+- Choose modulation and coding for a rate and band
+- Explain data link options and their trade-offs
+- Plan contacts and predict data return

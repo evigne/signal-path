@@ -1,0 +1,14 @@
+id: frame-synchronization
+term: Frame synchronization
+plain_definition: Finding where each frame or coded block starts in a continuous bit stream, and keeping that alignment.
+precise_meaning: Locating the regularly spaced sync markers to align codeblocks, codewords or transfer frames; strictly "codeblock synchronization" when the marker marks a coded block, though "frame synchronization" is used for both.
+layer: Synchronization and channel coding sublayer
+aliases: [frame sync, frame lock, codeblock synchronization, codeword synchronization]
+example_usage: '"We lost frame sync for ten seconds around 09:14; carrier stayed up." (fictional)'
+related_terms: [csm, asm, flywheel]
+topics: [sync-markers]
+label: practice
+sources:
+  - {id: CCSDS-131.0-B-6, loc: "§9.1.1, §9.2.4 note"}
+  - {id: CCSDS-130.1-G-3, loc: "§9.3.3"}
+last_reviewed: pending

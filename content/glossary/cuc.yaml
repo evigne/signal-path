@@ -1,0 +1,18 @@
+id: cuc
+term: CUC
+expansion: CCSDS Unsegmented Time Code
+plain_definition: A time stamp written as a count of seconds since an agreed start date, plus a binary fraction of a second.
+precise_meaning: 1–4 octets of basic time units (seconds recommended) and 0–3 octets of binary fraction, optional P-field; recommended epoch 1958 January 1 TAI; not UTC-based, no leap seconds.
+layer: Application / time
+aliases:
+- unsegmented time code
+example_usage: '''OBT is 4+2 CUC from the 1958 epoch.'' (fictional)'
+related_terms:
+- cds-time-code
+topics:
+- time-codes
+label: standard
+sources:
+- id: CCSDS-301.0-B-4
+  loc: §3.2
+last_reviewed: pending

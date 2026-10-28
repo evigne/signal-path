@@ -1,0 +1,22 @@
+id: mac
+term: MAC
+expansion: Message Authentication Code
+plain_definition: A short tag computed with a secret key that proves a frame was not changed and came from a key holder.
+precise_meaning: SDLS security trailer field computed over selected frame fields (never the OCF, error control or sync marker); 128 bits for CCSDS GCM.
+layer: Data link
+aliases:
+- tag
+- authentication code
+example_usage: '''MAC failures: zero this pass.'' (fictional)'
+related_terms:
+- sdls
+topics:
+- space-data-link-security
+- space-link-cryptography
+label: standard
+sources:
+- id: CCSDS-355.0-B-2
+  loc: §2.3.2.2
+- id: CCSDS-352.0-B-2
+  loc: §3.4
+last_reviewed: pending

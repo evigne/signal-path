@@ -1,0 +1,22 @@
+id: transfer-frame
+term: Transfer frame
+plain_definition: The fixed-size container that carries packets across the space link.
+precise_meaning: The protocol data unit of the TM, AOS or USLP Space Data Link Protocol; a TM transfer frame has a 6-octet primary header, optional secondary header, data field, optional 4-octet OCF and
+  optional 2-octet FECF, and constant length within a mission phase.
+layer: Data link layer
+aliases:
+- frame
+- TM frame
+example_usage: '''We''re getting frames on VC0 but no packets — check the first header pointer.'' (fictional)'
+related_terms:
+- vcid
+- first-header-pointer
+- fecf
+- cadu
+topics:
+- tm-space-data-link-protocol
+label: standard
+sources:
+- id: CCSDS-132.0-B-3
+  loc: §4.1.1
+last_reviewed: pending

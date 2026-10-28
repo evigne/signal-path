@@ -1,0 +1,20 @@
+id: symbol-rate
+term: Symbol rate
+plain_definition: How many symbols per second the link transmits; not the same as how many useful bits arrive.
+precise_meaning: CCSDS distinguishes Rb (information bit rate), Rs (coded symbol rate at the modulator input) and RChS (channel symbol rate after the modulator, Rs/log2 M for higher-order modulations).
+layer: Physical layer
+aliases:
+- Rs
+- RChS
+- baud rate (informal)
+example_usage: '''Station is configured for 4.588 Msps coded symbols, that''s 2 Mbps of frames.'' (fictional)'
+related_terms:
+- code-rate
+- eb-n0
+topics:
+- bits-symbols-and-rates
+label: standard
+sources:
+- id: CCSDS-413.0-G-3
+  loc: §2.4
+last_reviewed: pending

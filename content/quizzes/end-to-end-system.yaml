@@ -1,0 +1,45 @@
+id: end-to-end-system
+topic: end-to-end-system
+items:
+- id: layers
+  type: single-choice
+  prompt: Which five OSI layers does CCSDS use to organise its space communications protocols?
+  choices:
+  - text: Physical, data link, network, transport, application
+    correct: true
+  - text: Physical, data link, session, presentation, application
+    correct: false
+  - text: Physical, network, transport, session, application
+    correct: false
+  explanation: CCSDS uses physical, data link, network, transport and application; session and presentation protocols are rarely used over space links.
+  label: standard
+  sources:
+  - id: CCSDS-130.0-G-4
+    loc: §2.2.1
+- id: sublayers
+  type: single-choice
+  prompt: Which two sublayers does CCSDS define inside the data link layer?
+  choices:
+  - text: Data link protocol sublayer and synchronization & channel coding sublayer
+    correct: true
+  - text: MAC sublayer and LLC sublayer
+    correct: false
+  - text: Framing sublayer and routing sublayer
+    correct: false
+  explanation: Transfer frames are handled by the data link protocol sublayer; sync markers and coding by the synchronization and channel coding sublayer.
+  label: standard
+  sources:
+  - id: CCSDS-130.0-G-4
+    loc: §2.2.3
+- id: stale
+  type: single-choice
+  prompt: Frame counts on VC0 keep rising but one parameter display is stale. Where is the fault most likely?
+  choices:
+  - text: 'After frame recovery: packet extraction, the source application or the database'
+    correct: true
+  - text: The RF link
+    correct: false
+  - text: The ground antenna
+    correct: false
+  explanation: Frames are arriving, so the link and station work; look above the frame layer.
+  label: example

@@ -1,0 +1,42 @@
+id: ksat
+name: KSAT
+last_checked: '2026-10-28'
+cells:
+  name:
+    state: cited
+    value: Kongsberg Satellite Services (KSAT)
+    sources:
+    - id: KSAT-GNS
+  locations:
+    state: cited
+    value: More than 280 antennas at 26 locations; KSATlite 26 stations (antenna counts differ on the KSATlite page)
+    sources:
+    - id: KSAT-GNS
+    - id: KSAT-LITE
+  bands:
+    state: cited
+    value: 'KSATlite: S up/down, X down, Ka down; frequency ranges not publicly specified'
+    sources:
+    - id: KSAT-LITE
+  service_modes:
+    state: cited
+    value: KSATlite, KSAT Hosted, KSATmax, Launch & LEOP
+    sources:
+    - id: KSAT-GNS
+  scheduling:
+    state: cited
+    value: API-driven machine-to-machine scheduling; customer portal
+    sources:
+    - id: KSAT-LITE
+  data_delivery:
+    state: not_public
+    value: Not publicly specified (pages checked)
+  latency:
+    state: not_public
+    value: Not publicly specified (pages checked)
+  support:
+    state: not_public
+    value: Not publicly specified (pages checked)
+  public_docs:
+    state: not_public
+    value: No public API documentation linked

@@ -1,0 +1,59 @@
+id: end-to-end-walkthrough
+title: Ground-to-space end-to-end walkthrough
+tool: 8
+level: intro
+est_minutes:
+- 10
+- 15
+objectives:
+- Trace a telemetry value and a command through every stage of the chain.
+- Name the data unit, layer and owner at each stage.
+- Name the indicator that proves each stage healthy.
+prerequisites:
+- end-to-end-system
+fictional_input:
+  description: A fictional star-tracker temperature on APID 0x07E going down, and a fictional heater command on VC1 going up.
+  data: 'downlink: raw 0x0F3A → APID 0x07E → VC0 frame → R-S + ASM 1ACFFC1D → OQPSK → station → RAF → MOC; uplink: HTR_ON → TC packet APID 0x02A → TC frame VC1 → BCH CLTU → FCLTU → station → spacecraft'
+  label: example
+presets:
+- name: Downlink
+  settings:
+    direction: downlink
+- name: Uplink
+  settings:
+    direction: uplink
+- name: Both
+  settings:
+    direction: both
+break_it:
+- Fail the SLE association between station and MOC
+- Fail frame lock at the station
+steps:
+- title: Walk the downlink
+  instruction: Click each stage from the instrument to the operator display.
+  expected: Each stage shows its data unit (parameter, packet, frame, CADU, symbols, RF), its layer and who owns it (spacecraft, station/provider, mission ground).
+- title: Walk the uplink
+  instruction: Switch to Uplink and click each stage.
+  expected: Command → TC packet → TC frame → CLTU → RF; the CLCW comes back on the downlink.
+- title: Break the delivery
+  instruction: Fail the SLE association.
+  expected: Station lock indicators stay green; frames stop at the station; the MOC sees stale data.
+  hint: Lock at the station but no data at the MOC points at the delivery path.
+expected_result: The learner can place any operator phrase on the chain and say which stage and owner it concerns.
+explanation: The layer model and the SPP/SLE forwarding pattern follow CCSDS 130.0-G-4 and the SLE service specifications; the stages and values are fictional.
+common_mistakes:
+- Thinking the station decodes packets
+- Placing the CLCW on the uplink
+- Treating stale displays as a spacecraft fault
+reset: Reset returns to the Downlink preset with no stage selected.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+- The chain is also available as an ordered list with the same details
+sources:
+- id: CCSDS-130.0-G-4
+  loc: §2.2, §3.2.1, §4.2
+- id: CCSDS-911.1-B-5
+  loc: §1.1
+- id: CCSDS-912.1-B-5
+  loc: §1.1

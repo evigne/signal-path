@@ -1,0 +1,36 @@
+id: decimal-and-binary-units
+topic: decimal-and-binary-units
+items:
+- id: kibi
+  type: single-choice
+  prompt: How many octets is 1 KiB?
+  choices:
+  - text: '1024'
+    correct: true
+  - text: '1000'
+    correct: false
+  - text: '1048'
+    correct: false
+  explanation: kibi = 2^10 = 1024.
+  label: standard
+  sources:
+  - id: NIST-BINARY
+    loc: page
+- id: mib
+  type: numeric
+  prompt: A fictional pass delivers 150 MB (10^6 octets each). How many MiB is that?
+  answer:
+    value: 143.05
+    tolerance: 0.05
+    unit: MiB
+  explanation: 150 × 10^6 / 2^20 ≈ 143.05 MiB.
+  label: example
+- id: bits
+  type: numeric
+  prompt: How many bits are in 75 MB?
+  answer:
+    value: 600000000
+    tolerance: 0
+    unit: bit
+  explanation: 75 × 10^6 octets × 8 = 6 × 10^8 bits; Mb and MB differ by 8×.
+  label: example

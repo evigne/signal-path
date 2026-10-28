@@ -1,0 +1,50 @@
+id: command-radiated-no-execution
+title: Command radiated, no execution
+layer: Telecommand (COP-1 and command handling)
+observables:
+- The station reports the CLTU radiated
+- The execution verifier times out
+- The CLCW report value may or may not have advanced
+evidence_to_gather:
+- Command, time radiated, VC and frame sequence number
+- 'CLCW before and after: report value, Lockout, Wait, Retransmit, No RF Available, No Bit Lock'
+- FOP-1 state
+- Spacecraft command counters and rejection telemetry
+questions_to_ask:
+- Did the CLCW report value pass the frame number (accepted by the FARM)?
+- Are No RF Available or No Bit Lock set (uplink not received)?
+- Did onboard checks reject the command after acceptance?
+likely_causes:
+- cause: 'Uplink not received: carrier or bit lock missing at the spacecraft'
+  test: CLCW No RF Available or No Bit Lock flags set; check uplink frequency, sweep and power
+  label: standard
+- cause: FARM in Lockout or Wait, so the frame was not accepted
+  test: CLCW Lockout or Wait flag; recover per COP-1 (Unlock, re-initialize)
+  label: standard
+- cause: Frame accepted but command rejected onboard (constraint, wrong mode, bad argument)
+  test: Report value advanced; check onboard rejection counters and the command database constraints
+  label: mission
+sample_log: '10:04:11Z INFO FCLTU radiated CLTU #12 (VC1 N(S)=52)
+
+  10:04:13Z INFO CLCW VC1 N(R)=52 LO=1 W=0 RT=0 NoRF=0 NoBitLock=0
+
+  10:04:21Z WARN HTR_ON execution verifier TIMEOUT
+
+  # fictional data, not from a real mission
+
+  '
+coordinate_with:
+- Flight operations (command controller)
+- Ground station / provider for uplink status
+- Flight software for onboard rejection
+related_topics:
+- command-lifecycle
+- uplink-and-downlink
+- layered-fault-isolation
+sources:
+- id: CCSDS-232.0-B-4
+  loc: §4.2.1.8
+- id: CCSDS-232.1-B-2
+  loc: §6.1.2
+- id: CCSDS-660.0-B-2
+  loc: §6.1.3.2.8

@@ -1,0 +1,47 @@
+id: no-carrier
+title: No carrier at the expected frequency
+layer: RF and acquisition
+observables:
+- Carrier lock never achieved during the predicted pass
+- No signal visible on the station spectrum display
+- Symbol and frame lock indicators stay idle
+evidence_to_gather:
+- Pass ID, station, predicted AOS/LOS and max elevation
+- Configured downlink frequency, polarization and expected Doppler
+- Antenna pointing/tracking status and predicts used
+- Spacecraft transmitter state and schedule (from last telemetry)
+questions_to_ask:
+- Was the spacecraft expected to transmit during this pass?
+- Is the problem on every station or one?
+- Were the orbit predicts updated recently?
+likely_causes:
+- cause: Spacecraft transmitter off or in a mode without downlink
+  test: Check the onboard schedule and last housekeeping
+  label: mission
+- cause: Wrong frequency, polarization or predicts at the station
+  test: Compare station configuration with the frequency assignment; Doppler can reach tens of kHz (401.0-B-32 §2.1.3A)
+  label: standard
+- cause: Antenna not tracking (pointing, predicts, hardware)
+  test: Ask the provider for tracking and antenna logs
+  label: mission
+sample_log: '10:02:18Z INFO AOS predicted EL 0.0°
+
+  10:02:40Z WARN carrier lock: SEARCH (no signal above threshold)
+
+  10:11:30Z INFO LOS predicted — carrier never acquired
+
+  # fictional data, not from a real mission
+
+  '
+coordinate_with:
+- Ground station / provider operations
+- Flight dynamics (predicts)
+- Flight operations (spacecraft transmitter state)
+related_topics:
+- rf-basics
+- carrier-and-symbol-sync
+- frequency-bands
+- layered-fault-isolation
+sources:
+- id: CCSDS-401
+  loc: §2.1.3A, §2.3.5

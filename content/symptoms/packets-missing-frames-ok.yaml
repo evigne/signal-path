@@ -1,0 +1,49 @@
+id: packets-missing-frames-ok
+title: Packets missing but frames fine
+layer: Packets and onboard data handling
+observables:
+- Frame counts per virtual channel are continuous and FECF checks pass
+- One APID shows a sequence-count gap or has stopped updating
+- Other APIDs on the same virtual channel are fresh
+evidence_to_gather:
+- APID, last good sequence count and time
+- Virtual channel frame counts and FECF results for the same period
+- Idle-packet and idle-frame counts
+- Onboard state of the producing application (from other telemetry)
+questions_to_ask:
+- Is the gap on one APID or all of them?
+- Do frame counts show any gap in the same period?
+- Did the spacecraft mode, routing or onboard storage change?
+likely_causes:
+- cause: Source application stopped or its packet generation was disabled
+  test: Check housekeeping for the application state; per-APID counts are independent
+  label: standard
+- cause: Packet extraction lost alignment after a length error
+  test: Re-run extraction from the First Header Pointer of the next frame and check the length arithmetic (6 + length + 1)
+  label: standard
+- cause: Onboard routing or storage configuration sends the APID to another virtual channel or to playback only
+  test: Compare the onboard routing table with the mission ICD
+  label: mission
+sample_log: '10:03:58Z INFO VC0 VCFC 0x41→0x42 continuous, FECF ok
+
+  10:04:00Z WARN APID 0x07E no packets for 60 s (last seq 1042)
+
+  10:04:00Z INFO APID 0x080, 0x081 fresh
+
+  # fictional data, not from a real mission
+
+  '
+coordinate_with:
+- Flight software / onboard data handling
+- Ground data processing (packet extraction)
+- Mission database owners
+related_topics:
+- space-packet-protocol
+- tm-space-data-link-protocol
+- layered-fault-isolation
+- telemetry-lifecycle
+sources:
+- id: CCSDS-133.0-B-2
+  loc: §4.1.3.4.3, §4.1.3.5
+- id: CCSDS-132.0-B-3
+  loc: §4.1.2.5, §4.1.2.6, §4.1.2.7.6

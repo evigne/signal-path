@@ -1,0 +1,45 @@
+id: carrier-and-symbol-sync
+topic: carrier-and-symbol-sync
+items:
+- id: order
+  type: single-choice
+  prompt: In what order do lock indicators normally come up?
+  choices:
+  - text: Carrier, symbol, frame
+    correct: true
+  - text: Frame, symbol, carrier
+    correct: false
+  - text: Symbol, carrier, frame
+    correct: false
+  explanation: Each step depends on the one before.
+  label: practice
+  sources:
+  - id: CCSDS-401
+    loc: §2.1.1, §2.4.9
+- id: runs
+  type: numeric
+  prompt: What maximum run of identical coded symbols does CCSDS recommend?
+  answer:
+    value: 64
+    tolerance: 0
+    unit: symbols
+  explanation: 401.0-B-32 recommends limiting runs to 64 and minimum transition densities of 125 (Cat A) and 275 (Cat B) per 1000.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §2.4.9
+- id: cat
+  type: single-choice
+  prompt: A mission 3 × 10^6 km from Earth is in which CCSDS category?
+  choices:
+  - text: Category B
+    correct: true
+  - text: Category A
+    correct: false
+  - text: Neither
+    correct: false
+  explanation: Category B is 2 × 10^6 km or more.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §1.5

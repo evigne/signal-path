@@ -1,0 +1,49 @@
+id: tm-space-data-link-protocol
+topic: tm-space-data-link-protocol
+items:
+- id: hdr
+  type: decode
+  prompt: Decode SCID, VCID and VCFC from this fictional TM primary header.
+  data: 0A B5 2A 11 18 00
+  answer:
+    fields:
+      SCID: 171
+      VCID: 2
+      MCFC: 42
+      VCFC: 17
+      FHP: 0
+  explanation: Bits 2–11 = 171, bits 12–14 = 2, octet 3 = MCFC 42, octet 4 = VCFC 17, FHP 0.
+  label: example
+  sources:
+  - id: CCSDS-132.0-B-3
+    loc: §4.1.2
+- id: wrap
+  type: single-choice
+  prompt: The VC frame count goes 0xFF → 0x00. Is that a gap?
+  choices:
+  - text: No, it is the modulo-256 wrap
+    correct: true
+  - text: Yes, 255 frames lost
+    correct: false
+  - text: Yes, one frame lost
+    correct: false
+  explanation: Counts are 8 bits modulo 256.
+  label: standard
+  sources:
+  - id: CCSDS-132.0-B-3
+    loc: §4.1.2.5, §4.1.2.6
+- id: fhp
+  type: single-choice
+  prompt: What First Header Pointer value means "only idle data"?
+  choices:
+  - text: '11111111110'
+    correct: true
+  - text: '11111111111'
+    correct: false
+  - text: '00000000000'
+    correct: false
+  explanation: All ones means no packet starts; 11111111110 means only idle data.
+  label: standard
+  sources:
+  - id: CCSDS-132.0-B-3
+    loc: §4.1.2.7.6

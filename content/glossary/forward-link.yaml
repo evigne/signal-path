@@ -1,0 +1,21 @@
+id: forward-link
+term: Forward link
+expansion: Forward link
+plain_definition: The direction from the ground (or a relay) towards the spacecraft;
+  in everyday speech, the uplink.
+precise_meaning: The link usually served by the TC Space Data Link Protocol; carries
+  telecommands.
+layer: Physical / data link
+aliases:
+- uplink
+example_usage: '''Forward link is at 4 kbit/s.'' (fictional)'
+related_terms:
+- return-link
+- cltu
+topics:
+- uplink-and-downlink
+label: standard
+sources:
+- id: CCSDS-130.0-G-4
+  loc: §3.2.1
+last_reviewed: pending

@@ -1,0 +1,20 @@
+id: link-margin
+term: Link margin
+expansion: Data (or carrier) performance margin
+plain_definition: How much better the received signal is than the minimum the receiver needs.
+precise_meaning: Data margin = received Eb/N0 − required Eb/N0 (including implementation losses); carrier margin = excess over 10 dB SNR in the carrier loop.
+layer: Physical
+aliases:
+- margin
+example_usage: '''Margin is 4.4 dB at 5 degrees.'' (fictional)'
+related_terms:
+- eirp
+- eb-n0
+topics:
+- link-budgets
+- contact-planning
+label: standard
+sources:
+- id: CCSDS-401
+  loc: §4.1.3
+last_reviewed: pending

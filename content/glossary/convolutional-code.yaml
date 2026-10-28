@@ -1,0 +1,20 @@
+id: convolutional-code
+term: Convolutional code
+plain_definition: A code that adds protection continuously as bits stream through a small shift register; good against scattered errors.
+precise_meaning: 'CCSDS basic code: rate 1/2, constraint length 7, connection vectors 171 and 133 octal with G2 inverted; punctured variants at 2/3, 3/4, 5/6 and 7/8; decoded by maximum-likelihood (Viterbi)
+  decoding.'
+layer: Synchronization and channel coding sublayer
+aliases:
+- CC
+- Viterbi code
+example_usage: '''Viterbi is locked but RS is failing — inner code fine, outer code not.'' (fictional)'
+related_terms:
+- reed-solomon
+- code-rate
+topics:
+- channel-coding
+label: standard
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §4.3.1, §4.4
+last_reviewed: pending

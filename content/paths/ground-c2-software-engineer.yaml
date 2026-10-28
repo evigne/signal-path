@@ -1,0 +1,71 @@
+id: ground-c2-software-engineer
+title: Ground/C2 software engineer
+level: core
+audience: Software engineers building or integrating mission control, ground data processing and station interfaces
+prerequisites:
+- None
+modules:
+- title: Foundations
+  topics:
+  - end-to-end-system
+  - uplink-and-downlink
+  - decimal-and-binary-units
+  - bits-symbols-and-rates
+  labs:
+  - end-to-end-walkthrough
+  - bit-byte-endianness-inspector
+- title: Packets and time
+  topics:
+  - space-packet-protocol
+  - time-codes
+  labs:
+  - space-packet-header-decoder
+- title: Data link protocols
+  topics:
+  - tm-space-data-link-protocol
+  - tc-space-data-link-protocol
+  - aos-and-uslp
+- title: What the front end does
+  topics:
+  - sync-markers
+  - channel-coding
+  labs:
+  - sync-marker-visualiser
+- title: Station and provider interfaces
+  topics:
+  - ground-stations-and-networks
+  - sle-transfer-services
+- title: Databases and lifecycles
+  topics:
+  - telemetry-and-command-databases
+  - telemetry-lifecycle
+  - command-lifecycle
+  labs:
+  - telemetry-calibration-sandbox
+  - cop1-farm-simulator
+- title: Files and software
+  topics:
+  - cfdp-file-delivery
+  - c2-software-landscape
+  labs:
+  - data-budget-calculator
+- title: Troubleshooting
+  topics:
+  - layered-fault-isolation
+  labs:
+  - anomaly-decision-tree
+est_hours:
+- 10
+- 14
+milestones:
+- Quiz after each module
+- Packet header decoder lab
+- TC frame and time-code decoding exercise
+- COP-1 simulator with lockout recovery
+- Troubleshooting case study
+- Path summary stored locally
+outcomes:
+- Decode CCSDS packets, frames and time stamps by hand
+- Explain SLE and COP-1 state machines well enough to debug an integration
+- Read a mission database entry end to end
+- Ask precise interface questions of providers and C2 vendors

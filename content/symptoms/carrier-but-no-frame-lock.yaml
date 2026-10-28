@@ -1,0 +1,31 @@
+id: carrier-but-no-frame-lock
+title: Carrier but no frame lock
+layer: Synchronization and channel coding
+observables:
+  - Carrier lock and symbol or bit lock are stable
+  - Frame synchronizer stays in search or keeps dropping out of acquisition
+  - No CADUs, frames or decoder counters advance
+evidence_to_gather:
+  - Pass ID, station, UTC time range, configuration version
+  - Expected coding option and therefore expected marker pattern and length
+  - Expected frame or codeblock length (marker spacing)
+  - Synchronizer settings (domain, threshold, confirmations, flywheel)
+  - A raw bit or symbol capture if available
+questions_to_ask:
+  - What changed since the last good pass (station, configuration, spacecraft mode)?
+  - Is the problem on every station or one?
+  - Does the raw capture contain the expected marker, its inverse, or neither?
+likely_causes:
+  - {cause: "Receiver set for a different coding option, so it searches for the wrong marker", test: "Compare the configured CSM with the one required for the link's coding option (131.0-B-6 §9.3)", label: standard}
+  - {cause: "Wrong marker spacing (frame or codeblock length, interleaving depth)", test: "Compare configured frame length and interleaving depth with the link configuration", label: mission}
+  - {cause: "Sync attempted in the wrong domain (before vs after convolutional decoding)", test: "Check which domain the coding option allows (131.0-B-6 §9.1.1)", label: standard}
+  - {cause: "Inverted bit stream (illustrative Scenario A)", test: "Look for the bitwise inverse of the marker in the raw capture", label: example}
+sample_log: |
+  09:12:04Z INFO carrier lock: LOCK   Eb/N0 = 9.1 dB
+  09:12:05Z INFO symbol lock: LOCK
+  09:12:05Z WARN frame sync: SEARCH   ASM matches 0/120
+  # fictional data, not from a real mission
+coordinate_with: [Ground station / provider operations, Mission ground / front-end engineering, Flight team for spacecraft configuration]
+related_topics: [sync-markers, carrier-and-symbol-sync, channel-coding]
+sources:
+  - {id: CCSDS-131.0-B-6, loc: "§9.1.1, §9.3"}

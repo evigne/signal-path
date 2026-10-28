@@ -1,0 +1,64 @@
+id: telemetry-calibration-sandbox
+title: Telemetry calibration and limits sandbox
+tool: 5
+level: core
+est_minutes:
+- 15
+- 20
+objectives:
+- Convert raw counts to engineering units with a polynomial calibration.
+- See how yellow and red limits classify a value.
+- Diagnose a wrong calibration or encoding from the displayed value.
+prerequisites:
+- telemetry-lifecycle
+fictional_input:
+  description: The fictional 12-bit battery-temperature parameter on the Tool 5 screen, with a linear calibration and soft (yellow) and hard (red) limits.
+  data: 'raw=0..4095; cal: y = 0.0300*x - 40.0 degC; soft_hi=40.0; hard_hi=50.0; soft_lo=-10.0; hard_lo=-20.0'
+  label: example
+presets:
+- name: Nominal
+  settings:
+    raw: 2000
+- name: LEO CubeSat pass
+  settings:
+    raw: 2731
+- name: Hot
+  settings:
+    raw: 3100
+- name: Polynomial model
+  settings:
+    raw: 2731
+    model: polynomial
+break_it:
+- Swap the coefficient order
+- Drop the offset term
+- Decode the raw value as signed 12-bit
+steps:
+- title: Calibrate
+  instruction: Set the raw count to 2000.
+  expected: 0.03 × 2000 − 40.0 = 20.0 °C, within limits.
+- title: Soft limit
+  instruction: Load the LEO CubeSat pass preset (raw 2731, 0x0AAB).
+  expected: '41.9 °C, above the soft high 40.0 °C: yellow banner, operator notified.'
+- title: Hard limit
+  instruction: Set raw 3100.
+  expected: '53.0 °C, above the hard high 50.0 °C: red.'
+- title: 'Break it: coefficients'
+  instruction: Swap the coefficient order.
+  expected: Raw 2731 shows about −109,240 °C — impossible, so the fault is in the database, not the spacecraft.
+- title: 'Break it: signedness'
+  instruction: Decode raw 2731 as signed 12-bit.
+  expected: 2731 − 4096 = −1365 → −81.0 °C instead of 41.9 °C.
+expected_result: The learner applies a calibration, classifies limit states and recognises database errors from implausible values.
+explanation: In XTCE the parameter type carries the encoding, calibration and alarm limits; values on this page are fictional.
+common_mistakes:
+- Blaming the sensor for a calibration error
+- Comparing raw counts against engineering-unit limits
+- Ignoring the encoding (signed vs unsigned)
+reset: Reset restores the LEO CubeSat pass preset and the linear model.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+sources:
+- id: CCSDS-660.0-B-2
+  loc: §6.1.2.1

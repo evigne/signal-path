@@ -1,0 +1,48 @@
+id: leaf-space
+name: Leaf Space
+last_checked: '2026-10-28'
+cells:
+  name:
+    state: cited
+    value: Leaf Space (offices in Milan, IT and Lewes, US)
+    sources:
+    - id: LEAF-WHO
+  locations:
+    state: cited
+    value: 40+ ground stations, 17–20+ locations (figures differ between pages)
+    sources:
+    - id: LEAF-LINE
+    - id: LEAF-WHO
+  bands:
+    state: cited
+    value: S, X and Ka bands; ranges not publicly specified
+    sources:
+    - id: LEAF-LINE
+  service_modes:
+    state: cited
+    value: Leaf Line, Leaf Key, Leaf Hosting
+    sources:
+    - id: LEAF-HOME
+  scheduling:
+    state: cited
+    value: Portal and API; 96 h automated rolling schedule; on-demand booking 4 days to 5 min before; reservations up to 10 days ahead
+    sources:
+    - id: LEAF-SCHED
+  data_delivery:
+    state: cited
+    value: Real-time streams (TCP/IP, UDP, GSE); file delivery to destinations such as S3 or Contabo
+    sources:
+    - id: LEAF-LINE
+  latency:
+    state: cited
+    value: Payload data 'near real time' (as stated)
+    sources:
+    - id: LEAF-LINE
+  support:
+    state: cited
+    value: 12 h/day, 06:00–18:00 UTC (seasonal)
+    sources:
+    - id: LEAF-HOME
+  public_docs:
+    state: not_public
+    value: No public API documentation linked

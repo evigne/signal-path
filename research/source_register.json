@@ -1,0 +1,1113 @@
+{
+ "generated": "2026-10-28",
+ "schema": "brief §7 fields + local_file, status, notes",
+ "sources": [
+  {
+   "id": "CCSDS-CAT",
+   "title": "CCSDS All Active Publications catalogue",
+   "publisher": "CCSDS",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Official catalogue",
+   "topics": [
+    "standards status",
+    "issues",
+    "corrigenda"
+   ],
+   "local_file": "research/snapshots/ccsds_active_catalogue_2026-10-28.txt",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary (status authority)",
+   "status": "Snapshot of 251 rows captured 2026-10-28",
+   "review_due": "2027-01-28",
+   "notes": "Page renders its table with JavaScript; snapshot captured from the rendered page."
+  },
+  {
+   "id": "CCSDS-131.0-B-6",
+   "title": "TM Synchronization and Channel Coding",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 131.0-B-6",
+   "date": "April 2026",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "ASM",
+    "randomizer",
+    "channel coding"
+   ],
+   "local_file": "standards/131x0b6.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "ASM per coding option (fig. 9-1…9-5); randomizer polynomials §10."
+  },
+  {
+   "id": "CCSDS-132.0-B-3",
+   "title": "TM Space Data Link Protocol",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 132.0-B-3",
+   "date": "October 2021",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "TM transfer frames",
+    "virtual channels"
+   ],
+   "local_file": "standards/132x0b3.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-133.0-B-2",
+   "title": "Space Packet Protocol",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 133.0-B-2",
+   "date": "June 2020",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "space packets",
+    "APID",
+    "sequence count",
+    "length field"
+   ],
+   "local_file": "standards/133x0b2e2.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-231.0-B-4",
+   "title": "TC Synchronization and Channel Coding",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 231.0-B-4",
+   "date": "July 2021 (Cor. 1 July 2026)",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "CLTU",
+    "BCH",
+    "TC randomizer"
+   ],
+   "local_file": "standards/231x0b4e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Cor. 1 (July 2026) not in local library."
+  },
+  {
+   "id": "CCSDS-232.0-B-4",
+   "title": "TC Space Data Link Protocol",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 232.0-B-4",
+   "date": "October 2021 (Cor. 1 October 2023)",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "TC frames",
+    "FARM integration"
+   ],
+   "local_file": "standards/232x0b4e1c1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-232.1-B-2",
+   "title": "Communications Operation Procedure-1",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 232.1-B-2",
+   "date": "September 2010 (Cor. 1 April 2019)",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "COP-1",
+    "FOP-1",
+    "FARM-1",
+    "CLCW"
+   ],
+   "local_file": "standards/232x1b2e2c1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-355.0-B-2",
+   "title": "Space Data Link Security Protocol",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 355.0-B-2",
+   "date": "August 2022",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "SDLS",
+    "SPI",
+    "anti-replay"
+   ],
+   "local_file": "standards/355x0b2.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-355.1-B-1",
+   "title": "Space Data Link Security Protocol—Extended Procedures",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 355.1-B-1",
+   "date": "February 2020",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "key management",
+    "SA management"
+   ],
+   "local_file": "standards/355x1b1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-727.0-B-5",
+   "title": "CCSDS File Delivery Protocol (CFDP)",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 727.0-B-5",
+   "date": "July 2020",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "file delivery"
+   ],
+   "local_file": "standards/727x0b5e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-732.0-B-5",
+   "title": "AOS Space Data Link Protocol",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 732.0-B-5",
+   "date": "October 2025",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "AOS frames"
+   ],
+   "local_file": "standards/732x0b5ec1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-732.1-B-3",
+   "title": "Unified Space Data Link Protocol",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 732.1-B-3",
+   "date": "June 2024",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "USLP"
+   ],
+   "local_file": "standards/732x1b3e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-401",
+   "title": "Radio Frequency and Modulation Systems—Part 1: Earth Stations and Spacecraft",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 401.0-B-32",
+   "date": "October 2021",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "bands",
+    "Category A/B",
+    "modulation"
+   ],
+   "local_file": "standards/401x0b32.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "CCSDS recommendations, not legal allocations — pair with ITU RR."
+  },
+  {
+   "id": "CCSDS-911.1-B-5",
+   "title": "SLE Return All Frames Service Specification",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 911.1-B-5",
+   "date": "July 2023",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "SLE RAF"
+   ],
+   "local_file": "standards/911x1b5e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-911.2-B-4",
+   "title": "SLE Return Channel Frames Service Specification",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 911.2-B-4",
+   "date": "July 2023",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "SLE RCF"
+   ],
+   "local_file": "standards/911x2b4e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-912.1-B-5",
+   "title": "SLE Forward CLTU Service Specification",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 912.1-B-5",
+   "date": "July 2023",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Standard (Blue Book)",
+   "topics": [
+    "SLE FCLTU"
+   ],
+   "local_file": "standards/912x1b5e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative within its scope",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "CCSDS-130.0-G-4",
+   "title": "Overview of Space Communications Protocols",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 130.0-G-4",
+   "date": "April 2023",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Informational report (Green Book)",
+   "topics": [
+    "protocol overview"
+   ],
+   "local_file": "standards/130x0g4e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, informative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": ""
+  },
+  {
+   "id": "NASA-SOA-9",
+   "title": "State-of-the-Art of Small Spacecraft Technology — 9.0 Communications",
+   "publisher": "NASA Small Spacecraft Virtual Institute (S3VI)",
+   "doc_number": "SST-SOA ch. 9",
+   "date": "page dated May 18, 2026",
+   "url": "https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/",
+   "source_type": "Agency report (secondary for standards/providers)",
+   "topics": [
+    "smallsat bands",
+    "SDR",
+    "DVB-S2",
+    "optical"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "NASA content generally not copyrighted in the US; educational reuse allowed with credit; no logos/insignia or implied endorsement; third-party material excluded (NASA Brand Center, checked 2026-10-28).",
+   "reliability": "Authoritative secondary",
+   "status": "Live",
+   "review_due": "2027-04-28",
+   "notes": "Band table uses IEEE ranges, not ITU allocations."
+  },
+  {
+   "id": "NASA-SOA-11",
+   "title": "State-of-the-Art of Small Spacecraft Technology — 11.0 Ground Data Systems and Mission Operations",
+   "publisher": "NASA S3VI",
+   "doc_number": "SST-SOA ch. 11",
+   "date": "May 11, 2026",
+   "url": "https://www.nasa.gov/smallsat-institute/sst-soa/ground-data-systems-and-mission-operations/",
+   "source_type": "Agency report (secondary for providers)",
+   "topics": [
+    "GSaaS",
+    "NSN",
+    "DSN",
+    "provider overview"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "NASA content generally not copyrighted in the US; educational reuse allowed with credit; no logos/insignia or implied endorsement; third-party material excluded (NASA Brand Center, checked 2026-10-28).",
+   "reliability": "Authoritative secondary; provider figures may be dated or inconsistent",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "Contains internal mismatches (e.g. ATLAS 34 vs 35 sites)."
+  },
+  {
+   "id": "ITU-RR-2024",
+   "title": "Radio Regulations, Edition of 2024",
+   "publisher": "ITU",
+   "doc_number": "RR 2024 (texts through WRC-23)",
+   "date": "2024",
+   "url": "https://www.itu.int/pub/R-REG-RR-2024",
+   "source_type": "International treaty text",
+   "topics": [
+    "allocations (Article 5)",
+    "service definitions"
+   ],
+   "local_file": "research/sources/itu-rr-2024/2400594-RR-Vol 1-E-A5.pdf (from R-REG-RR-2024-ZPF-E.zip, downloaded 2026-10-28)",
+   "access_date": "2026-10-28",
+   "terms": "PDF free of charge for personal use (2013 Council decision); do not redistribute; cite and link.",
+   "reliability": "Primary, regulatory",
+   "status": "Current edition; Volume 1 Article 5 read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Band claims B1–B8 verified against Article 5; see ledger §3. Personal-use copy — do not redistribute."
+  },
+  {
+   "id": "NIST-800-57",
+   "title": "Recommendation for Key Management: Part 1 – General (SP 800-57 Pt 1 Rev 5)",
+   "publisher": "NIST",
+   "doc_number": "SP 800-57 Part 1 Rev. 5",
+   "date": "May 2020",
+   "url": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+   "source_type": "Government guidance",
+   "topics": [
+    "key lifecycle",
+    "cryptoperiods"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "US Government publication; cite and link (terms page not re-checked).",
+   "reliability": "Primary for general key-management concepts; not mission procedure",
+   "status": "Final; DOI 10.6028/NIST.SP.800-57pt1r5",
+   "review_due": "2027-04-28",
+   "notes": "Read 2026-10-28 (text of the NIST PDF): §5.2 single-purpose keys; §5.3 cryptoperiod definition and purposes; §7 key states."
+  },
+  {
+   "id": "NIST-800-38D",
+   "title": "Recommendation for Block Cipher Modes of Operation: GCM and GMAC",
+   "publisher": "NIST",
+   "doc_number": "SP 800-38D",
+   "date": "November 2007",
+   "url": "https://csrc.nist.gov/pubs/sp/800/38/d/final",
+   "source_type": "Government guidance",
+   "topics": [
+    "AES-GCM",
+    "authenticated encryption"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "US Government publication; cite and link (terms page not re-checked).",
+   "reliability": "Primary",
+   "status": "Final; NIST announced revision (March 2024)",
+   "review_due": "2027-01-28",
+   "notes": "Recheck for a revised version before publishing. Read 2026-10-28 (text of the NIST PDF): §5.2.1.1 96-bit IV recommended; §8 IV uniqueness (≤2^-32); §8.3 2^32 invocation limit."
+  },
+  {
+   "id": "KSAT-GNS",
+   "title": "KSAT Ground Network Services",
+   "publisher": "Kongsberg Satellite Services (KSAT)",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://www.ksat.no/ground-network-services/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "network size",
+    "services"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party marketing; facts as stated by provider",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "'more than 280 antennas at 26 selected locations'."
+  },
+  {
+   "id": "KSAT-LITE",
+   "title": "KSATlite",
+   "publisher": "KSAT",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://www.ksat.no/ground-network-services/ksatlite/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "KSATlite bands",
+    "API",
+    "portal"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party marketing; internally inconsistent antenna count",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "135 vs 150+ antennas; 26 stations; S up/down, X down, Ka down; 3.7–6.1 m."
+  },
+  {
+   "id": "LEAF-HOME",
+   "title": "Leaf Space home page",
+   "publisher": "Leaf Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://leaf.space/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "products",
+    "support hours"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party marketing",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": ""
+  },
+  {
+   "id": "LEAF-LINE",
+   "title": "Leaf Line",
+   "publisher": "Leaf Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://leaf.space/leaf-line/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "bands",
+    "delivery",
+    "pricing",
+    "network size"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party marketing; figures differ between panel and FAQ",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "S, X, Ka; TCP/IP, UDP, GSE streams; S3/Contabo file transfer; per-minute pricing."
+  },
+  {
+   "id": "LEAF-SCHED",
+   "title": "Inside the Scheduler",
+   "publisher": "Leaf Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://leaf.space/inside-the-scheduler/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "scheduling",
+    "booking lead times"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "96 h rolling schedule; on-demand 4 days–5 min; reservation up to 10 days."
+  },
+  {
+   "id": "LEAF-WHO",
+   "title": "Who we are",
+   "publisher": "Leaf Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://leaf.space/who-we-are/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "company",
+    "offices"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "Milan and Lewes (DE) offices; founded 2014."
+  },
+  {
+   "id": "AWS-GS-FEAT",
+   "title": "AWS Ground Station features",
+   "publisher": "Amazon Web Services",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://aws.amazon.com/ground-station/features/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "bands",
+    "pricing",
+    "scheduling"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "Marketing values differ from User Guide (S 2025–2120 / 2200–2300; X 7750–8400 MHz)."
+  },
+  {
+   "id": "AWS-GS-UG",
+   "title": "What is AWS Ground Station? (User Guide)",
+   "publisher": "Amazon Web Services",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://docs.aws.amazon.com/ground-station/latest/ug/what-is.html",
+   "source_type": "Provider first-party documentation",
+   "topics": [
+    "use cases",
+    "data delivery",
+    "API/CLI/SDK"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; technical documentation",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "VITA-49 to EC2, PCAP to S3, DigIF, uplink echo, digital twin."
+  },
+  {
+   "id": "AWS-GS-LOC",
+   "title": "AWS Ground Station Locations (User Guide)",
+   "publisher": "Amazon Web Services",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://docs.aws.amazon.com/ground-station/latest/ug/aws-ground-station-antenna-locations.html",
+   "source_type": "Provider first-party documentation",
+   "topics": [
+    "locations"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; technical documentation",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "11 ground stations; Seoul removed June 16, 2026; Dedicated Antenna locations undisclosed."
+  },
+  {
+   "id": "AWS-GS-CAP",
+   "title": "AWS Ground Station Site Capabilities (User Guide)",
+   "publisher": "Amazon Web Services",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://docs.aws.amazon.com/ground-station/latest/ug/locations.capabilities.html",
+   "source_type": "Provider first-party documentation",
+   "topics": [
+    "frequency ranges",
+    "polarization",
+    "EIRP"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; technical documentation",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "S up 2025–2110 MHz EIRP 20–50 dBW; S down 2200–2290; X down 7750–8500 MHz."
+  },
+  {
+   "id": "ATLAS-FGN",
+   "title": "Federated Global Ground Network",
+   "publisher": "ATLAS Space Operations",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://atlasspace.com/federated-ground-network/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "bands",
+    "network size",
+    "services"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "50+ antennas, 34+ active ground stations (counter targets); S/X/Ka/UHF."
+  },
+  {
+   "id": "ATLAS-FREEDOM",
+   "title": "Freedom Ground Software as a Service",
+   "publisher": "ATLAS Space Operations",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://atlasspace.com/freedom-gsaas/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "scheduling",
+    "API",
+    "integrations"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Live",
+   "review_due": "2027-01-28",
+   "notes": "Scheduling 14 days to 1 minute; FreeTime API; One IP, One Port streaming."
+  },
+  {
+   "id": "SSC-HOME",
+   "title": "SSC Space home page",
+   "publisher": "SSC Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://sscspace.com/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "brand",
+    "services"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Homepage and sub-pages live 2026-10-28 (retry succeeded)",
+   "review_due": "2027-01-28",
+   "notes": "300+ satellite contacts a day; sub-pages unavailable ('Temporary failure') on 2026-10-28 — retry."
+  },
+  {
+   "id": "CCSDS-130.1-G-3",
+   "title": "TM Synchronization and Channel Coding—Summary of Concept and Rationale",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 130.1-G-3",
+   "date": "June 2020",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Informational report (Green Book)",
+   "topics": [
+    "frame synchronizer design",
+    "CSM acquisition domain",
+    "rationale"
+   ],
+   "local_file": "standards/130x1g3e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, informative (not normative)",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§9.3 frame synchronization: state-diagram synchronizer (Search, Acquire 1/2, Lock, Flywheel 1/2), inspection-window trade-offs, false lock, symbol slips."
+  },
+  {
+   "id": "CCSDS-413.0-G-3",
+   "title": "Bandwidth-Efficient Modulations: Summary of Definition, Implementation, and Performance",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 413.0-G-3",
+   "date": "February 2018",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Informational report (Green Book)",
+   "topics": [
+    "bit and symbol rate terminology",
+    "modulation"
+   ],
+   "local_file": "standards/413x0g3e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, informative (not normative)",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§2.4 defines Rb (information bit rate), Rs (coded symbol rate at modulator input), RChS (channel symbol rate = Rs/log2 M)."
+  },
+  {
+   "id": "CCSDS-660.0-B-2",
+   "title": "XML Telemetric and Command Exchange (XTCE)",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 660.0-B-2",
+   "date": "February 2020",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Recommended Standard (Blue Book)",
+   "topics": [
+    "telemetry and command databases",
+    "command verification"
+   ],
+   "local_file": "standards/660x0b2.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§6.1.2 TelemetryMetaData (parameter types with encodings, calibrations, alarm limits; containers); §6.1.3 CommandMetaData (transmission constraints, significance levels, verifiers TransferredToRange…Complete/Failed)."
+  },
+  {
+   "id": "NIST-BINARY",
+   "title": "Definitions of the SI units: The binary prefixes",
+   "publisher": "NIST Physical Measurement Laboratory",
+   "doc_number": "—",
+   "date": "page undated; IEC prefixes approved December 1998",
+   "url": "https://physics.nist.gov/cuu/Units/binary.html",
+   "source_type": "Government reference page",
+   "topics": [
+    "units",
+    "decimal and binary prefixes"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "US government work; link and summarize.",
+   "reliability": "Primary (national metrology institute), informative",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "kibi Ki 2^10 … exbi Ei 2^60; IEC approved 1998 (IEC 60027-2); binary prefixes are not part of the SI; kilo = 10^3."
+  },
+  {
+   "id": "CCSDS-720.1-G-4",
+   "title": "CCSDS File Delivery Protocol (CFDP) — Part 1: Introduction and Overview",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 720.1-G-4",
+   "date": "May 2021",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Informational report (Green Book)",
+   "topics": [
+    "onboard storage",
+    "file transfer",
+    "store-and-forward"
+   ],
+   "local_file": "standards/720x1g4.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, informative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§2.1: onboard mass memory; spacecraft may decide when to download stored data; random-access storage allows repeat transmission of lost data."
+  },
+  {
+   "id": "SANA-SCID",
+   "title": "SANA registry: Spacecraft Identifier",
+   "publisher": "Space Assigned Numbers Authority (CCSDS)",
+   "doc_number": "—",
+   "date": "registry updated 2026-10-22",
+   "url": "https://sanaregistry.org/r/spacecraftid",
+   "source_type": "Registry (live)",
+   "topics": [
+    "spacecraft identifiers"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Registry data; link for look-ups, do not mirror.",
+   "reliability": "Primary (official registry)",
+   "status": "Live; 5,462 records on 2026-10-28",
+   "review_due": "2027-01-28",
+   "notes": "Assignments requested by authorized SCID Assignors (agency representatives); columns include SCID, GSCID, version, channel protocol, band. SANA roles per CCSDS 313.0-Y-3, policy 313.1-Y-2."
+  },
+  {
+   "id": "SANA-APID",
+   "title": "SANA registry: Space Packet Protocol Application Process Identifier",
+   "publisher": "Space Assigned Numbers Authority (CCSDS)",
+   "doc_number": "—",
+   "date": "registry updated 2020-06-02",
+   "url": "https://sanaregistry.org/r/space_packet_protocol_application_process_id",
+   "source_type": "Registry (live)",
+   "topics": [
+    "APIDs"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Registry data; link for look-ups, do not mirror.",
+   "reliability": "Primary (official registry)",
+   "status": "Live; 6 records on 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "0–2039 unmanaged; 2040–2043 unassigned; 2044–2046 returned (formerly LTP, CFDP, unused); 2047 Idle Packet."
+  },
+  {
+   "id": "SSC-STATIONS",
+   "title": "SSC Space — Our ground stations",
+   "publisher": "SSC Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://sscspace.com/services/satellite-ground-stations/our-stations/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "ground stations",
+    "network"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-01-28",
+   "notes": "\"11 ground stations\" (Clewiston, Esrange, Inuvik, Irbene, North Pole, Punta Arenas, Santiago, Siracha, South Point, Western Australia, Stockholm Teleport) plus \"10 additional partner stations\". Bands, interfaces, ownership not stated."
+  },
+  {
+   "id": "SSC-GO",
+   "title": "SSC Space — Go (small-satellite ground service)",
+   "publisher": "SSC Space",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://sscspace.com/services/satellite-ground-stations/go/",
+   "source_type": "Provider first-party web page",
+   "topics": [
+    "GSaaS",
+    "bands",
+    "data delivery"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Commercial website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-01-28",
+   "notes": "LEO small sats; S-band up/down, X and Ka down; \"Thirteen antennas at five locations\"; delivery via secure regional cloud interface / drop-off zone (e.g. S3); booking by reserving time slots; pricing, API and SLE not stated."
+  },
+  {
+   "id": "CCSDS-301.0-B-4",
+   "title": "Time Code Formats",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 301.0-B-4",
+   "date": "November 2010",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Recommended Standard (Blue Book)",
+   "topics": [
+    "time codes"
+   ],
+   "local_file": "standards/301x0b4e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§3.1 P-field/T-field; §3.2 CUC (1958 TAI epoch, not UTC, no leap seconds); §3.3 CDS (day + ms of day, UTC-based, leap seconds apply); §3.4 CCS; §3.5 ASCII."
+  },
+  {
+   "id": "YAMCS-HOME",
+   "title": "Yamcs — home page",
+   "publisher": "Space Applications Services",
+   "doc_number": "—",
+   "date": "live page (© 2026)",
+   "url": "https://yamcs.org/",
+   "source_type": "Project first-party web page",
+   "topics": [
+    "C2 software"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Project website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; project description",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Open-source C3 framework; AGPL; commanding with stacks and procedures; lists CCSDS among protocols."
+  },
+  {
+   "id": "YAMCS-LINKS",
+   "title": "Yamcs Server Manual — Data links",
+   "publisher": "Space Applications Services",
+   "doc_number": "—",
+   "date": "live page (© 2026)",
+   "url": "https://docs.yamcs.org/yamcs-server-manual/links/",
+   "source_type": "Project documentation",
+   "topics": [
+    "C2 software",
+    "ground interfaces"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Project website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party documentation",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Link implementations incl. TCP/UDP TM and TC links, file polling, CCSDS Frame Processing; SLE and COP-1 not on this page."
+  },
+  {
+   "id": "OPENC3-HOME",
+   "title": "OpenC3 COSMOS — home page",
+   "publisher": "OpenC3, Inc.",
+   "doc_number": "—",
+   "date": "live page (© 2026, COSMOS v7.2)",
+   "url": "https://openc3.com/",
+   "source_type": "Project first-party web page",
+   "topics": [
+    "C2 software"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "Project website, copyrighted; cite facts with date, summarize, no copying of text or images.",
+   "reliability": "First-party; marketing",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Core (open source) and Enterprise editions; telemetry decom, commanding, Script Runner (Ruby/Python), limits, logging and replay."
+  },
+  {
+   "id": "OPENMCT-HOME",
+   "title": "Open MCT — home page",
+   "publisher": "NASA Ames Research Center",
+   "doc_number": "—",
+   "date": "live page (undated)",
+   "url": "https://nasa.github.io/openmct/",
+   "source_type": "Government project web page",
+   "topics": [
+    "C2 software",
+    "visualization"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "US government work; link and summarize.",
+   "reliability": "First-party",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Web-based mission operations data visualization framework (streaming and historical data, imagery, timelines, procedures); commanding and protocol decoding not stated."
+  },
+  {
+   "id": "CFS-GSFC",
+   "title": "core Flight System (cFS) — NASA Goddard",
+   "publisher": "NASA Goddard Space Flight Center",
+   "doc_number": "—",
+   "date": "page last updated Oct 5, 2026",
+   "url": "https://etd.gsfc.nasa.gov/capabilities/core-flight-system/",
+   "source_type": "Government project web page",
+   "topics": [
+    "flight software"
+   ],
+   "local_file": "—",
+   "access_date": "2026-10-28",
+   "terms": "US government work; link and summarize.",
+   "reliability": "First-party",
+   "status": "Live page read 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "Platform-independent reusable flight software framework; PSP, OSAL, core Flight Executive with bus architecture and apps; v7.0.1 open source. CCSDS packet use not stated on this page."
+  },
+  {
+   "id": "CCSDS-414.1-B-3",
+   "title": "Pseudo-Noise (PN) Ranging Systems",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 414.1-B-3",
+   "date": "January 2022",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Recommended Standard (Blue Book)",
+   "topics": [
+    "ranging"
+   ],
+   "local_file": "standards/414x1b3e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§1.1 purpose (regenerative vs transparent); §3.2 T4B (accuracy) and T2B (acquisition), 1,009,470-chip code."
+  },
+  {
+   "id": "CCSDS-131.2-B-2",
+   "title": "Flexible Advanced Coding and Modulation Scheme for High Rate Telemetry Applications (SCCC)",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 131.2-B-2",
+   "date": "February 2023",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Recommended Standard (Blue Book)",
+   "topics": [
+    "high-rate coding",
+    "VCM/ACM"
+   ],
+   "local_file": "standards/131x2b2.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§1.2 SCCC with QPSK–64APSK, VCM/ACM; §1.6 patent notice. Catalogue also lists Cor. 1 (October 2026) — not in local library."
+  },
+  {
+   "id": "CCSDS-131.3-B-2",
+   "title": "CCSDS Space Link Protocols over ETSI DVB-S2 Standard",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 131.3-B-2",
+   "date": "April 2022",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Recommended Standard (Blue Book)",
+   "topics": [
+    "high-rate coding",
+    "DVB-S2"
+   ],
+   "local_file": "standards/131x3b2e1.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§1.2–1.3 adaptation profile carrying CCSDS frames over DVB-S2 via ASM/SMTF; VCM and ACM."
+  },
+  {
+   "id": "CCSDS-352.0-B-2",
+   "title": "CCSDS Cryptographic Algorithms",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 352.0-B-2",
+   "date": "August 2019",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Recommended Standard (Blue Book)",
+   "topics": [
+    "cryptography"
+   ],
+   "local_file": "standards/352x0b2.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, normative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§3 AES, 256-bit keys for new missions, counter mode, GCM with 128-bit MAC; §4 HMAC (SHA-256), CMAC (AES), GMAC, DSS/RSA signatures."
+  },
+  {
+   "id": "CCSDS-350.1-G-3",
+   "title": "Security Threats against Space Missions",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 350.1-G-3",
+   "date": "February 2022",
+   "url": "https://ccsds.org/publications/allpubs/",
+   "source_type": "Informational report (Green Book)",
+   "topics": [
+    "threats"
+   ],
+   "local_file": "standards/350x1g3.pdf",
+   "access_date": "2026-10-28",
+   "terms": "CCSDS reuse terms not yet confirmed on ccsds.org — summarize in original words and link; do not reproduce text, tables or figures.",
+   "reliability": "Primary, informative",
+   "status": "Active in CCSDS catalogue 2026-10-28",
+   "review_due": "2027-04-28",
+   "notes": "§3.3 active/passive threats; §3.4 common threats (data modification, ground loss, interception, jamming, DoS, masquerade, replay, software, unauthorized access, tainted hardware, supply chain); §4 threat assessment."
+  }
+ ]
+}

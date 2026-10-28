@@ -1,0 +1,60 @@
+id: anomaly-decision-tree
+title: Troubleshooting anomaly decision tree
+tool: 9
+level: advanced
+est_minutes:
+- 20
+- 40
+objectives:
+- Work a fictional anomaly layer by layer, choosing diagnostic tests.
+- Read simulated console logs as evidence.
+- Submit a hypothesis that names the first bad layer and the evidence.
+prerequisites:
+- layered-fault-isolation
+fictional_input:
+  description: Four fictional scenarios with scripted console logs and test results.
+  data: scenarios=[carrier-but-no-frame-lock, frame-lock-with-errors, packets-missing-frames-ok, command-radiated-no-execution]
+  label: example
+presets:
+- name: Carrier OK, no frame lock
+  settings:
+    scenario: carrier-but-no-frame-lock
+- name: Frame lock with errors
+  settings:
+    scenario: frame-lock-with-errors
+- name: Packets missing, frames fine
+  settings:
+    scenario: packets-missing-frames-ok
+- name: Command radiated, no execution
+  settings:
+    scenario: command-radiated-no-execution
+steps:
+- title: Read the alarm
+  instruction: Launch a scenario and read the opening log.
+  expected: The learner states which layers already look healthy.
+- title: Choose tests
+  instruction: Pick diagnostic tests in layer order.
+  expected: Each test reveals a log line; tests at already-healthy layers are marked as low value.
+- title: Hypothesis
+  instruction: Submit the first bad layer, the cause and the evidence.
+  expected: Feedback compares the answer with the scenario key and points to the relevant topic.
+expected_result: The learner resolves each scenario by naming the first bad layer with evidence, using the fewest reasonable tests.
+explanation: Evidence comes from standard counters and flags (frame sync states, frame counts, FECF, packet counts, CLCW); scenarios, logs and values are fictional.
+common_mistakes:
+- Starting at the most alarming layer instead of the lowest
+- Treating a single symptom as proof
+- Forgetting to check what changed since the last good pass
+reset: Reset clears tests and the hypothesis and returns to the scenario list.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+- Logs are real text, readable by screen readers, not images
+sources:
+- id: CCSDS-130.1-G-3
+  loc: §9.3.7
+- id: CCSDS-132.0-B-3
+  loc: §4.1
+- id: CCSDS-133.0-B-2
+  loc: §4.1.3.4.3
+- id: CCSDS-232.0-B-4
+  loc: §4.2.1.8

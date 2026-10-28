@@ -1,0 +1,21 @@
+id: space-packet
+term: Space Packet
+expansion: CCSDS Space Packet
+plain_definition: A variable-length envelope that one application sends to another, with a short header naming the application, numbering the packet and giving its length.
+precise_meaning: A 6-octet Packet Primary Header plus a 1–65,536-octet Packet Data Field; 7 to 65,542 octets in all.
+layer: Network / packet layer
+aliases:
+- packet
+- CCSDS packet
+example_usage: '''The housekeeping packet is 70 octets.'' (fictional)'
+related_terms:
+- apid
+- packet-sequence-count
+- transfer-frame
+topics:
+- space-packet-protocol
+label: standard
+sources:
+- id: CCSDS-133.0-B-2
+  loc: §4.1.2
+last_reviewed: pending

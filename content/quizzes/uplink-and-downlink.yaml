@@ -1,0 +1,45 @@
+id: uplink-and-downlink
+topic: uplink-and-downlink
+items:
+- id: names
+  type: single-choice
+  prompt: Which name matches the downlink?
+  choices:
+  - text: Return link
+    correct: true
+  - text: Forward link
+    correct: false
+  - text: Cross link
+    correct: false
+  explanation: TM is usually sent spacecraft-to-ground on the return link; TC ground-to-spacecraft on the forward link.
+  label: standard
+  sources:
+  - id: CCSDS-130.0-G-4
+    loc: §3.2.1
+- id: retrans
+  type: single-choice
+  prompt: Which data link protocol has a built-in retransmission mechanism?
+  choices:
+  - text: TC (with COP-1)
+    correct: true
+  - text: TM
+    correct: false
+  - text: AOS
+    correct: false
+  explanation: TC and USLP have COP-1; TM and AOS have no retransmission.
+  label: standard
+  sources:
+  - id: CCSDS-130.0-G-4
+    loc: §3.2.1
+- id: tc-max
+  type: numeric
+  prompt: What is the maximum TC data field length without an FECF, in octets?
+  answer:
+    value: 1019
+    tolerance: 0
+    unit: octets
+  explanation: The TC frame has a 5-octet header and a data field up to 1019 octets (1017 with the FECF).
+  label: standard
+  sources:
+  - id: CCSDS-232.0-B-4
+    loc: §4.1.1

@@ -1,0 +1,2422 @@
+[
+  {
+    "file": "standards/120x0g4.pdf",
+    "doc_id": "CCSDS 120.0-G-4",
+    "title": "Lossless Data Compression",
+    "book_color": "GREEN",
+    "pub_date": "November 2021",
+    "pages": 49,
+    "size_bytes": 1154500,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/120x1g3.pdf",
+    "doc_id": "CCSDS 120.1-G-3",
+    "title": "Image Data Compression",
+    "book_color": "GREEN",
+    "pub_date": "November 2021",
+    "pages": 133,
+    "size_bytes": 6213823,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/120x2g2.pdf",
+    "doc_id": "CCSDS 120.2-G-2",
+    "title": "Lossless Multispectral and Hyperspectral Image Compression",
+    "book_color": "GREEN",
+    "pub_date": "December 2022",
+    "pages": 147,
+    "size_bytes": 8199623,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/120x3g1.pdf",
+    "doc_id": "CCSDS 120.3-G-1",
+    "title": "Spectral Pre-Processing Transform for Multispectral & Hyperspectral Image Compression",
+    "book_color": "GREEN",
+    "pub_date": "March 2019",
+    "pages": 104,
+    "size_bytes": 2593176,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/121x0b3.pdf",
+    "doc_id": "CCSDS 121.0-B-3",
+    "title": "Lossless Data Compression",
+    "book_color": "BLUE",
+    "pub_date": "August 2020",
+    "pages": 45,
+    "size_bytes": 679604,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/122x0b2e1.pdf",
+    "doc_id": "CCSDS 122.0-B-2",
+    "title": "Image Data Compression",
+    "book_color": "BLUE",
+    "pub_date": "September 2017",
+    "pages": 65,
+    "size_bytes": 1366481,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/122x1b1e1.pdf",
+    "doc_id": "CCSDS 122.1-B-1",
+    "title": "Spectral Preprocessing Transform for Multispectral and Hyperspectral Image Compression",
+    "book_color": "BLUE",
+    "pub_date": "September 2017",
+    "pages": 89,
+    "size_bytes": 1137557,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/123x0b2c1_tc1918.pdf",
+    "doc_id": "CCSDS 123.0-B-2",
+    "title": "Microsoft Word - tc1918.doc",
+    "book_color": "Unknown",
+    "pub_date": "July 2019",
+    "pages": 2,
+    "size_bytes": 91325,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/123x0b2c2_tc2023.pdf",
+    "doc_id": "CCSDS 123.0-B-2",
+    "title": "Microsoft Word - tc2023.doc",
+    "book_color": "Unknown",
+    "pub_date": "August 2020",
+    "pages": 1,
+    "size_bytes": 17524,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/123x0b2e1c3_tc2101.pdf",
+    "doc_id": "CCSDS 123.0-B-2",
+    "title": "Technical Corrigendum 3 to CCSDS 123.0-B-2, Issued February 2019",
+    "book_color": "Unknown",
+    "pub_date": "February 2021",
+    "pages": 1,
+    "size_bytes": 76911,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/123x0b2e2c3.pdf",
+    "doc_id": "CCSDS 123.0-B-2",
+    "title": "Low-Complexity Lossless and Near-Lossless Multispectral and Hyperspectral Image Compression",
+    "book_color": "BLUE",
+    "pub_date": "February 2019",
+    "pages": 102,
+    "size_bytes": 1318968,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/124x0b1.pdf",
+    "doc_id": "CCSDS 124.0-B-1",
+    "title": "Robust Compression of Fixed-Length Housekeeping Data",
+    "book_color": "BLUE",
+    "pub_date": "February 2023",
+    "pages": 33,
+    "size_bytes": 634484,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/130x0g4e1.pdf",
+    "doc_id": "CCSDS 130.0-G-4",
+    "title": "Overview of Space Communications Protocols",
+    "book_color": "GREEN",
+    "pub_date": "April 2023",
+    "pages": 43,
+    "size_bytes": 568145,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/130x11g2.pdf",
+    "doc_id": "CCSDS 130.11-G-2",
+    "title": "SCCC\u2014Summary of Definition and Performance",
+    "book_color": "GREEN",
+    "pub_date": "May 2023",
+    "pages": 91,
+    "size_bytes": 2346119,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/130x12g2.pdf",
+    "doc_id": "CCSDS 130.12-G-2",
+    "title": "CCSDS Protocols over DVB-S2\u2014Summary of Definition, Implementation, and Performance",
+    "book_color": "GREEN",
+    "pub_date": "June 2023",
+    "pages": 56,
+    "size_bytes": 1166808,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/130x1g3e1.pdf",
+    "doc_id": "CCSDS 130.1-G-3",
+    "title": "TM Synchronization and Channel Coding\u2014Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "June 2020",
+    "pages": 130,
+    "size_bytes": 2181752,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/130x2g3.pdf",
+    "doc_id": "CCSDS 130.2-G-3",
+    "title": "Space Data Link Protocols\u2014Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "September 2015",
+    "pages": 48,
+    "size_bytes": 275496,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/130x3g1.pdf",
+    "doc_id": "CCSDS 130.3-G-1",
+    "title": "Space Packet Protocols",
+    "book_color": "GREEN",
+    "pub_date": "April 2023",
+    "pages": 28,
+    "size_bytes": 502538,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x0b6.pdf",
+    "doc_id": "CCSDS 131.0-B-6",
+    "title": "TM Synchronization and Channel Coding",
+    "book_color": "BLUE",
+    "pub_date": "April 2026",
+    "pages": 106,
+    "size_bytes": 2002952,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x21o1c1.pdf",
+    "doc_id": "CCSDS 131.21-O-1",
+    "title": "Serially Concatenated Convolutional Codes\u2014Extension (SCCC-X)",
+    "book_color": "ORANGE",
+    "pub_date": "May 2021",
+    "pages": 60,
+    "size_bytes": 1080783,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x21o1c1_tc2210.pdf",
+    "doc_id": "CCSDS 131.21-O-1",
+    "title": "Microsoft Word - tc2210_final.doc",
+    "book_color": "Unknown",
+    "pub_date": "April 2022",
+    "pages": 3,
+    "size_bytes": 20265,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x2b2.pdf",
+    "doc_id": "CCSDS 131.2-B-2",
+    "title": "Flexible Advanced Coding and Modulation Scheme for High Rate Telemetry Applications",
+    "book_color": "BLUE",
+    "pub_date": "February 2023",
+    "pages": 74,
+    "size_bytes": 1788976,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x31o1c1.pdf",
+    "doc_id": "CCSDS 131.31-O-1",
+    "title": "CCSDS Space Link Protocols over ETSI DVB-S2X Standard",
+    "book_color": "ORANGE",
+    "pub_date": "September 2021",
+    "pages": 56,
+    "size_bytes": 1192473,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x31o1c1_tc2211.pdf",
+    "doc_id": "CCSDS 131.31-O-1",
+    "title": "Microsoft Word - tc2211_final.doc",
+    "book_color": "Unknown",
+    "pub_date": "April 2022",
+    "pages": 7,
+    "size_bytes": 24858,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x3b2e1.pdf",
+    "doc_id": "CCSDS 131.3-B-2",
+    "title": "CCSDS Space Link Protocols over ETSI DVB-S2 Standard",
+    "book_color": "BLUE",
+    "pub_date": "April 2022",
+    "pages": 32,
+    "size_bytes": 598715,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x5o1c1.pdf",
+    "doc_id": "CCSDS 131.5-O-1",
+    "title": "Erasure Correcting Codes for Use in Near-Earth and Deep-Space Communications",
+    "book_color": "ORANGE",
+    "pub_date": "November 2014",
+    "pages": 89,
+    "size_bytes": 1462517,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/131x5o1c1_tc2423.pdf",
+    "doc_id": "CCSDS 131.5-O-1",
+    "title": "Microsoft Word - tc2423_final.doc",
+    "book_color": "Unknown",
+    "pub_date": "December 2024",
+    "pages": 1,
+    "size_bytes": 15361,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/132x0b3.pdf",
+    "doc_id": "CCSDS 132.0-B-3",
+    "title": "TM Space Data Link Protocol",
+    "book_color": "BLUE",
+    "pub_date": "October 2021",
+    "pages": 112,
+    "size_bytes": 893096,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/133x0b2e2.pdf",
+    "doc_id": "CCSDS 133.0-B-2",
+    "title": "Space Packet Protocol",
+    "book_color": "BLUE",
+    "pub_date": "June 2020",
+    "pages": 54,
+    "size_bytes": 663940,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/133x1b3e1.pdf",
+    "doc_id": "CCSDS 133.1-B-3",
+    "title": "Encapsulation Packet Protocol",
+    "book_color": "BLUE",
+    "pub_date": "May 2020",
+    "pages": 33,
+    "size_bytes": 456320,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/140x1g2.pdf",
+    "doc_id": "CCSDS 140.1-G-2",
+    "title": "Real-Time Weather and Atmospheric Characterization Data",
+    "book_color": "GREEN",
+    "pub_date": "March 2024",
+    "pages": 76,
+    "size_bytes": 5127714,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/141x0b2.pdf",
+    "doc_id": "CCSDS 141.0-B-2",
+    "title": "Non-Coherent Optical Communications Physical Layer",
+    "book_color": "BLUE",
+    "pub_date": "March 2026",
+    "pages": 35,
+    "size_bytes": 937798,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/141x10.pdf",
+    "doc_id": "CCSDS 141.10-O-1",
+    "title": "Optical High Data Rate (HDR) Communication\u20141550 NM",
+    "book_color": "ORANGE",
+    "pub_date": "June 2022",
+    "pages": 54,
+    "size_bytes": 822908,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/141x11o1e2.pdf",
+    "doc_id": "CCSDS 141.11-O-1",
+    "title": "Optical High Data Rate (HDR) Communication\u20141064 NM",
+    "book_color": "ORANGE",
+    "pub_date": "December 2018",
+    "pages": 57,
+    "size_bytes": 673102,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/141x1m1e1.pdf",
+    "doc_id": "CCSDS 141.1-M-1",
+    "title": "Atmospheric Characterization and Forecasting for Optical Link Operations",
+    "book_color": "MAGENTA",
+    "pub_date": "January 2022",
+    "pages": 49,
+    "size_bytes": 4064824,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/142x0b2.pdf",
+    "doc_id": "CCSDS 142.0-B-2",
+    "title": "Non-Coherent Optical Communications Coding and Synchronization",
+    "book_color": "BLUE",
+    "pub_date": "March 2026",
+    "pages": 99,
+    "size_bytes": 3614858,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/142x10o1e1.pdf",
+    "doc_id": "CCSDS 142.10-O-1",
+    "title": "Reed-Solomon Product Code for Optical Communication",
+    "book_color": "ORANGE",
+    "pub_date": "October 2023",
+    "pages": 29,
+    "size_bytes": 683938,
+    "area": "Space Internetworking Systems (SIS) / Space Link Protocols"
+  },
+  {
+    "file": "standards/200x0g6.pdf",
+    "doc_id": "CCSDS 200.0-G-6",
+    "title": "Report:  Telecommand Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "January 1987",
+    "pages": 75,
+    "size_bytes": 214630,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/210x0g2e1.pdf",
+    "doc_id": "CCSDS 210.0-G-2",
+    "title": "Proximity-1 Space Link Protocol\u2014Rationale, Architecture, and Scenarios",
+    "book_color": "GREEN",
+    "pub_date": "December 2013",
+    "pages": 94,
+    "size_bytes": 1838207,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/211x0b6e1.pdf",
+    "doc_id": "CCSDS 211.0-B-6",
+    "title": "Proximity-1 Space Link Protocol\u2014Data Link Layer",
+    "book_color": "BLUE",
+    "pub_date": "July 2020",
+    "pages": 165,
+    "size_bytes": 1698878,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/211x1b4e1.pdf",
+    "doc_id": "CCSDS 211.1-B-4",
+    "title": "Proximity-1 Space Link Protocol\u2014Physical Layer",
+    "book_color": "BLUE",
+    "pub_date": "December 2013",
+    "pages": 36,
+    "size_bytes": 289808,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/211x2b3.pdf",
+    "doc_id": "CCSDS 211.2-B-3",
+    "title": "Proximity-1 Space Link Protocol\u2014Coding and Synchronization Sublayer",
+    "book_color": "BLUE",
+    "pub_date": "October 2019",
+    "pages": 47,
+    "size_bytes": 547545,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/230x1g3e1.pdf",
+    "doc_id": "CCSDS 230.1-G-3",
+    "title": "TC Synchronization and Channel Coding\u2014Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "October 2021",
+    "pages": 173,
+    "size_bytes": 1655725,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/230x2g1.pdf",
+    "doc_id": "CCSDS 230.2-G-1",
+    "title": "Next Generation Uplink",
+    "book_color": "GREEN",
+    "pub_date": "July 2014",
+    "pages": 39,
+    "size_bytes": 416590,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/231x0b4e1.pdf",
+    "doc_id": "CCSDS 231.0-B-4",
+    "title": "TC Synchronization and Channel Coding",
+    "book_color": "BLUE",
+    "pub_date": "July 2021",
+    "pages": 52,
+    "size_bytes": 768039,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/232x0b4e1c1.pdf",
+    "doc_id": "CCSDS 232.0-B-4",
+    "title": "TC Space Data Link Protocol",
+    "book_color": "BLUE",
+    "pub_date": "October 2021",
+    "pages": 136,
+    "size_bytes": 1044397,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/232x0b4e1c1_tc2325.pdf",
+    "doc_id": "CCSDS 232.0-B-4",
+    "title": "Microsoft Word - tc2325.doc",
+    "book_color": "Unknown",
+    "pub_date": "October 2023",
+    "pages": 2,
+    "size_bytes": 19842,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/232x1b2e2c1.pdf",
+    "doc_id": "CCSDS 232.1-B-2",
+    "title": "Communications Operation Procedure-1",
+    "book_color": "BLUE",
+    "pub_date": "September 2010",
+    "pages": 79,
+    "size_bytes": 751904,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/232x1b2e2c1_tc1911.pdf",
+    "doc_id": "CCSDS 232.1-B-2",
+    "title": "Microsoft Word - TC19-11.doc",
+    "book_color": "BLUE",
+    "pub_date": "April 2019",
+    "pages": 3,
+    "size_bytes": 73516,
+    "area": "Space Link Protocols / Telecommand (SLP)"
+  },
+  {
+    "file": "standards/301x0b4e1.pdf",
+    "doc_id": "CCSDS 301.0-B-4",
+    "title": "Time Code Formats",
+    "book_color": "BLUE",
+    "pub_date": "November 2010",
+    "pages": 43,
+    "size_bytes": 218354,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/311x0m2.pdf",
+    "doc_id": "CCSDS 311.0-M-2",
+    "title": "Reference Architecture for Space Data Systems",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2024",
+    "pages": 184,
+    "size_bytes": 4009490,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/312x0g1.pdf",
+    "doc_id": "CCSDS 312.0-G-1",
+    "title": "Reference Architecture for Space Information Management",
+    "book_color": "GREEN",
+    "pub_date": "March 2013",
+    "pages": 70,
+    "size_bytes": 1009529,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/313x0y3.pdf",
+    "doc_id": "CCSDS 313.0-Y-3",
+    "title": "Space Assigned Numbers Authority (SANA)\u2014Role, Responsibilities, Policies, and Procedures",
+    "book_color": "YELLOW",
+    "pub_date": "October 2020",
+    "pages": 23,
+    "size_bytes": 380609,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/313x1y2.pdf",
+    "doc_id": "CCSDS 313.1-Y-2",
+    "title": "CCSDS SANA Registry Management Policy",
+    "book_color": "YELLOW",
+    "pub_date": "October 2020",
+    "pages": 75,
+    "size_bytes": 1164600,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/313x2y2.pdf",
+    "doc_id": "CCSDS 313.2-Y-2",
+    "title": "Procedures for SANA Registry Specification",
+    "book_color": "YELLOW",
+    "pub_date": "October 2020",
+    "pages": 26,
+    "size_bytes": 459369,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/315x1y1.pdf",
+    "doc_id": "CCSDS 315.1-Y-1",
+    "title": "CCSDS URN Namespace Policy",
+    "book_color": "YELLOW",
+    "pub_date": "October 2020",
+    "pages": 13,
+    "size_bytes": 320903,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/320x0m7c1.pdf",
+    "doc_id": "CCSDS 320.0-M-7",
+    "title": "CCSDS Spacecraft Identification Field Code Assignment Control Procedures",
+    "book_color": "MAGENTA",
+    "pub_date": "November 2017",
+    "pages": 27,
+    "size_bytes": 445065,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/320x0m7c1_tc1919.pdf",
+    "doc_id": "CCSDS 320.0-M-7",
+    "title": "Microsoft Word - tc1919.doc",
+    "book_color": "BLUE",
+    "pub_date": "July 2019",
+    "pages": 6,
+    "size_bytes": 43975,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x0g3.pdf",
+    "doc_id": "CCSDS 350.0-G-3",
+    "title": "The Application of Security to CCSDS Protocols",
+    "book_color": "GREEN",
+    "pub_date": "March 2019",
+    "pages": 43,
+    "size_bytes": 495536,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x11g1e1.pdf",
+    "doc_id": "CCSDS 350.11-G-1",
+    "title": "Space Data Link Security Protocol\u2014Extended Procedures\u2014Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "July 2024",
+    "pages": 59,
+    "size_bytes": 755474,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x1g3.pdf",
+    "doc_id": "CCSDS 350.1-G-3",
+    "title": "Security Threats against Space Missions",
+    "book_color": "GREEN",
+    "pub_date": "February 2022",
+    "pages": 45,
+    "size_bytes": 1491984,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x4g2.pdf",
+    "doc_id": "CCSDS 350.4-G-2",
+    "title": "CCSDS Guide for Secure System Interconnection",
+    "book_color": "GREEN",
+    "pub_date": "April 2019",
+    "pages": 51,
+    "size_bytes": 544974,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x5g2.pdf",
+    "doc_id": "CCSDS 350.5-G-2",
+    "title": "Space Data Link Security Protocol\u2014Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "January 2024",
+    "pages": 136,
+    "size_bytes": 2272083,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x6g1.pdf",
+    "doc_id": "CCSDS 350.6-G-1",
+    "title": "Space Missions Key Management Concept",
+    "book_color": "GREEN",
+    "pub_date": "November 2011",
+    "pages": 56,
+    "size_bytes": 408323,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x7g2.pdf",
+    "doc_id": "CCSDS 350.7-G-2",
+    "title": "Security Guide for Mission Planners",
+    "book_color": "GREEN",
+    "pub_date": "April 2019",
+    "pages": 32,
+    "size_bytes": 508595,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x8m3.pdf",
+    "doc_id": "CCSDS 350.8-M-3",
+    "title": "Information Security Glossary of Terms",
+    "book_color": "MAGENTA",
+    "pub_date": "February 2024",
+    "pages": 35,
+    "size_bytes": 445229,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/350x9g2.pdf",
+    "doc_id": "CCSDS 350.9-G-2",
+    "title": "CCSDS Cryptographic Algorithms",
+    "book_color": "GREEN",
+    "pub_date": "July 2023",
+    "pages": 28,
+    "size_bytes": 504126,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/351x0m1.pdf",
+    "doc_id": "CCSDS 351.0-M-1",
+    "title": "Security Architecture for Space Data Systems",
+    "book_color": "MAGENTA",
+    "pub_date": "November 2012",
+    "pages": 48,
+    "size_bytes": 416713,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/352x0b2.pdf",
+    "doc_id": "CCSDS 352.0-B-2",
+    "title": "CCSDS Cryptographic Algorithms",
+    "book_color": "BLUE",
+    "pub_date": "August 2019",
+    "pages": 27,
+    "size_bytes": 370836,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/354x0m1.pdf",
+    "doc_id": "CCSDS 354.0-M-1",
+    "title": "Symmetric Key Management",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2023",
+    "pages": 39,
+    "size_bytes": 531482,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/355x0b2.pdf",
+    "doc_id": "CCSDS 355.0-B-2",
+    "title": "Space Data Link Security Protocol",
+    "book_color": "BLUE",
+    "pub_date": "July 2022",
+    "pages": 74,
+    "size_bytes": 764682,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/355x1b1.pdf",
+    "doc_id": "CCSDS 355.1-B-1",
+    "title": "Space Data Link Security Protocol\u2014Extended Procedures",
+    "book_color": "BLUE",
+    "pub_date": "February 2020",
+    "pages": 129,
+    "size_bytes": 935515,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/356xb1.pdf",
+    "doc_id": "CCSDS 356.0-B-1",
+    "title": "Network Layer Security Adaptation Profile",
+    "book_color": "BLUE",
+    "pub_date": "June 2018",
+    "pages": 22,
+    "size_bytes": 397925,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/357x0b1.pdf",
+    "doc_id": "CCSDS 357.0-B-1",
+    "title": "CCSDS Authentication Credentials",
+    "book_color": "BLUE",
+    "pub_date": "July 2019",
+    "pages": 20,
+    "size_bytes": 249245,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/357x1o1.pdf",
+    "doc_id": "CCSDS 357.1-O-1",
+    "title": "Intergovernmental Certification Authority",
+    "book_color": "ORANGE",
+    "pub_date": "December 2024",
+    "pages": 36,
+    "size_bytes": 887274,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/371x0g1.pdf",
+    "doc_id": "CCSDS 371.0-G-1",
+    "title": "Application and Support Layer Architecture",
+    "book_color": "GREEN",
+    "pub_date": "November 2020",
+    "pages": 254,
+    "size_bytes": 2586262,
+    "area": "Security & Information Architecture (SEA)"
+  },
+  {
+    "file": "standards/401x0b32.pdf",
+    "doc_id": "CCSDS 401.0-B-32",
+    "title": "Radio Frequency and Modulation Systems\u2014Part 1: Earth Stations and Spacecraft",
+    "book_color": "BLUE",
+    "pub_date": "October 2021",
+    "pages": 322,
+    "size_bytes": 2574606,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/413x0g3e1.pdf",
+    "doc_id": "CCSDS 413.0-G-3",
+    "title": "Bandwidth-Efficient Modulations: Summary of Definition, Implementation, and Performance",
+    "book_color": "GREEN",
+    "pub_date": "February 2018",
+    "pages": 69,
+    "size_bytes": 3165446,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/413x1g2.pdf",
+    "doc_id": "CCSDS 413.1-G-2",
+    "title": "Simultaneous Transmission of GMSK Telemetry and PN Ranging",
+    "book_color": "GREEN",
+    "pub_date": "November 2021",
+    "pages": 97,
+    "size_bytes": 10956060,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/414x0g2.pdf",
+    "doc_id": "CCSDS 414.0-G-2",
+    "title": "Pseudo-Noise (PN) Ranging Systems",
+    "book_color": "GREEN",
+    "pub_date": "February 2014",
+    "pages": 92,
+    "size_bytes": 2038661,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/414x1b3e1.pdf",
+    "doc_id": "CCSDS 414.1-B-3",
+    "title": "Pseudo-Noise (PN) Ranging Systems",
+    "book_color": "BLUE",
+    "pub_date": "January 2022",
+    "pages": 37,
+    "size_bytes": 550071,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/415x0g1.pdf",
+    "doc_id": "CCSDS 415.0-G-1",
+    "title": "Data Transmission and PN Ranging for 2 GHz CDMA Link via Data Relay Satellite",
+    "book_color": "GREEN",
+    "pub_date": "April 2013",
+    "pages": 58,
+    "size_bytes": 442245,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/415x1b1.pdf",
+    "doc_id": "CCSDS 415.1-B-1",
+    "title": "Data Transmission and PN Ranging for 2 GHz CDMA Link via Data Relay Satellite",
+    "book_color": "BLUE",
+    "pub_date": "September 2011",
+    "pages": 49,
+    "size_bytes": 368929,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/421x0g1.pdf",
+    "doc_id": "CCSDS 421.0-G-1",
+    "title": "Report of the Proceedings of the RF and Modulation Subpanel Meeting at the Ames Research Center, April 11-20, 1989",
+    "book_color": "GREEN",
+    "pub_date": "Unknown",
+    "pages": 460,
+    "size_bytes": 114951251,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/431x0b1e1c1.pdf",
+    "doc_id": "CCSDS 431.1-B-1",
+    "title": "Variable Coded Modulation Protocol",
+    "book_color": "BLUE",
+    "pub_date": "February 2021",
+    "pages": 37,
+    "size_bytes": 565785,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/431x0b1e1c1_tc2209.pdf",
+    "doc_id": "CCSDS 431.1-B-1",
+    "title": "Microsoft Word - tc2209.doc",
+    "book_color": "Unknown",
+    "pub_date": "April 2022",
+    "pages": 4,
+    "size_bytes": 74824,
+    "area": "RF, Modulation, and Ranging (RFM)"
+  },
+  {
+    "file": "standards/500x0g4.pdf",
+    "doc_id": "CCSDS 500.0-G-4",
+    "title": "Navigation Data\u2014Definitions and Conventions",
+    "book_color": "GREEN",
+    "pub_date": "November 2019",
+    "pages": 62,
+    "size_bytes": 1256366,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/500x1g2.pdf",
+    "doc_id": "CCSDS 500.1-G-2",
+    "title": "Delta-DOR\u2014Technical Characteristics and Performance",
+    "book_color": "GREEN",
+    "pub_date": "November 2019",
+    "pages": 83,
+    "size_bytes": 1895410,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/500x2g3.pdf",
+    "doc_id": "CCSDS 500.2-G-3",
+    "title": "Navigation Data Messages Overview",
+    "book_color": "GREEN",
+    "pub_date": "March 2023",
+    "pages": 35,
+    "size_bytes": 452358,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/502x0b3e2.pdf",
+    "doc_id": "CCSDS 502.0-B-3",
+    "title": "Orbit Data Messages",
+    "book_color": "BLUE",
+    "pub_date": "April 2023",
+    "pages": 221,
+    "size_bytes": 2508513,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/502x1y1.pdf",
+    "doc_id": "CCSDS 502.1-Y-1",
+    "title": "Orbit Data Messages V2.0 Test Plan/Report",
+    "book_color": "YELLOW",
+    "pub_date": "May 2010",
+    "pages": 34,
+    "size_bytes": 431702,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/503x0b2c1.pdf",
+    "doc_id": "CCSDS 503.0-B-2",
+    "title": "Tracking Data Message",
+    "book_color": "BLUE",
+    "pub_date": "June 2020",
+    "pages": 113,
+    "size_bytes": 938326,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/503x0b2c1_tc2136.pdf",
+    "doc_id": "CCSDS 503.0-B-2",
+    "title": "Microsoft Word - tc2136.doc",
+    "book_color": "Unknown",
+    "pub_date": "October 2021",
+    "pages": 4,
+    "size_bytes": 22396,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/504x0b2.pdf",
+    "doc_id": "CCSDS 504.0-B-2",
+    "title": "Attitude Data Messages",
+    "book_color": "BLUE",
+    "pub_date": "January 2024",
+    "pages": 126,
+    "size_bytes": 1179220,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/505x0b3e2.pdf",
+    "doc_id": "CCSDS 505.0-B-3",
+    "title": "XML Specification for Navigation Data Messages",
+    "book_color": "BLUE",
+    "pub_date": "May 2023",
+    "pages": 62,
+    "size_bytes": 724294,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/506x0m2e1.pdf",
+    "doc_id": "CCSDS 506.0-M-2",
+    "title": "Delta-Differential One Way Ranging (Delta-DOR) Operations",
+    "book_color": "MAGENTA",
+    "pub_date": "February 2018",
+    "pages": 65,
+    "size_bytes": 767534,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/506x1b1.pdf",
+    "doc_id": "CCSDS 506.1-B-1",
+    "title": "Delta-DOR Raw Data Exchange Format",
+    "book_color": "BLUE",
+    "pub_date": "June 2013",
+    "pages": 49,
+    "size_bytes": 387684,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/506x3m1.pdf",
+    "doc_id": "CCSDS 506.3-M-1",
+    "title": "Delta-DOR Quasar Catalog Update Procedure",
+    "book_color": "MAGENTA",
+    "pub_date": "February 2018",
+    "pages": 28,
+    "size_bytes": 196824,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/508x0b1e2c2.pdf",
+    "doc_id": "CCSDS 508.0-B-1",
+    "title": "Conjunction Data Message",
+    "book_color": "BLUE",
+    "pub_date": "June 2013",
+    "pages": 72,
+    "size_bytes": 843546,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/508x0b1e2c2_tc1814.pdf",
+    "doc_id": "CCSDS 508.0-B-1",
+    "title": "Microsoft Word - Corrigendum1.doc",
+    "book_color": "Unknown",
+    "pub_date": "June 2018",
+    "pages": 2,
+    "size_bytes": 18182,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/508x0b1e2c2_tc2137.pdf",
+    "doc_id": "CCSDS 508.0-B-1",
+    "title": "Microsoft Word - tc2137.doc",
+    "book_color": "Unknown",
+    "pub_date": "October 2021",
+    "pages": 5,
+    "size_bytes": 23646,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/508x1b1c1.pdf",
+    "doc_id": "CCSDS 508.1-B-1",
+    "title": "Re-entry Data Message",
+    "book_color": "BLUE",
+    "pub_date": "November 2019",
+    "pages": 71,
+    "size_bytes": 855759,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/508x1b1c1_tc2138.pdf",
+    "doc_id": "CCSDS 508.1-B-1",
+    "title": "Microsoft Word - tc2138.doc",
+    "book_color": "Unknown",
+    "pub_date": "October 2021",
+    "pages": 4,
+    "size_bytes": 22442,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/509x0b1c2.pdf",
+    "doc_id": "CCSDS 509.0-B-1",
+    "title": "Pointing Request Message",
+    "book_color": "BLUE",
+    "pub_date": "February 2018",
+    "pages": 181,
+    "size_bytes": 1369219,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/509x0b1c2_tc2117.pdf",
+    "doc_id": "CCSDS 509.0-B-1",
+    "title": "Microsoft Word - tc2117_final.doc",
+    "book_color": "Unknown",
+    "pub_date": "May 2021",
+    "pages": 3,
+    "size_bytes": 19428,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/509x0b1c2_tc2326.pdf",
+    "doc_id": "CCSDS 509.0-B-1",
+    "title": "Microsoft Word - tc2326.doc",
+    "book_color": "Unknown",
+    "pub_date": "October 2023",
+    "pages": 5,
+    "size_bytes": 24673,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/520x0g3.pdf",
+    "doc_id": "CCSDS 520.0-G-3",
+    "title": "Mission Operations Services Concept",
+    "book_color": "GREEN",
+    "pub_date": "December 2010",
+    "pages": 62,
+    "size_bytes": 676593,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/520x1m1.pdf",
+    "doc_id": "CCSDS 520.1-M-1",
+    "title": "Mission Operations Reference Model",
+    "book_color": "MAGENTA",
+    "pub_date": "July 2010",
+    "pages": 71,
+    "size_bytes": 540736,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/521x0b3.pdf",
+    "doc_id": "CCSDS 521.0-B-3",
+    "title": "Mission Operations Message Abstraction Layer",
+    "book_color": "BLUE",
+    "pub_date": "March 2024",
+    "pages": 170,
+    "size_bytes": 1379083,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/521x1b1.pdf",
+    "doc_id": "CCSDS 521.1-B-1",
+    "title": "Mission Operations Common Object Model",
+    "book_color": "BLUE",
+    "pub_date": "February 2014",
+    "pages": 65,
+    "size_bytes": 328575,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/522x0b1.pdf",
+    "doc_id": "CCSDS 522.0-B-1",
+    "title": "Mission Operations\u2014Common Services",
+    "book_color": "BLUE",
+    "pub_date": "May 2020",
+    "pages": 88,
+    "size_bytes": 792547,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/522x1b1.pdf",
+    "doc_id": "CCSDS 522.1-B-1",
+    "title": "Mission Operations Monitor & Control Services",
+    "book_color": "BLUE",
+    "pub_date": "October 2017",
+    "pages": 202,
+    "size_bytes": 876960,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/523x1m1.pdf",
+    "doc_id": "CCSDS 523.1-M-1",
+    "title": "Mission Operations Message Abstraction Layer\u2014JAVA API",
+    "book_color": "MAGENTA",
+    "pub_date": "April 2013",
+    "pages": 290,
+    "size_bytes": 880065,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/523x2m1.pdf",
+    "doc_id": "CCSDS 523.2-M-1",
+    "title": "Mission Operations Message Abstraction Layer\u2014C++ API",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2018",
+    "pages": 279,
+    "size_bytes": 779185,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/524x1b1.pdf",
+    "doc_id": "CCSDS 524.1-B-1",
+    "title": "Mission Operations\u2014MAL Space Packet Transport Binding and Binary Encoding",
+    "book_color": "BLUE",
+    "pub_date": "August 2015",
+    "pages": 72,
+    "size_bytes": 403507,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/524x2b1.pdf",
+    "doc_id": "CCSDS 524.2-B-1",
+    "title": "Mission Operations\u2014Message Abstraction Layer Binding to TCP/IP Transport and Split Binary Encoding",
+    "book_color": "BLUE",
+    "pub_date": "November 2017",
+    "pages": 75,
+    "size_bytes": 512483,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/524x3b1.pdf",
+    "doc_id": "CCSDS 524.3-B-1",
+    "title": "Mission Operations\u2014Message Abstraction Layer Binding to HTTP Transport and XML Encoding",
+    "book_color": "BLUE",
+    "pub_date": "June 2018",
+    "pages": 72,
+    "size_bytes": 317793,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/524x4b1e1.pdf",
+    "doc_id": "CCSDS 524.4-B-1",
+    "title": "Mission Operations\u2014Message Abstraction Layer Binding to ZMTP Transport",
+    "book_color": "BLUE",
+    "pub_date": "October 2019",
+    "pages": 60,
+    "size_bytes": 758698,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/529x0g1.pdf",
+    "doc_id": "CCSDS 529.0-G-1",
+    "title": "Mission Planning and Scheduling",
+    "book_color": "GREEN",
+    "pub_date": "June 2018",
+    "pages": 81,
+    "size_bytes": 834295,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/540x0g1.pdf",
+    "doc_id": "CCSDS 540.0-G-1",
+    "title": "Telerobotic Operations",
+    "book_color": "GREEN",
+    "pub_date": "November 2016",
+    "pages": 51,
+    "size_bytes": 736783,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/551x1o2e2.pdf",
+    "doc_id": "CCSDS 551.1-O-2",
+    "title": "Correlated Data Generation",
+    "book_color": "ORANGE",
+    "pub_date": "August 2020",
+    "pages": 74,
+    "size_bytes": 1414939,
+    "area": "Mission Operations & Navigation (MOIMS)"
+  },
+  {
+    "file": "standards/610x0g5.pdf",
+    "doc_id": "610x0g5.pdf",
+    "title": "Report:  Space Data Systems Operations with SFDUs: System and Implementation Aspects",
+    "book_color": "GREEN",
+    "pub_date": "February 1987",
+    "pages": 51,
+    "size_bytes": 141018,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/620x0b2.pdf",
+    "doc_id": "CCSDS 620.0-B-2",
+    "title": "Standard Formatted Data Units \u2014 Structure and Construction Rules",
+    "book_color": "BLUE",
+    "pub_date": "May 1992",
+    "pages": 62,
+    "size_bytes": 513983,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/621x0g1.pdf",
+    "doc_id": "CCSDS 621.0-G-1",
+    "title": "Tutorial: Standard Formatted Data Units",
+    "book_color": "GREEN",
+    "pub_date": "May 1992",
+    "pages": 79,
+    "size_bytes": 1292867,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/622x0b1.pdf",
+    "doc_id": "CCSDS 622.0-B-1",
+    "title": "SFDUs \u2014 Referencing Environment",
+    "book_color": "BLUE",
+    "pub_date": "May 1997",
+    "pages": 45,
+    "size_bytes": 192020,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/630x0b1.pdf",
+    "doc_id": "CCSDS 630.0-B-1",
+    "title": "SFDUs \u2014 Control Authority Procedures",
+    "book_color": "BLUE",
+    "pub_date": "June 1993",
+    "pages": 32,
+    "size_bytes": 97835,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/631x0g2.pdf",
+    "doc_id": "CCSDS 631.0-G-2",
+    "title": "Tutorial:  SFDUs \u2014 Control Authority Procedures",
+    "book_color": "GREEN",
+    "pub_date": "November 1994",
+    "pages": 77,
+    "size_bytes": 213874,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/632x0b1.pdf",
+    "doc_id": "CCSDS 632.0-B-1",
+    "title": "SFDUs \u2014 Control Authority Data Structures",
+    "book_color": "BLUE",
+    "pub_date": "November 1994",
+    "pages": 26,
+    "size_bytes": 121473,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/641x0b2.pdf",
+    "doc_id": "CCSDS 641.0-B-2",
+    "title": "Parameter Value Language Specification (CCSD0006 and CCSD0008)",
+    "book_color": "BLUE",
+    "pub_date": "June 2000",
+    "pages": 72,
+    "size_bytes": 347952,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/641x0g2.pdf",
+    "doc_id": "CCSDS 641.0-G-2",
+    "title": "Parameter Value Language - A Tutorial",
+    "book_color": "GREEN",
+    "pub_date": "June 2000",
+    "pages": 52,
+    "size_bytes": 437079,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/643x0b1.pdf",
+    "doc_id": "CCSDS 643.0-B-1",
+    "title": "ASCII Encoded English",
+    "book_color": "BLUE",
+    "pub_date": "November 1992",
+    "pages": 10,
+    "size_bytes": 68468,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/644x0b3.pdf",
+    "doc_id": "CCSDS 644.0-B-3",
+    "title": "The Data Description Language EAST Specification (CCSD0010)",
+    "book_color": "BLUE",
+    "pub_date": "June 2010",
+    "pages": 112,
+    "size_bytes": 537661,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/645x0g1.pdf",
+    "doc_id": "CCSDS 645.0-G-1",
+    "title": "Tutorial: The Data Description Language EAST",
+    "book_color": "GREEN",
+    "pub_date": "May 1997",
+    "pages": 131,
+    "size_bytes": 430977,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/646x0g1.pdf",
+    "doc_id": "CCSDS 646.0-G-1",
+    "title": "Report:  The Data Description Language EAST \u2014 List of Conventions",
+    "book_color": "GREEN",
+    "pub_date": "May 1997",
+    "pages": 19,
+    "size_bytes": 89086,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/647x1b1.pdf",
+    "doc_id": "CCSDS 647.1-B-1",
+    "title": "DEDSL - Abstract Syntax",
+    "book_color": "BLUE",
+    "pub_date": "June 2001",
+    "pages": 94,
+    "size_bytes": 400908,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/647x2b1.pdf",
+    "doc_id": "CCSDS 647.2-B-1",
+    "title": "DEDSL - PVL Syntax",
+    "book_color": "BLUE",
+    "pub_date": "June 2001",
+    "pages": 65,
+    "size_bytes": 319585,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/647x3b1.pdf",
+    "doc_id": "CCSDS 647.3-B-1",
+    "title": "DEDSL - XML/DTD Syntax",
+    "book_color": "BLUE",
+    "pub_date": "January 2002",
+    "pages": 89,
+    "size_bytes": 370952,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/647x4o1.pdf",
+    "doc_id": "CCSDS 647.4-O-1",
+    "title": "Data Entity Dictionary Specification Language (DEDSL)\u2014XML/XSD Syntax",
+    "book_color": "ORANGE",
+    "pub_date": "May 2018",
+    "pages": 140,
+    "size_bytes": 485519,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/650x0m3.pdf",
+    "doc_id": "CCSDS 650.0-M-3",
+    "title": "Reference Model for an Open Archival Information System (OAIS)",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2024",
+    "pages": 150,
+    "size_bytes": 5162898,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/651x0m1.pdf",
+    "doc_id": "CCSDS 651.0-M-1",
+    "title": "Producer-Archive Interface Methodology Abstract Standard",
+    "book_color": "MAGENTA",
+    "pub_date": "May 2004",
+    "pages": 72,
+    "size_bytes": 521980,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/651x1b1.pdf",
+    "doc_id": "CCSDS 651.1-B-1",
+    "title": "Producer-Archive Interface Specification (PAIS)",
+    "book_color": "BLUE",
+    "pub_date": "February 2014",
+    "pages": 104,
+    "size_bytes": 603351,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/651x2g1.pdf",
+    "doc_id": "CCSDS 651.2-G-1",
+    "title": "Producer-Archive Interface Specification (PAIS)\u2014A Tutorial",
+    "book_color": "GREEN",
+    "pub_date": "September 2016",
+    "pages": 209,
+    "size_bytes": 2332029,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/652x0m2.pdf",
+    "doc_id": "CCSDS 652.0-M-2",
+    "title": "Audit and Certification of Trustworthy Digital Repositories",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2024",
+    "pages": 84,
+    "size_bytes": 715318,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/652x1m3.pdf",
+    "doc_id": "CCSDS 652.1-M-3",
+    "title": "Requirements for Bodies Providing Audit and Certification of Candidate Trustworthy Digital Repositories",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2024",
+    "pages": 32,
+    "size_bytes": 491762,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/653x0m1.pdf",
+    "doc_id": "CCSDS 653.0-M-1",
+    "title": "Information Preparation to Enable Long-Term Use",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2024",
+    "pages": 68,
+    "size_bytes": 1098202,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/660x0b2.pdf",
+    "doc_id": "CCSDS 660.0-B-2",
+    "title": "XML Telemetric and Command Exchange\u2014Version 1.2",
+    "book_color": "BLUE",
+    "pub_date": "February 2020",
+    "pages": 40,
+    "size_bytes": 460648,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/660x1g2.pdf",
+    "doc_id": "CCSDS 660.1-G-2",
+    "title": "XML Telemetric and Command Exchange (XTCE)\u2014Element Description",
+    "book_color": "GREEN",
+    "pub_date": "August 2021",
+    "pages": 286,
+    "size_bytes": 3699236,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/660x2g2.pdf",
+    "doc_id": "CCSDS 660.2-G-2",
+    "title": "XML Telemetric and Command Exchange (XTCE)",
+    "book_color": "GREEN",
+    "pub_date": "February 2021",
+    "pages": 42,
+    "size_bytes": 564953,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/661x0b1.pdf",
+    "doc_id": "CCSDS 661.0-B-1",
+    "title": "XML Formatted Data Unit (XFDU) Structure and Construction Rules",
+    "book_color": "BLUE",
+    "pub_date": "September 2008",
+    "pages": 76,
+    "size_bytes": 3434796,
+    "area": "Data Archive & Information Systems (DAIS)"
+  },
+  {
+    "file": "standards/700x0g3.pdf",
+    "doc_id": "CCSDS 700.0-G-3",
+    "title": "Report:  AOS Summary of Concept, Rationale and Performance",
+    "book_color": "GREEN",
+    "pub_date": "November 1992",
+    "pages": 61,
+    "size_bytes": 179002,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/700x1g1.pdf",
+    "doc_id": "CCSDS 700.1-G-1",
+    "title": "Overview of the Unified Space Data Link Protocol",
+    "book_color": "GREEN",
+    "pub_date": "June 2020",
+    "pages": 53,
+    "size_bytes": 786766,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/702x1b1c2.pdf",
+    "doc_id": "CCSDS 702.1-B-1",
+    "title": "IP over CCSDS Space Links",
+    "book_color": "BLUE",
+    "pub_date": "September 2012",
+    "pages": 31,
+    "size_bytes": 484279,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/702x1b1c2_tc1413.pdf",
+    "doc_id": "CCSDS 702.1-B-1",
+    "title": "Microsoft Word - tc1413.doc",
+    "book_color": "Unknown",
+    "pub_date": "April 2014",
+    "pages": 2,
+    "size_bytes": 18237,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/702x1b1c2_tc2327.pdf",
+    "doc_id": "CCSDS 702.1-B-1",
+    "title": "Microsoft Word - tc2327.doc",
+    "book_color": "BLUE",
+    "pub_date": "October 2023",
+    "pages": 3,
+    "size_bytes": 21651,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/706x2g2.pdf",
+    "doc_id": "CCSDS 706.2-G-2",
+    "title": "Voice Communications",
+    "book_color": "GREEN",
+    "pub_date": "December 2018",
+    "pages": 58,
+    "size_bytes": 1907964,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/714x0b2.pdf",
+    "doc_id": "CCSDS 714.0-B-2",
+    "title": "Space Communications Protocol Specification (SCPS)\u2014Transport Protocol (SCPS-TP)",
+    "book_color": "BLUE",
+    "pub_date": "October 2006",
+    "pages": 116,
+    "size_bytes": 1198722,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/720x1g4.pdf",
+    "doc_id": "CCSDS 720.1-G-4",
+    "title": "CCSDS File Delivery Protocol (CFDP)\u2014Part 1:  Introduction and Overview",
+    "book_color": "GREEN",
+    "pub_date": "May 2021",
+    "pages": 52,
+    "size_bytes": 876363,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/720x2g4.pdf",
+    "doc_id": "CCSDS 720.2-G-4",
+    "title": "CCSDS File Delivery Protocol (CFDP)\u2014Part 2:  Implementers Guide",
+    "book_color": "GREEN",
+    "pub_date": "May 2021",
+    "pages": 108,
+    "size_bytes": 2135899,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/720x3g1.pdf",
+    "doc_id": "CCSDS 720.3-G-1",
+    "title": "CCSDS File Delivery Protocol (CFDP)\u2014Part 3:  Interoperability Testing Final Report",
+    "book_color": "GREEN",
+    "pub_date": "September 2007",
+    "pages": 25,
+    "size_bytes": 304427,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/720x4y1.pdf",
+    "doc_id": "CCSDS 720.4-Y-1",
+    "title": "CCSDS File Delivery Protocol (CFDP)\u2014Notebook of Common Inter-Agency Tests for Core Procedures",
+    "book_color": "YELLOW",
+    "pub_date": "September 2007",
+    "pages": 32,
+    "size_bytes": 276895,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/720x5y1.pdf",
+    "doc_id": "CCSDS 720.5-Y-1",
+    "title": "CCSDS File Delivery Protocol (CFDP)\u2014Notebook of Common Inter-Agency Tests for Extended Procedures",
+    "book_color": "YELLOW",
+    "pub_date": "September 2007",
+    "pages": 31,
+    "size_bytes": 247663,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/720x6y1.pdf",
+    "doc_id": "CCSDS 720.6-Y-1",
+    "title": "CCSDS File Delivery Protocol (CFDP)\u2014Notebook of Common Inter-Agency Tests for Store and Forward Overlay (SFO)",
+    "book_color": "YELLOW",
+    "pub_date": "September 2007",
+    "pages": 39,
+    "size_bytes": 308335,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/722x1m1.pdf",
+    "doc_id": "CCSDS 722.1-M-1",
+    "title": "Operation of CFDP over Encapsulation Service",
+    "book_color": "MAGENTA",
+    "pub_date": "March 2014",
+    "pages": 22,
+    "size_bytes": 538877,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/727x0b5e1.pdf",
+    "doc_id": "CCSDS 727.0-B-5",
+    "title": "CCSDS File Delivery Protocol (CFDP)",
+    "book_color": "BLUE",
+    "pub_date": "July 2020",
+    "pages": 151,
+    "size_bytes": 1159291,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/730x1g1.pdf",
+    "doc_id": "CCSDS 730.1-G-1",
+    "title": "Solar System Internetwork (SSI) Architecture",
+    "book_color": "GREEN",
+    "pub_date": "July 2014",
+    "pages": 86,
+    "size_bytes": 3868623,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/730x2g1.pdf",
+    "doc_id": "CCSDS 730.2-G-1",
+    "title": "Concepts and Rationale for Streaming Services over Bundle Protocol",
+    "book_color": "GREEN",
+    "pub_date": "September 2018",
+    "pages": 41,
+    "size_bytes": 1955913,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/732x0b5ec1.pdf",
+    "doc_id": "CCSDS 732.0-B-5",
+    "title": "AOS Space Data Link Protocol",
+    "book_color": "BLUE",
+    "pub_date": "October 2025",
+    "pages": 110,
+    "size_bytes": 1990106,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/732x1b3e1.pdf",
+    "doc_id": "CCSDS 732.1-B-3",
+    "title": "Unified Space Data Link Protocol",
+    "book_color": "BLUE",
+    "pub_date": "June 2024",
+    "pages": 197,
+    "size_bytes": 1364346,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/734x0g1e1.pdf",
+    "doc_id": "CCSDS 734.0-G-1",
+    "title": "Rationale, Scenarios, and Requirements for DTN in Space",
+    "book_color": "GREEN",
+    "pub_date": "August 2010",
+    "pages": 106,
+    "size_bytes": 1276532,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/734x1b1c1.pdf",
+    "doc_id": "CCSDS 734.1-B-1",
+    "title": "Licklider Transmission Protocol (LTP) for CCSDS",
+    "book_color": "BLUE",
+    "pub_date": "February 2021",
+    "pages": 72,
+    "size_bytes": 1217059,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/734x1b1c1_tc2601.pdf",
+    "doc_id": "CCSDS 734.1-B-1",
+    "title": "Licklider Transmission Protocol for CCSDS",
+    "book_color": "Unknown",
+    "pub_date": "January 2026",
+    "pages": 2,
+    "size_bytes": 256802,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/734x20o1.pdf",
+    "doc_id": "CCSDS 734.20-O-1",
+    "title": "Bundle Protocol Version 7 (BPv7) Experimental Specification",
+    "book_color": "ORANGE",
+    "pub_date": "April 2025",
+    "pages": 72,
+    "size_bytes": 1187028,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/734x2b1.pdf",
+    "doc_id": "CCSDS 734.2-B-1",
+    "title": "CCSDS Bundle Protocol Specification",
+    "book_color": "BLUE",
+    "pub_date": "September 2015",
+    "pages": 94,
+    "size_bytes": 591061,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/734x3b1.pdf",
+    "doc_id": "CCSDS 734.3-B-1",
+    "title": "Schedule-Aware Bundle Routing",
+    "book_color": "BLUE",
+    "pub_date": "July 2019",
+    "pages": 38,
+    "size_bytes": 477204,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/735x0g1.pdf",
+    "doc_id": "CCSDS 735.0-G-1",
+    "title": "Asynchronous Message Service",
+    "book_color": "GREEN",
+    "pub_date": "December 2012",
+    "pages": 48,
+    "size_bytes": 380050,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/735x1b1.pdf",
+    "doc_id": "CCSDS 735.1-B-1",
+    "title": "Asynchronous Message Service",
+    "book_color": "BLUE",
+    "pub_date": "September 2011",
+    "pages": 142,
+    "size_bytes": 640701,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/766x1b3.pdf",
+    "doc_id": "CCSDS 766.1-B-3",
+    "title": "Digital Motion Imagery",
+    "book_color": "BLUE",
+    "pub_date": "April 2021",
+    "pages": 46,
+    "size_bytes": 544173,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/766x2b1.pdf",
+    "doc_id": "CCSDS 766.2-B-1",
+    "title": "Voice and Audio Communications",
+    "book_color": "BLUE",
+    "pub_date": "November 2017",
+    "pages": 72,
+    "size_bytes": 643986,
+    "area": "Space Internetworking / File Transfer & DTN (SIS)"
+  },
+  {
+    "file": "standards/811.1o1e1.pdf",
+    "doc_id": "CCSDS 811.1-O-1",
+    "title": "CAST Flight Software as a CCSDS Onboard Reference Architecture",
+    "book_color": "ORANGE",
+    "pub_date": "November 2021",
+    "pages": 78,
+    "size_bytes": 1439279,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/850x0g2.pdf",
+    "doc_id": "CCSDS 850.0-G-2",
+    "title": "Spacecraft Onboard Interface Services",
+    "book_color": "GREEN",
+    "pub_date": "December 2013",
+    "pages": 88,
+    "size_bytes": 1060872,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/851x0m1.pdf",
+    "doc_id": "CCSDS 851.0-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014Subnetwork Packet Service",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2009",
+    "pages": 26,
+    "size_bytes": 328280,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/852x0m1.pdf",
+    "doc_id": "CCSDS 852.0-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014Subnetwork Memory Access Service",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2009",
+    "pages": 28,
+    "size_bytes": 305819,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/853x0m1.pdf",
+    "doc_id": "CCSDS 853.0-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014Subnetwork Synchronisation Service",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2009",
+    "pages": 23,
+    "size_bytes": 273130,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/854x0m1.pdf",
+    "doc_id": "CCSDS 854.0-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014Subnetwork Device Discovery Service",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2009",
+    "pages": 22,
+    "size_bytes": 277233,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/855x0m1.pdf",
+    "doc_id": "CCSDS 855.0-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014Subnetwork Test Service",
+    "book_color": "MAGENTA",
+    "pub_date": "December 2009",
+    "pages": 21,
+    "size_bytes": 268343,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/870x0g1.pdf",
+    "doc_id": "CCSDS 870.0-G-1",
+    "title": "Electronic Data Sheets and Dictionary of Terms for Onboard Devices and Components",
+    "book_color": "GREEN",
+    "pub_date": "March 2024",
+    "pages": 117,
+    "size_bytes": 1079326,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/870x10y1.pdf",
+    "doc_id": "CCSDS 870.10-Y-1",
+    "title": "MO Services and SOIS Electronic Datasheets",
+    "book_color": "YELLOW",
+    "pub_date": "December 2021",
+    "pages": 55,
+    "size_bytes": 1615649,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/876x0b1.pdf",
+    "doc_id": "CCSDS 876.0-B-1",
+    "title": "Spacecraft Onboard Interface Services\u2014XML Specification for Electronic Data Sheets",
+    "book_color": "BLUE",
+    "pub_date": "April 2019",
+    "pages": 90,
+    "size_bytes": 819726,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/876x1m1.pdf",
+    "doc_id": "CCSDS 876.1-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014Specification for Dictionary of Terms for Electronic Data Sheets",
+    "book_color": "MAGENTA",
+    "pub_date": "March 2024",
+    "pages": 66,
+    "size_bytes": 704697,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/880x0g3.pdf",
+    "doc_id": "CCSDS 880.0-G-3",
+    "title": "Wireless Network Communications Overview for Space Mission Operations",
+    "book_color": "GREEN",
+    "pub_date": "May 2017",
+    "pages": 185,
+    "size_bytes": 5974172,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/881x0m1.pdf",
+    "doc_id": "CCSDS 881.0-M-1",
+    "title": "Spacecraft Onboard Interface Services\u2014RFID-Based Inventory Management Systems",
+    "book_color": "MAGENTA",
+    "pub_date": "May 2012",
+    "pages": 45,
+    "size_bytes": 295263,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/881x1b1.pdf",
+    "doc_id": "CCSDS 881.1-B-1",
+    "title": "Spacecraft Onboard Interface Services\u2014RFID Tag Encoding Specification",
+    "book_color": "BLUE",
+    "pub_date": "October 2017",
+    "pages": 32,
+    "size_bytes": 323465,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/882x0m1.pdf",
+    "doc_id": "CCSDS 882.0-M-1",
+    "title": "Spacecraft Onboard Interface Systems\u2014Low Data-Rate Wireless Communications for Spacecraft Monitoring and Control",
+    "book_color": "MAGENTA",
+    "pub_date": "May 2013",
+    "pages": 37,
+    "size_bytes": 337791,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/883x0b2.pdf",
+    "doc_id": "CCSDS 883.0-B-2",
+    "title": "Spacecraft Onboard Interface Services\u2014High Data Rate Wireless Proximity Network Communications",
+    "book_color": "BLUE",
+    "pub_date": "May 2024",
+    "pages": 120,
+    "size_bytes": 1571435,
+    "area": "Spacecraft Onboard Interface Services (SOIS)"
+  },
+  {
+    "file": "standards/901x0g1.pdf",
+    "doc_id": "CCSDS 901.0-G-1",
+    "title": "Space Communications Cross Support\u2014Architecture Description Document",
+    "book_color": "GREEN",
+    "pub_date": "November 2013",
+    "pages": 162,
+    "size_bytes": 4663271,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/901x1m1.pdf",
+    "doc_id": "CCSDS 901.1-M-1",
+    "title": "Space Communications Cross Support\u2014Architecture Requirements Document",
+    "book_color": "MAGENTA",
+    "pub_date": "May 2015",
+    "pages": 157,
+    "size_bytes": 1492720,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/901x31y1.pdf",
+    "doc_id": "CCSDS 901.31-Y-1",
+    "title": "Functional Resource Registry at SANA",
+    "book_color": "YELLOW",
+    "pub_date": "May 2024",
+    "pages": 72,
+    "size_bytes": 1213328,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/901x3m1e1.pdf",
+    "doc_id": "CCSDS 901.3-M-1",
+    "title": "Functional Resource Model",
+    "book_color": "MAGENTA",
+    "pub_date": "February 2024",
+    "pages": 188,
+    "size_bytes": 1357027,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x0g1.pdf",
+    "doc_id": "CCSDS 902.0-G-1",
+    "title": "Extensible Space Communication Cross Support\u2014Service Management\u2014Concept",
+    "book_color": "GREEN",
+    "pub_date": "September 2014",
+    "pages": 128,
+    "size_bytes": 1176202,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x12m1.pdf",
+    "doc_id": "CCSDS 902.12-M-1",
+    "title": "Cross Support Service Management\u2014Common Data Entities",
+    "book_color": "MAGENTA",
+    "pub_date": "February 2021",
+    "pages": 33,
+    "size_bytes": 703913,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x13m1e1c1.pdf",
+    "doc_id": "CCSDS 902.13-M-1",
+    "title": "Abstract Event Definition",
+    "book_color": "MAGENTA",
+    "pub_date": "February 2021",
+    "pages": 32,
+    "size_bytes": 658906,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x13m1e1c1_tc2405.pdf",
+    "doc_id": "CCSDS 902.13-M-1",
+    "title": "Microsoft Word - tc2405.doc",
+    "book_color": "GREEN",
+    "pub_date": "February 2024",
+    "pages": 3,
+    "size_bytes": 267659,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x1b1c1.pdf",
+    "doc_id": "CCSDS 902.1-B-1",
+    "title": "Cross Support Service Management\u2014Simple Schedule Format Specification",
+    "book_color": "BLUE",
+    "pub_date": "May 2018",
+    "pages": 63,
+    "size_bytes": 1098529,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x1b1c1_tc2145.pdf",
+    "doc_id": "CCSDS 902.1-B-1",
+    "title": "Microsoft Word - tc2145.doc",
+    "book_color": "GREEN",
+    "pub_date": "December 2021",
+    "pages": 5,
+    "size_bytes": 32965,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/902x2b1.pdf",
+    "doc_id": "CCSDS 902.2-B-1",
+    "title": "Cross Support Service Management\u2014Communications Planning Information Format",
+    "book_color": "BLUE",
+    "pub_date": "March 2022",
+    "pages": 71,
+    "size_bytes": 1100260,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/910x2g1.pdf",
+    "doc_id": "CCSDS 910.2-G-1",
+    "title": "Report: Standard Terminology, Conventions, and Methodology (TCM) for Defining Data Services",
+    "book_color": "GREEN",
+    "pub_date": "November 1994",
+    "pages": 42,
+    "size_bytes": 172051,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/910x3g3.pdf",
+    "doc_id": "CCSDS 910.3-G-3",
+    "title": "Cross Support Concept\u2014Part 1:  Space Link Extension Services",
+    "book_color": "GREEN",
+    "pub_date": "March 2006",
+    "pages": 100,
+    "size_bytes": 1000849,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/911x1b5e1.pdf",
+    "doc_id": "CCSDS 911.1-B-5",
+    "title": "Space Link Extension\u2014Return All Frames Service Specification",
+    "book_color": "BLUE",
+    "pub_date": "July 2023",
+    "pages": 147,
+    "size_bytes": 954686,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/911x2b4e1.pdf",
+    "doc_id": "CCSDS 911.2-B-4",
+    "title": "Space Link Extension\u2014Return Channel Frames Service Specification",
+    "book_color": "BLUE",
+    "pub_date": "July 2023",
+    "pages": 149,
+    "size_bytes": 990074,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/911x5b4e1.pdf",
+    "doc_id": "CCSDS 911.5-B-4",
+    "title": "Space Link Extension\u2014Return Operational Control Fields Service Specification",
+    "book_color": "BLUE",
+    "pub_date": "July 2023",
+    "pages": 155,
+    "size_bytes": 1051707,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/912x11o1.pdf",
+    "doc_id": "CCSDS 912.11-O-1",
+    "title": "Space Link Extension\u2014Enhanced Forward CLTU Service Specification",
+    "book_color": "ORANGE",
+    "pub_date": "July 2012",
+    "pages": 165,
+    "size_bytes": 729578,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/912x1b5e1.pdf",
+    "doc_id": "CCSDS 912.1-B-5",
+    "title": "Space Link Extension\u2014Forward CLTU Service Specification",
+    "book_color": "BLUE",
+    "pub_date": "July 2023",
+    "pages": 154,
+    "size_bytes": 990238,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/913x1b2.pdf",
+    "doc_id": "CCSDS 913.1-B-2",
+    "title": "Space Link Extension\u2014Internet Protocol for Transfer Services",
+    "book_color": "BLUE",
+    "pub_date": "September 2015",
+    "pages": 73,
+    "size_bytes": 334916,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/914x0m2c1.pdf",
+    "doc_id": "CCSDS 914.0-M-2",
+    "title": "Space Link Extension\u2014Application Program Interface for Transfer Services\u2014Core Specification",
+    "book_color": "MAGENTA",
+    "pub_date": "September 2015",
+    "pages": 372,
+    "size_bytes": 1215515,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/914x0m2c1_tc1615.pdf",
+    "doc_id": "CCSDS 914.0-M-2",
+    "title": "CCSDS 914.0-M-2 Cor. 1, Corrigendum 1 to 914.0-M-2, issued September 2015",
+    "book_color": "Unknown",
+    "pub_date": "August 2016",
+    "pages": 2,
+    "size_bytes": 22152,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/914x1g1.pdf",
+    "doc_id": "CCSDS 914.1-G-1",
+    "title": "Space Link Extension\u2014Application Program Interface for Transfer Services\u2014Summary of Concept and Rationale",
+    "book_color": "GREEN",
+    "pub_date": "January 2006",
+    "pages": 59,
+    "size_bytes": 432719,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/914x2g2.pdf",
+    "doc_id": "CCSDS 914.2-G-2",
+    "title": "Space Link Extension\u2014Application Program Interface for Transfer Services\u2014Application Programmer\u2019s Guide",
+    "book_color": "GREEN",
+    "pub_date": "October 2008",
+    "pages": 92,
+    "size_bytes": 637014,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/915x1m2.pdf",
+    "doc_id": "CCSDS 915.1-M-2",
+    "title": "Space Link Extension\u2014Application Program Interface for Return All Frames Service",
+    "book_color": "MAGENTA",
+    "pub_date": "September 2015",
+    "pages": 66,
+    "size_bytes": 289512,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/915x2m2.pdf",
+    "doc_id": "CCSDS 915.2-M-2",
+    "title": "Space Link Extension\u2014Application Program Interface for Return Channel Frames Service",
+    "book_color": "MAGENTA",
+    "pub_date": "September 2015",
+    "pages": 67,
+    "size_bytes": 293733,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/915x5m2.pdf",
+    "doc_id": "CCSDS 915.5-M-2",
+    "title": "Space Link Extension\u2014Application Program Interface for Return Operational Control Fields Service",
+    "book_color": "MAGENTA",
+    "pub_date": "September 2015",
+    "pages": 76,
+    "size_bytes": 312218,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/916x1m2.pdf",
+    "doc_id": "CCSDS 916.1-M-2",
+    "title": "Space Link Extension\u2014Application Program Interface for the Forward CLTU Service",
+    "book_color": "MAGENTA",
+    "pub_date": "September 2015",
+    "pages": 105,
+    "size_bytes": 418443,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/916x3m2.pdf",
+    "doc_id": "CCSDS 916.3-M-2",
+    "title": "Space Link Extension\u2014Application Program Interface for the Forward Space Packet Service",
+    "book_color": "MAGENTA",
+    "pub_date": "September 2015",
+    "pages": 154,
+    "size_bytes": 473163,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/920x0g1.pdf",
+    "doc_id": "CCSDS 920.0-G-1",
+    "title": "Cross Support Transfer Service Specification Framework Concept",
+    "book_color": "GREEN",
+    "pub_date": "May 2023",
+    "pages": 83,
+    "size_bytes": 896877,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/921x1b2e1.pdf",
+    "doc_id": "CCSDS 921.1-B-2",
+    "title": "Cross Support Transfer Service\u2014Specification Framework",
+    "book_color": "BLUE",
+    "pub_date": "February 2021",
+    "pages": 365,
+    "size_bytes": 2619050,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/921x2m1e1c1.pdf",
+    "doc_id": "CCSDS 921.2-M-1",
+    "title": "Guidelines for the Specification of Cross Support Transfer Services",
+    "book_color": "MAGENTA",
+    "pub_date": "March 2019",
+    "pages": 113,
+    "size_bytes": 1128912,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/921x2m1e1c1_tc2022.pdf",
+    "doc_id": "CCSDS 921.2-M-1",
+    "title": "Microsoft Word - tc2022.doc",
+    "book_color": "Unknown",
+    "pub_date": "August 2020",
+    "pages": 3,
+    "size_bytes": 22054,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/922x1b2.pdf",
+    "doc_id": "CCSDS 922.1-B-2",
+    "title": "Cross Support Transfer Services\u2014Monitored Data Service",
+    "book_color": "BLUE",
+    "pub_date": "September 2022",
+    "pages": 120,
+    "size_bytes": 990575,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/922x27o1.pdf",
+    "doc_id": "CCSDS 922.27-O-1",
+    "title": "Cross Support Transfer Service\u2014Return CFDP PDU Service",
+    "book_color": "ORANGE",
+    "pub_date": "May 2023",
+    "pages": 71,
+    "size_bytes": 816847,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/922x2b2.pdf",
+    "doc_id": "CCSDS 922.2-B-2",
+    "title": "Cross Support Transfer Service\u2014Tracking Data Service",
+    "book_color": "BLUE",
+    "pub_date": "February 2023",
+    "pages": 97,
+    "size_bytes": 964444,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/922x3b1.pdf",
+    "doc_id": "CCSDS 922.3-B-1",
+    "title": "Cross Support Transfer Service\u2014Forward Frame Service",
+    "book_color": "BLUE",
+    "pub_date": "April 2021",
+    "pages": 208,
+    "size_bytes": 1686364,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/927x1b1e1.pdf",
+    "doc_id": "CCSDS 927.1-B-1",
+    "title": "Terrestrial Generic File Transfer",
+    "book_color": "BLUE",
+    "pub_date": "November 2021",
+    "pages": 88,
+    "size_bytes": 1112722,
+    "area": "Cross Support Services (CSS) / SLE & CSTS"
+  },
+  {
+    "file": "standards/A02x1y4c2.pdf",
+    "doc_id": "CCSDS A02.1-Y-4",
+    "title": "Organization and Processes for the Consultative Committee for Space Data Systems",
+    "book_color": "YELLOW",
+    "pub_date": "April 2014",
+    "pages": 103,
+    "size_bytes": 501788,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/A02x1y4c2_ac1503.pdf",
+    "doc_id": "CCSDS A02.1-Y-4",
+    "title": "Microsoft Word - ac1503.doc",
+    "book_color": "Unknown",
+    "pub_date": "February 2015",
+    "pages": 4,
+    "size_bytes": 71550,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/A02x1y4c2_ac1602.pdf",
+    "doc_id": "CCSDS A02.1-Y-4",
+    "title": "Microsoft Word - ac16nn(repaired).doc",
+    "book_color": "YELLOW",
+    "pub_date": "January 2016",
+    "pages": 3,
+    "size_bytes": 21590,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/A13x1y1.pdf",
+    "doc_id": "CCSDS A13.1-Y-1",
+    "title": "CCSDS Recommended Procedures for Cloud-Based Interoperability Testing",
+    "book_color": "YELLOW",
+    "pub_date": "June 2018",
+    "pages": 28,
+    "size_bytes": 3077102,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/A20x0y4c1.pdf",
+    "doc_id": "CCSDS A20.0-Y-4",
+    "title": "CCSDS Publications Manual",
+    "book_color": "YELLOW",
+    "pub_date": "April 2014",
+    "pages": 77,
+    "size_bytes": 474790,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/A20x0y4c1_ac1504.pdf",
+    "doc_id": "CCSDS A20.0-Y-4",
+    "title": "Microsoft Word - ac1504.doc",
+    "book_color": "Unknown",
+    "pub_date": "February 2015",
+    "pages": 1,
+    "size_bytes": 17210,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/A20x1y1.pdf",
+    "doc_id": "CCSDS A20.1-Y-1",
+    "title": "CCSDS Implementation Conformance Statements",
+    "book_color": "YELLOW",
+    "pub_date": "April 2014",
+    "pages": 32,
+    "size_bytes": 296479,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/B20x0y1.pdf",
+    "doc_id": "CCSDS 820.0-Y-1",
+    "title": "Proceedings of the CCSDS RF and Modulation Subpanel 1E Meeting at the German Space Operations Centre September 20-24, 1993",
+    "book_color": "YELLOW",
+    "pub_date": "Unknown",
+    "pages": 424,
+    "size_bytes": 104266690,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/B20x0y2.pdf",
+    "doc_id": "CCSDS B20.0-Y-2",
+    "title": "Proceedings of the CCSDS RF and Modulation Subpanel 1E Meeting of May 2001 Concerning Bandwidth-Efficient Modulation",
+    "book_color": "YELLOW",
+    "pub_date": "June 2001",
+    "pages": 1419,
+    "size_bytes": 37387997,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/CCSDS_Caveman_Guide.pdf",
+    "doc_id": "CCSDS 130.0-G-4",
+    "title": "(anonymous)",
+    "book_color": "Unknown",
+    "pub_date": "April 2023",
+    "pages": 16,
+    "size_bytes": 33122,
+    "area": "Other / Administrative"
+  },
+  {
+    "file": "standards/ccsds.pdf",
+    "doc_id": "CCSDS 130.0-G-4",
+    "title": "Overview of Space Communications Protocols",
+    "book_color": "GREEN",
+    "pub_date": "April 2023",
+    "pages": 43,
+    "size_bytes": 568145,
+    "area": "Other / Administrative"
+  }
+]

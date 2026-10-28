@@ -1,0 +1,69 @@
+id: bit-byte-endianness-inspector
+title: Bit, byte and endianness inspector
+tool: 1
+level: intro
+est_minutes:
+- 10
+- 20
+objectives:
+- Read the same eight octets as unsigned and signed integers, and as IEEE-754 floats, in both byte orders.
+- Apply the CCSDS bit-numbering convention (bit 0 is transmitted first and is the most significant bit).
+- Spot a byte-order or signedness mistake from an implausible decoded value.
+prerequisites:
+- decimal-and-binary-units
+fictional_input:
+  description: 'The fictional 8-octet dump shown on the Tool 1 screen: a 32-bit float followed by the first four octets of a Space Packet header.'
+  data: hex=41 48 00 00 08 7E C4 12; fields=[float32 @0, uint16 @4, int16 @6]
+  label: example
+presets:
+- name: LEO CubeSat pass
+  settings:
+    hex: 41480000087EC412
+    byte_order: big
+- name: Both byte orders
+  settings:
+    byte_order: both
+- name: APID slice
+  settings:
+    slice_bytes:
+    - 4
+    - 5
+    slice_bits:
+    - 5
+    - 15
+break_it:
+- Swap the byte order
+- Treat the 16-bit signed field as unsigned
+- Shift the field window by one octet
+steps:
+- title: Decode as sent
+  instruction: Load the LEO CubeSat pass preset and read the decoder cards.
+  expected: FLOAT32 BE of 41 48 00 00 = 12.5; UINT32 BE = 1095237632; INT16 BE of C4 12 = −15342.
+- title: Number the bits
+  instruction: Hover bit 0 of byte 0 in the 64-bit matrix.
+  expected: Bit 0 is the leftmost, first-transmitted bit and the most significant bit (0 for 0x41).
+- title: Slice a field
+  instruction: Set the bitmask slicer to bits 5–15 of bytes 4–5.
+  expected: '0x7E (126): the same field as the Space Packet APID.'
+- title: 'Break it: byte order'
+  instruction: Switch to little-endian.
+  expected: FLOAT32 becomes about 2.59e−41 and INT16 of bytes 6–7 becomes 4804 — implausible values that signal a byte-order error.
+  hint: A tiny denormal float or a wild counter is a classic byte-order symptom.
+- title: 'Break it: signedness'
+  instruction: Read bytes 6–7 as UINT16 instead of INT16.
+  expected: '50194 instead of −15342: the database encoding, not the data, decides the meaning.'
+expected_result: The learner decodes fields correctly, names bit 0 per the CCSDS convention, slices a bit field, and diagnoses byte-order and signedness errors from the values they produce.
+explanation: Octets on the link carry no type information; the mission database (for example an XTCE parameter encoding) says how many bits, which byte order and which encoding to apply.
+common_mistakes:
+- Assuming little-endian because the ground computer is little-endian
+- Reading bit 0 as the least significant bit
+- Decoding a signed field as unsigned
+reset: Reset restores the LEO CubeSat pass preset and its fixed fictional bytes.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+sources:
+- id: CCSDS-133.0-B-2
+  loc: §1.6.3
+- id: CCSDS-660.0-B-2
+  loc: §6.1.2.1

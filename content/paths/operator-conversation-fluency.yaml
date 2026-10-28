@@ -1,0 +1,17 @@
+id: operator-conversation-fluency
+title: Operator conversation fluency
+level: core
+audience: Engineers who work beside operators and C2 teams
+prerequisites: [None]
+modules:
+  - {title: System overview, topics: [end-to-end-system, uplink-and-downlink], labs: [end-to-end-walkthrough]}
+  - {title: Units and terms, topics: [bits-symbols-and-rates, decimal-and-binary-units], labs: [bit-byte-endianness-inspector, data-budget-calculator]}
+  - {title: RF and bands, topics: [rf-basics, frequency-bands]}
+  - {title: Synchronization and coding, topics: [carrier-and-symbol-sync, sync-markers, pseudo-randomization, channel-coding], labs: [sync-marker-visualiser, channel-coding-sandbox]}
+  - {title: Frames and packets, topics: [tm-space-data-link-protocol, space-packet-protocol], labs: [space-packet-header-decoder]}
+  - {title: Telemetry and command lifecycle, topics: [telemetry-lifecycle, command-lifecycle], labs: [telemetry-calibration-sandbox, cop1-farm-simulator]}
+  - {title: Ground provider path, topics: [ground-stations-and-networks]}
+  - {title: Troubleshooting, topics: [layered-fault-isolation], labs: [anomaly-decision-tree]}
+est_hours: [8, 12]
+milestones: [Quiz after each module, Packet header decoder lab, Troubleshooting case study, Path summary stored locally]
+outcomes: [Follow an operator conversation about passes, locks, frames and commands, and ask precise questions.]

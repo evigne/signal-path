@@ -1,0 +1,20 @@
+id: alarm-limit
+term: Alarm limit
+expansion: Alarm (limit) definition
+plain_definition: A configured range for a telemetry value; crossing it changes the
+  value's alarm state (e.g. yellow or red).
+precise_meaning: A property of a parameter type in the telemetry database (in XTCE,
+  part of ParameterType); ground limits are mission configuration.
+layer: Application
+aliases:
+- limit
+- red/yellow limit
+example_usage: '''Battery temp crossed the yellow high limit.'' (fictional)'
+related_terms: []
+topics:
+- telemetry-lifecycle
+label: standard
+sources:
+- id: CCSDS-660.0-B-2
+  loc: §6.1.2.1
+last_reviewed: pending

@@ -1,0 +1,77 @@
+id: channel-coding-sandbox
+title: Channel coding and error-correction sandbox
+tool: 4
+level: core
+est_minutes:
+- 15
+- 25
+objectives:
+- See why coded links tolerate a lower Eb/N0 than uncoded ones.
+- Watch a Reed–Solomon decoder correct up to its limit and then fail a whole codeword.
+- Connect decoder counters (corrected symbols, uncorrectable codewords) to what an operator sees.
+prerequisites:
+- channel-coding
+fictional_input:
+  description: A synthetic 64 × 64 test image sent as R-S (255,223) codewords, interleaving depth 1, over a simulated noisy channel; the curves are illustrative shapes, not reference performance data.
+  data: image=checkerboard-64; rs=(255,223) E=16 I=1; eb_n0_db=0..10; seed=7
+  label: example
+presets:
+- name: LEO CubeSat pass
+  settings:
+    code: concatenated
+    eb_n0_db: 4.0
+    compare_uncoded: true
+- name: Reed–Solomon only
+  settings:
+    code: rs
+    eb_n0_db: 4.0
+- name: LDPC/Turbo
+  settings:
+    code: ldpc-turbo
+    eb_n0_db: 4.0
+- name: R-S at the cliff
+  settings:
+    code: rs
+    symbol_errors_per_codeword: 17
+break_it:
+- Inject 17 symbol errors into one codeword
+- Inject a 20-symbol burst with interleaving depth 1, then raise depth to 2
+- Configure the decoder for E=8 while the stream uses E=16
+steps:
+- title: Uncoded vs coded
+  instruction: Load the LEO CubeSat pass preset with Compare with uncoded on.
+  expected: At 4.0 dB the uncoded image shows corrupted blocks while the concatenated decode is clean; corrected-bytes counter rises, uncorrectable stays 0.
+- title: Lower Eb/N0
+  instruction: Move Eb/N0 down towards 0 dB.
+  expected: Uncorrectable frames start to appear abruptly once the decoder is overwhelmed.
+- title: Read the coding gain
+  instruction: With the concatenated code selected, read the coding-gain readout.
+  expected: 'About 7.5 dB at BER 10⁻⁵: about 5.5 dB from the convolutional code plus about 2.0 dB from the outer Reed–Solomon code (simulated, ideal conditions).'
+  hint: These are CCSDS simulation figures for comparing codes, not a link budget.
+- title: The cliff
+  instruction: Inject 16, then 17 symbol errors into one codeword.
+  expected: 16 are corrected; at 17 the codeword is flagged uncorrectable and its block is lost.
+  hint: E=16 corrects up to 16 R-S symbols per codeword.
+- title: Bursts and interleaving
+  instruction: Inject a 20-symbol burst at depth 1, then at depth 2.
+  expected: Depth 1 fails one codeword; depth 2 spreads the burst to 10 symbols in each of two codewords, both corrected.
+- title: Wrong configuration
+  instruction: Set the decoder to E=8.
+  expected: 'Every codeword is uncorrectable even with no noise: a configuration error, not a link problem.'
+expected_result: The learner can explain coding gain qualitatively, the correction limit of R-S E=16, the value of interleaving against bursts, and how decoder counters reveal configuration errors.
+explanation: CCSDS 131.0-B-6 defines the codes and their parameters. The curves remain schematic shapes; the coding-gain readout uses the simulated figures in CCSDS 130.1-G-3 §3.3.3 (about 5.5 dB convolutional,
+  +2.0 dB with Reed–Solomon, Turbo rate 1/2 about 1.5 dB better again at BER 10⁻⁵).
+common_mistakes:
+- Reading the schematic curves or simulated gains as a link budget
+- Assuming more errors always degrade gradually with coding (it is a cliff)
+- Blaming RF when the decoder is configured for the wrong code
+reset: Reset restores the uncoded preset, seed 7.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+- The image comparison has a text summary of error counts
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §5.1, §5.3, §4–8
+- id: CCSDS-130.1-G-3
+  loc: §3.3.1, §3.3.3, §7.4

@@ -1,0 +1,23 @@
+id: clcw
+term: CLCW
+expansion: Communications Link Control Word
+plain_definition: A 4-octet status report from the spacecraft, sent on the downlink,
+  saying which command frames it has accepted and whether it is blocked.
+precise_meaning: 32-bit word with VCID, No RF Available, No Bit Lock, Lockout, Wait,
+  Retransmit flags, FARM-B counter and 8-bit Report Value; carried in the TM frame
+  OCF.
+layer: Data link
+aliases:
+- control word
+example_usage: '''CLCW shows lockout on VC1.'' (fictional)'
+related_terms:
+- cop-1
+topics:
+- uplink-and-downlink
+- command-lifecycle
+- layered-fault-isolation
+label: standard
+sources:
+- id: CCSDS-232.0-B-4
+  loc: §4.2.1
+last_reviewed: pending

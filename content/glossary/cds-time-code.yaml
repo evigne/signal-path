@@ -1,0 +1,18 @@
+id: cds-time-code
+term: CDS
+expansion: CCSDS Day Segmented Time Code
+plain_definition: A time stamp written as a day count since an agreed start date plus milliseconds since midnight.
+precise_meaning: 16- or 24-bit day count, 32-bit millisecond of day, optional 16- or 32-bit submilliseconds; P-field code 100; UTC-based, so leap seconds apply.
+layer: Application / time
+aliases:
+- day segmented time code
+example_usage: '''Ground archive keys are CDS with microseconds.'' (fictional)'
+related_terms:
+- cuc
+topics:
+- time-codes
+label: standard
+sources:
+- id: CCSDS-301.0-B-4
+  loc: §3.3
+last_reviewed: pending

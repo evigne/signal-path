@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-path.local/schema/glossary-term.schema.json",
+  "title": "Glossary term",
+  "description": "Brief §4L glossary fields.",
+  "type": "object",
+  "required": [
+    "id",
+    "term",
+    "plain_definition",
+    "precise_meaning",
+    "layer",
+    "example_usage",
+    "sources"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "term": {
+      "type": "string"
+    },
+    "expansion": {
+      "type": "string"
+    },
+    "plain_definition": {
+      "type": "string"
+    },
+    "precise_meaning": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "example_usage": {
+      "type": "string",
+      "description": "How the term sounds in an operator conversation (fictional)."
+    },
+    "related_terms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "label": {
+      "enum": [
+        "standard",
+        "practice",
+        "example",
+        "mission"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Za-z0-9.\\-]*$"
+          },
+          "loc": {
+            "type": "string",
+            "description": "Section, figure or table inside the source, e.g. §9.3.1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "last_reviewed": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "const": "pending"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,50 @@
+id: frame-lock-with-errors
+title: Frame lock with errors
+layer: Synchronization and channel coding / data link
+observables:
+- Frame (codeblock) lock is stable
+- Decoder reports uncorrectable codeblocks or FECF failures
+- Frame counters jump on one or more virtual channels
+- Packets missing or failing their own checks downstream
+evidence_to_gather:
+- Pass ID, station, UTC range, configuration version
+- Eb/N0 or Es/N0 over the pass, with elevation
+- Decoder counters over time (corrected, uncorrectable)
+- Configured code option, R-S E and interleaving depth, virtual fill, derandomizer polynomial and seed
+- Frame-count gaps per virtual channel
+questions_to_ask:
+- Are errors spread over the whole pass or only at low elevation?
+- Did all codeblocks fail from the start (configuration) or only some (signal)?
+- What changed since the last good pass?
+likely_causes:
+- cause: Derandomizer off or using a different polynomial or seed
+  test: Compare ground derandomizer settings with the link configuration; the marker still locks because it is not randomized (131.0-B-6 §10.3)
+  label: standard
+- cause: Code configuration mismatch (R-S E=8 vs E=16, interleaving depth, virtual fill, code rate)
+  test: Compare decoder settings with the link configuration and ICD
+  label: mission
+- cause: Low signal-to-noise near the start or end of the pass
+  test: Plot decoder errors against Eb/N0 and elevation
+  label: practice
+- cause: Hard-decision decoding where soft decisions are expected
+  test: Check the demodulator-to-decoder interface uses soft symbols with ≥3-bit quantization (131.0-B-6 §4.2.4)
+  label: standard
+sample_log: '09:14:37Z WARN frame counter gap vc=0 expected=0xA1 got=0xA4
+
+  09:14:38Z ERR  RS uncorrectable frames=3
+
+  # fictional data, not from a real mission'
+coordinate_with:
+- Ground station / provider operations
+- Front-end and decoder engineering
+- Flight team (spacecraft transmitter and coding configuration)
+related_topics:
+- channel-coding
+- pseudo-randomization
+- sync-markers
+- tm-space-data-link-protocol
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §4.2.4, §5.3, §10.3
+- id: CCSDS-130.1-G-3
+  loc: §3.3.1

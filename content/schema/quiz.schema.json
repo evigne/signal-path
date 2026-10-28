@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-path.local/schema/quiz.schema.json",
+  "title": "Topic quiz",
+  "description": "Retrieval and practice items for one topic. A module quiz is the union of its topics' quizzes. Every item carries an answer explanation; items that test a standard fact cite it.",
+  "type": "object",
+  "required": ["id", "topic", "items"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Equals the topic id."},
+    "topic": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "prompt", "explanation", "label"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+          "type": {"enum": ["single-choice", "multi-choice", "numeric", "decode"]},
+          "prompt": {"type": "string"},
+          "data": {"type": "string", "description": "Fictional input such as a hex header; always labelled fictional in the UI."},
+          "choices": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "required": ["text", "correct"],
+              "properties": {"text": {"type": "string"}, "correct": {"type": "boolean"}, "feedback": {"type": "string"}},
+              "additionalProperties": false
+            }
+          },
+          "answer": {
+            "type": "object",
+            "description": "For numeric and decode items.",
+            "properties": {
+              "value": {"type": ["number", "string"]},
+              "tolerance": {"type": "number", "minimum": 0},
+              "unit": {"type": "string"},
+              "fields": {"type": "object", "additionalProperties": {"type": ["number", "string"]}}
+            },
+            "additionalProperties": false
+          },
+          "explanation": {"type": "string"},
+          "label": {"enum": ["standard", "practice", "example", "mission"]},
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id"],
+              "properties": {"id": {"type": "string", "pattern": "^[A-Z0-9][A-Za-z0-9.\\-]*$"}, "loc": {"type": "string"}},
+              "additionalProperties": false
+            }
+          }
+        },
+        "allOf": [
+          {"if": {"properties": {"type": {"enum": ["single-choice", "multi-choice"]}}}, "then": {"required": ["choices"]}},
+          {"if": {"properties": {"type": {"enum": ["numeric", "decode"]}}}, "then": {"required": ["answer"]}},
+          {"if": {"properties": {"label": {"enum": ["standard", "practice"]}}}, "then": {"required": ["sources"]}}
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+id: telemetry-lifecycle
+topic: telemetry-lifecycle
+items:
+- id: cal
+  type: numeric
+  prompt: Raw value 2731, calibration y = 0.03x − 40.0 °C. What is shown?
+  answer:
+    value: 41.9
+    tolerance: 0.05
+    unit: °C
+  explanation: 0.03 × 2731 − 40.0 = 41.93 °C (fictional).
+  label: example
+- id: retr
+  type: single-choice
+  prompt: Does the TM data link retransmit lost frames?
+  choices:
+  - text: No; completeness must come from a higher layer
+    correct: true
+  - text: Yes, via COP-1
+    correct: false
+  - text: Yes, automatically
+    correct: false
+  explanation: TM and AOS have no retransmission function.
+  label: standard
+  sources:
+  - id: CCSDS-130.0-G-4
+    loc: §3.2.1
+- id: xtce
+  type: single-choice
+  prompt: In XTCE, where are a parameter's encoding, calibration and alarm limits defined?
+  choices:
+  - text: In its parameter type
+    correct: true
+  - text: In the packet header
+    correct: false
+  - text: In the transfer frame
+    correct: false
+  explanation: ParameterType carries encoding, units, calibrations and alarm limits.
+  label: standard
+  sources:
+  - id: CCSDS-660.0-B-2
+    loc: §6.1.2.1

@@ -1,0 +1,14 @@
+id: cadu
+term: CADU
+expansion: Channel Access Data Unit
+plain_definition: What actually gets sent block by block on a TM link before any convolutional encoding — the sync marker plus the randomized frame or coded block.
+precise_meaning: The protocol unit after block coding (if used), randomization and CSM attachment, but prior to convolutional encoding; its content depends on the coding scheme (CCSDS 131.0-B-6 Table 9-1).
+layer: Synchronization and channel coding sublayer
+aliases: [channel access data unit]
+example_usage: '"The station is streaming CADUs to us, not decoded frames, so our front end has to decode." (fictional)'
+related_terms: [csm, asm]
+topics: [sync-markers]
+label: standard
+sources:
+  - {id: CCSDS-131.0-B-6, loc: "§9.1.2, Table 9-1"}
+last_reviewed: pending

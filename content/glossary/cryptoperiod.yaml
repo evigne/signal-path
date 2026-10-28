@@ -1,0 +1,17 @@
+id: cryptoperiod
+term: Cryptoperiod
+expansion: Cryptoperiod
+plain_definition: How long a particular key is allowed to be used.
+precise_meaning: The time span during which a key is authorized for use; limits data exposed to cryptanalysis and the impact of compromise (NIST SP 800-57 Pt 1 §5.3).
+layer: Key management
+aliases: []
+example_usage: '''The TC session key cryptoperiod is 30 days.'' (fictional)'
+related_terms:
+- otar
+topics:
+- key-management-and-rotation
+label: standard
+sources:
+- id: NIST-800-57
+  loc: §5.3
+last_reviewed: pending

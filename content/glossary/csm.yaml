@@ -1,0 +1,14 @@
+id: csm
+term: CSM
+expansion: Code Synchronization Marker
+plain_definition: A fixed bit pattern put in front of every coded block so the receiver can find where each block starts.
+precise_meaning: In CCSDS 131.0-B-6, the marker that immediately follows the preceding codeword or codeblock; its pattern and length depend on the coding option (32-bit 1ACFFC1D for uncoded, convolutional, Reed–Solomon, concatenated and rate-7/8 LDPC data; longer markers for Turbo and other LDPC rates).
+layer: Synchronization and channel coding sublayer
+aliases: [ASM, sync marker, sync word]
+example_usage: '"We have carrier and bit lock but the synchronizer can''t find the CSM. Check it''s set for the LDPC marker, not 1ACFFC1D." (fictional)'
+related_terms: [asm, cadu, frame-synchronization]
+topics: [sync-markers]
+label: standard
+sources:
+  - {id: CCSDS-131.0-B-6, loc: "§9.2, §9.3"}
+last_reviewed: pending

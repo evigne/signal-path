@@ -1,0 +1,47 @@
+id: packets-present-values-invalid
+title: Packets present, values invalid
+layer: Telemetry definition and time
+observables:
+- Packets arrive with continuous sequence counts
+- Some parameters show impossible values, wrong units or wrong times
+- Problem began at a database or flight-software change, or affects one parameter group
+evidence_to_gather:
+- Raw packet hex for an affected packet
+- Database version and the parameter definition (offset, size, encoding, byte order, calibration)
+- Time code format expected vs received
+- Flight-software version and recent changes
+questions_to_ask:
+- Did the mission database or flight software change?
+- Does the raw value make sense before calibration?
+- Is the time stamp decoded with the right epoch and format?
+likely_causes:
+- cause: Parameter encoding wrong in the database (size, signedness, byte order)
+  test: Decode the raw bits by hand per the ICD and compare
+  label: mission
+- cause: Calibration or limit definition wrong
+  test: Recompute engineering value from raw with the documented calibration
+  label: mission
+- cause: Time code decoded with the wrong format or epoch
+  test: Check P-field / ICD time code against CCSDS 301.0-B-4
+  label: standard
+sample_log: '10:04:00Z INFO APID 0x07E seq 1042 len 70
+
+  10:04:00Z WARN BAT_TEMP = -109239.97 °C (limit check skipped: implausible)
+
+  # fictional data, not from a real mission
+
+  '
+coordinate_with:
+- Mission database owners
+- Flight software team
+- Ground data processing
+related_topics:
+- telemetry-and-command-databases
+- telemetry-lifecycle
+- time-codes
+- decimal-and-binary-units
+sources:
+- id: CCSDS-660.0-B-2
+  loc: §6.1.2.1
+- id: CCSDS-301.0-B-4
+  loc: §3.1–3.3

@@ -1,0 +1,69 @@
+id: data-budget-calculator
+title: Data budget and contact capacity calculator
+tool: 7
+level: core
+est_minutes:
+- 15
+- 25
+objectives:
+- Compute daily downlink volume from passes, pass length and information rate.
+- Compare it with daily data generation and see backlog grow or drain.
+- Avoid unit mistakes (bits vs octets, GB vs GiB, coded vs information rate).
+prerequisites:
+- decimal-and-binary-units
+- bits-symbols-and-rates
+fictional_input:
+  description: 'The illustrative defaults on the Data budget calculator screen: a fictional LEO spacecraft and a generic, fictional high-latitude station set.'
+  data: info_rate_mbps=2.0; pass_s=600; setup_s=60; framing_overhead=8%; retransmission_allowance=5%; operational_margin=10%; passes_per_day=4; generation_mb_per_day=360; start_backlog_mb=300
+  label: example
+presets:
+- name: Illustrative defaults
+  settings: {}
+- name: Shorter pass (480 s)
+  settings:
+    pass_s: 480
+- name: Rate halved (1.0 Mbit/s)
+  settings:
+    info_rate_mbps: 1.0
+- name: One missed contact
+  settings:
+    passes_per_day: 3
+- name: +100 MB/day payload
+  settings:
+    generation_mb_per_day: 460
+break_it:
+- Enter the channel symbol rate instead of the information rate
+- Mix MB and MiB
+- Set setup time to zero
+steps:
+- title: Per pass
+  instruction: Start with the illustrative defaults and open Formulas and working.
+  expected: 540 s usable × 2.0 Mbit/s = 135.0 MB raw → 124.2 after framing → 118.0 after retransmission allowance → 106.2 MB deliverable (≈ 101.3 MiB).
+- title: Per day and backlog
+  instruction: Read the daily balance and the 7-day chart.
+  expected: '106.2 × 4 = 424.8 MB/day against 360 MB generated: +64.8 MB/day, the 300 MB backlog drains by day 6.'
+- title: Try scenarios
+  instruction: Run each "What changed?" scenario.
+  expected: 'Shorter pass: 82.6 MB/pass, −29.6 MB/day. Rate halved: 53.1 MB/pass, 212.4 MB/day, backlog grows. One missed contact: 318.6 MB/day, −41.4 MB/day. +100 MB/day payload: −35.2 MB/day.'
+- title: Break it
+  instruction: Enter the channel symbol rate (2.294 Msym/s in the Bits, symbols and rates example) as the data rate.
+  expected: The plan looks about 15 % better than reality because coding and marker overhead are counted as useful data.
+  hint: Budget with the information rate.
+expected_result: The learner builds a daily budget in consistent units, explains each deduction, and predicts whether the backlog grows or drains.
+explanation: Limited contact time is why data is stored onboard and replayed; the network, pass counts and rates here are fictional and stand in for a mission-specific pass plan.
+common_mistakes:
+- Budgeting with the channel symbol rate
+- Using GiB for storage and GB for volume without converting
+- Assuming every scheduled minute carries data
+reset: Reset restores the illustrative defaults.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+- The backlog chart has a data table alternative
+sources:
+- id: NIST-BINARY
+  loc: page
+- id: CCSDS-413.0-G-3
+  loc: §2.4
+- id: NASA-SOA-11
+  loc: §11.2.1

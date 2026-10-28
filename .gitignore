@@ -1,0 +1,18 @@
+# Secrets and local tooling
+.env
+.env.*
+.venv/
+.claude/
+.codex/
+.DS_Store
+
+# Licensed / personal-use source documents — never commit or publish
+standards/
+research/sources/
+
+# Build output and dependencies
+node_modules/
+site/dist/
+site/.astro/
+site/test-results/
+site/playwright-report/

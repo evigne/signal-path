@@ -1,0 +1,20 @@
+id: eb-n0
+term: Eb/N0
+expansion: Energy per information bit to noise spectral density
+plain_definition: How much signal energy each useful bit gets compared with the background noise; the main signal-quality number for coded links.
+precise_meaning: Ratio of received signal energy per information bit to the one-sided noise spectral density; code performance is quoted as error rate versus Eb/N0 (bit-SNR).
+layer: Physical layer / link budget
+aliases:
+- bit-SNR
+example_usage: '''Eb/N0 dropped to 3 dB at low elevation and the uncorrectables started.'' (fictional)'
+related_terms:
+- code-rate
+- symbol-rate
+topics:
+- bits-symbols-and-rates
+- channel-coding
+label: standard
+sources:
+- id: CCSDS-130.1-G-3
+  loc: §3.3.1
+last_reviewed: pending

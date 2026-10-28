@@ -1,0 +1,13 @@
+id: pseudo-randomizer
+term: Pseudo-randomizer
+plain_definition: A fixed scrambling pattern mixed into the data so the signal has enough 0-to-1 changes for the receiver to stay in step. It is not encryption.
+precise_meaning: In CCSDS 131.0-B-6, a mandatory XOR of the codeblock, codeword or transfer frame with a standard pseudo-random sequence, applied at defined points relative to coding; the CSM itself is not randomized.
+layer: Synchronization and channel coding sublayer
+aliases: [randomizer, scrambler]
+example_usage: '"Frames lock but every RS block fails — check the derandomizer is enabled." (fictional)'
+related_terms: [cadu, csm]
+topics: [sync-markers, pseudo-randomization]
+label: standard
+sources:
+  - {id: CCSDS-131.0-B-6, loc: "§10.1, §10.2, §9.1.2"}
+last_reviewed: pending

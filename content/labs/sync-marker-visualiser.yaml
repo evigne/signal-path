@@ -1,0 +1,41 @@
+id: sync-marker-visualiser
+title: Sync-marker visualiser
+tool: 3
+level: core
+est_minutes: [15, 25]
+objectives:
+  - See how noise and the match threshold trade missed markers against false matches.
+  - Watch a synchronizer move through search, acquire, lock and flywheel.
+  - Observe how a single-bit slip breaks alignment until the synchronizer reacquires.
+prerequisites: [sync-markers]
+fictional_input:
+  description: Synthetic bit stream of Reed–Solomon codeblocks (I = 5) with the 32-bit marker 1ACFFC1D every 10,232 bits; independent random bit errors at the chosen bit error rate.
+  data: "marker=1ACFFC1D; recurrence_bits=10232; frames=200; seed=42"
+  label: example
+presets:
+  - {name: Clean pass, settings: {ber: 1.0e-6, threshold_bits: 2, confirmations: 2, flywheel: 2}}
+  - {name: Noisy pass, settings: {ber: 1.0e-2, threshold_bits: 2, confirmations: 2, flywheel: 2}}
+  - {name: Loose threshold, settings: {ber: 1.0e-3, threshold_bits: 4, confirmations: 1, flywheel: 4}}
+break_it:
+  - Insert a one-bit slip
+  - Set the receiver to the 64-bit LDPC marker while the stream uses 1ACFFC1D
+  - Invert the bit stream
+steps:
+  - {title: Read the stream, instruction: "Start the Clean pass preset and find two consecutive markers in the bit view.", expected: "Markers 10,232 bits apart, 0–1 mismatched bits each."}
+  - {title: Add noise, instruction: "Move BER to 1e-2.", expected: "Mismatch counts rise; some markers exceed the threshold and are counted as missed; flywheel holds lock briefly."}
+  - {title: Change the threshold, instruction: "Raise the threshold to 4 bits.", expected: "Fewer missed markers, but the false-match counter starts to rise."}
+  - {title: Break it, instruction: "Insert a one-bit slip.", expected: "Markers stop appearing at the expected place; lock is lost after the flywheel count and the synchronizer returns to search, then reacquires."}
+  - {title: Wrong marker, instruction: "Set the receiver to the 64-bit LDPC marker.", expected: "No acquisition at all: the configured marker never appears.", hint: "Check the coding option before blaming RF."}
+expected_result: The learner can explain the threshold trade-off, the role of the flywheel, and why a wrong marker setting gives carrier and bit lock without frame lock.
+explanation: Sync is found by matching a known pattern within a tolerance and confirming it repeats at the expected spacing; tolerance and confirmation counts are configuration choices, not CCSDS requirements.
+common_mistakes:
+  - Treating one marker match as lock
+  - Expecting the same marker for every coding option
+  - Raising the threshold to cure missed markers without watching false matches
+reset: Reset restores the Clean pass preset and seed 42; the stream is always synthetic.
+accessibility:
+  - Synchronizer state and counters are shown as text, not colour alone
+  - Sliders are keyboard operable; animation steps instead of slides under reduced motion
+sources:
+  - {id: CCSDS-131.0-B-6, loc: "§9.3, §5.3.5.1"}
+  - {id: CCSDS-130.1-G-3, loc: "§9.3.7"}

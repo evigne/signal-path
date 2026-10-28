@@ -1,0 +1,39 @@
+id: fast-reference
+title: Fast reference
+level: intro
+audience: Anyone who needs an answer during a pass or a design discussion
+prerequisites:
+- None
+modules:
+- title: Look it up
+  topics:
+  - protocol-comparison
+  - standards-map
+- title: Decode it
+  topics:
+  - space-packet-protocol
+  - tm-space-data-link-protocol
+  - tc-space-data-link-protocol
+  - time-codes
+  labs:
+  - space-packet-header-decoder
+  - bit-byte-endianness-inspector
+- title: Numbers and units
+  topics:
+  - decimal-and-binary-units
+  - bits-symbols-and-rates
+  - link-budgets
+  labs:
+  - data-budget-calculator
+- title: Symptoms
+  topics:
+  - layered-fault-isolation
+  labs:
+  - anomaly-decision-tree
+est_hours:
+- 1
+- 3
+milestones:
+- Use as needed; no quizzes
+outcomes:
+- Find the right standard, field size or symptom guide in under a minute

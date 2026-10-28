@@ -1,0 +1,48 @@
+id: sync-markers
+topic: sync-markers
+items:
+- id: asm
+  type: single-choice
+  prompt: Which 32-bit marker is used with uncoded, convolutional, Reed–Solomon and concatenated TM?
+  choices:
+  - text: 1ACFFC1D
+    correct: true
+  - text: 034776C7
+    correct: false
+  - text: E53003E2
+    correct: false
+  explanation: 1ACFFC1D; E53003E2 is its bitwise inverse.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §9.3
+- id: rand
+  type: single-choice
+  prompt: Is the sync marker randomized?
+  choices:
+  - text: 'No'
+    correct: true
+  - text: 'Yes'
+    correct: false
+  - text: Only for LDPC
+    correct: false
+  explanation: The CSM is not randomized, so the receiver can find it before derandomizing.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §10.3
+- id: inv
+  type: single-choice
+  prompt: A raw dump repeats E5 30 03 E2. What does that suggest?
+  choices:
+  - text: An inverted bit stream (for example a phase ambiguity)
+    correct: true
+  - text: A wrong spacecraft ID
+    correct: false
+  - text: A Reed–Solomon failure
+    correct: false
+  explanation: E53003E2 is the bitwise inverse of 1ACFFC1D; CCSDS recommends resolving QPSK phase ambiguity with the sync marker.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §2.4.11

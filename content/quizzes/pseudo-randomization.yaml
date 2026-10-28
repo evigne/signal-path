@@ -1,0 +1,45 @@
+id: pseudo-randomization
+topic: pseudo-randomization
+items:
+- id: mand
+  type: single-choice
+  prompt: Is the TM pseudo-randomizer optional in 131.0-B-6?
+  choices:
+  - text: No, it is mandatory
+    correct: true
+  - text: Yes, always optional
+    correct: false
+  - text: Only for deep space
+    correct: false
+  explanation: 131.0-B-6 makes the randomizer mandatory.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §10.1
+- id: len
+  type: numeric
+  prompt: How long is the primary randomizer sequence in 131.0-B-6, in bits?
+  answer:
+    value: 131071
+    tolerance: 0
+    unit: bits
+  explanation: The 17-stage polynomial x^17 + x^14 + 1 gives a 131,071-bit sequence; the 255-bit sequence is legacy.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §10.4.1
+- id: secret
+  type: single-choice
+  prompt: Does randomization keep data secret?
+  choices:
+  - text: No, it is a public fixed pattern for bit transitions
+    correct: true
+  - text: Yes, it is a light cipher
+    correct: false
+  - text: Only with a key
+    correct: false
+  explanation: Randomization is not encryption; confidentiality needs SDLS.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §10.1

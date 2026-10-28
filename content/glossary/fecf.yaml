@@ -1,0 +1,24 @@
+id: fecf
+term: FECF
+expansion: Frame Error Control Field
+plain_definition: A 16-bit checksum at the end of a frame that shows whether the frame arrived damaged.
+precise_meaning: Optional 2-octet field computed with G(X) = X^16 + X^12 + X^5 + 1 with the register preset to all ones; if used, present in every frame on the physical channel for a mission phase; required
+  for validation when convolutional coding is used without outer R-S.
+layer: Data link layer
+aliases:
+- CRC
+- frame CRC
+example_usage: '''Three FECF failures this pass, all near LOS.'' (fictional)'
+related_terms:
+- transfer-frame
+- reed-solomon
+topics:
+- tm-space-data-link-protocol
+- channel-coding
+label: standard
+sources:
+- id: CCSDS-132.0-B-3
+  loc: §4.1.6
+- id: CCSDS-131.0-B-6
+  loc: §4.2.3
+last_reviewed: pending

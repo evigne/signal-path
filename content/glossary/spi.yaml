@@ -1,0 +1,19 @@
+id: spi
+term: SPI
+expansion: Security Parameter Index
+plain_definition: The number in a protected frame that says which security settings and keys to use.
+precise_meaning: 16-bit mandatory first field of the SDLS security header identifying the security association; 0 and 65535 reserved.
+layer: Data link
+aliases: []
+example_usage: '''SPI 0x0011 is the TC association.'' (fictional)'
+related_terms:
+- security-association
+- sdls
+topics:
+- space-data-link-security
+- security-associations-and-anti-replay
+label: standard
+sources:
+- id: CCSDS-355.0-B-2
+  loc: §4.1.1.2
+last_reviewed: pending

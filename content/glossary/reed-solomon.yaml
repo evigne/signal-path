@@ -1,0 +1,21 @@
+id: reed-solomon
+term: Reed–Solomon code
+expansion: R-S
+plain_definition: A block code that repairs whole damaged bytes, which makes it good against bursts of errors.
+precise_meaning: CCSDS (255,223) code corrects up to 16 symbol errors per codeword (E=16); (255,239) corrects up to 8 (E=8); interleaving depth I = 1, 2, 3, 4, 5 or 8; may be the outer code in concatenated
+  coding.
+layer: Synchronization and channel coding sublayer
+aliases:
+- RS
+- R-S
+example_usage: '''RS corrected about a thousand symbols, no uncorrectables.'' (fictional)'
+related_terms:
+- convolutional-code
+- code-rate
+topics:
+- channel-coding
+label: standard
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §5.1, §5.3.4, §5.3.5.1
+last_reviewed: pending

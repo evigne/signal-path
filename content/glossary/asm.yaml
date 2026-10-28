@@ -1,0 +1,22 @@
+id: asm
+term: ASM
+expansion: Attached Sync Marker (also Attached Synchronization Marker)
+plain_definition: The sync pattern attached in front of each transfer frame or coded block; operators often use it as the general name for the sync word.
+precise_meaning: In CCSDS 131.0-B-6, the 32-bit marker attached to each transfer frame. With slicing, the ASM is attached before coding, so it is encoded and randomized with the data, while a separate CSM
+  marks each codeword or codeblock. Without slicing, the CSM also serves as the ASM and the terms may be used interchangeably.
+layer: Synchronization and channel coding sublayer
+aliases:
+- CSM
+- sync marker
+- frame sync word
+example_usage: '"Frame sync dropped after the ASM matches went to zero." (fictional)'
+related_terms:
+- csm
+- frame-synchronization
+topics:
+- sync-markers
+label: standard
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §3.3.1 (incl. note), §9.2.2
+last_reviewed: pending

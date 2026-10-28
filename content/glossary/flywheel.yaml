@@ -1,0 +1,13 @@
+id: flywheel
+term: Flywheel (frame synchronizer)
+plain_definition: A grace period in which the synchronizer keeps its timing after missing a marker, instead of dropping lock straight away.
+precise_meaning: In a state-diagram frame synchronizer, flywheel states allow a configured number of consecutive missed markers before loss of lock is declared and the synchronizer returns to search.
+layer: Synchronization and channel coding sublayer (receiver implementation)
+aliases: [flywheeling]
+example_usage: '"Two markers missed, but we stayed in flywheel and recovered lock." (fictional)'
+related_terms: [frame-synchronization]
+topics: [sync-markers]
+label: practice
+sources:
+  - {id: CCSDS-130.1-G-3, loc: "§9.3.7, Figure 9-3"}
+last_reviewed: pending

@@ -1,0 +1,15 @@
+id: igm
+name: IGM
+note: Name from the project brief; no first-party source identified. Awaiting clarification of which organization is meant (ledger G15).
+last_checked: pending
+cells:
+  name: &id001
+    state: to_research
+  locations: *id001
+  bands: *id001
+  service_modes: *id001
+  scheduling: *id001
+  data_delivery: *id001
+  latency: *id001
+  support: *id001
+  public_docs: *id001

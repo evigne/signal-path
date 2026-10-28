@@ -1,0 +1,68 @@
+id: cop1-farm-simulator
+title: COP-1 FOP-1 and FARM-1 simulator
+tool: 6
+level: advanced
+est_minutes:
+- 20
+- 30
+objectives:
+- Follow V(S), V(R) and the CLCW report value as frames are sent and accepted.
+- Trigger go-back-n retransmission by dropping a frame.
+- Drive the FARM into Lockout and recover with an Unlock.
+prerequisites:
+- command-lifecycle
+- uplink-and-downlink
+fictional_input:
+  description: 'The fictional virtual channel on the Tool 6 screen: frames numbered from 10, FARM sliding window W = 10 (PW = NW = 5).'
+  data: vc=1; W=10; start_vs=10; t1_initial_s=fictional; transmission_limit=3
+  label: example
+presets:
+- name: Clean
+  settings:
+    drop: []
+- name: LEO CubeSat pass (drop one frame)
+  settings:
+    drop:
+    - 10
+- name: Jump outside window
+  settings:
+    inject_ns: 30
+- name: Spacecraft busy
+  settings:
+    farm_buffer_full: true
+break_it:
+- Drop the next frame
+- Send a Type-AD frame with N(S) outside the window
+- Fill the onboard buffer
+steps:
+- title: Clean sending
+  instruction: Send AD frames 10, 11 and 12.
+  expected: CLCW report value advances to 13; FOP-1 stays in S1 (Active); FARM in Open.
+- title: Drop a frame
+  instruction: Load the drop-one-frame preset and send 10 and 11.
+  expected: 10 lost; 11 discarded because N(S) > V(R) = 10; CLCW N(R) = 10, Retransmit = 1; FOP-1 enters S2 and resends from 10 without operator action.
+- title: Lockout
+  instruction: Load "Jump outside window".
+  expected: N(S) = 30 is beyond V(R) + PW − 1 = 14; FARM enters Lockout, CLCW Lockout = 1, no Type-A frames accepted.
+- title: Recover
+  instruction: Send an Unlock control command (BC frame), then re-initialize FOP-1.
+  expected: CLCW Lockout = 0; FARM Open; commanding resumes from the report value.
+- title: Wait
+  instruction: Load "Spacecraft busy".
+  expected: FARM Wait; CLCW Wait = 1; FOP-1 holds until buffers free.
+expected_result: The learner reads FOP-1 and FARM-1 states and CLCW flags, explains go-back-n retransmission, and performs a lockout recovery in the right order.
+explanation: States, flags and window rules come from CCSDS 232.1-B-2 and 232.0-B-4; window width, timer and transmission limit are mission-managed parameters (fictional here).
+common_mistakes:
+- Assuming radiated means accepted
+- Resending only the lost frame (it is go-back-n)
+- Expecting Lockout to clear without an Unlock
+reset: Reset restores the Clean preset with V(S) = V(R) = 10.
+accessibility:
+- All values and states are shown as text, not colour alone
+- Every control is keyboard operable with visible focus; live results are announced politely
+- State machines are also shown as a text table of current state and last transition
+sources:
+- id: CCSDS-232.1-B-2
+  loc: §5.1.2, §6.1.2, §6.1.8
+- id: CCSDS-232.0-B-4
+  loc: §2.2.2, §4.1.2.3, §4.2.1

@@ -1,0 +1,48 @@
+id: layered-fault-isolation
+topic: layered-fault-isolation
+items:
+- id: first
+  type: single-choice
+  prompt: Frames are continuous with no FECF failures, but APID 0x07E has a sequence gap. First bad layer?
+  choices:
+  - text: Packets / onboard source
+    correct: true
+  - text: RF
+    correct: false
+  - text: Frame sync
+    correct: false
+  explanation: Each APID has its own count; a packet gap with no frame gap points above the data link.
+  label: standard
+  sources:
+  - id: CCSDS-133.0-B-2
+    loc: §4.1.3.4.3
+- id: norf
+  type: single-choice
+  prompt: The CLCW No RF Available flag is set. What does it indicate?
+  choices:
+  - text: The spacecraft receiver is not ready on the uplink physical channel
+    correct: true
+  - text: A FARM lockout
+    correct: false
+  - text: A downlink problem
+    correct: false
+  explanation: No RF Available and No Bit Lock describe the uplink at the spacecraft.
+  label: standard
+  sources:
+  - id: CCSDS-232.0-B-4
+    loc: §4.2.1.8
+- id: fs
+  type: single-choice
+  prompt: Which states describe a typical frame synchronizer?
+  choices:
+  - text: Search, acquire, lock, flywheel
+    correct: true
+  - text: Open, wait, lockout
+    correct: false
+  - text: Unbound, ready, active
+    correct: false
+  explanation: Open/Wait/Lockout is FARM-1; Unbound/Ready/Active is SLE.
+  label: standard
+  sources:
+  - id: CCSDS-130.1-G-3
+    loc: §9.3.7

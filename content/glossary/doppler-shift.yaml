@@ -1,0 +1,18 @@
+id: doppler-shift
+term: Doppler shift
+plain_definition: The change in received frequency caused by the spacecraft moving towards or away from the station.
+precise_meaning: For Category A Earth-to-space links, CCSDS 401.0-B-32 cites shifts up to about ±80 kHz at 2 GHz and ±300 kHz at 7 GHz, larger than receiver lock-in ranges, which is why ground transmitters
+  sweep and use predicted Doppler.
+layer: Physical layer
+aliases:
+- Doppler
+example_usage: '''Uplink didn''t lock — the Doppler predicts were from an old orbit.'' (fictional)'
+related_terms:
+- symbol-rate
+topics:
+- carrier-and-symbol-sync
+label: standard
+sources:
+- id: CCSDS-401
+  loc: §2.1.3A
+last_reviewed: pending

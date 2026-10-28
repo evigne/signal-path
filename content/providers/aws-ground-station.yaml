@@ -1,0 +1,49 @@
+id: aws-ground-station
+name: AWS Ground Station
+note: AWS features page and User Guide differ on band edges; the User Guide capability table is used.
+last_checked: '2026-10-28'
+cells:
+  name:
+    state: cited
+    value: AWS Ground Station (Amazon Web Services)
+    sources:
+    - id: AWS-GS-UG
+  locations:
+    state: cited
+    value: 11 ground stations listed; Seoul antenna resources removed 16 Jun 2026; Dedicated Antenna locations not disclosed
+    sources:
+    - id: AWS-GS-LOC
+  bands:
+    state: cited
+    value: S up 2025–2110 MHz, S down 2200–2290 MHz, X down 7750–8500 MHz (User Guide)
+    sources:
+    - id: AWS-GS-CAP
+  service_modes:
+    state: cited
+    value: On-Demand, Reserved (monthly commitment), Dedicated Antennas; billed per scheduled minute
+    sources:
+    - id: AWS-GS-FEAT
+  scheduling:
+    state: cited
+    value: Console, API, CLI/SDK; reservations changeable until 15 min before
+    sources:
+    - id: AWS-GS-FEAT
+    - id: AWS-GS-UG
+  data_delivery:
+    state: cited
+    value: Real time to EC2 (VITA-49) or to S3 (PCAP); demodulated/decoded or raw digital IF; uplink via DigIF on S-band only
+    sources:
+    - id: AWS-GS-UG
+  latency:
+    state: cited
+    value: Processing 'within seconds' of reception (as stated)
+    sources:
+    - id: AWS-GS-UG
+  support:
+    state: not_public
+    value: Not publicly specified (pages checked)
+  public_docs:
+    state: cited
+    value: Public User Guide and API Reference
+    sources:
+    - id: AWS-GS-UG

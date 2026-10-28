@@ -1,0 +1,48 @@
+id: rf-basics
+topic: rf-basics
+items:
+- id: pol
+  type: single-choice
+  prompt: Which polarization does CCSDS recommend on Earth-to-space links?
+  choices:
+  - text: Circular
+    correct: true
+  - text: Linear horizontal
+    correct: false
+  - text: Linear vertical
+    correct: false
+  explanation: 401.0-B-32 recommends circular polarization on Earth-to-space links (RCP or LCP on space-to-Earth).
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §2.1.2, §2.3.5
+- id: highrate
+  type: single-choice
+  prompt: Which modulations does CCSDS recommend for Category A high-rate telemetry?
+  choices:
+  - text: GMSK or OQPSK
+    correct: true
+  - text: Unfiltered BPSK only
+    correct: false
+  - text: FSK
+    correct: false
+  explanation: 401.0-B-32 recommends GMSK or OQPSK for Category A high rates.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §2.4.17A
+- id: ratio
+  type: single-choice
+  prompt: What turnaround ratio does CCSDS recommend for S-band coherent transponders (2025–2120 up, 2200–2300 down)?
+  choices:
+  - text: 221/240
+    correct: true
+  - text: 240/221
+    correct: false
+  - text: 880/749
+    correct: false
+  explanation: The recommended ratio is 221/240.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §2.6.1

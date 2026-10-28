@@ -1,0 +1,46 @@
+id: ssc
+name: SSC Space
+last_checked: '2026-10-28'
+cells:
+  name:
+    state: cited
+    value: SSC Space (brand used on site)
+    sources:
+    - id: SSC-HOME
+  locations:
+    state: cited
+    value: '11 own ground stations and 10 partner stations; Go: 13 antennas at 5 locations'
+    sources:
+    - id: SSC-STATIONS
+    - id: SSC-GO
+  bands:
+    state: cited
+    value: 'Go: S up/down; X and Ka down'
+    sources:
+    - id: SSC-GO
+  service_modes:
+    state: cited
+    value: Go, Plus, LEOP, Lunar, Optical, Hosting, Teleport
+    sources:
+    - id: SSC-HOME
+  scheduling:
+    state: cited
+    value: 'Go: reserve time slots; API and lead times not publicly specified'
+    sources:
+    - id: SSC-GO
+  data_delivery:
+    state: cited
+    value: 'Go: secure regional cloud interface, drop-off zone such as S3; SLE not stated'
+    sources:
+    - id: SSC-GO
+  latency:
+    state: not_public
+    value: Not publicly specified (pages checked)
+  support:
+    state: cited
+    value: 'Plus: 24 hours a day, 365 days a year'
+    sources:
+    - id: SSC-HOME
+  public_docs:
+    state: not_public
+    value: Not publicly specified (pages checked)

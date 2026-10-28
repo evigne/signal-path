@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-path.local/schema/topic.schema.json",
+  "title": "Topic page",
+  "description": "Frontmatter of a topic page (brief §6, 14-part template). Body is Markdown with required H2 sections and :::claim directives.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "definition",
+    "section",
+    "level",
+    "est_minutes",
+    "prerequisites",
+    "objectives",
+    "chain_position",
+    "glossary_terms",
+    "sources",
+    "owner",
+    "reviewer",
+    "last_reviewed",
+    "next_review",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "string",
+      "description": "One sentence, plain language."
+    },
+    "section": {
+      "enum": [
+        "start-here",
+        "fundamentals",
+        "space-link",
+        "ground-segment",
+        "operations",
+        "security-resilience",
+        "data-capacity",
+        "troubleshooting",
+        "labs",
+        "reference"
+      ]
+    },
+    "subsection": {
+      "type": "string"
+    },
+    "level": {
+      "enum": [
+        "intro",
+        "core",
+        "advanced"
+      ]
+    },
+    "est_minutes": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[min, max]; adjustable after writing."
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "learning_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2
+    },
+    "chain_position": {
+      "type": "object",
+      "required": [
+        "direction",
+        "stage"
+      ],
+      "properties": {
+        "direction": {
+          "enum": [
+            "downlink",
+            "uplink",
+            "both"
+          ]
+        },
+        "stage": {
+          "type": "string"
+        },
+        "before": {
+          "type": "string"
+        },
+        "after": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "glossary_terms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "related_topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "related_labs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "related_symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "standards": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Za-z0-9.\\-]*$"
+          },
+          "loc": {
+            "type": "string",
+            "description": "Section, figure or table inside the source, e.g. §9.3.1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "tool": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9,
+      "description": "Interactive tool number from wip_research.md, if the page embeds one."
+    },
+    "owner": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "last_reviewed": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "const": "pending"
+        }
+      ]
+    },
+    "next_review": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "const": "pending"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "in-review",
+        "published"
+      ]
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Unresolved questions that block publication (must be empty when status = published)."
+    }
+  },
+  "additionalProperties": false
+}

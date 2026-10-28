@@ -1,0 +1,22 @@
+id: code-rate
+term: Code rate
+expansion: r
+plain_definition: How many information bits each transmitted coded symbol carries; rate 1/2 means two symbols per bit.
+precise_meaning: Ratio of information bits to coded symbols; CCSDS convolutional codes are rate 1/2 (punctured to 2/3–7/8), Turbo codes have nominal rates 1/2–1/6, and true Turbo rates are slightly lower
+  because of trellis termination.
+layer: Synchronization and channel coding sublayer
+aliases:
+- r
+example_usage: '''They dropped to rate 1/2 for the low-elevation part of the pass.'' (fictional)'
+related_terms:
+- convolutional-code
+- turbo-code
+- symbol-rate
+topics:
+- channel-coding
+- bits-symbols-and-rates
+label: standard
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §4.3.1, §4.4, §7.3.5
+last_reviewed: pending

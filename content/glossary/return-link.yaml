@@ -1,0 +1,21 @@
+id: return-link
+term: Return link
+expansion: Return link
+plain_definition: The direction from the spacecraft towards the ground (or a relay);
+  in everyday speech, the downlink.
+precise_meaning: The link usually served by the TM (or AOS, USLP) Space Data Link
+  Protocol; carries telemetry and payload data.
+layer: Physical / data link
+aliases:
+- downlink
+example_usage: '''Return link at 2 Mbit/s on VC0 and VC2.'' (fictional)'
+related_terms:
+- forward-link
+- transfer-frame
+topics:
+- uplink-and-downlink
+label: standard
+sources:
+- id: CCSDS-130.0-G-4
+  loc: §3.2.1
+last_reviewed: pending

@@ -1,0 +1,45 @@
+id: channel-coding
+topic: channel-coding
+items:
+- id: rs
+  type: single-choice
+  prompt: How many symbol errors per codeword can Reed–Solomon E=16 correct?
+  choices:
+  - text: '16'
+    correct: true
+  - text: '8'
+    correct: false
+  - text: '32'
+    correct: false
+  explanation: E = 16 corrects up to 16 R-S symbols per codeword.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §5.1
+- id: gain
+  type: numeric
+  prompt: In CCSDS simulations, about how many dB does the concatenated code (convolutional + RS) gain over uncoded at BER 10^-5?
+  answer:
+    value: 7.5
+    tolerance: 0.3
+    unit: dB
+  explanation: About 5.5 dB from the convolutional code plus about 2.0 dB from Reed–Solomon.
+  label: standard
+  sources:
+  - id: CCSDS-130.1-G-3
+    loc: §3.3.3
+- id: cliff
+  type: single-choice
+  prompt: What happens with 17 symbol errors in an E=16 codeword?
+  choices:
+  - text: The codeword is flagged uncorrectable
+    correct: true
+  - text: 16 are fixed and 1 remains
+    correct: false
+  - text: The decoder slows down
+    correct: false
+  explanation: Beyond the correction limit the whole codeword fails — a cliff, not a gradual decline.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §5.1

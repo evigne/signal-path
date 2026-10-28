@@ -1,0 +1,18 @@
+id: vcm-acm
+term: VCM / ACM
+expansion: Variable / Adaptive Coding and Modulation
+plain_definition: Changing modulation and code rate during a pass, on a plan (VCM) or in response to feedback (ACM).
+precise_meaning: VCM follows a predetermined schedule (e.g. by elevation); ACM adjusts dynamically using a feedback channel such as telecommand (CCSDS 131.2-B-2, 131.3-B-2).
+layer: Data link (coding) / physical
+aliases:
+- MODCOD switching
+example_usage: '''VCM steps up to 16APSK above 60 degrees.'' (fictional)'
+related_terms:
+- code-rate
+topics:
+- high-rate-coding-and-modulation
+label: standard
+sources:
+- id: CCSDS-131.2-B-2
+  loc: §1.2
+last_reviewed: pending

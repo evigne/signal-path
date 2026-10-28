@@ -1,0 +1,22 @@
+id: cltu
+term: CLTU
+expansion: Communications Link Transmission Unit
+plain_definition: 'The package an uplink actually transmits: a start pattern, one
+  or more coded command frames, and an end pattern.'
+precise_meaning: Start Sequence, BCH or LDPC codewords carrying TC frames (with fill),
+  and for BCH a 64-bit Tail Sequence C5C5C5C5C5C5C579.
+layer: Data link (sync & coding)
+aliases:
+- command unit
+example_usage: '''Twelve CLTUs radiated this pass.'' (fictional)'
+related_terms:
+- cop-1
+- forward-link
+topics:
+- uplink-and-downlink
+- command-lifecycle
+label: standard
+sources:
+- id: CCSDS-231.0-B-4
+  loc: §5.2
+last_reviewed: pending

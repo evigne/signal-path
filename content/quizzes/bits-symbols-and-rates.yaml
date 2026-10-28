@@ -1,0 +1,42 @@
+id: bits-symbols-and-rates
+topic: bits-symbols-and-rates
+items:
+- id: rchs
+  type: single-choice
+  prompt: For QPSK, how does the channel symbol rate relate to the coded symbol rate Rs?
+  choices:
+  - text: RChS = Rs / 2
+    correct: true
+  - text: RChS = Rs × 2
+    correct: false
+  - text: RChS = Rs
+    correct: false
+  explanation: RChS = Rs / log2 M, and QPSK has M = 4, so log2 M = 2.
+  label: standard
+  sources:
+  - id: CCSDS-413.0-G-3
+    loc: §2.4
+- id: rs
+  type: numeric
+  prompt: A fictional link carries 2.294 Mbit/s after Reed–Solomon and markers, then a rate-1/2 convolutional code. What is the coded symbol rate in Msym/s?
+  answer:
+    value: 4.588
+    tolerance: 0.01
+    unit: Msym/s
+  explanation: 'A rate-1/2 code doubles the stream: 2.294 × 2 = 4.588 Msym/s.'
+  label: example
+- id: budget
+  type: single-choice
+  prompt: Which rate should a data budget use?
+  choices:
+  - text: The information bit rate
+    correct: true
+  - text: The coded symbol rate
+    correct: false
+  - text: The channel symbol rate
+    correct: false
+  explanation: Coding and markers add overhead that carries no user data; budget with the information rate.
+  label: practice
+  sources:
+  - id: CCSDS-413.0-G-3
+    loc: §2.4

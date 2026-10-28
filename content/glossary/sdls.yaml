@@ -1,0 +1,20 @@
+id: sdls
+term: SDLS
+expansion: Space Data Link Security Protocol
+plain_definition: The CCSDS add-on that lets transfer frames be authenticated and/or encrypted.
+precise_meaning: Security header (SPI, IV, sequence number, pad length) and trailer (MAC) inside TM, TC, AOS or USLP frames; layer 2 only (CCSDS 355.0-B-2).
+layer: Data link
+aliases:
+- link security
+example_usage: '''VC1 is SDLS-authenticated.'' (fictional)'
+related_terms:
+- spi
+- security-association
+- mac
+topics:
+- space-data-link-security
+label: standard
+sources:
+- id: CCSDS-355.0-B-2
+  loc: §2.1, §4.1
+last_reviewed: pending

@@ -1,0 +1,48 @@
+id: ground-stations-and-networks
+topic: ground-stations-and-networks
+items:
+- id: raf
+  type: single-choice
+  prompt: Which SLE service delivers every frame of one physical channel?
+  choices:
+  - text: RAF
+    correct: true
+  - text: RCF
+    correct: false
+  - text: FCLTU
+    correct: false
+  explanation: RAF delivers all frames; RCF delivers one master or virtual channel; FCLTU is forward.
+  label: standard
+  sources:
+  - id: CCSDS-911.1-B-5
+    loc: §1.1
+- id: fcltu
+  type: single-choice
+  prompt: In which delivery mode is FCLTU provided?
+  choices:
+  - text: Online only
+    correct: true
+  - text: Offline only
+    correct: false
+  - text: Both
+    correct: false
+  explanation: FCLTU is provided only in online delivery mode.
+  label: standard
+  sources:
+  - id: CCSDS-912.1-B-5
+    loc: §2.1
+- id: nodata
+  type: single-choice
+  prompt: The station reports frame lock but the control centre gets no data. First check?
+  choices:
+  - text: 'The delivery path: SLE association, endpoint, network'
+    correct: true
+  - text: The spacecraft transmitter
+    correct: false
+  - text: Antenna pointing
+    correct: false
+  explanation: Lock at the station proves RF; look at delivery.
+  label: practice
+  sources:
+  - id: CCSDS-911.1-B-5
+    loc: §2.6

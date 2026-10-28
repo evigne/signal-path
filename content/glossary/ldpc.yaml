@@ -1,0 +1,22 @@
+id: ldpc
+term: LDPC code
+expansion: Low-Density Parity-Check code
+plain_definition: A modern block code defined by a sparse set of parity checks; very close to the best possible performance.
+precise_meaning: 'CCSDS LDPC codes: an (8160,7136) code (rate ≈ 7/8) used with the 32-bit marker, and nine codes of rates 1/2, 2/3, 4/5 with information block lengths 1024, 4096, 16384 bits using the 64-bit
+  marker.'
+layer: Synchronization and channel coding sublayer
+aliases:
+- AR4JA (rates 1/2–4/5)
+- C2 (rate 7/8)
+example_usage: '''Payload downlink is LDPC 7/8 — same marker as RS, so sync config didn''t change.'' (fictional)'
+related_terms:
+- turbo-code
+- csm
+topics:
+- channel-coding
+- sync-markers
+label: standard
+sources:
+- id: CCSDS-131.0-B-6
+  loc: §8.1, §8.2.1.1, §8.4.1, §9.3
+last_reviewed: pending

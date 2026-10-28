@@ -1,0 +1,49 @@
+id: sdls-rejects-after-key-change
+title: Authenticated commands rejected after a key or SA change
+layer: Space Data Link Security
+observables:
+- Commands radiated but not accepted after a rekey or SA switch
+- Security reports show MAC failures, unknown SPI or sequence-number rejects
+- Commanding on the previous SA (if still operational) works
+evidence_to_gather:
+- Which SPI the ground used and which SAs are operational onboard
+- Reject counters by reason (MAC, SN ≤ stored, SN > window)
+- The rekey procedure log up to the failure (without key material)
+- Time of last successful authenticated command
+questions_to_ask:
+- Did both ends complete activation and SA start in the same order?
+- Are ground and spacecraft sequence numbers within the window?
+- Is a fallback SA still operational?
+likely_causes:
+- cause: Ground using an SA that is not operational onboard (or vice versa)
+  test: Compare SA states; SAs must be keyed and started on both ends (355.1-B-1 §2.3.3)
+  label: standard
+- cause: Sequence numbers diverged beyond the window
+  test: Check SN reject counters (355.0-B-2 §4.2.4.4)
+  label: standard
+- cause: Wrong key associated with the SA on one end
+  test: Follow the mission key-verification procedure; never compare key material in logs
+  label: mission
+sample_log: '10:04:11Z INFO TC VC1 SPI 0x0012 frame radiated
+
+  10:04:13Z WARN FSR: MAC failures 3 (SPI 0x0012)
+
+  10:05:02Z INFO TC VC1 SPI 0x0011 accepted (fallback SA)
+
+  # fictional data, not from a real mission
+
+  '
+coordinate_with:
+- Mission security / key management
+- Flight operations (command controller)
+- Flight software (security function)
+related_topics:
+- key-management-and-rotation
+- security-associations-and-anti-replay
+- space-data-link-security
+- command-authority-and-threats
+sources:
+- id: CCSDS-355.0-B-2
+  loc: §4.2.4.4
+- id: CCSDS-355.1-B-1
+  loc: §2.3.3, §2.4

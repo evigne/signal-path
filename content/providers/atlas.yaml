@@ -1,0 +1,46 @@
+id: atlas
+name: ATLAS Space Operations
+last_checked: '2026-10-28'
+cells:
+  name:
+    state: cited
+    value: ATLAS Space Operations (Traverse City, MI)
+    sources:
+    - id: ATLAS-FGN
+  locations:
+    state: cited
+    value: 50+ antennas, 34+ active ground stations (federated network)
+    sources:
+    - id: ATLAS-FGN
+  bands:
+    state: cited
+    value: S, X, Ka and UHF; ranges not publicly specified
+    sources:
+    - id: ATLAS-FGN
+  service_modes:
+    state: cited
+    value: Freedom ground software as a service; managed network services
+    sources:
+    - id: ATLAS-FGN
+    - id: ATLAS-FREEDOM
+  scheduling:
+    state: cited
+    value: Single API; flexible scheduling from 14 days out to 1 minute; FreeTime API
+    sources:
+    - id: ATLAS-FREEDOM
+  data_delivery:
+    state: cited
+    value: One streaming entry point (one IP, one port) across networks
+    sources:
+    - id: ATLAS-FREEDOM
+  latency:
+    state: not_public
+    value: Not publicly specified (pages checked)
+  support:
+    state: cited
+    value: 24/7 site alerting and triage (as stated)
+    sources:
+    - id: ATLAS-FGN
+  public_docs:
+    state: not_public
+    value: No public API documentation linked

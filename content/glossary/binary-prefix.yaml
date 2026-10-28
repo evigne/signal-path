@@ -1,0 +1,21 @@
+id: binary-prefix
+term: Binary prefix
+expansion: IEC binary prefix (kibi, mebi, gibi …)
+plain_definition: A prefix meaning a power of two (1024, 1024², …), written Ki, Mi,
+  Gi, to avoid confusion with decimal kilo, mega, giga.
+precise_meaning: kibi Ki 2^10, mebi Mi 2^20, gibi Gi 2^30, tebi Ti 2^40, pebi Pi 2^50,
+  exbi Ei 2^60; approved by the IEC in 1998; not part of the SI.
+layer: Units
+aliases:
+- KiB
+- MiB
+- GiB
+example_usage: '''The recorder holds 32 GiB, not 32 GB.'' (fictional)'
+related_terms: []
+topics:
+- decimal-and-binary-units
+label: standard
+sources:
+- id: NIST-BINARY
+  loc: page
+last_reviewed: pending

@@ -1,0 +1,24 @@
+id: cop-1
+term: COP-1
+expansion: Communications Operation Procedure-1
+plain_definition: The uplink acknowledgement and retransmission scheme that makes
+  sure command frames arrive once, complete and in order.
+precise_meaning: A go-back-n ARQ procedure made of FOP-1 on the ground (states S1–S6)
+  and FARM-1 onboard (Open, Wait, Lockout), reporting through the CLCW.
+layer: Data link
+aliases:
+- COP
+example_usage: '''COP-1 is in S1, all frames acknowledged.'' (fictional)'
+related_terms:
+- clcw
+- cltu
+topics:
+- command-lifecycle
+- uplink-and-downlink
+label: standard
+sources:
+- id: CCSDS-232.1-B-2
+  loc: §5.1.2, §6.1.2
+- id: CCSDS-232.0-B-4
+  loc: §2.2.2.2
+last_reviewed: pending

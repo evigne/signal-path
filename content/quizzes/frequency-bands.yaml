@@ -1,0 +1,48 @@
+id: frequency-bands
+topic: frequency-bands
+items:
+- id: '8025'
+  type: single-choice
+  prompt: 8025–8400 MHz is allocated to which service (space-to-Earth)?
+  choices:
+  - text: Earth exploration-satellite
+    correct: true
+  - text: Space research
+    correct: false
+  - text: Space operation
+    correct: false
+  explanation: 8025–8400 MHz is EESS only; near-Earth space research downlink uses 8450–8500 MHz.
+  label: standard
+  sources:
+  - id: ITU-RR-2024
+    loc: Vol. 1, Art. 5
+- id: deep
+  type: single-choice
+  prompt: Which X-band downlink segment is limited to deep space by footnote 5.465?
+  choices:
+  - text: 8400–8450 MHz
+    correct: true
+  - text: 8450–8500 MHz
+    correct: false
+  - text: 8025–8400 MHz
+    correct: false
+  explanation: 5.465 limits 8400–8450 MHz to deep space.
+  label: standard
+  sources:
+  - id: ITU-RR-2024
+    loc: Vol. 1, Art. 5, No. 5.465
+- id: licence
+  type: single-choice
+  prompt: An allocation in Article 5 means…
+  choices:
+  - text: The service may use the band, shared and subject to footnotes; transmitting still needs a licence
+    correct: true
+  - text: Anyone may transmit there
+    correct: false
+  - text: The band is reserved for one operator
+    correct: false
+  explanation: Allocations are shared and subject to coordination and national licensing.
+  label: standard
+  sources:
+  - id: ITU-RR-2024
+    loc: Vol. 1, Art. 5

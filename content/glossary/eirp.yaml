@@ -1,0 +1,17 @@
+id: eirp
+term: EIRP
+expansion: Effective Isotropically Radiated Power
+plain_definition: 'How strong a transmitter looks in the direction it points: its power plus the focusing gain of its antenna.'
+precise_meaning: Transmitter power plus effective antenna gain, in dBW (CCSDS 401 design control table item 103).
+layer: Physical
+aliases: []
+example_usage: '''EIRP is 5 dBW on the S-band downlink.'' (fictional)'
+related_terms:
+- link-margin
+topics:
+- link-budgets
+label: standard
+sources:
+- id: CCSDS-401
+  loc: §4.1.3
+last_reviewed: pending

@@ -1,0 +1,19 @@
+id: apid
+term: APID
+expansion: Application Process Identifier
+plain_definition: The number in a space packet header that says which application, and so which data stream, the packet belongs to.
+precise_meaning: Bits 5–15 of the Space Packet primary header (11 bits); names the managed data path. All ones is reserved for Idle Packets.
+layer: Network / packet layer
+aliases:
+- application ID
+example_usage: '''APID 126 is power housekeeping.'' (fictional)'
+related_terms:
+- space-packet
+- idle-packet
+topics:
+- space-packet-protocol
+label: standard
+sources:
+- id: CCSDS-133.0-B-2
+  loc: §4.1.3.3.4
+last_reviewed: pending

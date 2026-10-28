@@ -1,0 +1,21 @@
+id: frequency-allocation
+term: Frequency allocation
+expansion: Frequency allocation
+plain_definition: An entry in the international radio rules giving a frequency band
+  to a kind of radio service, in a direction, as primary or secondary.
+precise_meaning: An entry in the ITU Radio Regulations Table of Frequency Allocations
+  (Article 5), shared with other services and subject to footnotes; transmitting still
+  requires a national licence.
+layer: Physical / regulatory
+aliases:
+- allocation
+- band plan
+example_usage: '''8025–8400 MHz is an EESS allocation, not space research.'' (fictional)'
+related_terms: []
+topics:
+- frequency-bands
+label: standard
+sources:
+- id: ITU-RR-2024
+  loc: Vol. 1, Art. 5
+last_reviewed: pending

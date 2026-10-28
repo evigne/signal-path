@@ -1,0 +1,41 @@
+id: security-aware-operations
+title: Security-aware operations
+level: core
+audience: Operators and engineers who command spacecraft or build command systems
+prerequisites:
+- operator-conversation-fluency
+modules:
+- title: The command path
+  topics:
+  - uplink-and-downlink
+  - tc-space-data-link-protocol
+  - command-lifecycle
+  labs:
+  - cop1-farm-simulator
+- title: Space Data Link Security
+  topics:
+  - space-data-link-security
+  - security-associations-and-anti-replay
+- title: Cryptography and keys
+  topics:
+  - space-link-cryptography
+  - key-management-and-rotation
+- title: Command authority
+  topics:
+  - command-authority-and-threats
+  - layered-fault-isolation
+  labs:
+  - anomaly-decision-tree
+est_hours:
+- 5
+- 8
+milestones:
+- Quiz after each module
+- Anti-replay accept/reject exercise
+- Key rotation plan review (fictional)
+- Path summary stored locally
+outcomes:
+- Explain how SDLS protects frames and what it does not cover
+- Predict anti-replay outcomes
+- Plan a key rotation that never strands commanding
+- Map command-path controls to threats

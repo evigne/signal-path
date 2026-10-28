@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-path.local/schema/standard.schema.json",
+  "title": "Standards catalogue entry",
+  "description": "Brief §4L standards fields plus §6 standards-page additions.",
+  "type": "object",
+  "required": [
+    "id",
+    "doc_number",
+    "title",
+    "issue",
+    "book",
+    "published",
+    "status",
+    "last_checked",
+    "scope",
+    "official_url",
+    "register_id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "doc_number": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "issue": {
+      "type": "string"
+    },
+    "book": {
+      "enum": [
+        "blue",
+        "magenta",
+        "green",
+        "orange",
+        "yellow"
+      ]
+    },
+    "published": {
+      "type": "string"
+    },
+    "corrigenda": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "date"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "in_local_library": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "status": {
+      "enum": [
+        "active",
+        "superseded",
+        "withdrawn"
+      ]
+    },
+    "last_checked": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "const": "pending"
+        }
+      ]
+    },
+    "scope": {
+      "type": "string"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pdus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mission_must_define": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "does_not_define": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "official_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "local_file": {
+      "type": "string"
+    },
+    "register_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Za-z0-9.\\-]*$"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+id: pass-done-data-missing
+title: Pass done, data late or incomplete
+layer: Ground delivery, archive and C2
+observables:
+- Provider reports the pass complete with good lock
+- Mission archive or displays lack some or all of the pass data
+- Gaps align with delivery or processing events, not RF events
+evidence_to_gather:
+- Provider pass report (frames, volume, delivery status)
+- SLE or stream session logs (bind, start, notifications, stop)
+- Ingest and archive logs with counts per VC and APID
+- Delivery mode used (online timely, online complete, offline)
+questions_to_ask:
+- Did the delivery session start and stay active for the whole pass?
+- Were frames discarded by a timely delivery mode or a backlog?
+- Is the data still waiting in an offline or file delivery?
+likely_causes:
+- cause: Delivery session not started or dropped (SLE association, network)
+  test: Check bind/start and any peer-abort in the session log
+  label: standard
+- cause: Online timely delivery discarded frames under backlog
+  test: Look for data-discarded notifications; request offline or complete delivery
+  label: standard
+- cause: Ingest or archive processing failure
+  test: Compare provider frame counts with ingested counts per VC
+  label: mission
+sample_log: '10:02:20Z INFO RAF START ok → active
+
+  10:07:12Z WARN RAF SYNC-NOTIFY data discarded due to excessive backlog
+
+  10:13:45Z INFO provider: pass complete, 54,880 frames · archive: 41,206 frames
+
+  # fictional data, not from a real mission
+
+  '
+coordinate_with:
+- Ground station / provider operations
+- Ground network team
+- Ground data processing and archive
+related_topics:
+- sle-transfer-services
+- ground-stations-and-networks
+- c2-software-landscape
+- layered-fault-isolation
+sources:
+- id: CCSDS-911.1-B-5
+  loc: §2.6, §3.7
