@@ -65,7 +65,7 @@ The lab logic lives in pure, tested modules so the UI and the content cannot dri
 
 ## Hosting
 
-Live at https://signal-path.vidhu-vigneshaero.workers.dev (Cloudflare Workers static assets, free plan). `wrangler.jsonc` names the Worker `signal-path` and serves `./dist`, with Astro's 404 page for unknown paths. For automatic deploys on push, the Worker's Workers Builds settings must be: root directory `site`, build command `npm run build`, deploy command `npx wrangler deploy`.
+Live at https://signal-path.spacepi.workers.dev (Cloudflare Workers static assets, free plan). `wrangler.jsonc` names the Worker `signal-path` and serves `./dist`, with Astro's 404 page for unknown paths. For automatic deploys on push, the Worker's Workers Builds settings must be: root directory `site`, build command `npm run build`, deploy command `npx wrangler deploy`.
 
 ## Publishing rules
 

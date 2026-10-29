@@ -12,7 +12,7 @@ import rehypeDepthSections from './src/lib/rehype-depth-sections.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://signal-path.vidhu-vigneshaero.workers.dev',
+  site: 'https://signal-path.spacepi.workers.dev',
   trailingSlash: 'ignore',
   integrations: [react()],
   markdown: {
