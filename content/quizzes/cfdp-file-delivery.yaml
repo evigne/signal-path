@@ -1,0 +1,42 @@
+id: cfdp-file-delivery
+topic: cfdp-file-delivery
+items:
+- id: ack
+  type: single-choice
+  prompt: Which CFDP mode guarantees complete delivery over an unreliable link?
+  choices:
+  - text: Acknowledged mode
+    correct: true
+  - text: Unacknowledged mode
+    correct: false
+  - text: Both
+    correct: false
+  explanation: The receiver reports missing segments, which are retransmitted.
+  label: standard
+  sources:
+  - id: CCSDS-727.0-B-5
+    loc: §2.3
+- id: order
+  type: single-choice
+  prompt: In what order does a CFDP copy begin?
+  choices:
+  - text: Metadata, file data, EOF
+    correct: true
+  - text: EOF, metadata, file data
+    correct: false
+  - text: File data, metadata, EOF
+    correct: false
+  explanation: Reliable transactions add NAKs, EOF acknowledgement and a Finished PDU.
+  label: standard
+  sources:
+  - id: CCSDS-727.0-B-5
+    loc: §2.4
+- id: time
+  type: numeric
+  prompt: At 2.0 Mbit/s of useful rate, how many seconds does an 18.4 MB file take (ignoring overhead)?
+  answer:
+    value: 73.6
+    tolerance: 0.2
+    unit: s
+  explanation: 18.4 × 8 / 2.0 = 73.6 s (fictional).
+  label: example

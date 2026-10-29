@@ -1,0 +1,42 @@
+id: time-codes
+topic: time-codes
+items:
+- id: epoch
+  type: single-choice
+  prompt: What is the CCSDS-recommended epoch for level 1 CUC?
+  choices:
+  - text: 1958 January 1 TAI
+    correct: true
+  - text: 1970 January 1 UTC
+    correct: false
+  - text: 2000 January 1 TT
+    correct: false
+  explanation: CUC level 1 counts TAI seconds from 1958 and ignores leap seconds.
+  label: standard
+  sources:
+  - id: CCSDS-301.0-B-4
+    loc: §3.2
+- id: fine
+  type: numeric
+  prompt: A CUC stamp has 2 fine-time octets equal to 0x4000. What fraction of a second is that?
+  answer:
+    value: 0.25
+    tolerance: 0.001
+    unit: s
+  explanation: 0x4000 / 65536 = 0.25 s — fine octets are binary fractions, not milliseconds.
+  label: example
+- id: cds
+  type: single-choice
+  prompt: Which time code is UTC-based, so leap seconds apply?
+  choices:
+  - text: CDS
+    correct: true
+  - text: CUC level 1
+    correct: false
+  - text: Neither
+    correct: false
+  explanation: CDS counts days and milliseconds of day in UTC.
+  label: standard
+  sources:
+  - id: CCSDS-301.0-B-4
+    loc: §3.3

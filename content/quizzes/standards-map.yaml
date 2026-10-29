@@ -1,0 +1,33 @@
+id: standards-map
+topic: standards-map
+items:
+- id: green
+  type: single-choice
+  prompt: What is a CCSDS Green Book?
+  choices:
+  - text: An informational report that explains
+    correct: true
+  - text: A normative standard
+    correct: false
+  - text: An experimental specification
+    correct: false
+  explanation: Blue Books specify; Green Books explain.
+  label: standard
+  sources:
+  - id: CCSDS-CAT
+    loc: snapshot 2026-10-28
+- id: tc
+  type: single-choice
+  prompt: Which document defines the TC frame length field?
+  choices:
+  - text: CCSDS 232.0-B-4
+    correct: true
+  - text: CCSDS 132.0-B-3
+    correct: false
+  - text: CCSDS 133.0-B-2
+    correct: false
+  explanation: TC data link → 232.0-B-4 §4.1.2.7.
+  label: standard
+  sources:
+  - id: CCSDS-232.0-B-4
+    loc: §4.1.2.7

@@ -1,0 +1,42 @@
+id: space-link-cryptography
+topic: space-link-cryptography
+items:
+- id: key
+  type: numeric
+  prompt: What AES key size does CCSDS require for missions planned after 352.0-B-2 issue 2?
+  answer:
+    value: 256
+    tolerance: 0
+    unit: bits
+  explanation: Existing implementations may use 128-bit keys.
+  label: standard
+  sources:
+  - id: CCSDS-352.0-B-2
+    loc: §3.2
+- id: iv
+  type: single-choice
+  prompt: What must never happen with GCM under one key?
+  choices:
+  - text: Reusing an IV
+    correct: true
+  - text: Using a 96-bit IV
+    correct: false
+  - text: Using a 128-bit MAC
+    correct: false
+  explanation: IV reuse may enable forgery; the uniqueness requirement is almost as important as key secrecy.
+  label: standard
+  sources:
+  - id: NIST-800-38D
+    loc: §8
+- id: mac
+  type: numeric
+  prompt: What MAC length does CCSDS require for GCM?
+  answer:
+    value: 128
+    tolerance: 0
+    unit: bits
+  explanation: 352.0-B-2 §3.4.2.
+  label: standard
+  sources:
+  - id: CCSDS-352.0-B-2
+    loc: §3.4

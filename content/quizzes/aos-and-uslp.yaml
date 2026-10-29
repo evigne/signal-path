@@ -1,0 +1,45 @@
+id: aos-and-uslp
+topic: aos-and-uslp
+items:
+- id: ver
+  type: single-choice
+  prompt: A frame starts with octet 0x40. Which protocol?
+  choices:
+  - text: AOS (version 01)
+    correct: true
+  - text: TM (version 00)
+    correct: false
+  - text: USLP (version 1100)
+    correct: false
+  explanation: 0x40 = 0100 0000; the first two bits are 01.
+  label: standard
+  sources:
+  - id: CCSDS-732.0-B-5
+    loc: §4.1.2.2.2
+- id: vcfc
+  type: numeric
+  prompt: How many bits is the AOS virtual channel frame count?
+  answer:
+    value: 24
+    tolerance: 0
+    unit: bits
+  explanation: 24 bits, modulo 16,777,216 — far longer than TM's 8-bit count.
+  label: standard
+  sources:
+  - id: CCSDS-732.0-B-5
+    loc: §4.1.2.4
+- id: replay
+  type: single-choice
+  prompt: What does the AOS Replay Flag mark?
+  choices:
+  - text: Real-time (0) or replayed (1) frames
+    correct: true
+  - text: Retransmitted frames
+    correct: false
+  - text: Encrypted frames
+    correct: false
+  explanation: Its exact interpretation is negotiated between projects and cross-support organisations.
+  label: standard
+  sources:
+  - id: CCSDS-732.0-B-5
+    loc: §4.1.2.5.2

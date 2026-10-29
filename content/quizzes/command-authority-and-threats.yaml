@@ -1,0 +1,33 @@
+id: command-authority-and-threats
+topic: command-authority-and-threats
+items:
+- id: replay
+  type: single-choice
+  prompt: Which control stops a recorded, authentic command being sent again?
+  choices:
+  - text: SDLS sequence-number checks
+    correct: true
+  - text: The MAC alone
+    correct: false
+  - text: Transmission constraints
+    correct: false
+  explanation: Authentication alone does not stop replay.
+  label: standard
+  sources:
+  - id: CCSDS-355.0-B-2
+    loc: §2.3.2.1
+- id: constraints
+  type: single-choice
+  prompt: Transmission constraints in a command database are mainly…
+  choices:
+  - text: A guard against mistakes, not access control
+    correct: true
+  - text: Encryption
+    correct: false
+  - text: Authentication
+    correct: false
+  explanation: They block commands in the wrong mode; access control is separate.
+  label: standard
+  sources:
+  - id: CCSDS-660.0-B-2
+    loc: §6.1.3.2.4

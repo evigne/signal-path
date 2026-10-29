@@ -1,0 +1,42 @@
+id: telemetry-and-command-databases
+topic: telemetry-and-command-databases
+items:
+- id: what
+  type: single-choice
+  prompt: What does XTCE describe?
+  choices:
+  - text: TM/TC definitions (metadata), not live data
+    correct: true
+  - text: Live telemetry streams
+    correct: false
+  - text: Display layouts
+    correct: false
+  explanation: XTCE is a metadata exchange format; it excludes displays, protocols and flight software.
+  label: standard
+  sources:
+  - id: CCSDS-660.0-B-2
+    loc: §1
+- id: root
+  type: single-choice
+  prompt: What is the root object of an XTCE database?
+  choices:
+  - text: SpaceSystem
+    correct: true
+  - text: Spacecraft
+    correct: false
+  - text: Mission
+    correct: false
+  explanation: SpaceSystems nest, so ground equipment can be described too.
+  label: standard
+  sources:
+  - id: CCSDS-660.0-B-2
+    loc: §6.1
+- id: decode
+  type: numeric
+  prompt: A database says y = 0.03x − 40.0 °C. Raw 0x0AAB arrives. What is displayed?
+  answer:
+    value: 41.9
+    tolerance: 0.05
+    unit: °C
+  explanation: 0x0AAB = 2731; 0.03 × 2731 − 40.0 = 41.93 °C (fictional).
+  label: example

@@ -1,0 +1,42 @@
+id: link-budgets
+topic: link-budgets
+items:
+- id: eirp
+  type: single-choice
+  prompt: EIRP equals…
+  choices:
+  - text: Transmitter power plus effective antenna gain
+    correct: true
+  - text: Received power minus losses
+    correct: false
+  - text: Antenna gain over noise temperature
+    correct: false
+  explanation: CCSDS design control table item 103.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §4.1.3
+- id: rate
+  type: numeric
+  prompt: If the data rate doubles, by how many dB does Eb/N0 fall?
+  answer:
+    value: 3
+    tolerance: 0.05
+    unit: dB
+  explanation: Eb/N0 = C/N0 − 10 log₁₀(rate); doubling the rate costs about 3 dB.
+  label: example
+- id: sigma
+  type: single-choice
+  prompt: Which tolerance does CCSDS recommend for telecommand link tables?
+  choices:
+  - text: 3-sigma
+    correct: true
+  - text: 2-sigma
+    correct: false
+  - text: 1-sigma
+    correct: false
+  explanation: 3-sigma for telecommand, 2-sigma for all other systems.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §4.1.2

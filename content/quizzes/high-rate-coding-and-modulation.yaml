@@ -1,0 +1,27 @@
+id: high-rate-coding-and-modulation
+topic: high-rate-coding-and-modulation
+items:
+- id: vcm
+  type: single-choice
+  prompt: How does VCM differ from ACM?
+  choices:
+  - text: VCM follows a plan; ACM adapts using feedback
+    correct: true
+  - text: VCM is faster
+    correct: false
+  - text: ACM needs no uplink
+    correct: false
+  explanation: ACM needs a feedback channel such as telecommand.
+  label: standard
+  sources:
+  - id: CCSDS-131.2-B-2
+    loc: §1.2
+- id: bps
+  type: numeric
+  prompt: How many information bits per symbol does 8PSK with rate 3/4 carry?
+  answer:
+    value: 2.25
+    tolerance: 0.01
+    unit: bit/symbol
+  explanation: 3 bits per 8PSK symbol × 3/4 = 2.25.
+  label: example

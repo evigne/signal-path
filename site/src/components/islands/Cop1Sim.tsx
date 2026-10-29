@@ -36,7 +36,7 @@ export default function Cop1Sim() {
         <label className="btn btn-secondary cursor-pointer">
           <input type="checkbox" checked={s.busy} onChange={(e) => act((x) => setBusy(x, e.target.checked))} className="h-4 w-4" /> Spacecraft busy
         </label>
-        <button type="button" className="btn btn-secondary" onClick={() => act((x) => sendAD(x, (x.vr + 20) % 256))}>Inject N(S) outside window</button>
+        <button type="button" className="btn btn-secondary" onClick={() => act((x) => sendAD(x, (x.vr + 20) % 256))}>Jump outside window</button>
         <button type="button" className="btn btn-secondary" onClick={() => act(unlock)}>Send Unlock (BC)</button>
         <button type="button" className="btn btn-secondary" onClick={() => act(reinit)}>Re-initialise FOP</button>
         <button type="button" className="btn btn-ghost" onClick={() => setS(init(10))}>Reset</button>

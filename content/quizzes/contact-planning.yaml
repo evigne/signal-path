@@ -1,0 +1,30 @@
+id: contact-planning
+topic: contact-planning
+items:
+- id: why
+  type: single-choice
+  prompt: Why does a LEO spacecraft store data onboard?
+  choices:
+  - text: It is in a station's line of sight for only part of each orbit
+    correct: true
+  - text: Downlinks are always too slow
+    correct: false
+  - text: Regulations require it
+    correct: false
+  explanation: Limited contact time is the driver.
+  label: practice
+  sources:
+  - id: NASA-SOA-11
+    loc: §11.2.1
+- id: mask
+  type: single-choice
+  prompt: Raising the elevation mask from 5° to 10° usually…
+  choices:
+  - text: Shortens passes but avoids the lowest-margin minutes
+    correct: true
+  - text: Lengthens passes
+    correct: false
+  - text: Has no effect
+    correct: false
+  explanation: A higher mask trades contact time for link margin.
+  label: example

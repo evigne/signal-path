@@ -1,0 +1,30 @@
+id: protocol-comparison
+topic: protocol-comparison
+items:
+- id: counter
+  type: single-choice
+  prompt: Which data unit has a 24-bit virtual channel frame count?
+  choices:
+  - text: AOS frame
+    correct: true
+  - text: TM frame
+    correct: false
+  - text: Space Packet
+    correct: false
+  explanation: TM uses 8 bits; Space Packets use a 14-bit per-APID count.
+  label: standard
+  sources:
+  - id: CCSDS-732.0-B-5
+    loc: §4.1.2.4
+- id: pkt
+  type: numeric
+  prompt: What is the smallest possible Space Packet, in octets?
+  answer:
+    value: 7
+    tolerance: 0
+    unit: octets
+  explanation: 6-octet header + at least 1 data octet.
+  label: standard
+  sources:
+  - id: CCSDS-133.0-B-2
+    loc: §4.1.2

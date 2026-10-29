@@ -1,0 +1,27 @@
+id: ranging-and-doppler
+topic: ranging-and-doppler
+items:
+- id: t4b
+  type: single-choice
+  prompt: Which PN ranging code is chosen when accuracy matters most?
+  choices:
+  - text: T4B
+    correct: true
+  - text: T2B
+    correct: false
+  - text: Either
+    correct: false
+  explanation: T2B is chosen when acquisition time matters most.
+  label: standard
+  sources:
+  - id: CCSDS-414.1-B-3
+    loc: §3.2.2, §3.2.3
+- id: range
+  type: numeric
+  prompt: A round-trip light time of 13.342 ms corresponds to roughly what range, in km?
+  answer:
+    value: 2000
+    tolerance: 5
+    unit: km
+  explanation: c × RTLT / 2 ≈ 299,792.458 × 0.013342 / 2 ≈ 2,000 km (fictional).
+  label: example

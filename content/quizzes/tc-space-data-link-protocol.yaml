@@ -1,0 +1,46 @@
+id: tc-space-data-link-protocol
+topic: tc-space-data-link-protocol
+items:
+- id: hdr
+  type: decode
+  prompt: Decode this fictional TC primary header.
+  data: 00 2A 04 13 25
+  answer:
+    fields:
+      bypass: 0
+      SCID: 42
+      VCID: 1
+      total_octets: 20
+      NS: 37
+  explanation: Bits 6–15 = 42, bits 16–21 = 1, frame length field 19 → 20 octets, N(S) = 0x25 = 37.
+  label: example
+  sources:
+  - id: CCSDS-232.0-B-4
+    loc: §4.1.2
+- id: max
+  type: numeric
+  prompt: What is the largest possible TC frame, in octets?
+  answer:
+    value: 1024
+    tolerance: 0
+    unit: octets
+  explanation: The 10-bit frame length field holds total − 1, so at most 1023 + 1 = 1024.
+  label: standard
+  sources:
+  - id: CCSDS-232.0-B-4
+    loc: §4.1.2.7
+- id: seg
+  type: single-choice
+  prompt: When is the TC segment header required on a virtual channel?
+  choices:
+  - text: When the VC has more than one MAP or carries data units larger than one frame
+    correct: true
+  - text: Always
+    correct: false
+  - text: Only for control commands
+    correct: false
+  explanation: It is never used in control-command frames, and once used on a VC it must appear in all its data frames.
+  label: standard
+  sources:
+  - id: CCSDS-232.0-B-4
+    loc: §4.1.3.2

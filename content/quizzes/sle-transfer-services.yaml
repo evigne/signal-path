@@ -1,0 +1,48 @@
+id: sle-transfer-services
+topic: sle-transfer-services
+items:
+- id: active
+  type: single-choice
+  prompt: An RAF instance is bound but no frames arrive. Which operation is missing?
+  choices:
+  - text: RAF-START
+    correct: true
+  - text: RAF-BIND
+    correct: false
+  - text: RAF-GET-PARAMETER
+    correct: false
+  explanation: Frames flow only in the active state, entered with START.
+  label: standard
+  sources:
+  - id: CCSDS-911.1-B-5
+    loc: §2.6.4
+- id: annot
+  type: single-choice
+  prompt: Which annotation does RAF deliver with each frame?
+  choices:
+  - text: Earth receive time, antenna ID, data-link continuity and frame quality
+    correct: true
+  - text: Only the frame
+    correct: false
+  - text: APID and sequence count
+    correct: false
+  explanation: RAF-TRANSFER-DATA carries the frame plus these annotations.
+  label: standard
+  sources:
+  - id: CCSDS-911.1-B-5
+    loc: §3.6
+- id: cltuid
+  type: single-choice
+  prompt: What happens to a CLTU whose cltu-identification is not the expected next value?
+  choices:
+  - text: It is rejected
+    correct: true
+  - text: It is radiated anyway
+    correct: false
+  - text: It is queued last
+    correct: false
+  explanation: Monotonic identifiers protect against injected command data.
+  label: standard
+  sources:
+  - id: CCSDS-912.1-B-5
+    loc: §2.8.2.3

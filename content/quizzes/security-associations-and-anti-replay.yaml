@@ -1,0 +1,48 @@
+id: security-associations-and-anti-replay
+topic: security-associations-and-anti-replay
+items:
+- id: order
+  type: single-choice
+  prompt: In what order does the receiver check a protected frame?
+  choices:
+  - text: MAC first, then sequence number
+    correct: true
+  - text: Sequence number first, then MAC
+    correct: false
+  - text: Only the MAC
+    correct: false
+  explanation: Only frames passing every check update the stored sequence number.
+  label: standard
+  sources:
+  - id: CCSDS-355.0-B-2
+    loc: §4.2.4.4
+- id: replay
+  type: single-choice
+  prompt: Stored sequence number 1003, window 10. A valid frame arrives with 1003. Result?
+  choices:
+  - text: Rejected as a replay
+    correct: true
+  - text: Accepted
+    correct: false
+  - text: Accepted and the window grows
+    correct: false
+  explanation: Sequence numbers lower than or equal to the stored value are rejected.
+  label: standard
+  sources:
+  - id: CCSDS-355.0-B-2
+    loc: §4.2.4.4
+- id: simplex
+  type: single-choice
+  prompt: A security association is…
+  choices:
+  - text: One-way (simplex)
+    correct: true
+  - text: Two-way
+    correct: false
+  - text: Per ground station
+    correct: false
+  explanation: Each direction needs its own SA.
+  label: standard
+  sources:
+  - id: CCSDS-355.0-B-2
+    loc: §2.3.1.1

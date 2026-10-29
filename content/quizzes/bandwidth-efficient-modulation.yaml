@@ -1,0 +1,27 @@
+id: bandwidth-efficient-modulation
+topic: bandwidth-efficient-modulation
+items:
+- id: obw
+  type: single-choice
+  prompt: After a saturated amplifier, which occupies the least bandwidth per symbol rate?
+  choices:
+  - text: Precoded GMSK (≈ 0.86 Rs)
+    correct: true
+  - text: Unfiltered BPSK (≈ 20.56 Rs)
+    correct: false
+  - text: They are equal
+    correct: false
+  explanation: Simulated 99 % occupied bandwidths from 413.0-G-3 Annex B.
+  label: standard
+  sources:
+  - id: CCSDS-413.0-G-3
+    loc: Annex B, table B-1
+- id: bw
+  type: numeric
+  prompt: Roughly how many MHz does unfiltered BPSK occupy at 4.588 Msym/s (20.56 Rs)?
+  answer:
+    value: 94.3
+    tolerance: 0.5
+    unit: MHz
+  explanation: 20.56 × 4.588 ≈ 94.3 MHz — more than the 90 MHz S-band allocation.
+  label: example

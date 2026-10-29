@@ -1,0 +1,33 @@
+id: c2-software-landscape
+topic: c2-software-landscape
+items:
+- id: openmct
+  type: single-choice
+  prompt: Which of these does Open MCT's home page describe as its focus?
+  choices:
+  - text: Mission operations data visualization
+    correct: true
+  - text: Command uplink
+    correct: false
+  - text: Flight software
+    correct: false
+  explanation: Commanding and protocol decoding are not described on its home page.
+  label: practice
+  sources:
+  - id: OPENMCT-HOME
+    loc: home page
+- id: verify
+  type: single-choice
+  prompt: A product page does not mention SLE. What should you conclude?
+  choices:
+  - text: Treat SLE support as "to verify"
+    correct: true
+  - text: It has no SLE support
+    correct: false
+  - text: It supports SLE
+    correct: false
+  explanation: Absence on a page is not evidence either way; check current documentation.
+  label: practice
+  sources:
+  - id: YAMCS-LINKS
+    loc: data links

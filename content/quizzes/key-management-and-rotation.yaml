@@ -1,0 +1,45 @@
+id: key-management-and-rotation
+topic: key-management-and-rotation
+items:
+- id: tiers
+  type: single-choice
+  prompt: What do SDLS master keys protect?
+  choices:
+  - text: Other keys (key management)
+    correct: true
+  - text: Telemetry traffic
+    correct: false
+  - text: Command traffic directly
+    correct: false
+  explanation: Session keys protect traffic; master keys protect keys.
+  label: standard
+  sources:
+  - id: CCSDS-355.1-B-1
+    loc: §2.3.2
+- id: rotate
+  type: single-choice
+  prompt: During a key rotation, when should the old SA be stopped?
+  choices:
+  - text: Only after the new SA is proven with a test command
+    correct: true
+  - text: Before uploading the new key
+    correct: false
+  - text: At the same time as uploading the new key
+    correct: false
+  explanation: Keep at least one operational SA at every step (mission-specific design, ledger P10).
+  label: mission
+- id: purpose
+  type: single-choice
+  prompt: NIST recommends that a single key be used for…
+  choices:
+  - text: Only one purpose
+    correct: true
+  - text: Encryption and authentication together
+    correct: false
+  - text: Any purpose within its cryptoperiod
+    correct: false
+  explanation: Sharing a key across purposes can weaken both.
+  label: standard
+  sources:
+  - id: NIST-800-57
+    loc: §5.2

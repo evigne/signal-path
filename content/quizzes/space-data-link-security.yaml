@@ -1,0 +1,45 @@
+id: space-data-link-security
+topic: space-data-link-security
+items:
+- id: spi
+  type: numeric
+  prompt: How many bits is the SDLS Security Parameter Index?
+  answer:
+    value: 16
+    tolerance: 0
+    unit: bits
+  explanation: The SPI is the mandatory first field of the security header; 0 and 65535 are reserved.
+  label: standard
+  sources:
+  - id: CCSDS-355.0-B-2
+    loc: §4.1.1.2
+- id: mac
+  type: single-choice
+  prompt: Which field is never covered by the SDLS MAC?
+  choices:
+  - text: The Operational Control Field (CLCW)
+    correct: true
+  - text: The frame data field
+    correct: false
+  - text: The virtual channel ID
+    correct: false
+  explanation: The OCF, error control field, insert zone and the MAC itself are always excluded.
+  label: standard
+  sources:
+  - id: CCSDS-355.0-B-2
+    loc: §2.3.2.2
+- id: rand
+  type: single-choice
+  prompt: Does the pseudo-randomizer provide confidentiality?
+  choices:
+  - text: No — it is a fixed public pattern
+    correct: true
+  - text: 'Yes'
+    correct: false
+  - text: Only with SDLS
+    correct: false
+  explanation: Confidentiality needs SDLS encryption.
+  label: standard
+  sources:
+  - id: CCSDS-131.0-B-6
+    loc: §10.1
