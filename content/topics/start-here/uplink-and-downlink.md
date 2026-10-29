@@ -4,6 +4,7 @@ title: Uplink and downlink (forward and return links)
 definition: The downlink (return link) carries telemetry and payload data from the spacecraft to the ground; the uplink (forward link) carries commands to the spacecraft. They use different frames, coding and delivery guarantees.
 section: start-here
 level: intro
+order: 30
 est_minutes: [15, 20]
 prerequisites: [end-to-end-system]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, security-aware-operations]

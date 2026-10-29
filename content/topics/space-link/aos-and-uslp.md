@@ -5,6 +5,7 @@ definition: AOS and USLP are CCSDS data link protocols used alongside or instead
 section: space-link
 subsection: data-link-and-packets
 level: advanced
+order: 240
 est_minutes: [20, 30]
 prerequisites: [tm-space-data-link-protocol, tc-space-data-link-protocol]
 learning_paths: [ground-c2-software-engineer, communications-deep-dive]

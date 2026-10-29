@@ -4,6 +4,7 @@ title: Space Data Link Security (SDLS)
 definition: SDLS is the CCSDS protocol that adds authentication, encryption or authenticated encryption to the data of TM, TC, AOS and USLP transfer frames, using a security header and trailer inside each frame.
 section: security-resilience
 level: core
+order: 10
 est_minutes: [25, 35]
 prerequisites: [tm-space-data-link-protocol, tc-space-data-link-protocol]
 learning_paths: [security-aware-operations]

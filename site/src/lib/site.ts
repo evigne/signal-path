@@ -47,6 +47,14 @@ export const PATH_ORDER = [
   'fast-reference',
 ];
 
+const SECTION_INDEX = new Map<string, number>(SECTIONS.map((s, i) => [s.id, i]));
+
+/** Teaching order: section, then the topic's `order` (intro before core before advanced). */
+export const byTeachingOrder = <T extends { data: { section: string; order: number; title: string } }>(a: T, b: T) =>
+  (SECTION_INDEX.get(a.data.section) ?? 99) - (SECTION_INDEX.get(b.data.section) ?? 99) ||
+  a.data.order - b.data.order ||
+  a.data.title.localeCompare(b.data.title);
+
 export const byTitle = <T extends { data: { title: string } }>(a: T, b: T) => a.data.title.localeCompare(b.data.title);
 
 export async function topicMap() {

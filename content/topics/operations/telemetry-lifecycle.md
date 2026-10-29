@@ -4,6 +4,7 @@ title: Telemetry lifecycle
 definition: The path of a measurement from sensor to operator display — sampling, packetization, storage or real-time downlink, frame recovery, packet extraction, decommutation, calibration, limit checking and archiving.
 section: operations
 level: core
+order: 10
 est_minutes: [20, 30]
 prerequisites: [end-to-end-system, space-packet-protocol]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer]
@@ -21,6 +22,7 @@ related_topics: [space-packet-protocol, tm-space-data-link-protocol, command-lif
 related_symptoms: [packets-missing-frames-ok, packets-present-values-invalid]
 related_labs: [telemetry-calibration-sandbox]
 standards: [ccsds-133-0-b-2, ccsds-660-0-b-2]
+tool: 5
 sources:
   - {id: CCSDS-660.0-B-2, loc: "§6.1, §6.1.2"}
   - {id: CCSDS-133.0-B-2, loc: "§4.1.3.4.3, §4.1.4.2"}

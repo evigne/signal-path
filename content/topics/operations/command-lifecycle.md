@@ -4,6 +4,7 @@ title: Command lifecycle
 definition: The path of a command from operator request to confirmed execution — database lookup, constraint and significance checks, encoding, framing with COP-1, CLTU transmission, acceptance onboard, and verification in telemetry.
 section: operations
 level: core
+order: 20
 est_minutes: [25, 35]
 prerequisites: [uplink-and-downlink, space-packet-protocol]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, security-aware-operations]
@@ -21,6 +22,7 @@ related_topics: [uplink-and-downlink, telemetry-lifecycle, space-packet-protocol
 standards: [ccsds-232-1-b-2, ccsds-660-0-b-2]
 related_symptoms: [command-radiated-no-execution]
 related_labs: [cop1-farm-simulator]
+tool: 6
 sources:
   - {id: CCSDS-660.0-B-2, loc: "§6.1.3.2"}
   - {id: CCSDS-232.0-B-4, loc: "§2.2.2, §4.1.2.3"}

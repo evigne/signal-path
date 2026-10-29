@@ -155,6 +155,7 @@ for folder, sname in FOLDERS.items():
 
 tv = schema("topic")
 claim_total = 0
+order_rows = []
 for p in sorted((CONTENT / "topics").rglob("*.md")):
     where = str(p.relative_to(ROOT))
     fm, body, offset = split_frontmatter(p.read_text(), where)
@@ -173,6 +174,18 @@ for p in sorted((CONTENT / "topics").rglob("*.md")):
             warnings.append(f"{where}: topic '{ref}' not written yet")
     claim_total += check_topic_body(body, where, offset)
     counts["topics"] = counts.get("topics", 0) + 1
+    order_rows.append((f'{fm.get("section")}/{fm.get("subsection", "")}'.rstrip("/"), fm.get("order", 0), fm.get("level"), fm.get("id")))
+
+# Teaching order: within a section (or subsection), no topic may come before one of a lower level.
+RANK = {"intro": 0, "core": 1, "advanced": 2}
+for sec in {r[0] for r in order_rows}:
+    rows = sorted(r for r in order_rows if r[0] == sec)
+    seen = [r[1] for r in rows]
+    if len(seen) != len(set(seen)):
+        errors.append(f"topics/{sec}: duplicate order values")
+    for a, b in zip(rows, rows[1:]):
+        if RANK.get(a[2], 0) > RANK.get(b[2], 0):
+            warnings.append(f"topics/{sec}: '{a[3]}' ({a[2]}) is ordered before '{b[3]}' ({b[2]})")
 
 print("Checked:", ", ".join(f"{v} {k}" for k, v in sorted(counts.items())), f"· {claim_total} claims · {len(register_ids)} register sources")
 for w in warnings:

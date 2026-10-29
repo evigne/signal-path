@@ -5,6 +5,7 @@ definition: Channel coding adds carefully structured redundancy to telemetry bef
 section: space-link
 subsection: synchronization-and-coding
 level: core
+order: 140
 est_minutes: [25, 35]
 prerequisites: [bits-symbols-and-rates, sync-markers]
 learning_paths: [operator-conversation-fluency, communications-deep-dive, ground-c2-software-engineer]

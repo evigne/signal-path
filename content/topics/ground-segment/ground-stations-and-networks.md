@@ -4,6 +4,7 @@ title: Ground stations and networks
 definition: Ground stations track the spacecraft, demodulate and decode its signal and radiate commands; networks of stations — agency, commercial or ground-station-as-a-service — deliver the data to the mission over standard or provider-specific interfaces such as SLE.
 section: ground-segment
 level: intro
+order: 10
 est_minutes: [20, 30]
 prerequisites: [end-to-end-system, uplink-and-downlink]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive]

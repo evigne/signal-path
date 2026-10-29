@@ -4,6 +4,7 @@ title: Key management and rotation concepts
 definition: Key management covers how cryptographic keys are created, activated, used for a limited period, replaced and destroyed; for space links CCSDS defines a two-tier symmetric scheme with over-the-air rekeying of session keys.
 section: security-resilience
 level: advanced
+order: 50
 est_minutes: [25, 35]
 prerequisites: [space-data-link-security, security-associations-and-anti-replay]
 learning_paths: [security-aware-operations]

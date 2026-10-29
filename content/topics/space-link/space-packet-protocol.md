@@ -5,6 +5,7 @@ definition: The Space Packet Protocol defines the variable-length packet that on
 section: space-link
 subsection: data-link-and-packets
 level: core
+order: 210
 est_minutes: [25, 35]
 prerequisites: [tm-space-data-link-protocol]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive, fast-reference]
@@ -24,6 +25,7 @@ related_topics: [tm-space-data-link-protocol, telemetry-lifecycle, command-lifec
 related_labs: [space-packet-header-decoder]
 related_symptoms: [packets-missing-frames-ok]
 standards: [ccsds-133-0-b-2]
+tool: 2
 sources:
   - {id: CCSDS-133.0-B-2, loc: "§2.2, §4.1"}
   - {id: SANA-APID, loc: "registry"}

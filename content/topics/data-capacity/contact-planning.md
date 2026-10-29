@@ -4,6 +4,7 @@ title: Contact planning and pass geometry
 definition: Contact planning turns orbit geometry, station locations, elevation masks and link performance into a schedule of passes and an estimate of how much data each can move.
 section: data-capacity
 level: core
+order: 10
 est_minutes: [20, 30]
 prerequisites: [link-budgets, decimal-and-binary-units]
 learning_paths: [communications-deep-dive]
@@ -17,6 +18,7 @@ chain_position:
 glossary_terms: [link-margin]
 related_topics: [link-budgets, ground-stations-and-networks, telemetry-lifecycle, high-rate-coding-and-modulation]
 related_labs: [data-budget-calculator]
+tool: 7
 sources:
   - {id: NASA-SOA-11, loc: "§11.2.1, §11.4"}
   - {id: CCSDS-401, loc: "§2.1.3A"}

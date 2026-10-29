@@ -5,6 +5,7 @@ definition: A bit is a unit of information, a symbol is what the link actually t
 section: fundamentals
 subsection: digital-communications
 level: intro
+order: 10
 est_minutes: [15, 20]
 prerequisites: []
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive, fast-reference]

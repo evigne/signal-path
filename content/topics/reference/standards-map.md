@@ -4,6 +4,7 @@ title: Standards map
 definition: A map from each stage of the space communications chain to the CCSDS (and related) documents that define it, with issue and date, so readers can find the authoritative source quickly.
 section: reference
 level: intro
+order: 10
 est_minutes: [5, 10]
 prerequisites: []
 learning_paths: [fast-reference]

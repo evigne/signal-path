@@ -5,6 +5,7 @@ definition: A link budget adds up every gain and loss between transmitter and re
 section: space-link
 subsection: rf-and-bands
 level: advanced
+order: 30
 est_minutes: [30, 45]
 prerequisites: [rf-basics, bits-symbols-and-rates, channel-coding]
 learning_paths: [communications-deep-dive, fast-reference]

@@ -4,6 +4,7 @@ title: Security associations and anti-replay
 definition: A security association is the one-way set of keys, algorithms and counters that both ends agree to use for a channel; its sequence number and window let the receiver reject replayed or wildly out-of-order frames.
 section: security-resilience
 level: advanced
+order: 30
 est_minutes: [20, 30]
 prerequisites: [space-data-link-security]
 learning_paths: [security-aware-operations]

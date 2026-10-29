@@ -32,12 +32,12 @@ function restoreDirective(node) {
 
 export default function remarkClaims() {
   return (tree, vfile) => {
-    // The "## Sources" section text in the content files is an authoring note; the page
-    // renders the real source list there, so drop the note.
+    // The trailing "## Sources" section in the content files is an authoring note; the
+    // topic page renders the real source list (after the inline tool), so drop both.
+    const isSourcesHeading = (n) => n?.type === 'heading' && n.depth === 2 && n.children?.[0]?.value === 'Sources';
     tree.children = tree.children.filter((n, i, all) => {
-      const prev = all[i - 1];
       const isNote = n.type === 'paragraph' && n.children?.[0]?.value?.startsWith('Rendered from the');
-      return !(isNote && prev?.type === 'heading' && prev.children?.[0]?.value === 'Sources');
+      return !isSourcesHeading(n) && !(isNote && isSourcesHeading(all[i - 1]));
     });
     visit(tree, (node, index, parent) => {
       if (node.type === 'textDirective' || node.type === 'leafDirective') {

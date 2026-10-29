@@ -4,6 +4,7 @@ title: Decimal and binary units (kB vs KiB, Mbit/s vs MiB)
 definition: SI prefixes such as kilo and mega are powers of ten; IEC binary prefixes such as kibi and mebi are powers of two. Mixing them, or mixing bits and octets, produces errors of 2.4 % to 10 % and of 8×.
 section: fundamentals
 level: intro
+order: 20
 est_minutes: [10, 15]
 prerequisites: []
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, fast-reference]

@@ -4,6 +4,7 @@ title: C2 and flight software landscape
 definition: Mission control (C2) software receives telemetry, decodes it with a mission database, displays and archives it, and builds and sends commands; open-source frameworks such as Yamcs, OpenC3 COSMOS and Open MCT, and NASA's cFS on the flight side, are common reference points.
 section: ground-segment
 level: intro
+order: 20
 est_minutes: [15, 20]
 prerequisites: [end-to-end-system]
 learning_paths: [ground-c2-software-engineer]

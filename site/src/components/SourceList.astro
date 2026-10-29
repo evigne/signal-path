@@ -1,11 +1,11 @@
 ---
 import { sourceMap, sourceLabel } from '../lib/site';
-interface Props { refs: { id: string; loc?: string }[]; heading?: string }
-const { refs, heading } = Astro.props;
+interface Props { refs: { id: string; loc?: string }[]; heading?: string; headingId?: string; headingClass?: string }
+const { refs, heading, headingId, headingClass = 't-h3 mb-3' } = Astro.props;
 const map = await sourceMap();
 ---
 <div>
-  {heading && <h2 class="t-h3 mb-3">{heading}</h2>}
+  {heading && <h2 id={headingId} class={headingClass}>{heading}</h2>}
   <ul class="space-y-3">
     {refs.map((r) => {
       const s = map.get(r.id);

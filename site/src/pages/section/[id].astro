@@ -4,13 +4,13 @@ import Base from '../../layouts/Base.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import TopicList from '../../components/TopicList.astro';
 import Card from '../../components/Card.astro';
-import { SECTIONS, symptomHref } from '../../lib/site';
+import { SECTIONS, symptomHref, byTeachingOrder } from '../../lib/site';
 
 export function getStaticPaths() {
   return SECTIONS.filter((s) => !['start-here', 'labs'].includes(s.id)).map((s) => ({ params: { id: s.id }, props: { section: s } }));
 }
 const { section } = Astro.props;
-const topics = (await getCollection('topics')).filter((t) => t.data.section === section.id).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const topics = (await getCollection('topics')).filter((t) => t.data.section === section.id).sort(byTeachingOrder);
 const subsections = [...new Set(topics.map((t) => t.data.subsection ?? ''))];
 const SUB: Record<string, string> = {
   'rf-and-bands': 'RF, bands and tracking',

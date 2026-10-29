@@ -5,6 +5,7 @@ definition: Spacecraft may only transmit in bands the ITU Radio Regulations allo
 section: space-link
 subsection: rf-and-bands
 level: intro
+order: 20
 est_minutes: [20, 25]
 prerequisites: [rf-basics]
 learning_paths: [operator-conversation-fluency, communications-deep-dive]

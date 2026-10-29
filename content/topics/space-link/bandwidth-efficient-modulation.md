@@ -5,6 +5,7 @@ definition: Bandwidth-efficient modulations shape the transmitted signal so it o
 section: space-link
 subsection: rf-and-bands
 level: advanced
+order: 50
 est_minutes: [20, 30]
 prerequisites: [rf-basics, bits-symbols-and-rates, frequency-bands]
 learning_paths: [communications-deep-dive]

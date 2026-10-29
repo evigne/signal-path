@@ -5,6 +5,7 @@ definition: The radio-frequency layer puts coded symbols onto a carrier by modul
 section: space-link
 subsection: rf-and-bands
 level: intro
+order: 10
 est_minutes: [20, 30]
 prerequisites: [bits-symbols-and-rates]
 learning_paths: [operator-conversation-fluency, communications-deep-dive]

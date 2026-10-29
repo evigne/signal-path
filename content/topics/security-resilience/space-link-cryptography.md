@@ -4,6 +4,7 @@ title: Cryptographic algorithms for space links
 definition: CCSDS recommends AES with 256-bit keys, counter-based modes, GCM for authenticated encryption, and CMAC or HMAC for authentication only; GCM's security depends on never reusing an initialization vector with the same key.
 section: security-resilience
 level: advanced
+order: 40
 est_minutes: [20, 30]
 prerequisites: [space-data-link-security]
 learning_paths: [security-aware-operations]

@@ -5,6 +5,7 @@ definition: Radiometric tracking measures how far away a spacecraft is (ranging,
 section: space-link
 subsection: rf-and-bands
 level: advanced
+order: 40
 est_minutes: [20, 30]
 prerequisites: [rf-basics, carrier-and-symbol-sync]
 learning_paths: [communications-deep-dive]

@@ -4,6 +4,7 @@ title: Layered fault isolation
 definition: A troubleshooting method that walks the communications chain layer by layer — RF, sync and coding, frames, packets, ground delivery, processing — and stops at the first layer whose indicators look wrong.
 section: troubleshooting
 level: core
+order: 10
 est_minutes: [20, 30]
 prerequisites: [end-to-end-system, carrier-and-symbol-sync, tm-space-data-link-protocol, space-packet-protocol]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive, security-aware-operations, fast-reference]
@@ -19,6 +20,7 @@ glossary_terms: [frame-synchronization, fecf, packet-sequence-count, clcw]
 related_topics: [end-to-end-system, carrier-and-symbol-sync, sync-markers, tm-space-data-link-protocol, space-packet-protocol, command-lifecycle]
 related_labs: [anomaly-decision-tree]
 related_symptoms: [carrier-but-no-frame-lock, frame-lock-with-errors, packets-missing-frames-ok, command-radiated-no-execution, no-carrier, packets-present-values-invalid, pass-done-data-missing]
+tool: 9
 sources:
   - {id: CCSDS-130.1-G-3, loc: "§9.3.7"}
   - {id: CCSDS-132.0-B-3, loc: "§4.1.2.5, §4.1.2.6, §4.1.6"}

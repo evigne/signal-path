@@ -4,6 +4,7 @@ title: SLE transfer services (RAF, RCF, FCLTU) for software engineers
 definition: Space Link Extension transfer services are the CCSDS interfaces between a ground station and a mission's control centre; each service instance is a stateful association with bind, start, transfer, stop and unbind operations.
 section: ground-segment
 level: advanced
+order: 30
 est_minutes: [30, 40]
 prerequisites: [ground-stations-and-networks, tm-space-data-link-protocol, tc-space-data-link-protocol]
 learning_paths: [ground-c2-software-engineer]

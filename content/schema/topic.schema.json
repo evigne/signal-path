@@ -10,6 +10,7 @@
     "definition",
     "section",
     "level",
+    "order",
     "est_minutes",
     "prerequisites",
     "objectives",
@@ -57,6 +58,11 @@
         "core",
         "advanced"
       ]
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Teaching order within the section (lower first). Intro topics come before core, core before advanced."
     },
     "est_minutes": {
       "type": "array",

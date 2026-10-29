@@ -5,6 +5,7 @@ definition: For very high-rate payload downlinks CCSDS defines combined coding-a
 section: space-link
 subsection: synchronization-and-coding
 level: advanced
+order: 150
 est_minutes: [20, 30]
 prerequisites: [channel-coding, bandwidth-efficient-modulation, link-budgets]
 learning_paths: [communications-deep-dive]

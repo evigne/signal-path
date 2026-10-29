@@ -4,6 +4,7 @@ title: Command authority and threats to space missions
 definition: Command authority is the set of controls that decide who may send which command when — authentication on the link, access control on the ground, and database constraints and confirmations — designed against threats such as masquerade, replay and unauthorized access.
 section: security-resilience
 level: core
+order: 20
 est_minutes: [20, 30]
 prerequisites: [command-lifecycle, space-data-link-security]
 learning_paths: [security-aware-operations]

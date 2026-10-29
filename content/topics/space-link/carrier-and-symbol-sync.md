@@ -5,6 +5,7 @@ definition: Before any data can be read, the receiver has to lock onto the carri
 section: space-link
 subsection: synchronization-and-coding
 level: core
+order: 110
 est_minutes: [20, 30]
 prerequisites: [bits-symbols-and-rates]
 learning_paths: [operator-conversation-fluency, communications-deep-dive]

@@ -8,7 +8,8 @@ import SourceList from '../../components/SourceList.astro';
 import Icon from '../../components/Icon.astro';
 import Quiz from '../../components/islands/Quiz.tsx';
 import MarkDone from '../../components/islands/MarkDone.tsx';
-import { sectionTitle, sectionHref, topicHref, labHref, symptomHref, standardHref, glossaryHref, pathHref, minutes } from '../../lib/site';
+import ToolEmbed from '../../components/ToolEmbed.astro';
+import { sectionTitle, sectionHref, topicHref, labHref, symptomHref, standardHref, glossaryHref, pathHref, minutes, byTeachingOrder } from '../../lib/site';
 
 export async function getStaticPaths() {
   const topics = await getCollection('topics');
@@ -18,11 +19,14 @@ export async function getStaticPaths() {
 const { topic } = Astro.props;
 const d = topic.data;
 const { Content, headings } = await render(topic);
-const toc = headings.filter((h) => h.depth === 2);
+const toc = headings.filter((h) => h.depth === 2 && h.text !== 'Sources');
 
-const all = await getCollection('topics');
+const all = (await getCollection('topics')).sort(byTeachingOrder);
 const titleOf = new Map(all.map((t) => [t.id, t.data.title]));
-const siblings = all.filter((t) => t.data.section === d.section).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const siblings = all.filter((t) => t.data.section === d.section);
+const at = all.findIndex((t) => t.id === topic.id);
+const prev = all[at - 1];
+const next = all[at + 1];
 
 const glossary = new Map((await getCollection('glossary')).map((g) => [g.id, g.data]));
 const labs = new Map((await getCollection('labs')).map((l) => [l.id, l.data]));
@@ -30,6 +34,7 @@ const symptoms = new Map((await getCollection('symptoms')).map((s) => [s.id, s.d
 const standards = new Map((await getCollection('standards')).map((s) => [s.id, s.data]));
 const paths = (await getCollection('paths')).filter((p) => d.learning_paths.includes(p.id));
 const quiz = (await getCollection('quizzes')).find((q) => q.id === topic.id);
+const toolLab = d.tool ? (await getCollection('labs')).find((l) => l.data.tool === d.tool) : undefined;
 ---
 <Base title={d.title} description={d.definition} section={d.section}>
   <div class="mx-auto grid max-w-[1440px] gap-8 px-4 py-8 md:px-8 lg:grid-cols-[248px_minmax(0,1fr)] xl:grid-cols-[264px_minmax(0,1fr)_240px]">
@@ -77,8 +82,22 @@ const quiz = (await getCollection('quizzes')).find((q) => q.id === topic.id);
 
       <div class="prose-sp mt-8">
         <Content />
-        <SourceList refs={d.sources} />
       </div>
+
+      {toolLab && (
+        <section aria-labelledby="try-it" class="mt-12" data-pagefind-ignore>
+          <div class="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p class="t-overline text-fg-2">Tool {d.tool} · fictional data</p>
+              <h2 id="try-it" class="t-h2">Try it</h2>
+            </div>
+            <a href={labHref(toolLab.id)} class="text-sm">Open the guided lab: {toolLab.data.title}</a>
+          </div>
+          <div class="mt-4"><ToolEmbed tool={d.tool!} /></div>
+        </section>
+      )}
+
+      <section class="prose-sp mt-12"><SourceList refs={d.sources} heading="Sources" headingId="sources" headingClass="!mt-0" /></section>
 
       {quiz && (
         <section aria-labelledby="check" class="mt-12 max-w-[720px]" data-pagefind-ignore>
@@ -89,6 +108,21 @@ const quiz = (await getCollection('quizzes')).find((q) => q.id === topic.id);
       )}
 
       <div class="mt-10" data-pagefind-ignore><MarkDone client:visible topicId={topic.id} /></div>
+
+      <nav aria-label="Previous and next topic" class="mt-10 grid gap-3 sm:grid-cols-2" data-pagefind-ignore>
+        {prev ? (
+          <a href={topicHref(prev.id)} class="card group flex flex-col gap-1 p-4 no-underline hover:border-line-strong">
+            <span class="t-label-sm text-fg-2"><span aria-hidden="true">← </span>Previous · {sectionTitle(prev.data.section)}</span>
+            <span class="font-medium text-link group-hover:underline">{prev.data.title}</span>
+          </a>
+        ) : <span />}
+        {next && (
+          <a href={topicHref(next.id)} class="card group flex flex-col gap-1 p-4 text-right no-underline hover:border-line-strong sm:col-start-2">
+            <span class="t-label-sm text-fg-2">Next · {sectionTitle(next.data.section)}<span aria-hidden="true"> →</span></span>
+            <span class="font-medium text-link group-hover:underline">{next.data.title}</span>
+          </a>
+        )}
+      </nav>
 
       <section aria-labelledby="related" class="mt-12 grid max-w-[720px] gap-6 sm:grid-cols-2" data-pagefind-ignore>
         <h2 id="related" class="sr-only">Related content</h2>
@@ -147,6 +181,8 @@ const quiz = (await getCollection('quizzes')).find((q) => q.id === topic.id);
         <p class="t-overline mb-2 text-fg-2">On this page</p>
         <ul class="space-y-1 border-l border-line">
           {toc.map((h) => <li><a href={`#${h.slug}`} class="-ml-px block border-l-2 border-transparent py-1 pl-3 text-fg-2 no-underline hover:border-line-strong hover:text-fg">{h.text}</a></li>)}
+          {toolLab && <li><a href="#try-it" class="-ml-px block border-l-2 border-transparent py-1 pl-3 text-fg-2 no-underline hover:text-fg">Try it</a></li>}
+          <li><a href="#sources" class="-ml-px block border-l-2 border-transparent py-1 pl-3 text-fg-2 no-underline hover:text-fg">Sources</a></li>
           {quiz && <li><a href="#check" class="-ml-px block border-l-2 border-transparent py-1 pl-3 text-fg-2 no-underline hover:text-fg">Check your understanding</a></li>}
         </ul>
       </nav>

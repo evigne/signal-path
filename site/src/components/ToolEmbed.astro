@@ -1,0 +1,45 @@
+---
+// Renders interactive tool N (1–9) as a React island. Used by lab pages and by topic
+// pages whose frontmatter declares `tool: N`.
+import PacketDecoder from './islands/PacketDecoder.tsx';
+import DataBudget from './islands/DataBudget.tsx';
+import BitInspector from './islands/BitInspector.tsx';
+import Calibration from './islands/Calibration.tsx';
+import Cop1Sim from './islands/Cop1Sim.tsx';
+import Walkthrough from './islands/Walkthrough.tsx';
+import DecisionTree from './islands/DecisionTree.tsx';
+import SyncVisualizer from './islands/SyncVisualizer.tsx';
+import CodingSandbox from './islands/CodingSandbox.tsx';
+
+interface Props {
+  tool: number;
+  /** Lab pages hydrate at once; topic pages wait until the tool scrolls into view. */
+  eager?: boolean;
+}
+const { tool, eager = false } = Astro.props;
+---
+{eager ? (
+  <>
+    {tool === 1 && <BitInspector client:load />}
+    {tool === 2 && <PacketDecoder client:load />}
+    {tool === 3 && <SyncVisualizer client:load />}
+    {tool === 4 && <CodingSandbox client:load />}
+    {tool === 5 && <Calibration client:load />}
+    {tool === 6 && <Cop1Sim client:load />}
+    {tool === 7 && <DataBudget client:load />}
+    {tool === 8 && <Walkthrough client:load />}
+    {tool === 9 && <DecisionTree client:load />}
+  </>
+) : (
+  <>
+    {tool === 1 && <BitInspector client:visible />}
+    {tool === 2 && <PacketDecoder client:visible />}
+    {tool === 3 && <SyncVisualizer client:visible />}
+    {tool === 4 && <CodingSandbox client:visible />}
+    {tool === 5 && <Calibration client:visible />}
+    {tool === 6 && <Cop1Sim client:visible />}
+    {tool === 7 && <DataBudget client:visible />}
+    {tool === 8 && <Walkthrough client:visible />}
+    {tool === 9 && <DecisionTree client:visible />}
+  </>
+)}

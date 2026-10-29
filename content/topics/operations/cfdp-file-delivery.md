@@ -4,6 +4,7 @@ title: CFDP file delivery
 definition: The CCSDS File Delivery Protocol copies files between onboard and ground filestores over whatever underlying link is available, either unacknowledged or with acknowledgements and retransmission that guarantee complete delivery.
 section: operations
 level: core
+order: 40
 est_minutes: [20, 30]
 prerequisites: [space-packet-protocol, telemetry-lifecycle]
 learning_paths: [ground-c2-software-engineer, communications-deep-dive]

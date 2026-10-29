@@ -5,15 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import LevelBadge from '../../components/LevelBadge.astro';
 import SourceList from '../../components/SourceList.astro';
 import Icon from '../../components/Icon.astro';
-import PacketDecoder from '../../components/islands/PacketDecoder.tsx';
-import DataBudget from '../../components/islands/DataBudget.tsx';
-import BitInspector from '../../components/islands/BitInspector.tsx';
-import Calibration from '../../components/islands/Calibration.tsx';
-import Cop1Sim from '../../components/islands/Cop1Sim.tsx';
-import Walkthrough from '../../components/islands/Walkthrough.tsx';
-import DecisionTree from '../../components/islands/DecisionTree.tsx';
-import SyncVisualizer from '../../components/islands/SyncVisualizer.tsx';
-import CodingSandbox from '../../components/islands/CodingSandbox.tsx';
+import ToolEmbed from '../../components/ToolEmbed.astro';
 import { topicHref, minutes } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -51,15 +43,7 @@ const live = [1, 2, 3, 4, 5, 6, 7, 8, 9].includes(d.tool);
 
     <section class="mt-8" aria-labelledby="tool">
       <h2 id="tool" class="t-h2 mb-4">The tool</h2>
-      {d.tool === 2 && <PacketDecoder client:load />}
-      {d.tool === 7 && <DataBudget client:load />}
-      {d.tool === 1 && <BitInspector client:load />}
-      {d.tool === 5 && <Calibration client:load />}
-      {d.tool === 6 && <Cop1Sim client:load />}
-      {d.tool === 8 && <Walkthrough client:load />}
-      {d.tool === 9 && <DecisionTree client:load />}
-      {d.tool === 3 && <SyncVisualizer client:load />}
-      {d.tool === 4 && <CodingSandbox client:load />}
+      {live && <ToolEmbed tool={d.tool} eager />}
       {!live && (
         <div class="card flex items-start gap-3 p-5">
           <span class="text-link"><Icon name="info" size={20} /></span>

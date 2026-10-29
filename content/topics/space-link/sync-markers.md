@@ -5,6 +5,7 @@ definition: A sync marker is a known bit pattern placed in front of every coded 
 section: space-link
 subsection: synchronization-and-coding
 level: core
+order: 120
 est_minutes: [15, 25]
 prerequisites: [bits-symbols-and-rates, carrier-and-symbol-sync]
 learning_paths: [operator-conversation-fluency, communications-deep-dive, ground-c2-software-engineer]

@@ -5,6 +5,7 @@ definition: The TC Space Data Link Protocol defines the variable-length transfer
 section: space-link
 subsection: data-link-and-packets
 level: core
+order: 230
 est_minutes: [25, 35]
 prerequisites: [uplink-and-downlink, tm-space-data-link-protocol]
 learning_paths: [ground-c2-software-engineer, communications-deep-dive, security-aware-operations, fast-reference]

@@ -4,6 +4,7 @@ title: Telemetry and command databases (XTCE)
 definition: A mission database describes every telemetry parameter and command — where it sits in a packet, how it is encoded, how it is calibrated and checked — and XTCE is the CCSDS XML format for exchanging those definitions between systems.
 section: operations
 level: core
+order: 30
 est_minutes: [25, 35]
 prerequisites: [space-packet-protocol, telemetry-lifecycle, command-lifecycle]
 learning_paths: [ground-c2-software-engineer]

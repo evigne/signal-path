@@ -4,6 +4,7 @@ title: CCSDS time codes (CUC and CDS)
 definition: CCSDS time codes are binary formats for time stamps in packets and ground data; CUC counts seconds and binary fractions from an epoch, and CDS counts days and milliseconds of day.
 section: fundamentals
 level: core
+order: 50
 est_minutes: [20, 30]
 prerequisites: [decimal-and-binary-units, space-packet-protocol]
 learning_paths: [ground-c2-software-engineer, fast-reference]

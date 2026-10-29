@@ -5,6 +5,7 @@ definition: The TM Space Data Link Protocol defines the fixed-length transfer fr
 section: space-link
 subsection: data-link-and-packets
 level: core
+order: 220
 est_minutes: [25, 35]
 prerequisites: [sync-markers, channel-coding]
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive, fast-reference]

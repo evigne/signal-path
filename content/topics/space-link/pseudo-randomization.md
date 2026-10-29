@@ -5,6 +5,7 @@ definition: Pseudo-randomization mixes a fixed, published bit pattern into each 
 section: space-link
 subsection: synchronization-and-coding
 level: core
+order: 130
 est_minutes: [10, 15]
 prerequisites: [bits-symbols-and-rates, sync-markers]
 learning_paths: [operator-conversation-fluency, communications-deep-dive]

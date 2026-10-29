@@ -4,6 +4,7 @@ title: The end-to-end space communications system
 definition: The chain that carries data between a spacecraft application and a ground user — packets, transfer frames, coding, RF, the ground station, ground networks and the operations centre — and the layer each piece belongs to.
 section: start-here
 level: intro
+order: 20
 est_minutes: [15, 20]
 prerequisites: []
 learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive]
@@ -19,6 +20,7 @@ glossary_terms: [space-packet, transfer-frame, cadu, sle]
 related_topics: [uplink-and-downlink, space-packet-protocol, tm-space-data-link-protocol, ground-stations-and-networks, layered-fault-isolation]
 related_labs: [end-to-end-walkthrough]
 standards: [ccsds-131-0-b-6, ccsds-132-0-b-3, ccsds-133-0-b-2, ccsds-401-0-b-32, ccsds-130-0-g-4]
+tool: 8
 sources:
   - {id: CCSDS-130.0-G-4, loc: "§2.2, §3.2.1, §4.2"}
   - {id: CCSDS-911.1-B-5, loc: "§1.1, §2.1"}

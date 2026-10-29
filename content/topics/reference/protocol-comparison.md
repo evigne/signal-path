@@ -4,6 +4,7 @@ title: Protocol comparison at a glance
 definition: A side-by-side reference of the CCSDS data units most often met in operations — Space Packets and the TM, TC, AOS and USLP transfer frames — with their sizes, identifiers, counters and reliability features.
 section: reference
 level: core
+order: 20
 est_minutes: [5, 10]
 prerequisites: []
 learning_paths: [fast-reference]
