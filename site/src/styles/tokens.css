@@ -1,12 +1,14 @@
 /*
  * Signal Path design tokens.
- * Source of truth: the Penpot file (token sets primitives, mode/light, mode/dark, scale),
- * including decision-log changes: diagram boundary ink.500 in light mode, dark status
- * backgrounds teal.900 (ok) and rose.900 (error).
- * Edit here and in Penpot together.
+ *
+ * Dark "Deep Space Console" is the default theme; "Cleanroom" light is the alternative
+ * (theme toggle sets data-theme="light"). Light values come from the Penpot foundations
+ * (with the decision-log changes); the dark palette was redesigned in the next-phase
+ * review and is not mirrored in Penpot. Every text pair here is at least 4.5:1.
  */
 
 :root {
+  /* Primitives */
   /* Primitives */
   --ink-0: #ffffff;
   --ink-50: #f6f7f9;
@@ -48,9 +50,104 @@
   --red-300: #f2a3a3;
   --red-700: #b42318;
   --orange-300: #fdba74;
-  --orange-600: #c2560c;
+  --orange-600: #a84a0a;
 
-  /* Semantic — light */
+  /* Deep-space primitives */
+  --space-950: #060a12;
+  --space-900: #0c1424;
+  --space-850: #121e36;
+  --space-800: #1a2844;
+  --space-700: #26375a;
+  --space-600: #5a6e92;
+  --ice-50: #f0f6fc;
+  --ice-300: #a8b6cc;
+  --ice-400: #8a9ab3;
+  --cyan-400: #5cc8fa;
+  --cyan-950: #082f49;
+  --teal-400: #2dd4bf;
+  --teal-950: #042f2e;
+  --orange-400: #fb923c;
+  --amber-400: #fbbf24;
+  --red-400: #f87171;
+  --indigo-300: #b4bcfd;
+  --indigo-950: #1e1b4b;
+  --mint-300: #6ee7b7;
+  --mint-950: #052e2b;
+  --gold-300: #fcd34d;
+  --gold-950: #3a2405;
+  --pink-300: #fda4af;
+  --pink-950: #4c0519;
+  --salmon-300: #fca5a5;
+  --blood-950: #3f0a0a;
+
+  /* Scale */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 96px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --measure: 720px;
+  --sidenav: 264px;
+  --toc: 240px;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+
+  /* Semantic — dark (default) */
+  --bg-canvas: var(--space-950);
+  --bg-surface: var(--space-900);
+  --bg-subtle: var(--space-850);
+  --bg-inverse: var(--ice-50);
+  --bg-code: var(--space-850);
+  --bg-accent: var(--cyan-400);
+  --bg-accent-subtle: var(--cyan-950);
+  --text-primary: var(--ice-50);
+  --text-secondary: var(--ice-300);
+  --text-muted: var(--ice-400);
+  --text-link: var(--cyan-400);
+  --text-on-accent: var(--space-950);
+  --text-code: var(--ice-50);
+  --border-default: var(--space-800);
+  --border-strong: var(--space-600);
+  --border-focus: var(--cyan-400);
+  --tag-standard-fg: var(--indigo-300);
+  --tag-standard-bg: var(--indigo-950);
+  --tag-practice-fg: var(--mint-300);
+  --tag-practice-bg: var(--teal-950);
+  --tag-example-fg: var(--gold-300);
+  --tag-example-bg: var(--gold-950);
+  --tag-mission-fg: var(--pink-300);
+  --tag-mission-bg: var(--pink-950);
+  --status-ok-fg: var(--mint-300);
+  --status-ok-bg: var(--mint-950);
+  --status-warn-fg: var(--gold-300);
+  --status-warn-bg: var(--gold-950);
+  --status-error-fg: var(--salmon-300);
+  --status-error-bg: var(--blood-950);
+  --diagram-downlink: var(--teal-400);
+  --diagram-uplink: var(--orange-400);
+  --diagram-boundary: var(--space-600);
+  --diagram-spacecraft: var(--cyan-400);
+  --glow-downlink: 0 0 12px rgb(45 212 191 / 0.25);
+  --glow-accent: 0 0 14px rgb(92 200 250 / 0.22);
+  --panel-highlight: rgb(255 255 255 / 0.06);
+  --reticle-line: rgb(92 200 250 / 0.07);
+  --reticle-star: rgb(240 246 252 / 0.35);
+  color-scheme: dark;
+}
+
+/* Cleanroom (light) — chosen with the theme toggle */
+:root[data-theme="light"] {
   --bg-canvas: var(--ink-50);
   --bg-surface: var(--ink-0);
   --bg-subtle: var(--ink-100);
@@ -85,101 +182,11 @@
   --diagram-uplink: var(--orange-600);
   --diagram-boundary: var(--ink-500);
 
-  /* Scale */
-  --space-1: 2px;
-  --space-2: 4px;
-  --space-3: 8px;
-  --space-4: 12px;
-  --space-5: 16px;
-  --space-6: 24px;
-  --space-7: 32px;
-  --space-8: 48px;
-  --space-9: 64px;
-  --space-10: 96px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-pill: 999px;
-  --measure: 720px;
-  --sidenav: 264px;
-  --toc: 240px;
-  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-
+  --diagram-spacecraft: var(--cobalt-600);
+  --glow-downlink: none;
+  --glow-accent: none;
+  --panel-highlight: rgb(255 255 255 / 0.9);
+  --reticle-line: rgb(42 87 196 / 0.07);
+  --reticle-star: rgb(42 87 196 / 0.18);
   color-scheme: light;
-}
-
-/* Semantic — dark (system preference unless the reader chose light) */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg-canvas: var(--ink-950);
-    --bg-surface: var(--ink-900);
-    --bg-subtle: var(--ink-800);
-    --bg-inverse: var(--ink-50);
-    --bg-code: var(--ink-800);
-    --bg-accent: var(--cobalt-300);
-    --bg-accent-subtle: var(--cobalt-900);
-    --text-primary: var(--ink-50);
-    --text-secondary: var(--ink-300);
-    --text-muted: var(--ink-400);
-    --text-link: var(--cobalt-300);
-    --text-on-accent: var(--ink-950);
-    --border-default: var(--ink-700);
-    --border-strong: var(--ink-600);
-    --border-focus: var(--cobalt-300);
-    --tag-standard-fg: var(--violet-300);
-    --tag-standard-bg: var(--violet-900);
-    --tag-practice-fg: var(--teal-300);
-    --tag-practice-bg: var(--teal-900);
-    --tag-example-fg: var(--amber-300);
-    --tag-example-bg: var(--amber-900);
-    --tag-mission-fg: var(--rose-300);
-    --tag-mission-bg: var(--rose-900);
-    --status-ok-fg: var(--green-300);
-    --status-ok-bg: var(--teal-900);
-    --status-warn-fg: var(--amber-300);
-    --status-warn-bg: var(--amber-900);
-    --status-error-fg: var(--red-300);
-    --status-error-bg: var(--rose-900);
-    --diagram-downlink: var(--teal-300);
-    --diagram-uplink: var(--orange-300);
-    --diagram-boundary: var(--ink-400);
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg-canvas: var(--ink-950);
-  --bg-surface: var(--ink-900);
-  --bg-subtle: var(--ink-800);
-  --bg-inverse: var(--ink-50);
-  --bg-code: var(--ink-800);
-  --bg-accent: var(--cobalt-300);
-  --bg-accent-subtle: var(--cobalt-900);
-  --text-primary: var(--ink-50);
-  --text-secondary: var(--ink-300);
-  --text-muted: var(--ink-400);
-  --text-link: var(--cobalt-300);
-  --text-on-accent: var(--ink-950);
-  --border-default: var(--ink-700);
-  --border-strong: var(--ink-600);
-  --border-focus: var(--cobalt-300);
-  --tag-standard-fg: var(--violet-300);
-  --tag-standard-bg: var(--violet-900);
-  --tag-practice-fg: var(--teal-300);
-  --tag-practice-bg: var(--teal-900);
-  --tag-example-fg: var(--amber-300);
-  --tag-example-bg: var(--amber-900);
-  --tag-mission-fg: var(--rose-300);
-  --tag-mission-bg: var(--rose-900);
-  --status-ok-fg: var(--green-300);
-  --status-ok-bg: var(--teal-900);
-  --status-warn-fg: var(--amber-300);
-  --status-warn-bg: var(--amber-900);
-  --status-error-fg: var(--red-300);
-  --status-error-bg: var(--rose-900);
-  --diagram-downlink: var(--teal-300);
-  --diagram-uplink: var(--orange-300);
-  --diagram-boundary: var(--ink-400);
-  color-scheme: dark;
 }

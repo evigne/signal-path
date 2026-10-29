@@ -1,0 +1,20 @@
+---
+// Signal Path emblem: ground dish, downlink beam and a spacecraft with an uplink arc.
+// Same drawing as public/favicon.svg, but theme-aware.
+interface Props { size?: number }
+const { size = 30 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
+  <rect width="32" height="32" rx="7" fill="var(--space-900)" stroke="var(--border-strong)" stroke-width="0.8" />
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.2 16.5a8.5 8.5 0 0 0 9.3 9.3z" fill="var(--teal-400)" stroke="var(--teal-400)" stroke-width="1.4" />
+    <path d="M10.4 21.6 7.5 27.5h6" stroke="var(--ice-300)" stroke-width="1.6" />
+    <path d="M12.6 19.4 18.2 13.8" stroke="var(--teal-400)" stroke-width="1.6" stroke-dasharray="1.6 1.8" />
+    <path d="M15.2 9.4a7.4 7.4 0 0 1 7.4 7.4M15.4 5.4a11.4 11.4 0 0 1 11.2 11.2" stroke="var(--orange-400)" stroke-width="1.6" />
+  </g>
+  <g transform="rotate(45 22.5 9.5)">
+    <rect x="20.5" y="7.5" width="4" height="4" rx="0.6" fill="var(--ice-50)" />
+    <rect x="15.2" y="8.3" width="4.4" height="2.4" rx="0.4" fill="#38bdf8" />
+    <rect x="25.4" y="8.3" width="4.4" height="2.4" rx="0.4" fill="#38bdf8" />
+  </g>
+</svg>

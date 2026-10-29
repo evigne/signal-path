@@ -6,37 +6,48 @@ import Card from '../components/Card.astro';
 import LabelChip from '../components/LabelChip.astro';
 import LevelBadge from '../components/LevelBadge.astro';
 import Icon from '../components/Icon.astro';
+import OrbitalPass from '../components/islands/OrbitalPass.tsx';
 import { sortedPaths, pathHref, topicHref, labHref, symptomHref, standardHref } from '../lib/site';
 
 const paths = await sortedPaths();
 const topics = await getCollection('topics');
 const labs = await getCollection('labs');
+const TIERS = [
+  { tag: 'BEGINNER', title: 'New to space comms?', text: 'Why space links are different, a pass minute by minute, and the vocabulary — no background needed.', cta: 'Start here', path: 'space-comms-101', primary: true },
+  { tag: 'INTERMEDIATE', title: 'Talk with operators', text: 'Frames, packets, coding, commanding and troubleshooting, with labs.', cta: 'Core path', path: 'operator-conversation-fluency', primary: false },
+  { tag: 'EXPERT', title: 'Go deep on the link', text: 'Link budgets, modulation, high-rate coding, ranging and USLP.', cta: 'Deep dive', path: 'communications-deep-dive', primary: false },
+];
 const claimCount = topics.reduce((n, t) => n + (t.body?.match(/^:::claim\{/gm)?.length ?? 0), 0);
 ---
 <Base title="Signal Path">
-  <section class="border-b border-line bg-surface">
-    <div class="mx-auto grid max-w-[1440px] gap-10 px-4 py-12 md:px-8 lg:grid-cols-[minmax(0,1fr)_420px] lg:py-16">
+  <section class="bg-reticle border-b border-line">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-4 py-12 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,600px)] lg:py-16">
       <div>
         <p class="t-overline text-link">Spacecraft communications &amp; operations</p>
         <h1 class="t-display mt-3 max-w-[760px]">Follow data from a spacecraft sensor to a mission screen — and commands back.</h1>
-        <p class="t-body-lg mt-4 max-w-[680px] text-fg-2">
-          Learn how telemetry flows down and commands go up — through onboard software, RF, ground stations and provider networks to mission control — then learn to troubleshoot it layer by layer.
+        <p class="t-body-lg mt-4 max-w-[640px] text-fg-2">
+          Learn how telemetry comes down and commands go up through onboard software, radio links, ground stations and networks to mission control. Then learn to troubleshoot it, layer by layer.
         </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a class="btn btn-primary" href={pathHref('operator-conversation-fluency')}>Start the core path <Icon name="arrow-right" size={16} /></a>
-          <a class="btn btn-secondary" href="/start-here/">Browse all topics</a>
-        </div>
-      </div>
-      <div class="card p-5">
-        <p class="t-overline text-fg-2">What is here</p>
-        <dl class="mt-3 grid grid-cols-2 gap-4">
-          <div><dt class="t-small text-fg-2">Topics</dt><dd class="t-h2">{topics.length}</dd></div>
-          <div><dt class="t-small text-fg-2">Learning paths</dt><dd class="t-h2">{paths.length}</dd></div>
-          <div><dt class="t-small text-fg-2">Labs</dt><dd class="t-h2">{labs.length}</dd></div>
-          <div><dt class="t-small text-fg-2">Cited claims</dt><dd class="t-h2">{claimCount}</dd></div>
+        <ul class="mt-8 grid gap-3 sm:grid-cols-3" aria-label="Where to start">
+          {TIERS.map((tier) => (
+            <li>
+              <a href={pathHref(tier.path)} class:list={['card group flex h-full flex-col gap-1 p-4 no-underline hover:border-line-strong', tier.primary && '!border-accent']}>
+                <span class="t-readout text-xs text-fg-muted">{tier.tag}</span>
+                <span class="t-h4 text-fg group-hover:text-link">{tier.title}</span>
+                <span class="t-small text-fg-2">{tier.text}</span>
+                <span class="mt-auto inline-flex items-center gap-1 pt-2 text-sm text-link">{tier.cta} <Icon name="arrow-right" size={14} /></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <dl class="t-readout mt-8 flex flex-wrap gap-x-8 gap-y-2 text-sm text-fg-2">
+          <div class="flex gap-2"><dt>TOPICS</dt><dd class="text-fg">{topics.length}</dd></div>
+          <div class="flex gap-2"><dt>PATHS</dt><dd class="text-fg">{paths.length}</dd></div>
+          <div class="flex gap-2"><dt>LABS</dt><dd class="text-fg">{labs.length}</dd></div>
+          <div class="flex gap-2"><dt>CITED CLAIMS</dt><dd class="text-fg">{claimCount}</dd></div>
         </dl>
-        <p class="t-small mt-4 text-fg-2">Every factual statement is labelled and linked to a dated source in the <a href="/sources/">source register</a>. All example data is fictional.</p>
       </div>
+      <div class="self-center"><OrbitalPass client:load /></div>
     </div>
   </section>
 
@@ -50,7 +61,7 @@ const claimCount = topics.reduce((n, t) => n + (t.body?.match(/^:::claim\{/gm)?.
   <section class="mx-auto max-w-[1440px] px-4 py-8 md:px-8" aria-labelledby="paths">
     <h2 id="paths" class="t-h2">Learning paths</h2>
     <p class="mt-2 max-w-[720px] text-fg-2">Pick a path for your role. Paths share topics, so progress in one counts in the others.</p>
-    <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+    <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {paths.map((p, i) => (
         <a href={pathHref(p.id)} class="card group flex flex-col gap-2 p-5 text-fg no-underline hover:border-line-strong hover:bg-subtle">
           <span class="t-overline text-fg-2">Path {i + 1}</span>

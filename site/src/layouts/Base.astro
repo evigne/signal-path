@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
+import Emblem from '../components/Emblem.astro';
 import { NAV } from '../lib/site';
 
 interface Props {
@@ -9,13 +10,18 @@ interface Props {
   section?: string;
 }
 const { title, description = 'Learn spacecraft communications and operations, from bits to passes, with cited CCSDS sources and interactive labs.', section } = Astro.props;
+const DEPTHS = [
+  { id: 'beginner', label: 'Beginner', short: 'B', hint: 'Beginner: intuition first; expert detail stays folded' },
+  { id: 'intermediate', label: 'Intermediate', short: 'I', hint: 'Intermediate: protocols, framing and worked numbers' },
+  { id: 'expert', label: 'Expert', short: 'E', hint: 'Expert: every deep dive and edge case open; full citation boxes' },
+];
 const pageTitle = title === 'Signal Path' ? title : `${title} · Signal Path`;
 const here = Astro.url.pathname;
 const isActive = (item: (typeof NAV)[number]) =>
   (section && item.match.includes(section)) || here.startsWith(item.href);
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-depth="intermediate">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,28 +31,49 @@ const isActive = (item: (typeof NAV)[number]) =>
     <script is:inline>
       try {
         var t = localStorage.getItem('sp-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+        if (t === 'light') document.documentElement.dataset.theme = 'light';
+        var m = localStorage.getItem('sp-depth-mode');
+        document.documentElement.dataset.depth = m === 'beginner' || m === 'expert' ? m : 'intermediate';
       } catch (e) {}
     </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="tlm-bar border-b border-line bg-canvas text-fg-2" data-pagefind-ignore>
+      <div class="mx-auto flex max-w-[1440px] items-center gap-x-4 gap-y-1 overflow-hidden px-4 py-1.5 md:px-8">
+        <a href="/topics/time-codes/" class="whitespace-nowrap" title="Coordinated Universal Time; read about time codes">
+          <span class="text-fg-muted">UTC</span> <time id="tlm-utc" class="text-fg">----.---.--:--:--</time>
+        </a>
+        <a href="/topics/time-codes/" class="hidden whitespace-nowrap sm:inline" title="TAI runs ahead of UTC by the accumulated leap seconds">TAI − UTC = 37 s</a>
+        <a href="/labs/end-to-end-walkthrough/" class="tlm-pill ml-auto whitespace-nowrap" title="A simulated pass for a fictional spacecraft; open the end-to-end walkthrough">
+          <span class="tlm-led" id="tlm-led" data-state="los"></span>
+          <span><span class="text-fg-muted">SIM</span> SP-1 · <span id="tlm-pass">LOS</span><span id="tlm-detail" class="hidden md:inline"></span></span>
+        </a>
+      </div>
+    </div>
     <header class="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
       <div class="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-3 md:px-8">
         <a href="/" class="flex items-center gap-2 text-fg no-underline">
-          <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="var(--bg-accent)"/><path d="M7 17c3-6 11-6 14 0M10 17c2-3 6-3 8 0" stroke="var(--text-on-accent)" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="14" cy="18" r="1.6" fill="var(--text-on-accent)"/></svg>
-          <span class="t-h4">Signal Path</span>
+          <Emblem />
+          <span class="t-h4 max-[419px]:sr-only" style="font-family:var(--font-display);letter-spacing:-0.2px">Signal Path</span>
         </a>
-        <form action="/search/" method="get" role="search" class="ml-auto hidden w-full max-w-sm md:block">
+        <form action="/search/" method="get" role="search" class="ml-auto hidden w-full max-w-xs md:block">
           <label class="sr-only" for="site-search">Search topics, terms, symptoms</label>
           <div class="relative">
             <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-fg-muted"><Icon name="search" size={16} /></span>
             <input id="site-search" name="q" type="search" placeholder="Search topics, terms, symptoms" class="w-full rounded-lg border border-line-strong bg-surface py-2 pl-9 pr-3 text-sm text-fg placeholder:text-fg-muted" />
           </div>
         </form>
-        <button type="button" id="theme-toggle" class="btn btn-secondary !px-3 !py-2" aria-label="Switch colour theme">
-          <span class="theme-icon-light"><Icon name="moon" size={16} /></span>
-          <span class="t-label hidden sm:inline">Theme</span>
+        <div role="group" aria-label="Reading depth" class="depth-switch ml-auto md:ml-0" title="Reading depth: how much detail topic pages open by default">
+          {DEPTHS.map((d) => (
+            <button type="button" data-depth-set={d.id} aria-pressed={d.id === 'intermediate' ? 'true' : 'false'} title={d.hint}>
+              <span aria-hidden="true" class="lg:hidden">{d.short}</span><span class="hidden lg:inline">{d.label}</span><span class="sr-only lg:hidden">{d.label}</span>
+            </button>
+          ))}
+        </div>
+        <button type="button" id="theme-toggle" class="btn btn-secondary !px-3 !py-2" aria-pressed="false" title="Switch between Deep Space (dark) and Cleanroom (light)">
+          <Icon name="sun" size={16} />
+          <span class="t-label"><span class="sr-only">Cleanroom light theme</span><span class="hidden sm:inline" aria-hidden="true">Cleanroom</span></span>
         </button>
         <details class="relative md:hidden" id="mobile-menu">
           <summary class="btn btn-secondary !px-3 !py-2 list-none" aria-label="Open menu"><Icon name="menu" size={18} /></summary>
@@ -126,15 +153,65 @@ const isActive = (item: (typeof NAV)[number]) =>
       (function () {
         var btn = document.getElementById('theme-toggle');
         if (!btn) return;
+        var root = document.documentElement;
+        btn.setAttribute('aria-pressed', String(root.dataset.theme === 'light'));
         btn.addEventListener('click', function () {
-          var root = document.documentElement;
-          var dark = root.dataset.theme
-            ? root.dataset.theme === 'dark'
-            : window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var next = dark ? 'light' : 'dark';
-          root.dataset.theme = next;
-          try { localStorage.setItem('sp-theme', next); } catch (e) {}
+          var light = root.dataset.theme !== 'light';
+          if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
+          btn.setAttribute('aria-pressed', String(light));
+          try { localStorage.setItem('sp-theme', light ? 'light' : 'dark'); } catch (e) {}
         });
+        // Reading depth: stored per browser; opens or folds depth blocks on topic pages.
+        function applyDepth(mode) {
+          root.dataset.depth = mode;
+          document.querySelectorAll('[data-depth-set]').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b.getAttribute('data-depth-set') === mode));
+          });
+          document.querySelectorAll('details[data-depth-block]').forEach(function (d) {
+            var kind = d.getAttribute('data-depth-block');
+            d.open = kind === 'expert' ? mode === 'expert' : mode !== 'expert';
+          });
+        }
+        applyDepth(root.dataset.depth || 'intermediate');
+        document.querySelectorAll('[data-depth-set]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var mode = b.getAttribute('data-depth-set');
+            applyDepth(mode);
+            try { localStorage.setItem('sp-depth-mode', mode); } catch (e) {}
+          });
+        });
+
+        // Telemetry strip: live UTC (year.day-of-year.time) and a simulated pass for a
+        // fictional spacecraft: a 10-minute pass every 96 minutes, peak elevation 48°.
+        var utc = document.getElementById('tlm-utc');
+        var pass = document.getElementById('tlm-pass');
+        var detail = document.getElementById('tlm-detail');
+        var led = document.getElementById('tlm-led');
+        var PERIOD = 96 * 60, PASS = 10 * 60;
+        function pad(n, w) { return String(n).padStart(w, '0'); }
+        function tick() {
+          var d = new Date();
+          var start = Date.UTC(d.getUTCFullYear(), 0, 1);
+          var doy = Math.floor((d.getTime() - start) / 86400000) + 1;
+          if (utc) {
+            utc.textContent = d.getUTCFullYear() + '.' + pad(doy, 3) + '.' + pad(d.getUTCHours(), 2) + ':' + pad(d.getUTCMinutes(), 2) + ':' + pad(d.getUTCSeconds(), 2);
+            utc.setAttribute('datetime', d.toISOString());
+          }
+          var t = Math.floor(d.getTime() / 1000) % PERIOD;
+          if (t < PASS) {
+            var el = Math.round(48 * Math.sin(Math.PI * t / PASS));
+            pass.textContent = 'PASS ACTIVE';
+            detail.textContent = ' · EL ' + pad(el, 2) + '° · S-BAND ' + (el >= 5 ? 'LOCK' : 'ACQ') + ' · LOS ' + pad(Math.floor((PASS - t) / 60), 2) + ':' + pad((PASS - t) % 60, 2);
+            led.dataset.state = 'aos';
+          } else {
+            var left = PERIOD - t;
+            pass.textContent = 'LOS';
+            detail.textContent = ' · NEXT AOS ' + pad(Math.floor(left / 60), 2) + ':' + pad(left % 60, 2);
+            led.dataset.state = 'los';
+          }
+        }
+        tick();
+        setInterval(tick, 1000);
         document.querySelectorAll('.prose-sp pre, .prose-sp table').forEach(function (el) {
           if (!el.hasAttribute('tabindex')) { el.setAttribute('tabindex', '0'); }
         });

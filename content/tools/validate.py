@@ -41,6 +41,8 @@ TOPIC_SECTIONS = [
     "Sources",
 ]
 CLAIM_RE = re.compile(r"^:::claim\{([^}]*)\}\s*$")
+# Depth blocks wrap claims, so they use a longer fence: ::::beginner{title="..."} ... ::::
+DEPTH_RE = re.compile(r"^(:{4,})(beginner|expert)(\{[^}]*\})?\s*$")
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
 SOURCED_LABELS = {"standard", "practice"}
 
@@ -84,9 +86,17 @@ def check_topic_body(body, where, offset=0):
             errors.append(f"{where}: missing section '## {s}'")
     lines = body.splitlines()
     open_claim = None
+    open_depth = None  # (fence, line)
     for n, line in enumerate(lines, 1 + offset):
         m = CLAIM_RE.match(line)
-        if m:
+        d = DEPTH_RE.match(line)
+        if d:
+            if open_depth or open_claim:
+                errors.append(f"{where}:{n}: depth block must not be nested")
+            if 'title="' not in (d.group(3) or ""):
+                errors.append(f"{where}:{n}: depth block needs a title")
+            open_depth = (d.group(1), n)
+        elif m:
             if open_claim:
                 errors.append(f"{where}:{n}: claim opened before the claim at line {open_claim} closed")
             open_claim = n
@@ -106,8 +116,16 @@ def check_topic_body(body, where, offset=0):
             if not open_claim:
                 errors.append(f"{where}:{n}: closing ::: without an open claim")
             open_claim = None
+        elif re.fullmatch(r":{4,}", line.strip()):
+            if not open_depth or line.strip() != open_depth[0]:
+                errors.append(f"{where}:{n}: closing {line.strip()} does not match an open depth block")
+            elif open_claim:
+                errors.append(f"{where}:{n}: depth block closed inside the claim at line {open_claim}")
+            open_depth = None
     if open_claim:
         errors.append(f"{where}:{open_claim}: claim is never closed")
+    if open_depth:
+        errors.append(f"{where}:{open_depth[1]}: depth block is never closed")
     return sum(1 for l in lines if CLAIM_RE.match(l))
 
 

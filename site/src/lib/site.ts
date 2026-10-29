@@ -39,7 +39,9 @@ export const LABEL_TEXT: Record<string, string> = {
   mission: 'Mission-specific',
 };
 
+// Beginner (intro) → intermediate (core) → expert (advanced), then the lookup path.
 export const PATH_ORDER = [
+  'space-comms-101',
   'operator-conversation-fluency',
   'ground-c2-software-engineer',
   'communications-deep-dive',

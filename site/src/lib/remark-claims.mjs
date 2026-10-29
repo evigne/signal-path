@@ -1,5 +1,6 @@
 // Turns :::claim{label source loc} container directives into labelled callouts with
-// citations resolved against research/source_register.json. Unknown source IDs or a
+// citations, and ::::beginner / ::::expert depth blocks into <details>. Claims cite
+// sources resolved against research/source_register.json. Unknown source IDs or a
 // standard/practice claim without a source fail the build, mirroring validate.py.
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -13,6 +14,13 @@ export const LABELS = {
   practice: { text: 'Common practice', icon: 'M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.6 5.1 17.2l.9-5.5-4-3.9L7.6 7Z' },
   example: { text: 'Illustrative example', icon: 'M7 2h6v5l4 9a2 2 0 0 1-1.8 2.8H4.8A2 2 0 0 1 3 16l4-9V2Zm-1 0h8' },
   mission: { text: 'Mission-specific', icon: 'M4 18V3m0 1h10l-2 3.5L14 11H4' },
+};
+
+// Depth blocks: ::::beginner (intuition, open for Beginner and Intermediate readers)
+// and ::::expert (edge cases, open only in Expert mode). Both stay one click away.
+const DEPTH = {
+  beginner: { chip: 'Intuition' },
+  expert: { chip: 'Expert deep dive' },
 };
 
 const svg = (d) =>
@@ -45,6 +53,21 @@ export default function remarkClaims() {
         return;
       }
       if (node.type !== 'containerDirective') return;
+      if (node.name === 'beginner' || node.name === 'expert') {
+        const title = node.attributes?.title;
+        if (!title) throw new Error(`${vfile.path}: :::${node.name} block needs a title`);
+        const meta = DEPTH[node.name];
+        node.data = { hName: 'details', hProperties: { className: ['depth-block', `depth-${node.name}`], dataDepthBlock: node.name } };
+        node.children = [
+          {
+            type: 'depthSummary',
+            data: { hName: 'summary' },
+            children: [span(['depth-chip'], [text(meta.chip)]), span(['depth-title'], [text(title)])],
+          },
+          { type: 'depthBody', data: { hName: 'div', hProperties: { className: ['depth-body'] } }, children: node.children },
+        ];
+        return;
+      }
       if (node.name !== 'claim') {
         throw new Error(`${vfile.path}: unknown directive :::${node.name}`);
       }
