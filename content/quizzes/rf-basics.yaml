@@ -16,33 +16,45 @@ items:
   sources:
   - id: CCSDS-401
     loc: §2.1.2, §2.3.5
-- id: highrate
+- id: carrier
   type: single-choice
-  prompt: Which modulations does CCSDS recommend for Category A high-rate telemetry?
+  prompt: What is the carrier?
   choices:
-  - text: GMSK or OQPSK
+  - text: A steady radio wave at a known frequency that data is written onto by modulation
     correct: true
-  - text: Unfiltered BPSK only
+  - text: The company that operates the ground station
     correct: false
-  - text: FSK
+  - text: The error-correcting code added to frames
     correct: false
-  explanation: 401.0-B-32 recommends GMSK or OQPSK for Category A high rates.
-  label: standard
+  explanation: On its own the carrier carries no information; modulation changes its phase, frequency or amplitude in a known pattern.
+  label: practice
   sources:
-  - id: CCSDS-401
-    loc: §2.4.17A
-- id: ratio
+  - id: NASA-BSF-10
+    loc: Modulation and Demodulation, Carrier and Subcarrier
+- id: dish
   type: single-choice
-  prompt: What turnaround ratio does CCSDS recommend for S-band coherent transponders (2025–2120 up, 2200–2300 down)?
+  prompt: Why does a bigger ground dish help receive a faint spacecraft?
   choices:
-  - text: 221/240
+  - text: It collects and focuses more of the signal (higher gain), at the cost of needing more accurate pointing
     correct: true
-  - text: 240/221
+  - text: It makes the spacecraft transmit more power
     correct: false
-  - text: 880/749
+  - text: It removes the free-space loss
     correct: false
-  explanation: The recommended ratio is 221/240.
-  label: standard
+  explanation: Gain comes from focusing; the narrower beam must be pointed more precisely. Free-space loss is unchanged.
+  label: practice
   sources:
-  - id: CCSDS-401
-    loc: §2.6.1
+  - id: NASA-BSF-10
+    loc: Signal Power
+- id: lowel
+  type: single-choice
+  prompt: Errors appear only in the first and last minute of every pass. What is the most likely explanation?
+  choices:
+  - text: Low elevation — longer path and more atmosphere reduce the margin
+    correct: true
+  - text: The spacecraft's software crashes at the start and end of each pass
+    correct: false
+  - text: The wrong polarization is configured
+    correct: false
+  explanation: A configuration error would affect the whole pass; edge-of-pass errors point at margin falling at low elevation.
+  label: example

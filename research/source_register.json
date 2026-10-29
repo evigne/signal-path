@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28",
+ "generated": "2026-10-29",
  "schema": "brief §7 fields + local_file, status, notes",
  "sources": [
   {
@@ -1108,6 +1108,153 @@
    "status": "Active in CCSDS catalogue 2026-10-28",
    "review_due": "2027-04-28",
    "notes": "§3.3 active/passive threats; §3.4 common threats (data modification, ground loss, interception, jamming, DoS, masquerade, replay, software, unauthorized access, tainted hardware, supply chain); §4 threat assessment."
+  },
+  {
+   "id": "NASA-BSF-10",
+   "title": "Basics of Space Flight — Chapter 10: Telecom",
+   "publisher": "NASA Science (JPL)",
+   "doc_number": "—",
+   "date": "page updated Nov 04, 2024",
+   "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter10-1/",
+   "source_type": "Agency educational reference",
+   "topics": [
+    "uplink and downlink",
+    "antenna gain",
+    "coherence",
+    "carrier and modulation",
+    "round-trip light time"
+   ],
+   "terms": "NASA content generally not copyrighted in the US; educational reuse allowed with credit; no logos/insignia or implied endorsement.",
+   "reliability": "Authoritative secondary (educational)",
+   "status": "Live page read 2026-10-29",
+   "notes": "Sections: Signal Power, Uplink and Downlink, One-way/Two-way/Three-way, Coherence, Modulation and Demodulation, Symbols and Bits and Coding. Voyager HGA 47 dBi at X-band; largest DSN antennas 74 dBi; transmitters ~20 W. Does not state the inverse-square law itself.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "ITU-R-P525",
+   "title": "Recommendation ITU-R P.525-5: Calculation of free-space attenuation",
+   "publisher": "ITU Radiocommunication Sector",
+   "doc_number": "ITU-R P.525-5",
+   "date": "11/2024 (in force)",
+   "url": "https://www.itu.int/rec/R-REC-P.525/en",
+   "source_type": "International recommendation",
+   "topics": [
+    "free-space path loss",
+    "link budgets"
+   ],
+   "terms": "Free PDF download from ITU; cite and link, do not reproduce.",
+   "reliability": "Primary",
+   "status": "In force; PDF read 2026-10-29",
+   "notes": "Annex §2.3 eq. (5)-(6): free-space basic transmission loss between isotropic antennas Lbf = 20 log10(4πd/λ) = 32.4 + 20 log f(MHz) + 20 log d(km) dB.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "ITU-R-V574",
+   "title": "Recommendation ITU-R V.574-5: Use of the decibel and the neper in telecommunications",
+   "publisher": "ITU Radiocommunication Sector",
+   "doc_number": "ITU-R V.574-5",
+   "date": "08/2015 (in force)",
+   "url": "https://www.itu.int/rec/R-REC-V.574/en",
+   "source_type": "International recommendation",
+   "topics": [
+    "decibel",
+    "dBW",
+    "dBm",
+    "gain and loss"
+   ],
+   "terms": "Free PDF download from ITU; cite and link, do not reproduce.",
+   "reliability": "Primary",
+   "status": "In force; PDF read 2026-10-29",
+   "notes": "Annex 1 §1.1 dB = one tenth of a bel, power ratio 10 lg(P1/P2); §1.2 field quantities use 20 lg; §5 loss and gain; §6.1 dBW relative to 1 W, dBm relative to 1 mW.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "NIST-CODATA-K",
+   "title": "CODATA value: Boltzmann constant",
+   "publisher": "NIST Physical Measurement Laboratory",
+   "doc_number": "CODATA 2022",
+   "date": "2022 CODATA recommended values",
+   "url": "https://physics.nist.gov/cgi-bin/cuu/Value?k",
+   "source_type": "Government reference page",
+   "topics": [
+    "thermal noise",
+    "constants"
+   ],
+   "terms": "US government work; link and summarize.",
+   "reliability": "Primary (national metrology institute)",
+   "status": "Live page read 2026-10-29",
+   "notes": "k = 1.380 649 × 10^-23 J/K, exact.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "NIST-CODATA-C",
+   "title": "CODATA value: speed of light in vacuum",
+   "publisher": "NIST Physical Measurement Laboratory",
+   "doc_number": "CODATA 2022",
+   "date": "2022 CODATA recommended values",
+   "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
+   "source_type": "Government reference page",
+   "topics": [
+    "light time",
+    "constants"
+   ],
+   "terms": "US government work; link and summarize.",
+   "reliability": "Primary (national metrology institute)",
+   "status": "Live page read 2026-10-29",
+   "notes": "c = 299 792 458 m/s, exact.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "IERS-BULC",
+   "title": "IERS Bulletin C (leap second announcements)",
+   "publisher": "IERS Earth Orientation Center (Paris Observatory)",
+   "doc_number": "Bulletin C 72",
+   "date": "6 July 2026",
+   "url": "https://datacenter.iers.org/data/latestVersion/bulletinC.txt",
+   "source_type": "Official bulletin",
+   "topics": [
+    "leap seconds",
+    "TAI-UTC",
+    "time codes"
+   ],
+   "terms": "Public bulletin; link and summarize.",
+   "reliability": "Primary",
+   "status": "Latest bulletin read 2026-10-29",
+   "review_due": "2027-01-15",
+   "notes": "No leap second at end of December 2026; UTC-TAI = -37 s from 2017-01-01 0h UTC until further notice. Bulletins are issued every six months: recheck after the January issue.",
+   "local_file": "—",
+   "access_date": "2026-10-29"
+  },
+  {
+   "id": "NASA-STARGAZE-K3",
+   "title": "From Stargazers to Starships — (21a) Applying Kepler's Third Law",
+   "publisher": "NASA Goddard Space Flight Center (D. P. Stern)",
+   "doc_number": "—",
+   "date": "updated 22 Sep 2004 (archived, not maintained)",
+   "url": "https://pwg.gsfc.nasa.gov/stargaze/Sappl3rd.htm",
+   "source_type": "Agency educational reference (archived)",
+   "topics": [
+    "orbital period",
+    "circular orbits",
+    "Kepler's third law"
+   ],
+   "terms": "NASA content generally not copyrighted in the US; educational reuse allowed with credit.",
+   "reliability": "Authoritative secondary (educational, archived)",
+   "status": "Archived page read 2026-10-29",
+   "notes": "Circular Earth orbit: T^2 = (4π²/(g R_E²)) r³; T = 5063.5 s × (r/R_E)^1.5; r = 1.05 R_E gives about 90.8 min. Supports period-vs-altitude statements only; pass durations on Signal Path are computed examples.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
   }
  ]
 }

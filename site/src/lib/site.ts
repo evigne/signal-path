@@ -32,6 +32,10 @@ export const NAV = [
 
 export const LEVEL_TEXT: Record<string, string> = { intro: 'Intro', core: 'Core', advanced: 'Advanced' };
 
+/** Learning-path tiers shown on path cards. */
+export const TIER_TEXT: Record<string, string> = { intro: 'Beginner', core: 'Intermediate', advanced: 'Expert' };
+export const pathTier = (p: { id: string; data: { level: string } }) => (p.id === 'fast-reference' ? 'Reference' : (TIER_TEXT[p.data.level] ?? p.data.level));
+
 export const LABEL_TEXT: Record<string, string> = {
   standard: 'Standard-defined',
   practice: 'Common practice',

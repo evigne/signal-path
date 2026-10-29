@@ -1,0 +1,14 @@
+id: free-space-loss
+term: Free-space loss
+expansion: free-space basic transmission loss
+plain_definition: How much weaker a radio signal gets just because it spreads out over distance; it grows by about 6 dB each time the distance doubles.
+precise_meaning: Loss between two isotropic antennas in free space, 20 log10(4πd/λ) dB, or 32.4 + 20 log10 f(MHz) + 20 log10 d(km) dB (ITU-R P.525).
+layer: Physical layer / link budget
+aliases: [free-space path loss, FSPL, path loss]
+example_usage: '"At 2 GHz the free-space loss to the Moon is over 210 dB." (illustrative)'
+related_terms: [decibel, link-margin, eirp]
+topics: [why-space-links-are-different, decibels-and-noise-101, link-budgets]
+label: standard
+sources:
+  - {id: ITU-R-P525, loc: "Annex §2.3, eq. (5)–(6)"}
+last_reviewed: pending

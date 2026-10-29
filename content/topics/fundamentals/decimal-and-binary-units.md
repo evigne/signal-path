@@ -7,7 +7,7 @@ level: intro
 order: 20
 est_minutes: [10, 15]
 prerequisites: []
-learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, fast-reference]
+learning_paths: [space-comms-101, operator-conversation-fluency, ground-c2-software-engineer, fast-reference]
 objectives:
   - Convert between bits, octets, decimal and binary multiples without error.
   - Spot when a figure mixes decimal and binary prefixes, or bits and bytes.

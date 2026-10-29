@@ -1,36 +1,51 @@
 id: end-to-end-system
 topic: end-to-end-system
 items:
-- id: layers
+- id: order
   type: single-choice
-  prompt: Which five OSI layers does CCSDS use to organise its space communications protocols?
+  prompt: Put the downlink journey of a temperature reading in order.
   choices:
-  - text: Physical, data link, network, transport, application
+  - text: Packet → frame → coding and sync marker → radio carrier → ground station → network → mission control
     correct: true
-  - text: Physical, data link, session, presentation, application
+  - text: Radio carrier → packet → frame → mission control → ground station
     correct: false
-  - text: Physical, network, transport, session, application
+  - text: Frame → packet → ground station → radio carrier → mission control
     correct: false
-  explanation: CCSDS uses physical, data link, network, transport and application; session and presentation protocols are rarely used over space links.
+  explanation: Software wraps the reading in a packet, packets go into frames, frames are coded and marked, then modulated; the station recovers frames and the network delivers them to mission control.
   label: standard
   sources:
   - id: CCSDS-130.0-G-4
-    loc: §2.2.1
-- id: sublayers
+    loc: §3.2.1, §4.2
+- id: meaning
   type: single-choice
-  prompt: Which two sublayers does CCSDS define inside the data link layer?
+  prompt: Who usually turns raw telemetry numbers into engineering values like "21.4 °C"?
   choices:
-  - text: Data link protocol sublayer and synchronization & channel coding sublayer
+  - text: Software at mission control, using the mission's telemetry database
     correct: true
-  - text: MAC sublayer and LLC sublayer
+  - text: The ground station's receiver
     correct: false
-  - text: Framing sublayer and routing sublayer
+  - text: The radio transmitter on the spacecraft
     correct: false
-  explanation: Transfer frames are handled by the data link protocol sublayer; sync markers and coding by the synchronization and channel coding sublayer.
-  label: standard
+  explanation: Stations usually stop at frames; packet extraction and calibration happen in the mission's ground software.
+  label: practice
   sources:
-  - id: CCSDS-130.0-G-4
-    loc: §2.2.3
+  - id: CCSDS-660.0-B-2
+    loc: §6.1.2.1
+- id: aos
+  type: single-choice
+  prompt: An operator says "AOS at 10:02". What do they mean?
+  choices:
+  - text: The pass started — the station acquired the spacecraft's signal
+    correct: true
+  - text: Advanced Orbiting Systems frames were enabled
+    correct: false
+  - text: The attitude system switched on
+    correct: false
+  explanation: In pass talk AOS is Acquisition of Signal. The AOS frame protocol is a different meaning of the same letters.
+  label: practice
+  sources:
+  - id: NASA-SOA-11
+    loc: §11.4
 - id: stale
   type: single-choice
   prompt: Frame counts on VC0 keep rising but one parameter display is stale. Where is the fault most likely?

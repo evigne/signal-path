@@ -8,7 +8,7 @@ level: intro
 order: 10
 est_minutes: [20, 30]
 prerequisites: [bits-symbols-and-rates]
-learning_paths: [operator-conversation-fluency, communications-deep-dive]
+learning_paths: [space-comms-101, operator-conversation-fluency, communications-deep-dive]
 objectives:
   - Explain carrier, modulation, residual versus suppressed carrier, and polarization in plain words.
   - Name the CCSDS-recommended modulations for low and high rate links.
@@ -37,7 +37,21 @@ status: draft
 
 ## Plain-language explanation
 
-A carrier is a pure radio tone at a known frequency. Data is added by nudging the tone's phase (or frequency or amplitude) — that is modulation. Some schemes leave part of the pure tone visible (a residual carrier), which makes it easy to find; others put all the power into the data (suppressed carrier), which is more efficient but harder to lock onto. The signal weakens with distance; what matters at the receiver is how much energy each bit has compared with the noise.
+**Radio is a wave.** A transmitter makes an electric signal swing back and forth millions or billions of times a second; the antenna turns it into a radio wave. The number of swings per second is the **frequency** (2 GHz = 2 billion per second). The distance the wave travels during one swing is the **wavelength**: at 2 GHz it is about 15 cm, at 8 GHz about 3.7 cm.
+
+**A pure, steady wave is called the carrier.** On its own it carries no information — it is like a constant hum.
+
+**Modulation writes data onto the carrier** by changing one of its properties in a pattern the receiver knows:
+
+- **Amplitude** — make the wave louder or quieter.
+- **Frequency** — make it slightly higher or lower in pitch.
+- **Phase** — shift where each swing starts; for example "no shift" means 0 and "half-swing shift" means 1. Spacecraft mostly use phase.
+
+Some schemes leave part of the pure hum visible (a **residual carrier**), which makes it easy for the receiver to find; others put all the power into the data (**suppressed carrier**), which is more efficient but harder to lock onto.
+
+**Antennas focus the wave.** A dish works like the reflector of a torch: it squeezes the power into a narrow beam. That focusing is the antenna's **gain**. Bigger dishes and higher frequencies give narrower, stronger beams — but they must be pointed more accurately.
+
+**The signal weakens with distance;** what matters at the receiver is how much energy each bit has compared with the background noise.
 
 ## Precise terminology
 
@@ -68,9 +82,13 @@ For Category A (near-Earth) high-rate telemetry, CCSDS 401.0-B-32 recommends GMS
 
 2. **Resolve phase ambiguity.** Suppressed-carrier receivers can lock at the wrong phase.
 
+::::expert{title="Phase ambiguity in suppressed-carrier receivers"}
+A suppressed-carrier receiver rebuilds the carrier from the data itself, so it cannot tell a phase of 0° from 180° (BPSK) or from 90°, 180° or 270° (QPSK). It may lock "upside down" and output every bit inverted, or with the I and Q streams swapped. The fix is to look for a known pattern — the sync marker — in each possible rotation.
+
 :::claim{label="standard" source="CCSDS-401" loc="§2.4.11"}
 In QPSK systems, CCSDS 401.0-B-32 recommends using the sync marker to resolve phase ambiguity.
 :::
+::::
 
 3. **Close the link.** Transmit power, antenna gains, distance, atmosphere and receiver noise combine into the Eb/N0 that arrives; the margin is how much above the decoder's requirement it sits.
 
@@ -80,9 +98,13 @@ CCSDS 401.0-B-32 provides a standard link design control table for exchanging li
 
 4. **Track Doppler and ranging** with a coherent transponder if the mission needs navigation data.
 
+::::expert{title="Coherent turnaround ratios"}
+A coherent transponder derives its downlink frequency from the uplink it receives, multiplied by a fixed ratio, so the ground can measure the two-way Doppler shift very precisely. The ratio is chosen so that uplink and downlink fall in their allocated bands.
+
 :::claim{label="standard" source="CCSDS-401" loc="§2.6.1"}
 For coherent transponders between the 2025–2120 MHz uplink and 2200–2300 MHz downlink bands, CCSDS 401.0-B-32 recommends a turnaround frequency ratio of 221/240.
 :::
+::::
 
 ## What operators and engineers see
 

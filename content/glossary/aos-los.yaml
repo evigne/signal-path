@@ -1,0 +1,14 @@
+id: aos-los
+term: AOS / LOS
+expansion: Acquisition of Signal / Loss of Signal
+plain_definition: The moments a ground station first receives a spacecraft's signal and finally loses it — the start and end of a pass. Not to be confused with AOS frames (Advanced Orbiting Systems).
+precise_meaning: Pass events, usually defined against the station's elevation mask and receiver lock; schedules and logs give AOS and LOS times per station. "AOS" in CCSDS 732.0 names the Advanced Orbiting Systems data link protocol, an unrelated meaning.
+layer: Operations
+aliases: [acquisition of signal, loss of signal]
+example_usage: '"AOS at 10:02 on the northern station, LOS 10:12." (fictional)'
+related_terms: [doppler-shift, frame-synchronization]
+topics: [anatomy-of-a-pass, contact-planning]
+label: practice
+sources:
+  - {id: NASA-SOA-11, loc: "§11.4"}
+last_reviewed: pending

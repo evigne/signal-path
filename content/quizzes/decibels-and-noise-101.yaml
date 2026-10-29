@@ -1,0 +1,60 @@
+id: decibels-and-noise-101
+topic: decibels-and-noise-101
+items:
+- id: x20
+  type: single-choice
+  prompt: A power ratio of 20 is about how many decibels?
+  choices:
+  - text: 13 dB
+    correct: true
+  - text: 20 dB
+    correct: false
+  - text: 200 dB
+    correct: false
+  explanation: 20 = 2 × 10, so 3 dB + 10 dB = 13 dB.
+  label: standard
+  sources:
+  - id: ITU-R-V574
+    loc: Annex 1 §1.1
+- id: dbm
+  type: single-choice
+  prompt: A transmitter puts out 1 W. What is that in dBm?
+  choices:
+  - text: 30 dBm
+    correct: true
+  - text: 0 dBm
+    correct: false
+  - text: 1 dBm
+    correct: false
+  explanation: dBm is relative to 1 mW; 1 W is 1000 mW, and 10 log10(1000) = 30.
+  label: standard
+  sources:
+  - id: ITU-R-V574
+    loc: Annex 1 §6.1
+- id: rate
+  type: single-choice
+  prompt: Received power stays the same but the bit rate is doubled. What happens to Eb/N0?
+  choices:
+  - text: It drops by about 3 dB
+    correct: true
+  - text: It rises by about 3 dB
+    correct: false
+  - text: It is unchanged
+    correct: false
+  explanation: Each bit now gets half the energy; half is −3 dB.
+  label: standard
+  sources:
+  - id: CCSDS-130.1-G-3
+    loc: §3.3.1
+- id: margin
+  type: numeric
+  prompt: A fictional link delivers Eb/N0 = 7.5 dB and the code plus implementation losses need 4.6 dB. What is the margin in dB?
+  answer:
+    value: 2.9
+    tolerance: 0.05
+    unit: dB
+  explanation: Margin = received Eb/N0 − required Eb/N0 = 7.5 − 4.6 = 2.9 dB.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §4.1.3

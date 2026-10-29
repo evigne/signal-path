@@ -8,7 +8,7 @@ level: intro
 order: 10
 est_minutes: [15, 20]
 prerequisites: []
-learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive, fast-reference]
+learning_paths: [space-comms-101, operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive, fast-reference]
 objectives:
   - Distinguish information bit rate, coded symbol rate and channel symbol rate.
   - Compute one rate from another given the code rate and the modulation order.
@@ -41,6 +41,20 @@ status: draft
 ## Plain-language explanation
 
 Information bits are what you want to deliver. Coding adds extra symbols to protect them, so more symbols leave the encoder than bits went in. Then the modulator groups symbols: simple modulations send one symbol per "tick" of the carrier, richer ones pack several into each tick. Each step changes the rate you would measure.
+
+::::beginner{title="One bit per tick, or two"}
+Think of the carrier as a clock hand that the transmitter may nudge to a new position at every tick.
+
+- **BPSK** allows **2 positions** (0° and 180°). Each tick can say one of two things, so it carries **1 bit**: 0° = `0`, 180° = `1`.
+- **QPSK** allows **4 positions** (45°, 135°, 225°, 315°). Each tick can say one of four things, so it carries **2 bits**: `00`, `01`, `11`, `10`.
+
+```
+BPSK  bits: 1   0   1   1        → 4 ticks
+QPSK  bits: 10  11  ← same 4 bits → 2 ticks
+```
+
+So for the same data, QPSK needs half as many ticks per second — half the **symbol rate** — and therefore roughly half the radio bandwidth. Richer schemes such as 8PSK or 16APSK pack even more positions onto each tick; those positions sit closer together, so the receiver needs a cleaner signal to tell them apart. Coding then adds protective symbols on top, which is why bits, coded symbols and channel symbols all have different rates.
+::::
 
 ## Precise terminology
 

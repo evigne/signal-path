@@ -1,0 +1,54 @@
+id: anatomy-of-a-pass
+topic: anatomy-of-a-pass
+items:
+- id: aosmeaning
+  type: single-choice
+  prompt: In a pass schedule, "AOS 10:02Z" means…
+  choices:
+  - text: Acquisition of Signal — the station first receives the spacecraft at 10:02 UTC
+    correct: true
+  - text: Advanced Orbiting Systems frames start at 10:02 UTC
+    correct: false
+  - text: The spacecraft's attitude and orbit system switches on at 10:02 UTC
+    correct: false
+  explanation: In schedules AOS and LOS are pass events. AOS in CCSDS protocol names (732.0) is the unrelated Advanced Orbiting Systems frame format.
+  label: practice
+  sources:
+  - id: NASA-SOA-11
+    loc: §11.4
+- id: lockorder
+  type: single-choice
+  prompt: In what order does a ground receiver usually report lock at the start of a pass?
+  choices:
+  - text: Carrier, then symbol, then frame
+    correct: true
+  - text: Frame, then symbol, then carrier
+    correct: false
+  - text: All three at once
+    correct: false
+  explanation: The receiver must track the radio carrier before it can recover symbol timing, and it needs symbols before it can find the sync marker that starts each frame.
+  label: example
+- id: doppler
+  type: single-choice
+  prompt: Why must the station sweep or pre-correct its uplink frequency during a low-orbit pass?
+  choices:
+  - text: The spacecraft's motion shifts the frequency (Doppler) by far more than the onboard receiver's lock-in range
+    correct: true
+  - text: The spacecraft changes its receive frequency every minute
+    correct: false
+  - text: The atmosphere changes the frequency at low elevation
+    correct: false
+  explanation: CCSDS 401.0 notes near-Earth Doppler of up to about ±80 kHz at 2 GHz, with receiver lock-in ranges much smaller than that.
+  label: standard
+  sources:
+  - id: CCSDS-401
+    loc: §2.1.3A
+- id: playback
+  type: numeric
+  prompt: A fictional pass leaves 7.5 minutes for playback at 2 Mbit/s. How many megabytes (10⁶ octets) can be played back, ignoring overheads?
+  answer:
+    value: 112.5
+    tolerance: 0.5
+    unit: MB
+  explanation: 7.5 × 60 s × 2 × 10⁶ bit/s = 9 × 10⁸ bits; ÷ 8 = 1.125 × 10⁸ octets = 112.5 MB.
+  label: example

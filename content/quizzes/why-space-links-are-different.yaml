@@ -1,0 +1,57 @@
+id: why-space-links-are-different
+topic: why-space-links-are-different
+items:
+- id: double
+  type: single-choice
+  prompt: A spacecraft moves twice as far from the ground station. Roughly what happens to the received signal power from free-space spreading alone?
+  choices:
+  - text: It drops to about a quarter (about −6 dB)
+    correct: true
+  - text: It drops to half (−3 dB)
+    correct: false
+  - text: It stays the same, because space is a vacuum
+    correct: false
+  explanation: Free-space loss grows with 20 log10 of distance, so doubling the distance adds about 6 dB of loss — a factor of four in power. It happens even in perfect vacuum, because the power spreads over a larger area.
+  label: standard
+  sources:
+  - id: ITU-R-P525
+    loc: Annex §2.3, eq. (6)
+- id: pass
+  type: single-choice
+  prompt: Why can a single ground station only talk to a low-orbit spacecraft for a few minutes at a time?
+  choices:
+  - text: The spacecraft circles Earth in about an hour and a half, so it crosses the station's sky quickly and then is below the horizon
+    correct: true
+  - text: The spacecraft's battery only allows a few minutes of transmission per orbit
+    correct: false
+  - text: Regulations limit each pass to ten minutes
+    correct: false
+  explanation: A low orbit is fast; the spacecraft rises, crosses the sky and sets in roughly ten minutes, and is out of that station's view for the rest of the orbit.
+  label: practice
+  sources:
+  - id: NASA-SOA-11
+    loc: §11.2.1
+- id: lighttime
+  type: single-choice
+  prompt: An operator on Earth sends a command to a fictional Mars orbiter 225 million km away. About how long until the acknowledgement could arrive back?
+  choices:
+  - text: About 25 minutes (12.5 minutes each way)
+    correct: true
+  - text: About 12.5 seconds
+    correct: false
+  - text: Instantly, radio is faster than light
+    correct: false
+  explanation: 225 × 10⁶ km ÷ 299 792 km/s ≈ 750 s ≈ 12.5 minutes each way, so a round trip is about 25 minutes.
+  label: example
+- id: whynottcp
+  type: single-choice
+  prompt: Which reason best explains why spacecraft links do not simply use ordinary internet protocols end to end?
+  choices:
+  - text: The link is weak, delayed and only available in short passes, so quick retries and constant connectivity cannot be assumed
+    correct: true
+  - text: Spacecraft computers are too slow to run any network software
+    correct: false
+  - text: Internet protocols are forbidden in space by treaty
+    correct: false
+  explanation: Space protocols are designed for long delays, intermittent contact and noisy links; protocols that assume quick round trips and steady connections work poorly there.
+  label: example

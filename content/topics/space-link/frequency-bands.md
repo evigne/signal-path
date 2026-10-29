@@ -8,7 +8,7 @@ level: intro
 order: 20
 est_minutes: [20, 25]
 prerequisites: [rf-basics]
-learning_paths: [operator-conversation-fluency, communications-deep-dive]
+learning_paths: [space-comms-101, operator-conversation-fluency, communications-deep-dive]
 objectives:
   - Describe a band correctly as an allocation to a service, in a direction, on a primary or secondary basis.
   - Name the common S-, X- and Ka-band allocations used by near-Earth missions.

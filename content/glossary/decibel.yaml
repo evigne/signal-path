@@ -1,0 +1,14 @@
+id: decibel
+term: dB
+expansion: decibel
+plain_definition: A way to write a ratio as a small number you can add; +3 dB is about double, +10 dB is ten times, −3 dB is half.
+precise_meaning: One tenth of a bel; a power ratio P1/P2 is 10 log10(P1/P2) dB (20 log10 for field quantities such as voltage). With a stated reference it becomes an absolute level, such as dBW (relative to 1 W) or dBm (relative to 1 mW).
+layer: Physical layer / link budget
+aliases: [decibels, dBW, dBm]
+example_usage: '"Doubling the rate costs us 3 dB of Eb/N0." (fictional)'
+related_terms: [eb-n0, eirp, link-margin, free-space-loss]
+topics: [decibels-and-noise-101, link-budgets]
+label: standard
+sources:
+  - {id: ITU-R-V574, loc: "Annex 1 §1.1, §1.2, §6.1"}
+last_reviewed: pending

@@ -7,7 +7,7 @@ level: intro
 order: 20
 est_minutes: [15, 20]
 prerequisites: [end-to-end-system]
-learning_paths: [ground-c2-software-engineer]
+learning_paths: [space-comms-101, ground-c2-software-engineer]
 objectives:
   - Name the functional blocks of a C2 system.
   - Place example open-source tools on those blocks without overstating what they do.

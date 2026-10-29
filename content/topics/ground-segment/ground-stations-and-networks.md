@@ -7,7 +7,7 @@ level: intro
 order: 10
 est_minutes: [20, 30]
 prerequisites: [end-to-end-system, uplink-and-downlink]
-learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive]
+learning_paths: [space-comms-101, operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive]
 objectives:
   - Describe what a ground station does during a pass, from scheduling to loss of signal.
   - Explain the SLE RAF, RCF and FCLTU services and the online and offline delivery modes.

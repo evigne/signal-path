@@ -7,7 +7,7 @@ level: intro
 order: 30
 est_minutes: [15, 20]
 prerequisites: [end-to-end-system]
-learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, security-aware-operations]
+learning_paths: [space-comms-101, operator-conversation-fluency, ground-c2-software-engineer, security-aware-operations]
 objectives:
   - Use downlink/return and uplink/forward correctly.
   - Contrast the TM and TC data link protocols (frame length, coding unit, retransmission).
@@ -38,6 +38,10 @@ The two directions behave differently, and operators expect you to know which on
 
 ## Plain-language explanation
 
+::::beginner{title="Two very different conversations"}
+Picture a live radio broadcast going one way and a registered letter going the other. The broadcast (downlink) pours out continuously; if you miss a sentence, it is gone. The letter (uplink) is short, precious and tracked: the sender wants proof it arrived, in the right order, before sending the next one.
+::::
+
 The downlink is the spacecraft talking: a steady, high-volume stream of fixed-size frames. The uplink is the ground talking: short, occasional bursts of commands that must arrive complete and in order. Because commands matter so much, the spacecraft reports back on the downlink which command frames it has accepted, and the ground resends any that went missing.
 
 ## Precise terminology
@@ -62,9 +66,13 @@ Both directions pass through the same stages — packets, frames, coding, RF, gr
 A TC transfer frame has a 5-octet header, a data field of up to 1019 octets (1017 with the optional 2-octet Frame Error Control Field) and is variable in length.
 :::
 
+For transmission, one or more TC frames are wrapped in a **CLTU** (Communications Link Transmission Unit): a known start pattern, the error-protected command data, and an end marker.
+
+::::expert{title="CLTU start and tail sequences"}
 :::claim{label="standard" source="CCSDS-231.0-B-4" loc="§5.2"}
 For transmission, one or more TC frames are BCH- or LDPC-encoded into a CLTU: a start sequence (16 bits, 1110101110010000, for BCH), the encoded codewords, and — for BCH — a 64-bit tail sequence (C5C5C5C5C5C5C579 hex) built to be uncorrectable so it stops decoding.
 :::
+::::
 
 **Retransmission on the uplink:**
 

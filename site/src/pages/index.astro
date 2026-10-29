@@ -7,7 +7,7 @@ import LabelChip from '../components/LabelChip.astro';
 import LevelBadge from '../components/LevelBadge.astro';
 import Icon from '../components/Icon.astro';
 import OrbitalPass from '../components/islands/OrbitalPass.tsx';
-import { sortedPaths, pathHref, topicHref, labHref, symptomHref, standardHref } from '../lib/site';
+import { sortedPaths, pathHref, topicHref, labHref, symptomHref, standardHref, pathTier } from '../lib/site';
 
 const paths = await sortedPaths();
 const topics = await getCollection('topics');
@@ -62,9 +62,9 @@ const claimCount = topics.reduce((n, t) => n + (t.body?.match(/^:::claim\{/gm)?.
     <h2 id="paths" class="t-h2">Learning paths</h2>
     <p class="mt-2 max-w-[720px] text-fg-2">Pick a path for your role. Paths share topics, so progress in one counts in the others.</p>
     <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {paths.map((p, i) => (
+      {paths.map((p) => (
         <a href={pathHref(p.id)} class="card group flex flex-col gap-2 p-5 text-fg no-underline hover:border-line-strong hover:bg-subtle">
-          <span class="t-overline text-fg-2">Path {i + 1}</span>
+          <span class="t-overline text-fg-2">{pathTier(p)} path</span>
           <span class="t-h4 group-hover:text-link">{p.data.title}</span>
           <span class="t-small text-fg-2">{p.data.audience}</span>
           <span class="mt-auto flex items-center gap-2 pt-3 text-xs text-fg-muted">

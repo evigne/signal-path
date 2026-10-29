@@ -1,0 +1,14 @@
+id: space-comms-101
+title: Space comms 101
+level: intro
+audience: Anyone new to spacecraft or radio — students, software developers, project staff — who wants the big picture without prior knowledge
+prerequisites: [None]
+modules:
+  - {title: Why space is different, topics: [why-space-links-are-different, end-to-end-system]}
+  - {title: "A pass, minute by minute", topics: [anatomy-of-a-pass, uplink-and-downlink], labs: [end-to-end-walkthrough]}
+  - {title: "Bits, envelopes and containers", topics: [bits-symbols-and-rates, packets-vs-frames-postal-analogy, decimal-and-binary-units], labs: [bit-byte-endianness-inspector]}
+  - {title: Radio without the maths, topics: [decibels-and-noise-101, rf-basics, frequency-bands]}
+  - {title: Who does what on the ground, topics: [ground-stations-and-networks, c2-software-landscape]}
+est_hours: [3, 4]
+milestones: [Quiz after each topic, End-to-end walkthrough lab, Path summary stored locally]
+outcomes: [Explain how data gets from a spacecraft to a mission screen and back, in plain words, and follow the vocabulary of a pass.]

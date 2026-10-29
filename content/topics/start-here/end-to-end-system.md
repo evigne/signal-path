@@ -7,7 +7,7 @@ level: intro
 order: 20
 est_minutes: [15, 20]
 prerequisites: []
-learning_paths: [operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive]
+learning_paths: [space-comms-101, operator-conversation-fluency, ground-c2-software-engineer, communications-deep-dive]
 objectives:
   - Name the stages a telemetry packet passes through from spacecraft to operator, in order.
   - Place each stage in a protocol layer (physical, data link, network and above).
@@ -33,14 +33,28 @@ status: draft
 
 ## Why it matters
 
-Every conversation in operations points at a place in this chain: "the station has carrier", "VC0 is gapping", "APID 126 is stale", "the SLE link dropped". If you can place each phrase on the chain you can follow the conversation and ask the right next question.
+Operations conversations are full of shorthand. Each phrase points at one place in a chain that runs from a sensor on the spacecraft to a screen in mission control. Once you can place a phrase on that chain, you can follow the conversation and ask a useful next question.
+
+::::beginner{title="Decoding four phrases you will hear"}
+- **"The station has carrier."** The ground antenna is receiving the spacecraft's radio wave — the very first step of contact.
+- **"VC0 is gapping."** Telemetry arrives in fixed-size *frames* sorted into lanes called virtual channels; VC0 is lane zero, and "gapping" means some frames in that lane were missed.
+- **"APID 126 is stale."** Inside the frames are *packets*, each labelled with an Application Process Identifier (APID) naming the onboard application that made it. "Stale" means no fresh packet from application 126 has arrived recently.
+- **"The SLE link dropped."** SLE (Space Link Extension) is the standard way ground stations pass frames over ordinary networks to mission control; that ground connection broke.
+
+One more trap: **AOS** in a pass schedule means *Acquisition of Signal* (the pass has started), but in protocol documents it means *Advanced Orbiting Systems*, a frame format.
+::::
 
 ## Plain-language explanation
 
-An instrument on the spacecraft produces a measurement. Software wraps it in a packet, packets are packed into fixed-size frames, the frames are protected with error-correcting code and marked so the ground can find them, and the result is put on a radio carrier. A ground antenna receives the signal, a demodulator and decoder turn it back into frames, the frames travel over ordinary networks to the mission's control centre, and software there unpacks packets and turns raw numbers into engineering values on a screen. Commands make the same trip in reverse.
+An instrument on the spacecraft produces a measurement — say, a temperature. Software wraps it in a **packet** (an envelope with the sender's name on it). Packets are packed into fixed-size **frames** (shipping containers). The frames get extra error-correcting bits and a fixed start pattern so the ground can find each one, and the result rides on a **radio carrier** wave.
+
+A ground antenna receives the signal. Its receiver turns the wave back into bits, finds each frame, and repairs damaged bits. The frames then travel over ordinary networks to the mission's control centre, where software unpacks the packets and turns raw numbers into engineering values — "21.4 °C" — on a screen.
+
+**Commands make the same trip in reverse:** an operator's command is wrapped in a packet and a frame, sent to a ground station, radiated up, checked by the spacecraft and executed. The spacecraft reports back on the downlink which commands it accepted.
 
 ## Precise terminology
 
+::::expert{title="The CCSDS layer model"}
 :::claim{label="standard" source="CCSDS-130.0-G-4" loc="§2.2.1"}
 CCSDS describes its space communications protocols using five layers of the OSI model — physical, data link, network, transport and application — noting that session and presentation layer protocols are rarely used over space links.
 :::
@@ -48,6 +62,7 @@ CCSDS describes its space communications protocols using five layers of the OSI 
 :::claim{label="standard" source="CCSDS-130.0-G-4" loc="§2.2.3"}
 CCSDS splits the data link layer into two sublayers: a data link protocol sublayer, which moves higher-layer data in transfer frames over a point-to-point space link, and a synchronization and channel coding sublayer, which handles synchronization and error-correcting coding of those frames.
 :::
+::::
 
 - **Space link:** the link between a spacecraft and its ground system, or between two spacecraft.
 - **Physical channel:** one stream of bits over a space link in one direction.
