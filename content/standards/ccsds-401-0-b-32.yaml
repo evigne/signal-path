@@ -1,0 +1,30 @@
+id: ccsds-401-0-b-32
+doc_number: CCSDS 401.0-B-32
+title: 'Radio Frequency and Modulation Systems—Part 1: Earth Stations and Spacecraft'
+issue: '32'
+book: blue
+published: October 2021
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: 'A notebook of concise recommendations on RF and modulation for Earth stations and spacecraft: frequency bands, carrier acquisition, modulation, symbol transition density and related parameters,
+  by mission category.'
+services: []
+pdus: []
+mission_must_define:
+- Frequency assignment and licence
+- Category A or B
+- Modulation and symbol rate
+- Sweep profile and loop settings
+does_not_define:
+- Legal frequency allocations (ITU Radio Regulations and national regulators)
+- Transfer frames and coding (CCSDS 13x/23x/73x series)
+dependencies:
+- ITU Radio Regulations
+- CCSDS 131.0-B (randomizer)
+related_topics:
+- carrier-and-symbol-sync
+- bits-symbols-and-rates
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/401x0b32.pdf
+register_id: CCSDS-401

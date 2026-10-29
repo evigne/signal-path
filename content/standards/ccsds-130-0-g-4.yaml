@@ -1,0 +1,17 @@
+id: ccsds-130-0-g-4
+doc_number: CCSDS 130.0-G-4
+title: Overview of Space Communications Protocols
+issue: '4'
+book: green
+published: April 2023
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Informational overview of the CCSDS protocol layers and how the space communications protocols fit together.
+related_topics:
+- end-to-end-system
+- uplink-and-downlink
+- aos-and-uslp
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/130x0g4e1.pdf
+register_id: CCSDS-130.0-G-4

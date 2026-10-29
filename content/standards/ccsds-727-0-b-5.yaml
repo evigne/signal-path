@@ -1,0 +1,26 @@
+id: ccsds-727-0-b-5
+doc_number: CCSDS 727.0-B-5
+title: CCSDS File Delivery Protocol (CFDP)
+issue: '5'
+book: blue
+published: July 2020
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: File transfer between filestores with unacknowledged and acknowledged modes and file management.
+pdus:
+- Metadata
+- File Data
+- EOF
+- Finished
+- ACK
+- NAK
+mission_must_define:
+- Entity IDs
+- Underlying transport and APIDs
+- Timers and limits
+related_topics:
+- cfdp-file-delivery
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/727x0b5e1.pdf
+register_id: CCSDS-727.0-B-5

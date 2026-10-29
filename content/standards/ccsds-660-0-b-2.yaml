@@ -1,0 +1,23 @@
+id: ccsds-660-0-b-2
+doc_number: CCSDS 660.0-B-2
+title: XML Telemetric and Command Exchange (XTCE)
+issue: '2'
+book: blue
+published: February 2020
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Information model and XML schema for exchanging TM/TC definitions; metadata only.
+mission_must_define:
+- Mission database contents
+does_not_define:
+- Live data transfer
+- Displays
+- Flight software
+related_topics:
+- telemetry-and-command-databases
+- telemetry-lifecycle
+- command-lifecycle
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/660x0b2.pdf
+register_id: CCSDS-660.0-B-2

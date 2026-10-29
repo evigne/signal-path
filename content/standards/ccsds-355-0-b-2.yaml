@@ -1,0 +1,28 @@
+id: ccsds-355-0-b-2
+doc_number: CCSDS 355.0-B-2
+title: Space Data Link Security Protocol
+issue: '2'
+book: blue
+published: August 2022
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Authentication and/or encryption of TM, TC, AOS and USLP frame contents with security header and trailer.
+pdus:
+- Security Header
+- Security Trailer
+mission_must_define:
+- Protected channels and services
+- SA parameters and field sizes
+does_not_define:
+- Key management (355.1-B)
+- Algorithms (352.0-B)
+dependencies:
+- CCSDS 355.1-B
+- CCSDS 352.0-B
+related_topics:
+- space-data-link-security
+- security-associations-and-anti-replay
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/355x0b2.pdf
+register_id: CCSDS-355.0-B-2

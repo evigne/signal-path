@@ -1,0 +1,17 @@
+id: ccsds-130-1-g-3
+doc_number: CCSDS 130.1-G-3
+title: TM Synchronization and Channel Coding—Summary of Concept and Rationale
+issue: '3'
+book: green
+published: June 2020
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Rationale and simulated performance for the TM synchronization and channel coding options of 131.0-B.
+related_topics:
+- channel-coding
+- sync-markers
+- link-budgets
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/130x1g3e1.pdf
+register_id: CCSDS-130.1-G-3

@@ -1,0 +1,20 @@
+id: ccsds-131-2-b-2
+doc_number: CCSDS 131.2-B-2
+title: Flexible Advanced Coding and Modulation Scheme for High Rate Telemetry Applications
+issue: '2'
+book: blue
+published: February 2023
+corrigenda:
+- name: Corrigendum 1 (read 2026-10-29; SCCC randomizer reference and a typo)
+  date: May 2026 (catalogue lists October 2026)
+  in_local_library: false
+status: active
+last_checked: '2026-10-28'
+scope: SCCC coded modulation with QPSK to 64APSK and VCM/ACM for high-rate telemetry.
+mission_must_define:
+- Formats and VCM/ACM policy
+related_topics:
+- high-rate-coding-and-modulation
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/131x2b2.pdf
+register_id: CCSDS-131.2-B-2

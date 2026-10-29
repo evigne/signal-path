@@ -1,0 +1,18 @@
+id: ccsds-414-1-b-3
+doc_number: CCSDS 414.1-B-3
+title: Pseudo-Noise (PN) Ranging Systems
+issue: '3'
+book: blue
+published: January 2022
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: 'Regenerative and transparent PN ranging: code structure (T4B, T2B), onboard and ground processing.'
+mission_must_define:
+- Ranging code and chip rate
+- Regenerative or transparent
+related_topics:
+- ranging-and-doppler
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/414x1b3e1.pdf
+register_id: CCSDS-414.1-B-3

@@ -1,0 +1,35 @@
+id: ccsds-133-0-b-2
+doc_number: CCSDS 133.0-B-2
+title: Space Packet Protocol
+issue: '2'
+book: blue
+published: June 2020
+corrigenda:
+- {name: Editorial Change 1, date: October 2020, in_local_library: true}
+- {name: Editorial Change 2, date: September 2024, in_local_library: true}
+status: active
+last_checked: '2026-10-28'
+scope: The Space Packet and the Packet and Octet String services that carry application data through a managed data path across one or more subnetworks.
+services:
+- Packet
+- Octet String
+pdus:
+- Space Packet
+mission_must_define:
+- APID allocation
+- Packet Secondary Header format (time code and ancillary data)
+- Maximum packet length
+- Idle data pattern
+does_not_define:
+- Transfer frames (CCSDS 132.0-B, 232.0-B, 732.0-B, 732.1-B)
+- Delivery guarantees or retransmission
+- Packet contents and parameter meaning (mission database)
+dependencies:
+- CCSDS 301.0-B (time code formats)
+- SANA registries (APID and secondary header types)
+related_topics:
+- space-packet-protocol
+- tm-space-data-link-protocol
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/133x0b2e2.pdf
+register_id: CCSDS-133.0-B-2

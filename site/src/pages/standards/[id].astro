@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SourceList from '../../components/SourceList.astro';
+import Icon from '../../components/Icon.astro';
+import { topicHref } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const s = await getCollection('standards');
+  return s.map((x) => ({ params: { id: x.id }, props: { std: x } }));
+}
+const { std } = Astro.props;
+const d = std.data;
+const titles = new Map((await getCollection('topics')).map((t) => [t.id, t.data.title]));
+const lists: [string, string[]][] = [
+  ['Services', d.services],
+  ['Protocol data units', d.pdus],
+  ['What the mission must define', d.mission_must_define],
+  ['Not defined here', d.does_not_define],
+  ['Depends on', d.dependencies],
+];
+---
+<Base title={`${d.doc_number} ${d.title}`} description={d.scope} section="standards">
+  <div class="mx-auto max-w-[960px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/standards/', label: 'Standards library' }, { label: d.doc_number }]} />
+    <p class="t-overline mt-4 text-fg-2">{d.book === 'blue' ? 'Recommended Standard (Blue Book)' : d.book === 'green' ? 'Informational Report (Green Book)' : d.book}</p>
+    <h1 class="t-h1 mt-1">{d.title}</h1>
+    <p class="t-h4 mt-1 font-mono text-fg-2">{d.doc_number}</p>
+    <dl class="mt-6 grid gap-3 sm:grid-cols-4">
+      <div class="card p-3"><dt class="t-label-sm text-fg-2">Issue</dt><dd class="t-h4">{d.issue}</dd></div>
+      <div class="card p-3"><dt class="t-label-sm text-fg-2">Published</dt><dd class="t-h4">{d.published}</dd></div>
+      <div class="card p-3"><dt class="t-label-sm text-fg-2">Status</dt><dd class="t-h4 capitalize">{d.status}</dd></div>
+      <div class="card p-3"><dt class="t-label-sm text-fg-2">Last checked</dt><dd class="t-h4">{d.last_checked}</dd></div>
+    </dl>
+    <p class="t-body-lg mt-6">{d.scope}</p>
+    {d.corrigenda.length > 0 && (
+      <div class="card mt-4 p-4 text-sm">
+        <p class="t-label">Corrigenda and editorial changes</p>
+        <ul class="mt-1 list-disc pl-5">{d.corrigenda.map((c) => <li>{c.name}, {c.date}{c.in_local_library === false && <strong class="text-[var(--status-warn-fg)]"> — not yet read for this site</strong>}</li>)}</ul>
+      </div>
+    )}
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {lists.filter(([, l]) => l.length).map(([h, l]) => (
+        <div class="card p-4"><p class="t-label">{h}</p><ul class="mt-2 list-disc space-y-1 pl-5 text-sm">{l.map((x) => <li>{x}</li>)}</ul></div>
+      ))}
+    </div>
+    {d.related_topics.length > 0 && (
+      <p class="mt-6 text-sm">Topics using this standard: {d.related_topics.map((t, i) => <>{i > 0 && ', '}<a href={topicHref(t)}>{titles.get(t) ?? t}</a></>)}</p>
+    )}
+    <p class="mt-6 text-sm"><a href={d.official_url} rel="noopener" class="inline-flex items-center gap-1">CCSDS publications catalogue <Icon name="external" size={14} /></a> — download the current issue from CCSDS; this site summarises and does not reproduce standards text.</p>
+    <div class="mt-8"><SourceList refs={[{ id: d.register_id }]} heading="Register entry" /></div>
+  </div>
+</Base>

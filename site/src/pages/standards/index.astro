@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { standardHref } from '../../lib/site';
+const stds = (await getCollection('standards')).sort((a, b) => a.data.doc_number.localeCompare(b.data.doc_number, 'en', { numeric: true }));
+---
+<Base title="Standards library" section="standards">
+  <div class="mx-auto max-w-[1200px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/section/reference/', label: 'Reference' }, { label: 'Standards library' }]} />
+    <h1 class="t-h1 mt-4">Standards library</h1>
+    <p class="t-body-lg mt-2 max-w-[720px] text-fg-2">Every standard this site cites, with the issue checked against the CCSDS catalogue on 2026-10-28. Blue Books are normative; Green Books explain.</p>
+    <div class="card mt-8 overflow-x-auto" tabindex="0" role="region" aria-label="Standards table">
+      <table class="w-full text-left text-sm">
+        <thead class="bg-subtle"><tr><th class="p-3">Document</th><th class="p-3">Title</th><th class="p-3">Book</th><th class="p-3">Published</th><th class="p-3">Corrigenda</th></tr></thead>
+        <tbody>
+          {stds.map((s) => (
+            <tr class="border-t border-line align-top">
+              <td class="whitespace-nowrap p-3 font-mono"><a href={standardHref(s.id)}>{s.data.doc_number}</a></td>
+              <td class="p-3">{s.data.title}</td>
+              <td class="p-3 capitalize">{s.data.book}</td>
+              <td class="whitespace-nowrap p-3">{s.data.published}</td>
+              <td class="p-3 text-fg-2">{s.data.corrigenda.length ? s.data.corrigenda.map((c) => `${c.name} (${c.date})${c.in_local_library === false ? ' — not yet read' : ''}`).join('; ') : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Base>

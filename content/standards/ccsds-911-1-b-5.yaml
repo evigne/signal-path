@@ -1,0 +1,18 @@
+id: ccsds-911-1-b-5
+doc_number: CCSDS 911.1-B-5
+title: SLE Return All Frames Service
+issue: '5'
+book: blue
+published: July 2023
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: SLE service delivering all frames of one physical channel to a mission user.
+services:
+- RAF
+related_topics:
+- sle-transfer-services
+- ground-stations-and-networks
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/911x1b5e1.pdf
+register_id: CCSDS-911.1-B-5

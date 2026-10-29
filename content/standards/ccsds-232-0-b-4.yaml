@@ -1,0 +1,41 @@
+id: ccsds-232-0-b-4
+doc_number: CCSDS 232.0-B-4
+title: TC Space Data Link Protocol
+issue: '4'
+book: blue
+published: October 2021
+corrigenda:
+- name: Corrigendum 1
+  date: October 2023
+  in_local_library: true
+status: active
+last_checked: '2026-10-28'
+scope: Variable-length TC transfer frames, MAP and VC multiplexing, Type-A/B services and the CLCW.
+services:
+- MAP Packet
+- MAP Access
+- VC Packet
+- VC Access
+- VC Frame
+- MC Frame
+- COP Management
+pdus:
+- TC Transfer Frame
+- CLCW
+mission_must_define:
+- Maximum frame length per VC
+- VC/MAP allocation
+- Use of FECF and segment header
+does_not_define:
+- COP-1 procedures (232.1-B)
+- Coding (231.0-B)
+dependencies:
+- CCSDS 232.1-B (COP-1)
+- CCSDS 231.0-B
+related_topics:
+- tc-space-data-link-protocol
+- uplink-and-downlink
+- command-lifecycle
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/232x0b4e1c1.pdf
+register_id: CCSDS-232.0-B-4

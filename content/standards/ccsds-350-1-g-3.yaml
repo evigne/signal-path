@@ -1,0 +1,15 @@
+id: ccsds-350-1-g-3
+doc_number: CCSDS 350.1-G-3
+title: Security Threats against Space Missions
+issue: '3'
+book: green
+published: February 2022
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Threat sources, types and common threats to space missions, with threat-assessment guidance.
+related_topics:
+- command-authority-and-threats
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/350x1g3.pdf
+register_id: CCSDS-350.1-G-3

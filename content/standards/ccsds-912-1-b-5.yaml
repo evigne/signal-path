@@ -1,0 +1,18 @@
+id: ccsds-912-1-b-5
+doc_number: CCSDS 912.1-B-5
+title: SLE Forward CLTU Service
+issue: '5'
+book: blue
+published: July 2023
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: SLE service letting a mission send CLTUs for radiation to a spacecraft.
+services:
+- FCLTU
+related_topics:
+- sle-transfer-services
+- command-lifecycle
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/912x1b5e1.pdf
+register_id: CCSDS-912.1-B-5

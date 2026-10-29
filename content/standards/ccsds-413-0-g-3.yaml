@@ -1,0 +1,16 @@
+id: ccsds-413-0-g-3
+doc_number: CCSDS 413.0-G-3
+title: Bandwidth-Efficient Modulations
+issue: '3'
+book: green
+published: February 2018
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Definition, implementation and performance of the bandwidth-efficient modulations recommended in 401.0-B, and rate terminology.
+related_topics:
+- bandwidth-efficient-modulation
+- bits-symbols-and-rates
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/413x0g3e1.pdf
+register_id: CCSDS-413.0-G-3

@@ -1,0 +1,26 @@
+id: ccsds-231-0-b-4
+doc_number: CCSDS 231.0-B-4
+title: TC Synchronization and Channel Coding
+issue: '4'
+book: blue
+published: July 2021
+corrigenda:
+- name: Corrigendum 1
+  date: July 2026
+  in_local_library: false
+status: active
+last_checked: '2026-10-28'
+scope: BCH and LDPC coding, CLTU structure and randomization for telecommand links.
+pdus:
+- CLTU
+mission_must_define:
+- Coding (BCH or LDPC)
+- Use of randomizer
+dependencies:
+- CCSDS 232.0-B (TC frames)
+related_topics:
+- uplink-and-downlink
+- tc-space-data-link-protocol
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/231x0b4e1.pdf
+register_id: CCSDS-231.0-B-4

@@ -1,0 +1,20 @@
+id: ccsds-732-1-b-3
+doc_number: CCSDS 732.1-B-3
+title: Unified Space Data Link Protocol (USLP)
+issue: '3'
+book: blue
+published: June 2024
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Unified variable- or fixed-length transfer frame for space-to-ground, ground-to-space and space-to-space links.
+pdus:
+- USLP Transfer Frame
+mission_must_define:
+- Frame type and length
+- Header options
+related_topics:
+- aos-and-uslp
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/732x1b3e1.pdf
+register_id: CCSDS-732.1-B-3

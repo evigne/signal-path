@@ -7,7 +7,7 @@
 .DS_Store
 
 # Licensed / personal-use source documents — never commit or publish
-standards/
+/standards/
 research/sources/
 
 # Build output and dependencies

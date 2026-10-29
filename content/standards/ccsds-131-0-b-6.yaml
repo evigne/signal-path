@@ -1,0 +1,26 @@
+id: ccsds-131-0-b-6
+doc_number: CCSDS 131.0-B-6
+title: TM Synchronization and Channel Coding
+issue: "6"
+book: blue
+published: April 2026
+corrigenda: []
+status: active
+last_checked: 2026-10-28
+scope: Synchronization and channel coding for telemetry space links — code synchronization markers, convolutional, Reed–Solomon, concatenated, Turbo and LDPC coding, slicing, and the pseudo-randomizer.
+services: [codeblock/codeword synchronization, channel coding, pseudo-randomization]
+pdus: [CADU (Channel Access Data Unit)]
+mission_must_define:
+  - Coding option (and therefore the CSM pattern and length)
+  - Transfer frame length and, for Reed–Solomon, interleaving depth
+  - Whether slicing is used
+  - Receiver synchronizer settings (thresholds, confirmations, flywheel) — equipment and configuration
+does_not_define:
+  - Receiver frame-synchronizer algorithm and thresholds (see informational report 130.1-G-3)
+  - Transfer frame contents (TM, AOS and USLP data link standards)
+  - Modulation and RF (CCSDS 401.0-B)
+dependencies: [CCSDS 132.0-B (TM), CCSDS 732.0-B (AOS), CCSDS 732.1-B (USLP), CCSDS 130.1-G-3 (rationale)]
+related_topics: [sync-markers, channel-coding, pseudo-randomization]
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/131x0b6.pdf
+register_id: CCSDS-131.0-B-6

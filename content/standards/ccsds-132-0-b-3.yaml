@@ -1,0 +1,40 @@
+id: ccsds-132-0-b-3
+doc_number: CCSDS 132.0-B-3
+title: TM Space Data Link Protocol
+issue: '3'
+book: blue
+published: October 2021
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: The TM transfer frame and the services that carry packets, VCA_SDUs and operational control data over telemetry space links.
+services:
+- Virtual Channel Packet
+- Virtual Channel Access
+- Virtual Channel Frame Secondary Header
+- Virtual Channel Operational Control Field
+- Virtual Channel Frame
+- Master Channel Frame Secondary Header
+- Master Channel Operational Control Field
+- Master Channel Frame
+pdus:
+- TM Transfer Frame
+mission_must_define:
+- Transfer frame length (constant per mission phase)
+- Spacecraft Identifier
+- Virtual channel allocation
+- Use of secondary header, OCF and FECF
+does_not_define:
+- Channel coding and synchronization (CCSDS 131.0-B)
+- Packet structure (CCSDS 133.0-B)
+- Security (CCSDS 355.0-B)
+dependencies:
+- CCSDS 131.0-B (TM sync and channel coding)
+- CCSDS 133.0-B (Space Packet Protocol)
+- CCSDS 232.1-B (COP-1, CLCW in OCF)
+related_topics:
+- tm-space-data-link-protocol
+- channel-coding
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/132x0b3.pdf
+register_id: CCSDS-132.0-B-3

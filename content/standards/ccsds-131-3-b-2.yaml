@@ -1,0 +1,15 @@
+id: ccsds-131-3-b-2
+doc_number: CCSDS 131.3-B-2
+title: CCSDS Space Link Protocols over ETSI DVB-S2 Standard
+issue: '2'
+book: blue
+published: April 2022
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Profile for carrying CCSDS frames over DVB-S2 with VCM/ACM.
+related_topics:
+- high-rate-coding-and-modulation
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/131x3b2e1.pdf
+register_id: CCSDS-131.3-B-2

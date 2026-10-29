@@ -1,0 +1,15 @@
+id: ccsds-720-1-g-4
+doc_number: CCSDS 720.1-G-4
+title: 'CCSDS File Delivery Protocol—Part 1: Introduction and Overview'
+issue: '4'
+book: green
+published: May 2021
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Introduction and rationale for CFDP.
+related_topics:
+- cfdp-file-delivery
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/720x1g4.pdf
+register_id: CCSDS-720.1-G-4

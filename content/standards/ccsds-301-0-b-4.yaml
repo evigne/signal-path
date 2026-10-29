@@ -1,0 +1,19 @@
+id: ccsds-301-0-b-4
+doc_number: CCSDS 301.0-B-4
+title: Time Code Formats
+issue: '4'
+book: blue
+published: November 2010
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: CUC, CDS, CCS and ASCII time code formats with P-field and T-field definitions.
+mission_must_define:
+- Time code and octet counts
+- Epoch level
+- Explicit or implicit P-field
+related_topics:
+- time-codes
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/301x0b4e1.pdf
+register_id: CCSDS-301.0-B-4

@@ -1,0 +1,22 @@
+id: ccsds-232-1-b-2
+doc_number: CCSDS 232.1-B-2
+title: Communications Operation Procedure-1
+issue: '2'
+book: blue
+published: September 2010
+corrigenda:
+- name: Corrigendum 1
+  date: April 2019
+  in_local_library: true
+status: active
+last_checked: '2026-10-28'
+scope: FOP-1 and FARM-1 state machines, variables and the go-back-n retransmission procedure.
+mission_must_define:
+- FARM window width W
+- Timer and transmission limit
+related_topics:
+- command-lifecycle
+- uplink-and-downlink
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/232x1b2e2c1.pdf
+register_id: CCSDS-232.1-B-2

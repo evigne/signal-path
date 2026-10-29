@@ -1,0 +1,21 @@
+id: ccsds-732-0-b-5
+doc_number: CCSDS 732.0-B-5
+title: AOS Space Data Link Protocol
+issue: '5'
+book: blue
+published: October 2025
+corrigenda: []
+status: active
+last_checked: '2026-10-28'
+scope: Fixed-length AOS transfer frames with insert zone, 24-bit VC counts and replay flag.
+pdus:
+- AOS Transfer Frame
+mission_must_define:
+- Frame length
+- Insert zone, OCF, FECF, FHEC use
+- Replay convention
+related_topics:
+- aos-and-uslp
+official_url: https://ccsds.org/publications/allpubs/
+local_file: standards/732x0b5ec1.pdf
+register_id: CCSDS-732.0-B-5
