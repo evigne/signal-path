@@ -49,7 +49,7 @@ export default function BitInspector() {
       {parsed.error && <p role="alert" className="rounded-lg bg-[var(--status-error-bg)] p-3 text-sm text-[var(--status-error-fg)]">{parsed.error}</p>}
       {b.length > 0 && (
         <>
-          <div className="card overflow-x-auto p-4">
+          <div className="card overflow-x-auto p-4" tabIndex={0} role="region" aria-label="Bit matrix">
             <p className="t-label mb-2">Bit matrix · click a bit to flip it · bit 0 is the most significant bit of byte 0</p>
             <div className="min-w-[520px] space-y-1 font-mono text-[12px]">
               {Array.from(b).map((byte, r) => (

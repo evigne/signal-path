@@ -116,7 +116,7 @@ const isActive = (item: (typeof NAV)[number]) =>
           </ul>
         </div>
       </div>
-      <div class="mx-auto flex max-w-[1440px] flex-wrap justify-between gap-2 border-t border-line px-4 py-4 text-xs text-fg-muted md:px-8">
+      <div class="mx-auto flex max-w-[1440px] flex-wrap justify-between gap-2 border-t border-line px-4 py-4 text-xs text-fg-2 md:px-8">
         <span>Sources checked 2026-10-28 · see <a href="/sources/">source register</a></span>
         <span>No analytics, cookies or third-party tracking.</span>
       </div>
@@ -134,6 +134,9 @@ const isActive = (item: (typeof NAV)[number]) =>
           var next = dark ? 'light' : 'dark';
           root.dataset.theme = next;
           try { localStorage.setItem('sp-theme', next); } catch (e) {}
+        });
+        document.querySelectorAll('.prose-sp pre, .prose-sp table').forEach(function (el) {
+          if (!el.hasAttribute('tabindex')) { el.setAttribute('tabindex', '0'); }
         });
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') {

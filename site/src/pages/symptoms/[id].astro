@@ -47,7 +47,7 @@ const titles = new Map((await getCollection('topics')).map((t) => [t.id, t.data.
     {d.sample_log && (
       <section class="mt-6">
         <h2 class="t-h4">Sample log</h2>
-        <pre class="mt-2 overflow-x-auto rounded-lg bg-code p-4 text-[13px] leading-6 text-[var(--text-code)]"><code>{d.sample_log}</code></pre>
+        <pre tabindex="0" aria-label="Sample log" class="mt-2 overflow-x-auto rounded-lg bg-code p-4 text-[13px] leading-6 text-[var(--text-code)]"><code>{d.sample_log}</code></pre>
         <p class="t-small mt-1 text-fg-2">Fictional data, not from a real mission.</p>
       </section>
     )}

@@ -72,9 +72,9 @@ export default function PacketDecoder() {
 
       {p && (
         <>
-          <div className="card overflow-x-auto p-4">
+          <div className="card overflow-x-auto p-4" tabIndex={0} role="region" aria-label="Header bit map">
             <p className="t-label mb-2">Primary header · 6 octets (48 bits) · bit 0 is the most significant bit of octet 1</p>
-            <div className="flex min-w-[640px] gap-[2px] font-mono text-[13px]" role="group" aria-label="Header bits">
+            <div className="flex min-w-[1250px] gap-[2px] font-mono text-[13px]" role="group" aria-label="Header bits">
               {Array.from({ length: 48 }, (_, i) => {
                 const fi = p.fields.findIndex((f) => i >= f.start && i < f.start + f.len);
                 const on = (result.bytes[i >> 3] >> (7 - (i & 7))) & 1;
@@ -84,20 +84,20 @@ export default function PacketDecoder() {
                     type="button"
                     onClick={() => flipBit(i)}
                     aria-label={`Bit ${i}, ${p.fields[fi].name}, value ${on}. Flip.`}
-                    className="flex h-9 flex-1 items-center justify-center rounded-sm border text-[12px]"
+                    className="flex h-9 min-w-[24px] flex-1 items-center justify-center rounded-sm border text-[12px]"
                     style={{ borderColor: COLORS[fi], background: on ? COLORS[fi] : 'var(--bg-surface)', color: on ? '#fff' : 'var(--text-primary)' }}
                   >{on}</button>
                 );
               })}
             </div>
-            <div className="mt-2 flex min-w-[640px] gap-[2px] text-[11px] text-fg-2">
+            <div className="mt-2 flex min-w-[1250px] gap-[2px] text-[11px] text-fg-2">
               {p.fields.map((f, fi) => (
                 <div key={f.name} style={{ flex: f.len, borderTop: `3px solid ${COLORS[fi]}` }} className="truncate pt-1" title={f.name}>{f.name} · {f.len}b</div>
               ))}
             </div>
           </div>
 
-          <div className="card overflow-x-auto">
+          <div className="card overflow-x-auto" tabIndex={0} role="region" aria-label="Decoded fields">
             <table className="w-full text-left text-sm">
               <thead className="bg-subtle"><tr><th className="p-3">Field</th><th className="p-3">Bits</th><th className="p-3 font-mono">Binary</th><th className="p-3">Value / meaning</th></tr></thead>
               <tbody>

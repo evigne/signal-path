@@ -50,8 +50,11 @@
   }
   a {
     color: var(--text-link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 3px;
   }
+  a:hover { text-decoration-thickness: 2px; }
   code, kbd, samp, pre {
     font-family: var(--font-mono);
   }
