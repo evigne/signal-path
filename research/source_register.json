@@ -1407,6 +1407,66 @@
    "local_file": "—",
    "access_date": "2026-10-29",
    "review_due": "2027-04-29"
+  },
+  {
+   "id": "OMG-XTCE-XSD",
+   "title": "XTCE 1.2 schema: SpaceSystem.xsd",
+   "publisher": "Object Management Group (OMG)",
+   "doc_number": "XTCE 1.2 (20180204)",
+   "date": "2018-02-04",
+   "url": "https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd",
+   "source_type": "Standard schema",
+   "topics": [
+    "XTCE",
+    "mission database"
+   ],
+   "terms": "OMG specification; cite and link; short element names only.",
+   "reliability": "Primary",
+   "status": "Schema read 2026-10-29",
+   "notes": "Referenced by CCSDS 660.0-B-2. Element names checked: IntegerParameterType, UnitSet, IntegerDataEncoding (sizeInBits, encoding incl. twosComplement), DefaultCalibrator, PolynomialCalibrator/Term (coefficient, exponent), DefaultAlarm/StaticAlarmRanges/WarningRange/CriticalRange (minInclusive, maxInclusive), ParameterSet/Parameter (parameterTypeRef), ContainerSet/SequenceContainer/EntryList/ParameterRefEntry, BaseContainer/RestrictionCriteria, MetaCommandSet/MetaCommand/ArgumentList/Argument (argumentTypeRef), CommandContainer/ArgumentRefEntry/FixedValueEntry, ArgumentTypeSet/IntegerArgumentType.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "OPENC3-TLM",
+   "title": "OpenC3 COSMOS docs — Telemetry configuration",
+   "publisher": "OpenC3",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://docs.openc3.com/docs/configuration/telemetry",
+   "source_type": "Software documentation (first-party)",
+   "topics": [
+    "COSMOS",
+    "telemetry definitions"
+   ],
+   "terms": "Product documentation; link and summarize.",
+   "reliability": "Primary for the product",
+   "status": "Live page read 2026-10-29",
+   "notes": "TELEMETRY <Target> <Packet> <Endianness> [desc]; APPEND_ID_ITEM <Name> <Bits> <Type> <ID>; APPEND_ITEM <Name> <Bits> <Type>; POLY_READ_CONVERSION c0 c1 …; UNITS <Full> <Abbr>; LIMITS <Set> <Persistence> <ENABLED|DISABLED> <RedLow> <YellowLow> <YellowHigh> <RedHigh>.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "OPENC3-CMD",
+   "title": "OpenC3 COSMOS docs — Command configuration",
+   "publisher": "OpenC3",
+   "doc_number": "—",
+   "date": "live page",
+   "url": "https://docs.openc3.com/docs/configuration/command",
+   "source_type": "Software documentation (first-party)",
+   "topics": [
+    "COSMOS",
+    "command definitions"
+   ],
+   "terms": "Product documentation; link and summarize.",
+   "reliability": "Primary for the product",
+   "status": "Live page read 2026-10-29",
+   "notes": "COMMAND <Target> <Name> <Endianness> [desc]; APPEND_ID_PARAMETER <Name> <Bits> <Type> <Min> <Max> <ID>; APPEND_PARAMETER <Name> <Bits> <Type> <Min> <Max> <Default>; STATE <Key> <Value> [HAZARDOUS]; HAZARDOUS [desc] after COMMAND.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
   }
  ]
 }

@@ -80,6 +80,8 @@ If present, the 4-octet Operational Control Field follows the data field (a Type
 
 4. On the ground, frames that fail the error check are discarded, counters are compared with the previous frame on the same channel, and the First Header Pointer is used to find the first packet.
 
+::diagram{name="fhp"}
+
 ## What operators and engineers see
 
 Frame-level displays typically show frames received per virtual channel, frame-count gaps, FECF (CRC) failures, the proportion of idle frames, and the latest CLCW if the OCF carries one. A gap in the Virtual Channel Frame Count means frames on that channel were lost or never sent; a gap in the Master Channel count with no VC gap points at another channel.

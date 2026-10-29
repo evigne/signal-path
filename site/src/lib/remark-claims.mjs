@@ -5,6 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { visit } from 'unist-util-visit';
+import { DIAGRAMS } from './diagrams.mjs';
 
 const registerPath = fileURLToPath(new URL('../../../research/source_register.json', import.meta.url));
 const register = new Map(JSON.parse(readFileSync(registerPath, 'utf8')).sources.map((s) => [s.id, s]));
@@ -48,6 +49,12 @@ export default function remarkClaims() {
       return !isSourcesHeading(n) && !(isNote && isSourcesHeading(all[i - 1]));
     });
     visit(tree, (node, index, parent) => {
+      if (node.type === 'leafDirective' && node.name === 'diagram') {
+        const make = DIAGRAMS[node.attributes?.name];
+        if (!make) throw new Error(`${vfile.path}: unknown diagram "${node.attributes?.name}"`);
+        if (parent && index !== undefined) parent.children[index] = { type: 'html', value: make() };
+        return;
+      }
       if (node.type === 'textDirective' || node.type === 'leafDirective') {
         if (parent && index !== undefined) parent.children[index] = restoreDirective(node);
         return;

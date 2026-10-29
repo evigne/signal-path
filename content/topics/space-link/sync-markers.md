@@ -84,6 +84,8 @@ With Reed–Solomon or concatenated coding, CSMs are placed between the R-S code
 With convolutional coding alone, the CSM is itself convolutionally encoded. With an inner convolutional code and an outer R-S code, the CSM is encoded by the inner code but not by the outer code.
 :::
 
+::diagram{name="coding-pipeline"}
+
 ## How it works, step by step
 
 1. **Choose the marker for the coding option.**

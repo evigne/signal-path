@@ -24,6 +24,8 @@ sources:
   - {id: CCSDS-355.0-B-2, loc: "§2.3.1, §2.3.2.3, §4.2.4.4"}
   - {id: CCSDS-355.1-B-1, loc: "§2.3.3"}
   - {id: CCSDS-350.1-G-3, loc: "§3.4.8"}
+  - {id: CCSDS-232.0-B-4, loc: "§6.5.2 (Cor. 1)"}
+  - {id: NIST-800-38D, loc: "§8"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
@@ -113,6 +115,27 @@ Fictional SA: stored sequence number 1000, window 10. Frames arrive (all with va
 
 **Answer explanation:** 1003 > 1000 and within 10 → accept, store 1003. 1002 ≤ 1003 → reject. 1003 ≤ 1003 → reject (replay). 1020 − 1003 = 17 > 10 → reject. 1011 − 1003 = 8 → accept, store 1011. Note that the late 1002 is lost even though it was genuine; on TC, COP-1 retransmission recovers it with a new sequence number.
 :::
+
+
+## Deep dive & operational edge cases
+
+::::expert{title="Order of processing on board: FARM-1 first, then SDLS"}
+:::claim{label="standard" source="CCSDS-232.0-B-4" loc="§6.5.2.1, §6.5.2.2 (Cor. 1)"}
+With SDLS on a TC link, the receiving Virtual Channel Reception Function runs FARM-1 first, then the SDLS ProcessSecurity function, and only then delivers the frame data. FARM-1 therefore checks the frame sequence number before authentication; a frame that FARM-1 discards is never authenticated, and a frame FARM-1 accepts can still be discarded if ProcessSecurity reports an error.
+:::
+
+:::claim{label="standard" source="CCSDS-232.0-B-4" loc="§6.5.2.2 note"}
+CCSDS warns that if authentication is used and Type-AD frames must be retransmitted after Type-BD frames were sent on the same virtual channel, SDLS anti-replay will reject the retransmitted AD frames because their sequence numbers are lower than the BD frames' — so mixing AD and BD frames on one secured VC is generally not advised unless BD frames go only after all AD frames are accepted.
+:::
+
+:::claim{label="standard" source="NIST-800-38D" loc="§8"}
+GCM's security depends on never reusing an IV with the same key; NIST SP 800-38D treats IV uniqueness as a requirement on the implementation, not an option.
+:::
+
+:::claim{label="mission" loc="design consequence"}
+Because of that rule, a spacecraft that builds GCM IVs or anti-replay counters from a counter must not restart the counter after a reset or a software reload. How the counter survives — for example in non-volatile memory with a safety jump on boot — is a mission design decision recorded in its security documentation, not something CCSDS specifies.
+:::
+::::
 
 ## Related
 

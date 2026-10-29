@@ -71,6 +71,8 @@ On the downlink, coding happens on the spacecraft after the transfer frame is bu
 Without slicing, each codeword contains exactly one transfer frame; slicing is an optional procedure that splits transfer frames across codeword information blocks.
 :::
 
+::diagram{name="coding-pipeline"}
+
 ## How it works, step by step
 
 CCSDS 131.0-B-6 offers four families. A mission picks one option for each physical channel.

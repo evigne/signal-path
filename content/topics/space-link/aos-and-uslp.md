@@ -117,6 +117,23 @@ A fictional ground processor receives frames whose first octet is 0x40. Which pr
 **Answer explanation:** 0x40 is 0100 0000; the first two bits are 01, the AOS version number. If the first four bits had been 1100 (first octet 0xC0–0xCF) it would be USLP; 00 would mean TM (or TC on the uplink).
 :::
 
+
+## Deep dive & operational edge cases
+
+::::expert{title="What sits inside the data field: M_PDU, B_PDU and USLP construction rules"}
+:::claim{label="standard" source="CCSDS-732.0-B-5" loc="§4.1.4.1.4, §4.1.4.2.1, §4.1.4.3.1"}
+An AOS virtual channel carries exactly one kind of data unit, chosen by management: Multiplexing PDUs (M_PDUs) for packets, Bitstream PDUs (B_PDUs) for a raw bit stream, or VCA service data units — they are never mixed on one VC. An M_PDU has a 2-octet header holding a 16-bit First Header Pointer, then a fixed-length packet zone; a B_PDU has a 2-octet header with a 14-bit Bitstream Data Pointer that marks where valid bits end.
+:::
+
+:::claim{label="standard" source="CCSDS-732.1-B-3" loc="§4.1.4.2.2, §4.1.4.2.3"}
+USLP replaces those fixed shapes with a Transfer Frame Data Field header whose first three bits are a TFDZ Construction Rule and next five bits a USLP Protocol Identifier (UPID). Rule 000 means fixed-length frames with packets spanning frame boundaries (a First Header Pointer is needed); 001 and 010 carry the start and continuation of a MAPA or VCA unit; 011 is an octet stream; 100, 101 and 110 are starting, continuing and last segments of a variable-length unit; 111 means no segmentation (one unit, whole packets, or control commands).
+:::
+
+:::claim{label="example" loc="fictional"}
+A fictional USLP link carries housekeeping as rule 000 frames on one virtual channel and a large file chunked as rules 100 → 101 → 110 on another. A ground decoder that assumes AOS-style M_PDUs everywhere will mis-read the second channel — the construction rule, not the VC number, says how to parse the data zone.
+:::
+::::
+
 ## Related
 
 - Topics: TM and TC Space Data Link Protocols, end-to-end system.

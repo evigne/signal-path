@@ -295,6 +295,9 @@
     .chain-track span:nth-child(3) { left: 62%; } .chain-track span:nth-child(4) { left: 87%; }
   }
 
+  .sp-diagram { margin: 24px 0; padding: 16px; border: 1px solid var(--border-default); border-radius: var(--radius-md); background: var(--bg-surface); overflow-x: auto; }
+  .sp-diagram svg { min-width: 560px; }
+  .sp-diagram figcaption { margin-top: 8px; font-size: 14px; line-height: 22px; color: var(--text-secondary); }
   .pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
 
   .skip-link {

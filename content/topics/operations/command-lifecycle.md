@@ -27,6 +27,7 @@ sources:
   - {id: CCSDS-660.0-B-2, loc: "§6.1.3.2"}
   - {id: CCSDS-232.0-B-4, loc: "§2.2.2, §4.1.2.3"}
   - {id: CCSDS-232.1-B-2, loc: "§5.1.2, §6.1.2"}
+  - {id: CCSDS-232.1-B-2, loc: "§4.3.2, §5.1.2, §5.1.9–§5.1.10, §6.1.8"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
@@ -119,6 +120,31 @@ A fictional pass: after three Type-AD frames, the CLCW shows Lockout = 1, Report
 
 **Answer explanation:** the FARM entered Lockout, so frames 52–54 are not accepted. Following typical procedure, operators send an Unlock (BC frame), wait for a CLCW showing Lockout = 0, then re-initialize FOP-1 (setting V(S) to the report value if needed) and resend from 52. Commands queued behind them must not be assumed executed.
 :::
+
+
+## Deep dive & operational edge cases
+
+::::expert{title="Inside COP-1: FOP-1 states, timer T1 and alerts"}
+:::claim{label="standard" source="CCSDS-232.1-B-2" loc="§5.1.2"}
+FOP-1 has six states: Active (S1), Retransmit without Wait (S2), Retransmit with Wait (S3), Initializing without BC Frame (S4), Initializing with BC Frame (S5) and Initial (S6). S5 is entered after an "Initiate AD Service" directive that sends an Unlock or a Set V(R) control command.
+:::
+
+:::claim{label="standard" source="CCSDS-232.1-B-2" loc="§5.1.9, §5.1.10"}
+Each transmitted Type-AD frame starts timer T1 (initial value T1_Initial). When T1 expires, FOP-1 retransmits unacknowledged frames until their Transmission_Count reaches the Transmission_Limit. T1_Initial must at least cover processing, transmission of a maximum-length frame as a CLTU, one-way light time and the time to sample, encode and send back the CLCW.
+:::
+
+:::claim{label="standard" source="CCSDS-232.1-B-2" loc="§4.3.2, table 4-4"}
+FOP-1 raises an Alert, ending the sequence-controlled service until it is re-initiated, for these reasons: transmissions exhausted (Limit or T1), Lockout detected, synchronization inconsistencies in the CLCW (Synch), a CLCW with an invalid N(R) (NN(R)), a CLCW with Wait set but Retransmit clear (CLCW), and a lower-layer interface failure (LLIF).
+:::
+
+:::claim{label="standard" source="CCSDS-232.1-B-2" loc="§6.1.8.2, §6.1.8.3.1"}
+FARM-1's sliding window W is an even number from 2 to 254 when retransmission is used, split as PW = NW = W/2: the positive window runs from V(R) for PW numbers, the negative window from V(R) − 1 back NW numbers, and everything else — 256 − W numbers — is the lockout area. W is normally fixed for the mission; there is no control command to change it.
+:::
+
+:::claim{label="example" loc="fictional; modulo-256 arithmetic"}
+With W = 10 and V(R) = 252, the positive window is 252, 253, 254, 255, 0 — it wraps through zero. A frame numbered 1 locks the FARM out, even though it is "only two ahead" of the last number in the window. Ground tools that compare sequence numbers without modulo arithmetic get this wrong.
+:::
+::::
 
 ## Related
 

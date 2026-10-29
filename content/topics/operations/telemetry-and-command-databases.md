@@ -22,6 +22,9 @@ standards: [ccsds-660-0-b-2]
 related_labs: [telemetry-calibration-sandbox, bit-byte-endianness-inspector]
 sources:
   - {id: CCSDS-660.0-B-2, loc: "§1, §2, §6.1"}
+  - {id: OMG-XTCE-XSD, loc: "element names; rangeForm"}
+  - {id: OPENC3-TLM, loc: "Telemetry configuration"}
+  - {id: OPENC3-CMD, loc: "Command configuration"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
@@ -102,6 +105,83 @@ A fictional parameter: BAT_TEMP, in container HK_PKT (APID 0x07E) at bit offset 
 
 **Answer explanation:** 0x0AAB = 2731 → 0.03 × 2731 − 40.0 = 41.9 °C, above the soft limit: yellow. Every step — offset, width, signedness, formula, limit — came from the database, which is why database review is part of anomaly response.
 :::
+
+
+## Deep dive & operational edge cases
+
+::::expert{title="The same parameter in XTCE and in OpenC3 COSMOS"}
+:::claim{label="standard" source="CCSDS-660.0-B-2" loc="§6.1.2, §6.1.2.1"}
+In XTCE, telemetry meta-data groups parameter types, parameters and containers; a parameter type carries the data type, units, alarm limits and — for telemetered values — the encoding (size in bits, byte order, signedness) and calibration.
+:::
+
+:::claim{label="example" loc="fictional; element names checked against the XTCE 1.2 schema"}
+A fictional 12-bit battery temperature, calibrated as y = 0.03·x − 40 °C, with warning outside −10…40 °C and critical outside −20…50 °C, carried in housekeeping packets on APID 0x07E:
+
+```xml
+<xtce:SpaceSystem name="SP1">
+  <xtce:TelemetryMetaData>
+    <xtce:ParameterTypeSet>
+      <xtce:FloatParameterType name="BattTemp_T">
+        <xtce:UnitSet><xtce:Unit>degC</xtce:Unit></xtce:UnitSet>
+        <xtce:IntegerDataEncoding sizeInBits="12" encoding="unsigned">
+          <xtce:DefaultCalibrator>
+            <xtce:PolynomialCalibrator>
+              <xtce:Term exponent="0" coefficient="-40.0"/>
+              <xtce:Term exponent="1" coefficient="0.03"/>
+            </xtce:PolynomialCalibrator>
+          </xtce:DefaultCalibrator>
+        </xtce:IntegerDataEncoding>
+        <xtce:DefaultAlarm>
+          <xtce:StaticAlarmRanges>          <!-- rangeForm="outside" by default -->
+            <xtce:WarningRange minInclusive="-10" maxInclusive="40"/>
+            <xtce:CriticalRange minInclusive="-20" maxInclusive="50"/>
+          </xtce:StaticAlarmRanges>
+        </xtce:DefaultAlarm>
+      </xtce:FloatParameterType>
+    </xtce:ParameterTypeSet>
+    <xtce:ParameterSet>
+      <xtce:Parameter name="BATT_TEMP" parameterTypeRef="BattTemp_T"/>
+    </xtce:ParameterSet>
+    <xtce:ContainerSet>
+      <xtce:SequenceContainer name="HK_07E">
+        <xtce:EntryList>
+          <xtce:ParameterRefEntry parameterRef="BATT_TEMP"/>
+        </xtce:EntryList>
+        <xtce:BaseContainer containerRef="CCSDS_Packet">
+          <xtce:RestrictionCriteria>…APID == 0x07E…</xtce:RestrictionCriteria>
+        </xtce:BaseContainer>
+      </xtce:SequenceContainer>
+    </xtce:ContainerSet>
+  </xtce:TelemetryMetaData>
+</xtce:SpaceSystem>
+```
+
+The same idea in OpenC3 COSMOS telemetry and command definitions (fictional target `SP1`):
+
+```text
+TELEMETRY SP1 HK BIG_ENDIAN "Housekeeping, APID 0x07E"
+  APPEND_ID_ITEM  APID      11 UINT 0x07E "Application process ID"
+  APPEND_ITEM     BATT_TEMP 12 UINT       "Battery temperature"
+    POLY_READ_CONVERSION -40.0 0.03
+    UNITS Celsius C
+    LIMITS DEFAULT 1 ENABLED -20 -10 40 50
+
+COMMAND SP1 HTR_ON BIG_ENDIAN "Switch a heater on"
+  APPEND_ID_PARAMETER APID   11 UINT 0x02A 0x02A 0x02A "TC APID"
+  APPEND_PARAMETER    HEATER  8 UINT 1 4 1 "Heater number"
+```
+
+Real definitions also describe the packet header fields that come before these items; both are trimmed here to show the parameter itself.
+:::
+
+:::claim{label="practice" source="OPENC3-TLM, OPENC3-CMD" loc="Telemetry and Command configuration pages"}
+COSMOS describes packets in text files: `TELEMETRY` or `COMMAND` names the target, packet and byte order; `APPEND_ITEM` / `APPEND_PARAMETER` add fields by bit size; `POLY_READ_CONVERSION` lists polynomial coefficients from the constant term up; and `LIMITS` gives red-low, yellow-low, yellow-high and red-high values.
+:::
+
+:::claim{label="standard" source="OMG-XTCE-XSD" loc="AlarmRanges rangeForm"}
+In the XTCE schema an alarm range's `rangeForm` defaults to "outside": a value is in warning or critical when it falls outside the stated minimum and maximum — the opposite of how many people read a "range" at first glance.
+:::
+::::
 
 ## Related
 

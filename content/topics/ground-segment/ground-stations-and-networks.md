@@ -102,6 +102,8 @@ SSC Space describes its Go service for LEO small satellites as S-band up and dow
 5. **Command** over the forward link (FCLTU or a provider interface) when the pass includes uplink.
 6. **Close out** at LOS: pass report, data accounting, anomalies.
 
+::diagram{name="gsaas"}
+
 ## What operators and engineers see
 
 Pass schedules, station status (antenna, receiver, transmitter, lock indicators), SLE association and delivery status, data volume per pass, and pass reports from the provider.
