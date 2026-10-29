@@ -8,7 +8,7 @@ import SourceList from '../../components/SourceList.astro';
 import Icon from '../../components/Icon.astro';
 import Quiz from '../../components/islands/Quiz.tsx';
 import MarkDone from '../../components/islands/MarkDone.tsx';
-import { sectionTitle, topicHref, labHref, symptomHref, standardHref, glossaryHref, pathHref, minutes } from '../../lib/site';
+import { sectionTitle, sectionHref, topicHref, labHref, symptomHref, standardHref, glossaryHref, pathHref, minutes } from '../../lib/site';
 
 export async function getStaticPaths() {
   const topics = await getCollection('topics');
@@ -50,7 +50,7 @@ const quiz = (await getCollection('quizzes')).find((q) => q.id === topic.id);
     </aside>
 
     <article class="min-w-0">
-      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: `/section/${d.section}/`, label: sectionTitle(d.section) }, { label: d.title }]} />
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: sectionHref(d.section), label: sectionTitle(d.section) }, { label: d.title }]} />
       <header class="mt-4">
         <p class="t-overline text-fg-2">{sectionTitle(d.section)}</p>
         <h1 class="t-h1 mt-1">{d.title}</h1>

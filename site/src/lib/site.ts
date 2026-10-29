@@ -67,6 +67,7 @@ export async function sourceMap() {
 export type Topic = CollectionEntry<'topics'>;
 
 export const topicHref = (id: string) => `/topics/${id}/`;
+export const sectionHref = (id: string) => (id === 'start-here' ? '/start-here/' : id === 'labs' ? '/labs/' : `/section/${id}/`);
 export const labHref = (id: string) => `/labs/${id}/`;
 export const symptomHref = (id: string) => `/symptoms/${id}/`;
 export const standardHref = (id: string) => `/standards/${id}/`;
