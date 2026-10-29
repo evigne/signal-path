@@ -11,9 +11,7 @@ import { sortedPaths, pathHref, topicHref, labHref, symptomHref, standardHref } 
 const paths = await sortedPaths();
 const topics = await getCollection('topics');
 const labs = await getCollection('labs');
-const symptoms = await getCollection('symptoms');
 const claimCount = topics.reduce((n, t) => n + (t.body?.match(/^:::claim\{/gm)?.length ?? 0), 0);
-const firstTopic = (p: (typeof paths)[number]) => p.data.modules[0]?.topics[0];
 ---
 <Base title="Signal Path">
   <section class="border-b border-line bg-surface">

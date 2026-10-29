@@ -45,7 +45,7 @@ const topics = defineCollection({
     .loose(),
 });
 
-const yamlCollection = (dir: string, shape: z.ZodRawShape) =>
+const yamlCollection = <T extends z.ZodRawShape>(dir: string, shape: T) =>
   defineCollection({
     loader: glob({ base: `../content/${dir}`, pattern: '*.yaml' }),
     schema: z.object(shape).loose(),

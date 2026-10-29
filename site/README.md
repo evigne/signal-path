@@ -22,11 +22,12 @@ Run from `site/`:
 | :-- | :-- |
 | `npm install` | Install dependencies |
 | `npm run validate` | Run `content/tools/validate.py` against the schemas and source register (needs `../.venv`) |
+| `npm run typecheck` | `astro check` (strict TypeScript across pages and islands) |
 | `npm test` | Unit tests: every worked example and tool model |
 | `npm run build` | Build to `dist/` and generate the Pagefind index |
 | `npm run test:e2e` | Accessibility and behaviour tests against `dist/` (run `npm run build` first; first time: `npx playwright install chromium`) |
 | `npm run clean` | Remove build output and Astro's content cache (needed after changing a Markdown plugin) |
-| `npm run check` | clean + validate + unit tests + build + internal link check |
+| `npm run check` | clean + validate + typecheck + unit tests + build + internal link check |
 | `python3 -m http.server 4321 --directory dist` | Serve the built site locally |
 
 `astro dev` may not start in sandboxed shells; building and serving `dist/` always works.
