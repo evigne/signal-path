@@ -270,6 +270,7 @@
   :root:not([data-depth="expert"]) .claim .label-chip { font-size: 11px; padding: 1px 7px; border-color: transparent; }
   :root:not([data-depth="expert"]) .claim-cite { border: 1px solid var(--border-default); border-radius: 99px; padding: 0 8px; }
   :root[data-depth="beginner"] .claim-cite { font-size: 11px; }
+  :root[data-depth="beginner"] .claim-cite:has(a) .claim-loc { display: none; }
 
   /* Chain explorer tracks: frames (teal) flow right, CLTUs (orange) flow left */
   .chain-track { position: relative; height: 14px; margin: 6px 8% ; overflow: hidden; }

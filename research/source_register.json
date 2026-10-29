@@ -1467,6 +1467,29 @@
    "local_file": "—",
    "access_date": "2026-10-29",
    "review_due": "2027-04-29"
+  },
+  {
+   "id": "CCSDS-913.1-B-2",
+   "title": "Space Link Extension—Internet Protocol for Transfer Services",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 913.1-B-2",
+   "date": "September 2015",
+   "url": "https://ccsds.org/Pubs/913x1b2.pdf",
+   "source_type": "Standard",
+   "topics": [
+    "SLE",
+    "ISP1",
+    "TCP/IP",
+    "ASN.1",
+    "heartbeat"
+   ],
+   "local_file": "standards/913x1b2.pdf",
+   "terms": "CCSDS publications are free; reasonable reuse with attribution (CCSDS-PUBS).",
+   "reliability": "Primary",
+   "status": "Local PDF read 2026-10-29; currency not rechecked against the catalogue",
+   "notes": "§1.1: ISP1 carries SLE PDUs over TCP/IP with ASN.1 encoding. §2.5.3: heartbeat-interval (max seconds without a message; 0 disables) and dead-factor (intervals without a message before the TCP connection is considered dead).",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
   }
  ]
 }

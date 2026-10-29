@@ -27,6 +27,7 @@ sources:
   - {id: CCSDS-911.1-B-5, loc: "§2.1, §2.6.4, §3"}
   - {id: CCSDS-911.2-B-4, loc: "§1.1"}
   - {id: CCSDS-912.1-B-5, loc: "§2.7, §2.8.2.3, §3"}
+  - {id: CCSDS-913.1-B-2, loc: "§1.1, §2.5.3"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
@@ -123,6 +124,27 @@ A fictional client binds RAF at AOS − 2 min, receives "bind ok", but sees no f
 
 **Answer explanation:** the instance is in the ready state; frames are only delivered after RAF-START moves it to active. Check that the client sends START (and with a frame-quality filter that matches what the station produces).
 :::
+
+
+## Deep dive & operational edge cases
+
+::::expert{title="Under the hood: ISP1, delivery modes, latency and production status"}
+:::claim{label="standard" source="CCSDS-913.1-B-2" loc="§1.1, §2.5.3"}
+SLE operations travel between user and provider using ISP1: SLE PDUs encoded with ASN.1 and carried over TCP/IP. Each side can run a heartbeat: the heartbeat-interval is the longest time it may stay silent (0 turns heartbeats off), and the dead-factor is how many intervals without any message mean the TCP connection is declared dead.
+:::
+
+:::claim{label="standard" source="CCSDS-911.1-B-5" loc="§2.2, §2.6.4.6.2"}
+A RAF service instance runs in exactly one delivery mode, set by service management: online timely, online complete or offline. Online timely may deliberately discard frames that cannot be delivered within the latency limit; the provider fills a transfer buffer and sends it when it is full or when a release timer, started at the latency limit, expires.
+:::
+
+:::claim{label="standard" source="CCSDS-912.1-B-5" loc="§2.7, §3.6.2.7, annex B"}
+For Forward CLTU, the provider tracks a production status — configured, operational, interrupted or halted — and notifies the user when it becomes operational. A user can bind, start and send CLTUs before that; they are buffered. A CLTU with a latest-radiation-time is held while production is interrupted and discarded if that time passes first.
+:::
+
+:::claim{label="example" loc="fictional mid-pass carrier drop"}
+At 10:06 the uplink amplifier trips. The station's FCLTU production status goes to "interrupted"; CLTUs already queued with a latest-radiation-time of 10:07 are held, then discarded at 10:07. On the mission side, COP-1 sees no new CLCW acknowledgements, T1 expires and FOP-1 retransmits once the uplink is back — or raises an Alert if the transmission limit runs out first. Two protocols, two different recovery clocks.
+:::
+::::
 
 ## Related
 

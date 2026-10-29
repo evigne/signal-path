@@ -7,7 +7,7 @@ const T = (x, y, s, o = {}) =>
 const R = (x, y, w, h, fill, stroke = 'var(--border-strong)', extra = '') =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${fill}" stroke="${stroke}" ${extra}/>`;
 const fig = (label, viewBox, body, caption) =>
-  `<figure class="sp-diagram"><svg viewBox="${viewBox}" role="img" aria-label="${label}" class="w-full">${body}</svg><figcaption>${caption}</figcaption></figure>`;
+  `<figure class="sp-diagram" tabindex="0"><svg viewBox="${viewBox}" role="img" aria-label="${label}" class="w-full">${body}</svg><figcaption>${caption}</figcaption></figure>`;
 
 function fhp() {
   // Two consecutive TM frames; packet B spills from frame 1 into frame 2.

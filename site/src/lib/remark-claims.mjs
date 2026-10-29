@@ -92,7 +92,8 @@ export default function remarkClaims() {
         if (i) cite.push(text(', '));
         cite.push({ type: 'link', url: `/sources/#${id}`, title: s.title, children: [text(s.doc_number && s.doc_number !== '—' ? s.doc_number : s.title)] });
       });
-      if (loc) cite.push(text(`${ids.length ? ' ' : ''}${loc}`));
+      // The section reference is folded away in Beginner mode (CSS), leaving a short pill.
+      if (loc) cite.push(span(['claim-loc'], [text(`${ids.length ? ' ' : ''}${loc}`)]));
 
       const head = {
         type: 'claimHead',

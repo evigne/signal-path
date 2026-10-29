@@ -78,6 +78,7 @@ Review cadence: standards and agency pages every 6 months; provider pages every 
 | `OMG-XTCE-XSD` | [XTCE 1.2 schema: SpaceSystem.xsd](https://www.omg.org/spec/XTCE/20180204/SpaceSystem.xsd) | Object Management Group (OMG) | XTCE 1.2 (20180204) · 2018-02-04 | Standard schema | XTCE, mission database | OMG specification; cite and link; short element names only. | Primary | Schema read 2026-10-29 | 2027-04-29 |
 | `OPENC3-TLM` | [OpenC3 COSMOS docs — Telemetry configuration](https://docs.openc3.com/docs/configuration/telemetry) | OpenC3 | — · live page | Software documentation (first-party) | COSMOS, telemetry definitions | Product documentation; link and summarize. | Primary for the product | Live page read 2026-10-29 | 2027-04-29 |
 | `OPENC3-CMD` | [OpenC3 COSMOS docs — Command configuration](https://docs.openc3.com/docs/configuration/command) | OpenC3 | — · live page | Software documentation (first-party) | COSMOS, command definitions | Product documentation; link and summarize. | Primary for the product | Live page read 2026-10-29 | 2027-04-29 |
+| `CCSDS-913.1-B-2` | [Space Link Extension—Internet Protocol for Transfer Services](https://ccsds.org/Pubs/913x1b2.pdf) | CCSDS | CCSDS 913.1-B-2 · September 2015 | Standard | SLE, ISP1, TCP/IP, ASN.1, heartbeat | CCSDS publications are free; reasonable reuse with attribution (CCSDS-PUBS). | Primary | Local PDF read 2026-10-29; currency not rechecked against the catalogue | 2027-04-29 |
 
 ## Notes
 
