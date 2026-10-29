@@ -38,15 +38,21 @@ A spacecraft that accepts any well-formed command frame can be commanded by anyo
 
 SDLS adds a small label at the front of the frame's data (which key set to use, plus counters) and a tamper seal at the end (a message authentication code). The receiver recomputes the seal; if it doesn't match, the frame is thrown away. Encryption, when used, scrambles the data so only key holders can read it.
 
+::::beginner{title="Sealed and stamped envelopes"}
+SDLS is like adding a tamper-evident seal and a secret stamp to each container on the conveyor. Authentication is the seal: the receiver can tell if anyone opened or forged it. Encryption is an opaque wrapper: outsiders cannot read the contents. The rules for which seal and wrapper to use on each lane are agreed in advance — that agreement is the security association.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§2.1"}
 SDLS applies authentication and/or confidentiality to the contents of transfer frames at the data link layer only, as an extra service of the TM, TC, AOS and USLP protocols; it does not apply to Proximity-1.
 :::
 
+::::expert{title="Security header fields"}
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§4.1.1.1, §4.1.1.2, §4.1.2"}
 The security header holds a mandatory 16-bit Security Parameter Index (SPI) followed by an optional initialization vector, sequence number and pad length, and is at most 64 octets; the security trailer, if present, holds the MAC. SPI values 0 and 65535 are reserved.
 :::
+::::
 
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§2.3.1.3"}
 Each security association applies one of three functions — authentication, encryption, or authenticated encryption — and its algorithms and modes cannot change for the life of the association.
@@ -64,9 +70,11 @@ The security header and trailer sit inside the transfer frame around the frame d
 2. **Encrypt** the frame data if the SA requires it.
 3. **Authenticate**: compute the MAC.
 
+::::expert{title="What the MAC covers"}
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§2.3.2.2"}
 The MAC always covers the virtual channel ID, the TC segment header, the security header (except the IV) and the frame data; it never covers the insert zone, OCF, error control field, the MAC itself, or the sync marker or CLTU start sequence. Other header bits can be masked out per SA.
 :::
+::::
 
 4. **Receive**: verify the MAC, then the sequence number, then decrypt (see the anti-replay page).
 

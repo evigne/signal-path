@@ -39,15 +39,21 @@ status: draft
 
 Start with how much power leaves the transmitter, add the antenna's focusing gain, subtract everything the signal loses on the way — mostly the enormous spreading loss over distance, plus a little atmosphere and pointing — and compare what arrives with the receiver's own noise. Divide by the data rate to get energy per bit. The difference between that and what the decoder needs is the margin.
 
+::::beginner{title="A household budget in decibels"}
+A link budget is a household budget where income and spending are in decibels. Transmit power and antenna gains are income; distance, atmosphere, pointing and cable losses are spending. What is left after the receiver's needs is the margin — your savings for a rainy day. Negative savings means the link does not work.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-401" loc="§4.1.3 (103), (114), (115), (118)"}
 In the CCSDS design control table, EIRP is transmitter power plus effective antenna gain (dBW); free-space loss is the loss from the signal spreading between stations; atmospheric attenuation depends on elevation, weather and location; and noise spectral density is the noise in a 1 Hz bandwidth (dBW/Hz).
 :::
 
+::::expert{title="Carrier and data margins defined"}
 :::claim{label="standard" source="CCSDS-401" loc="§4.1.3 (121), (173)–(175)"}
 Carrier performance margin is the excess over a 10 dB signal-to-noise ratio in the phase-locked loop (the carrier threshold); data performance margin is received Eb/N0 minus required Eb/N0, where the required value includes phase-jitter, demodulator, waveform-distortion and ranging-interference losses on top of the coded requirement.
 :::
+::::
 
 ## Where in the chain
 
@@ -66,9 +72,11 @@ The budget spans the physical layer of one direction: transmitter, antenna, path
 CCSDS recommends a uniform design control table for exchanging link performance between agencies, with favourable and adverse tolerances computed at 3-sigma for telecommand and 2-sigma for all other systems.
 :::
 
+::::expert{title="Required Eb/N0 for concatenated codes"}
 :::claim{label="standard" source="CCSDS-130.1-G-3" loc="§7.4.2"}
 For an overall BER of 10⁻⁶ with 8920-bit blocks (interleaving depth 5), the (255,223) Reed–Solomon code concatenated with the (7,1/2) convolutional code needs a bit SNR of about 2.6 dB in CCSDS simulations.
 :::
+::::
 
 ## What operators and engineers see
 

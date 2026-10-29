@@ -37,6 +37,10 @@ Orbit determination needs range and Doppler, and these measurements share the ca
 
 Send a recognizable pattern up, have the spacecraft send it back, and time the round trip: half of it times the speed of light is the distance. If the spacecraft's transmitter is locked to the frequency it receives, the frequency shift on the return tells you how fast the distance is changing.
 
+::::beginner{title="Echoes and passing sirens"}
+Ranging is like shouting at a cliff and timing the echo: half the round trip times the speed of sound gives the distance. Doppler is the pitch of an ambulance siren rising as it approaches and falling as it drives away; the size of the shift tells you how fast it is moving towards or away from you.
+::::
+
 ## Precise terminology
 
 - **Coherent transponder:** derives its downlink frequency from the received uplink by a fixed ratio.
@@ -55,15 +59,19 @@ Ranging codes and the coherent carrier ride on the same RF link as telemetry and
 
 1. **Coherent turnaround.**
 
+::::expert{title="Coherent turnaround ratio"}
 :::claim{label="standard" source="CCSDS-401" loc="§2.6.1"}
 For coherent transponders between the 2025–2120 MHz uplink and 2200–2300 MHz downlink bands, CCSDS 401.0-B-32 recommends a 221/240 turnaround frequency ratio.
 :::
+::::
 
 2. **Choose the ranging code.**
 
+::::expert{title="T4B and T2B ranging codes"}
 :::claim{label="standard" source="CCSDS-414.1-B-3" loc="§3.2.2, §3.2.3"}
 The T4B code (weighted-voting balanced Tausworthe, ν = 4) is selected when ranging accuracy is the priority and T2B (ν = 2) when acquisition time is the priority, for example with a very weak ranging signal; both combine six component sequences into a code of length 2 × 7 × 11 × 15 × 19 × 23 = 1,009,470 chips.
 :::
+::::
 
 3. **Measure** the code phase on return (range) and the carrier frequency shift (Doppler).
 4. **Calibrate** station delays, then deliver measurements to orbit determination.

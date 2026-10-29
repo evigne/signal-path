@@ -264,6 +264,9 @@
   .depth-expert { border-left: 3px solid var(--status-warn-fg); }
   .depth-expert .depth-chip { color: var(--status-warn-fg); }
 
+  .depth-section > summary { cursor: pointer; font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+  .depth-section[open] > summary { display: none; }
+
   /* Beginner and Intermediate: claims read as light margin notes, not boxes */
   :root:not([data-depth="expert"]) .claim { background: transparent; border-left-width: 2px; border-radius: 0; padding: 2px 0 2px 16px; font-size: inherit; line-height: inherit; }
   :root:not([data-depth="expert"]) .claim-head { margin-bottom: 2px; gap: 6px; }

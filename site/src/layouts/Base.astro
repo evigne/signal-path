@@ -167,10 +167,23 @@ const isActive = (item: (typeof NAV)[number]) =>
           document.querySelectorAll('[data-depth-set]').forEach(function (b) {
             b.setAttribute('aria-pressed', String(b.getAttribute('data-depth-set') === mode));
           });
+          var folded = { expert: 0, beginner: 0, standards: 0 };
           document.querySelectorAll('details[data-depth-block]').forEach(function (d) {
             var kind = d.getAttribute('data-depth-block');
-            d.open = kind === 'expert' ? mode === 'expert' : mode !== 'expert';
+            d.open = kind === 'expert' ? mode === 'expert' : kind === 'standards' ? mode !== 'beginner' : mode !== 'expert';
+            if (!d.open) folded[kind]++;
           });
+          // Tell the reader what this view changed on the page.
+          var note = document.getElementById('depth-note');
+          if (note) {
+            var parts = [];
+            if (folded.expert) parts.push(folded.expert + ' expert deep dive' + (folded.expert > 1 ? 's' : ''));
+            if (folded.standards) parts.push(folded.standards + ' standards section' + (folded.standards > 1 ? 's' : ''));
+            if (folded.beginner) parts.push(folded.beginner + ' intuition block' + (folded.beginner > 1 ? 's' : ''));
+            var label = mode.charAt(0).toUpperCase() + mode.slice(1);
+            var claims = mode === 'expert' ? 'claims shown as full boxes' : mode === 'beginner' ? 'claims shown as light notes with short citations' : 'claims shown as light notes';
+            note.textContent = label + ' view: ' + (parts.length ? parts.join(', ') + ' folded; ' : 'nothing folded; ') + claims + '.';
+          }
         }
         applyDepth(root.dataset.depth || 'intermediate');
         document.querySelectorAll('[data-depth-set]').forEach(function (b) {

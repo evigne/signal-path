@@ -38,6 +38,10 @@ Commanding is the one place where a mistake or an attacker can directly harm the
 
 Several locks protect the command path. On the ground: only the right people, with the right role, can prepare and release commands, and risky commands need confirmation or are blocked in the wrong mode. On the link: the spacecraft only accepts frames that carry a valid authentication code and a fresh counter. Afterwards: telemetry confirms what actually happened.
 
+::::beginner{title="Keys to the building"}
+Commanding a spacecraft is like having the master keys to an unattended building. Command authority is the list of who holds which keys and which doors they open; threats are the ways a stranger could copy a key, sneak in behind someone, or replay an old instruction. Good practice limits who has keys, logs every use, and makes old instructions useless.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-350.1-G-3" loc="§3.4"}
@@ -67,9 +71,11 @@ Controls sit at every stage of the uplink: ground access control and command dat
 | SDLS sequence numbers | Space link | Replay |
 | Verifiers and telemetry checks | Ground + spacecraft | Undetected failure |
 
+::::expert{title="How databases enforce command constraints"}
 :::claim{label="standard" source="CCSDS-660.0-B-2" loc="§6.1.3.2.4, §6.1.3.2.5"}
 In XTCE, transmission constraints can block a command in the current operating mode, and significance levels (none, watch, warning, distress, critical, severe) let a command system require extra user confirmation.
 :::
+::::
 
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§2.3.2.1"}
 SDLS authentication ensures the integrity of transmitted data and the authenticity of its source, and its sequence numbering detects unauthorized replay of previously transmitted data.

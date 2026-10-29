@@ -52,6 +52,10 @@ Imagine a recording of someone reading a list of words with no pauses. If you kn
 
 Noise flips some bits, so the receiver usually accepts a "close enough" match rather than demanding a perfect one. How close is close enough is a configuration choice, and it trades missed markers against false matches.
 
+::::beginner{title="The chime before each announcement"}
+In a station, a chime plays before every announcement so you know a message is starting. A sync marker is that chime for bits: a fixed pattern placed before every coded block. The receiver listens for the chime in the endless stream; once it hears it at the right spacing a few times, it knows where every block begins.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-131.0-B-6" loc="§9.2.2"}
@@ -80,9 +84,11 @@ On the downlink, the marker is attached on the spacecraft after the transfer fra
 With Reed–Solomon or concatenated coding, CSMs are placed between the R-S codeblocks; with Turbo or LDPC coding of transfer frames, they are placed between the codewords.
 :::
 
+::::expert{title="Markers with convolutional codes"}
 :::claim{label="standard" source="CCSDS-131.0-B-6" loc="§9.2.5, §9.2.6"}
 With convolutional coding alone, the CSM is itself convolutionally encoded. With an inner convolutional code and an outer R-S code, the CSM is encoded by the inner code but not by the outer code.
 :::
+::::
 
 ::diagram{name="coding-pipeline"}
 

@@ -43,6 +43,10 @@ Software engineers joining a mission usually inherit a C2 stack. Knowing the blo
 
 A C2 system has the same jobs whatever it is called: connect to stations or test equipment, decode incoming data into named values, check limits, show and store them, let people and scripts send commands safely, and track whether those commands worked. Products differ in which of those jobs they cover and which protocols they speak.
 
+::::beginner{title="A control room as a kitchen"}
+Think of mission control software as a restaurant kitchen. The links are the delivery door where raw ingredients (frames) arrive; decommutation is the prep station that unpacks them; the database is the recipe book that says what every number means; limits are the taste test that shouts when something is off; and commanding is the order ticket going back out. Different products — Yamcs, COSMOS, Open MCT — are different kitchens, but they all need these same stations.
+::::
+
 ## Precise terminology
 
 - **Data link (C2 sense):** the software connector that receives or sends data — not the CCSDS data link layer, though it may implement it.

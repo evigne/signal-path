@@ -40,6 +40,10 @@ Most of a C2 system's behaviour is driven by its database: which bits are which 
 
 The database is the dictionary between raw bits and meaning. For telemetry it says "in packets on this APID, bits 48–59 are battery temperature, unsigned, converted with this formula, yellow above 40 °C". For commands it says "HEATER_ON takes a zone number 1–4, is blocked in safe mode, needs confirmation, and is complete when this status bit changes". XTCE is an agreed XML way to write that dictionary so it can move between tools.
 
+::::beginner{title="The dictionary for every number"}
+Without a dictionary, a page of foreign words is just letters. The telemetry and command database is the dictionary for raw spacecraft numbers: it says where each value sits in a packet, how many bits it uses, how to turn counts into degrees or volts, and when to raise an alarm. Change the spacecraft software without updating the dictionary and the screen lies.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-660.0-B-2" loc="§1"}

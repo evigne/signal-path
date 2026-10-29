@@ -43,6 +43,10 @@ Commanding is where operations can do real damage. Every operator conversation a
 
 An operator picks a command and fills in its arguments. Ground software checks it is allowed right now and asks for confirmation if it is risky, then encodes it into a packet, puts the packet in a command frame, wraps the frame in a CLTU and sends it through the station. Onboard, the frame is checked and accepted in order; the spacecraft reports back what it accepted. Finally, telemetry shows whether the command did what was intended.
 
+::::beginner{title="From request to signed receipt"}
+A command's life is like sending an important instruction by post: write it carefully (build and check), get it approved, post it with a tracking number (COP-1 sequence number), watch for the signature (CLCW), and finally confirm the action happened (execution verification). Each step can fail independently, so each has its own check.
+::::
+
 ## Precise terminology
 
 - **Command verifier:** a telemetry check that confirms a command reached a processing stage.

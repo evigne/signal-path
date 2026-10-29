@@ -44,6 +44,10 @@ status: draft
 
 A sensor reading is sampled onboard, packed into a packet with a time stamp and sent down — immediately if there is a pass (real-time) or later from the onboard recorder (playback). On the ground, packets are pulled out of frames, the raw bits for each measurement are picked out (decommutation), converted to engineering units with a calibration, compared against limits, shown on screens and archived.
 
+::::beginner{title="From thermometer to news headline"}
+A temperature reading travels like a news story: a reporter (sensor) jots a number, an editor (flight software) puts it in a dispatch (packet), the dispatch is shipped with others (frames), arrives at the newsroom (mission control), is checked against the style guide (database and calibration), and only then becomes a headline (a value on a display) — or an alarm if it looks wrong.
+::::
+
 ## Precise terminology
 
 - **Parameter (measurand):** one named telemetry value.
@@ -68,9 +72,11 @@ Telemetry starts in onboard applications and ends in the mission control system 
 
 1. **Sample and packetize onboard.** Packets carry an APID, a per-APID sequence count and often a time code in the secondary header.
 
+::::expert{title="Ordering packets over long periods"}
 :::claim{label="standard" source="CCSDS-133.0-B-2" loc="§4.1.3.4.3 note 3, §4.1.4.2.2"}
 The Space Packet secondary header may carry a CCSDS time code; the Space Packet Protocol notes that the sequence count combined with a time code provides unambiguous ordering over long periods, provided the time code increments at least once between sequence-count wraps.
 :::
+::::
 
 2. **Downlink in real time or store for playback.** The data link does not retransmit lost telemetry.
 

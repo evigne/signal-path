@@ -38,15 +38,21 @@ Keys wear out: the more data a key protects and the longer it lives, the more ex
 
 There are two kinds of keys. Long-lived master keys are used only to protect other keys. Short-lived session keys protect the actual traffic and are replaced regularly by sending new ones up encrypted under a master key (over-the-air rekeying). Every key moves through a lifecycle: prepared, active, retired, destroyed.
 
+::::beginner{title="Changing the locks"}
+Keys are like door locks: the longer one stays in use, the more chances someone has to copy it. Key management decides who makes keys, how they are delivered, how long each one is used (the cryptoperiod), and how to switch to a new one without locking yourself out — which is hard when the door is in orbit.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-355.1-B-1" loc="§2.3.2"}
 The SDLS key management baseline is a two-tier symmetric scheme: master keys (key-encryption keys) used for management, and session keys (traffic keys) used for SDLS operations; over-the-air rekeying (OTAR) distributes new session keys from the initiator to the recipient, though a mission may fly with preloaded keys only.
 :::
 
+::::expert{title="Key states"}
 :::claim{label="standard" source="CCSDS-355.1-B-1" loc="§2.3.2, figure 2-1"}
 The SDLS key lifecycle runs Pre-Activation → Active → Deactivated → Destroyed, through key activation, deactivation and destruction (with key verification available); the Suspended state is not used, and the Compromised state applies only to the initiator.
 :::
+::::
 
 :::claim{label="standard" source="NIST-800-57" loc="§5.3"}
 NIST defines a cryptoperiod as the time a key is authorized for use; a suitable cryptoperiod limits the data available for cryptanalysis, the exposure if a key is compromised, and the time available for attacks, and a compromised key's cryptoperiod is no longer valid.
@@ -68,9 +74,11 @@ Key management runs as SDLS extended procedures carried over the space link (and
 4. **Switch SAs** — create or rekey an SA with the new key, start it, stop the old one.
 5. **Deactivate and destroy** old keys at the end of their cryptoperiod.
 
+::::expert{title="Security association states"}
 :::claim{label="standard" source="CCSDS-355.1-B-1" loc="§2.3.3"}
 SA management moves an SA from Unkeyed to Keyed with Rekey, to Operational with Start, and back with Stop or Expire; OTAR and on-demand SA creation are optional, for long or complex missions.
 :::
+::::
 
 ## What operators and engineers see
 

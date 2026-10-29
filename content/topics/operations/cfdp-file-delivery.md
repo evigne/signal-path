@@ -40,6 +40,10 @@ Payload data, logs and software uploads are increasingly handled as files. Groun
 
 Instead of streaming numbers, the spacecraft saves files and the ground asks for them (or the spacecraft decides to send them). CFDP sends a description of the file, then the pieces, then an "end of file". In the reliable mode, the receiver lists any missing pieces and the sender resends just those, possibly over several passes, until the file is whole.
 
+::::beginner{title="Registered post for files"}
+CFDP is like registered post for whole files. The sender cuts a file into numbered pages and posts them; the receiver keeps a checklist and, at the end, says 'pages 12 and 40 are missing — send them again'. In acknowledged mode that conversation continues until the file is complete, even across several passes; in unacknowledged mode the pages are posted once and whatever arrives is what you get.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-727.0-B-5" loc="§2.1"}
@@ -57,9 +61,11 @@ In unacknowledged mode delivery failures are not reported and cannot be repaired
 
 CFDP sits above the data link: its PDUs ride in an underlying "unitdata transfer" service, commonly Space Packets on a mission-chosen APID.
 
+::::expert{title="What CFDP assumes about the layer below"}
 :::claim{label="standard" source="CCSDS-727.0-B-5" loc="§2.2.5"}
 CFDP assumes a single, deliberately simple underlying unitdata transfer layer; it uses only that layer's addressing and PDU delimitation, and multiplexes its transactions internally.
 :::
+::::
 
 :::claim{label="standard" source="CCSDS-133.0-B-2" loc="§4.1.3.3.4 note 2"}
 Space Packets can still carry PDUs of other protocols such as CFDP, but the coupling of APIDs to protocols is now mission specific rather than a reserved APID.
@@ -67,9 +73,11 @@ Space Packets can still carry PDUs of other protocols such as CFDP, but the coup
 
 ## How it works, step by step
 
+::::expert{title="PDU sequence and NAK-based repair"}
 :::claim{label="standard" source="CCSDS-727.0-B-5" loc="§2.4"}
 Every copy starts with metadata, then file segments, then an EOF PDU. In reliable transactions NAKs request retransmission of lost data, the EOF is acknowledged, and a Finished PDU — itself acknowledged — is sent once all file data has been assembled; unacknowledged transactions may optionally request a Finished PDU ("transaction closure").
 :::
+::::
 
 :::claim{label="practice" source="CCSDS-720.1-G-4" loc="§2.1"}
 CCSDS motivates CFDP by large onboard mass memories, more autonomous operations in which the spacecraft decides when to download stored data, and relay chains that need store-and-forward delivery.

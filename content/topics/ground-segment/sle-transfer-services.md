@@ -43,6 +43,10 @@ If your control centre talks to agency or SLE-capable stations, your software is
 
 Think of an SLE service as a scheduled phone line between station and control centre for one pass. First you connect and authenticate (bind). Then you say "start sending" (or "start accepting commands"). Frames flow, each with a label saying when and where it was received. At the end you say stop, then hang up (unbind).
 
+::::beginner{title="A forwarding service for frames"}
+SLE is like a mail-forwarding service between the ground station and the mission. The station receives the post (frames) at its address and forwards it, in order and with a postmark (earth receive time), to wherever the mission's team actually works. Going the other way, it takes the mission's outgoing parcels (CLTUs) and hands them to the transmitter at the right time.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-911.1-B-5" loc="§2.6.4"}

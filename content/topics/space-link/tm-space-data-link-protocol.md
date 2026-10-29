@@ -44,6 +44,10 @@ Packets are what applications care about, but the link carries frames. When tele
 
 A transfer frame is a fixed-size box that leaves the spacecraft at a steady pace. Packets of different sizes are packed into the boxes back to back; a big packet can continue into the next box. Each box has a label saying which spacecraft sent it, which "lane" (virtual channel) it belongs to, and running numbers so the ground can tell if a box went missing. When there is nothing to send, the spacecraft still sends boxes, filled with idle data, to keep the link steady.
 
+::::beginner{title="Containers on a conveyor belt"}
+The downlink is a conveyor belt of identical containers. Each container has a label (which spacecraft, which lane, which number in the series), carries envelopes packed end to end, and notes where the first new envelope starts — so if you miss a container you can pick up cleanly from the next. Missing container numbers tell you a frame was lost.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-132.0-B-3" loc="§4.1.1.1, §4.1.1.2"}
@@ -74,9 +78,11 @@ The Master Channel Frame Count and Virtual Channel Frame Count are 8-bit sequent
 
 3. Optional trailers are added:
 
+::::expert{title="OCF and FECF details"}
 :::claim{label="standard" source="CCSDS-132.0-B-3" loc="§4.1.5, §4.1.6"}
 If present, the 4-octet Operational Control Field follows the data field (a Type-1 report carries a Communications Link Control Word for COP-1), and the 2-octet Frame Error Control Field follows it, computed with the generator G(X) = X¹⁶ + X¹² + X⁵ + 1 with the register preset to all ones. Whether the FECF is used is set by management for the physical channel.
 :::
+::::
 
 4. On the ground, frames that fail the error check are discarded, counters are compared with the previous frame on the same channel, and the First Header Pointer is used to find the first packet.
 
@@ -109,9 +115,11 @@ Frame-level displays typically show frames received per virtual channel, frame-c
 The Spacecraft Identifier identifies the spacecraft and is static throughout all mission phases.
 :::
 
+::::expert{title="Who assigns spacecraft IDs"}
 :::claim{label="standard" source="CCSDS-232.0-B-4" loc="§4.1.2.5.2"}
 The TC Space Data Link Protocol states that the Spacecraft Identifier is assigned by CCSDS, so missions do not pick SCIDs freely.
 :::
+::::
 
 :::claim{label="standard" source="SANA-SCID" loc="registry"}
 Assigned SCIDs are published in the SANA Spacecraft Identifier registry; new assignments are requested through an agency's authorized SCID assignor (registry checked 2026-10-28).

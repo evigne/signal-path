@@ -39,11 +39,17 @@ A mission can have the link margin for a higher rate and still not be allowed to
 
 Switching a carrier's phase abruptly, as plain BPSK does, splashes energy across a wide range of frequencies. Smoothing the switching — with filters or with gently changing frequency (GMSK) — keeps almost all the energy in a narrow band. The price is a little more complexity and sometimes a small performance loss.
 
+::::beginner{title="Squeezing more cars into a lane"}
+If the spectrum lane you are allowed is narrow, you can either drive smaller cars or shape their movement so they fit closer together without touching the neighbouring lanes. Bandwidth-efficient modulations (filtered OQPSK, GMSK) smooth the signal so its energy stays inside the lane, letting more data through without spilling into others' spectrum.
+::::
+
 ## Precise terminology
 
+::::expert{title="How occupied bandwidth is defined"}
 :::claim{label="standard" source="CCSDS-413.0-G-3" loc="Annex B2"}
 Occupied bandwidth follows the ITU Radio Regulations definition: the band outside which the mean power above and below each equals 0.5 % of the total, i.e. 99 % power containment.
 :::
+::::
 
 ## Where in the chain
 
@@ -69,9 +75,11 @@ The Space Frequency Coordination Group (SFCG) sets spectral emission masks for s
 For Category A high-rate telemetry CCSDS 401.0-B-32 recommends GMSK or OQPSK.
 :::
 
+::::expert{title="Simulated occupied bandwidths"}
 :::claim{label="standard" source="CCSDS-413.0-G-3" loc="Annex B, table B-1"}
 Simulated after a saturated amplifier, unfiltered BPSK occupies about 20.56 Rs (99 % bandwidth), baseband-filtered OQPSK about 0.86–0.93 Rs for most recommended filters, and precoded GMSK (BTs = 0.25) about 0.86 Rs, where Rs is the coded symbol rate at the modulator input.
 :::
+::::
 
 4. **Weigh the trade-offs.**
 

@@ -43,6 +43,10 @@ Earth-observation payloads produce hundreds of megabits per second. Fixed QPSK w
 
 Packing more bits into each symbol (8PSK, 16APSK…) needs a stronger signal; strong modern codes make that workable. Because the signal is strongest when the spacecraft is overhead, the transmitter can switch to a denser format then and a sturdier one near the horizon — on a fixed schedule (VCM) or based on feedback from the ground (ACM).
 
+::::beginner{title="A gearbox for the radio link"}
+Think of a gearbox. When the signal is strong (spacecraft overhead, clear sky) you shift up: denser modulation and lighter coding, more data per second. When it weakens (low elevation, rain) you shift down: sturdier coding, sparser modulation. VCM shifts on a plan; ACM shifts in response to feedback, like an automatic gearbox.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-131.2-B-2" loc="§1.2"}
@@ -57,9 +61,11 @@ Variable Coding and Modulation (VCM) changes the format on a predetermined sched
 CCSDS 131.3-B-2 defines how CCSDS transfer frames are carried over the DVB-S2 telecom standard (QPSK to 32APSK, LDPC-based codes at rates from 1/4 to 9/10, VCM and ACM), interfacing through the attached sync marker and sync-marked transfer frames, so commercial DVB-S2 equipment can be reused.
 :::
 
+::::expert{title="Inside DVB-S2 framing"}
 :::claim{label="standard" source="ETSI-DVBS2" loc="§4.2"}
 DVB-S2 itself (ETSI EN 302 307-1) concatenates BCH outer and LDPC inner codes in FEC blocks of 64 800 or 16 200 bits; with VCM or ACM the modulation and code rate (MODCOD) can change from frame to frame but not within a frame. Physical-layer frames are built from 90-symbol slots with an optional raster of pilot symbols (36 every 16 slots) to help carrier recovery, and dummy frames fill gaps when no data is ready.
 :::
+::::
 
 :::claim{label="practice" source="NASA-SOA-9" loc="§9.2.8"}
 NASA's small-spacecraft state-of-the-art report notes that the Near Space Network tested DVB-S2 at Wallops Flight Facility, reaching 15 Mbps in a 5 MHz S-band channel with 16APSK and an LDPC rate-9/10 code.
@@ -81,9 +87,11 @@ SCCC mainly targets high-data-rate telemetry such as EESS payload downlinks, and
 3. **Frame the data**: CCSDS frames are mapped into the scheme's physical-layer frames.
 4. **Receive**: the ground demodulator follows the format changes signalled in the physical-layer framing.
 
+::::expert{title="Patent and licence note"}
 :::claim{label="standard" source="CCSDS-131.2-B-2" loc="§1.6"}
 CCSDS notes that compliance with 131.2-B-2 may involve claimed patents, whose holders have offered licences on reasonable and non-discriminatory terms.
 :::
+::::
 
 ## What operators and engineers see
 

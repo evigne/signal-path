@@ -53,6 +53,10 @@ Some schemes leave part of the pure hum visible (a **residual carrier**), which 
 
 **The signal weakens with distance;** what matters at the receiver is how much energy each bit has compared with the background noise.
 
+::::beginner{title="A swing, a hum and a torch"}
+A carrier is like a child on a swing going back and forth at a steady rate — a pure hum with no message. To send data you change how the swing moves: push harder (amplitude), speed it up slightly (frequency), or start each swing a little earlier or later (phase). An antenna dish is like the reflector behind a torch bulb: it gathers the light into a beam so more of it reaches the far end.
+::::
+
 ## Precise terminology
 
 - **Residual carrier:** modulation that leaves a carrier component for the receiver to track.

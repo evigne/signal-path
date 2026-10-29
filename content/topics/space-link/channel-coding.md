@@ -43,6 +43,10 @@ Every space link is noisy. Without coding, a link needs more transmit power, a b
 
 Think of spelling a name over a bad phone line using a phonetic alphabet: "S as in Sierra". You say more than the bare letters, but the listener can recover the name even when a word is garbled. Channel codes do the same with bits. Some codes are good at scattered single-bit errors, some at bursts, and the strongest modern codes get close to the theoretical limit at the cost of more processing.
 
+::::beginner{title="Spelling it out with the phonetic alphabet"}
+On a crackly radio, pilots say 'Alpha, Bravo, Charlie' instead of 'A, B, C' — extra sound that lets the listener recover letters even if some noise gets in. Channel coding does the same with bits: it adds carefully designed redundancy so the receiver can fix errors. Stronger codes add more redundancy, which costs bandwidth but lets the link work with a weaker signal.
+::::
+
 ## Precise terminology
 
 - **Code rate (r):** information bits per coded symbol. A rate-1/2 code sends two coded symbols per information bit.
@@ -77,21 +81,27 @@ Without slicing, each codeword contains exactly one transfer frame; slicing is a
 
 CCSDS 131.0-B-6 offers four families. A mission picks one option for each physical channel.
 
+::::expert{title="Convolutional code parameters"}
 :::claim{label="standard" source="CCSDS-131.0-B-6" loc="§4.3.1, §4.4"}
 Convolutional code: rate 1/2, constraint length 7, connection vectors 171 and 133 (octal) with the G2 output inverted; it may be punctured to rates 2/3, 3/4, 5/6 or 7/8. It suits random (scattered) errors and is decoded with maximum-likelihood (Viterbi) decoding.
 :::
+::::
 
 :::claim{label="standard" source="CCSDS-131.0-B-6" loc="§5.1, §5.3.4, §5.3.5.1"}
 Reed–Solomon codes correct bursts of errors: the E=16 option, a (255,223) code, corrects up to 16 symbol errors per codeword; the E=8 option, a (255,239) code, corrects up to 8 with less overhead. Codewords can be interleaved to depth I = 1, 2, 3, 4, 5 or 8, and R-S can be used as the outer code with the convolutional code as the inner code (concatenated coding).
 :::
 
+::::expert{title="Turbo code options"}
 :::claim{label="standard" source="CCSDS-131.0-B-6" loc="§7.3.5, §7.3.6, Table 7-1"}
 Turbo codes have nominal rates 1/2, 1/3, 1/4 or 1/6 and information block lengths of 1784, 3568, 7136 or 8920 bits, chosen to match Reed–Solomon interleaving depths 1, 2, 4 and 5.
 :::
+::::
 
+::::expert{title="LDPC code family"}
 :::claim{label="standard" source="CCSDS-131.0-B-6" loc="§8.1, §8.2.1.1, §8.4.1"}
 LDPC codes include an (8160,7136) code of rate about 7/8, used with the 32-bit sync marker, and nine codes of rates 1/2, 2/3 and 4/5 with information block lengths of 1024, 4096 and 16384 bits.
 :::
+::::
 
 On the ground, the receiver finds the codeblock boundaries using the sync marker, decodes, and passes corrected frames on. Soft decisions (keeping "how sure" each received symbol is) help decoders:
 

@@ -41,6 +41,10 @@ Many missions use AOS for high-rate downlinks, and new ones are adopting USLP. G
 
 AOS is a telemetry-style frame built for bigger, faster links: bigger counters so they don't wrap so often, an optional slot for small isochronous data, and a flag that says whether a frame is live or replayed from storage. USLP is a single newer design that can carry commands or telemetry, with fixed- or variable-size frames, bigger spacecraft IDs, and room to grow.
 
+::::beginner{title="One road, several kinds of cargo"}
+AOS and USLP let one radio link carry very different cargo — packets, raw bit streams, files — on separate lanes (virtual channels). AOS fixes what each lane carries; USLP adds a small note at the start of each container saying how the cargo inside is packed, so one protocol can handle many jobs.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-732.0-B-5" loc="§4.1.1"}

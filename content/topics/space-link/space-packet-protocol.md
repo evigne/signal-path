@@ -44,6 +44,10 @@ Applications, databases and operators think in packets: "APID 126 stopped", "hou
 
 A space packet is an envelope that one application addresses to another. The front of the envelope says which application it belongs to (the APID), whether it is telemetry or a command, a running number for that application, and how long the contents are. Envelopes of any size ride inside the fixed-size transfer frames; the ground uses the length to know where one envelope ends and the next begins.
 
+::::beginner{title="Envelopes with a return address"}
+A Space Packet is an envelope. The header is the address label: who sent it (APID), its number in that sender's series (sequence count), and how thick it is (length). The post office (the link) does not open envelopes; it only reads the label. Because each sender numbers its own envelopes, a gap in one sender's numbers tells you exactly which envelopes went missing.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-133.0-B-2" loc="§4.1.2.1, §4.1.2.2"}
@@ -72,9 +76,11 @@ The Packet Sequence Count counts the packets of one APID; counts are independent
 
 2. Segmentation is signalled, if used, with the Sequence Flags.
 
+::::expert{title="Sequence flags and segmentation"}
 :::claim{label="standard" source="CCSDS-133.0-B-2" loc="§4.1.3.4.2"}
 Sequence Flags are 00 for a continuation segment, 01 for the first segment, 10 for the last segment and 11 for unsegmented user data; their use is not mandatory, and they must be 11 whenever the Octet String service is used.
 :::
+::::
 
 3. The length is written.
 
@@ -84,9 +90,11 @@ The Packet Data Length is one fewer than the number of octets in the Packet Data
 
 4. An optional secondary header can carry time and other ancillary data.
 
+::::expert{title="Secondary header rules"}
 :::claim{label="standard" source="CCSDS-133.0-B-2" loc="§4.1.4.2.1"}
 If present, the Packet Secondary Header follows the primary header without a gap and holds a time code field, an ancillary data field, or both; its contents are mission-managed and the chosen option stays fixed for a managed data path. It is mandatory if there is no user data field and is not allowed in Idle Packets.
 :::
+::::
 
 5. When there is nothing to send, the data link layer may insert Idle Packets.
 

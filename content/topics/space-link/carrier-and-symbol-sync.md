@@ -41,6 +41,10 @@ Most "we lost the spacecraft" moments start here. If the receiver cannot hold th
 
 Tuning a radio comes first: the receiver must find the carrier at the right frequency even though motion shifts that frequency (Doppler). Then it must find the rhythm of the symbols — when one ends and the next begins — which it learns from the changes in the signal. Only then can it read bits, and only after that can it find frames.
 
+::::beginner{title="Catching the rhythm"}
+Picture someone tapping Morse code on a drum in a noisy room. First you have to hear the drum at all and tune in to its pitch (carrier lock). Then you have to catch the rhythm so you know when each tap starts and ends (symbol lock). Only then can you tell dots from dashes. If the drummer is walking past you, the pitch shifts — that is Doppler — and you must keep re-tuning.
+::::
+
 ## Precise terminology
 
 - **Carrier lock:** the receiver's tracking loop follows the carrier's frequency and phase.
@@ -70,9 +74,11 @@ CCSDS 401.0-B-32 records that most agencies' spacecraft receivers use phase-lock
 2. **Recover symbol timing.** The symbol clock is extracted from transitions in the received symbols.
 3. **Read bits or soft symbols**, then hand them to frame synchronization and decoding.
 
+::::expert{title="Transition density rules for symbol timing"}
 :::claim{label="standard" source="CCSDS-401" loc="§2.4.9"}
 Symbol clock recovery usually takes its timing from coded symbol transitions; CCSDS recommends limiting runs of identical coded symbols to 64, a minimum of 125 transitions per 1000 coded symbols for Category A and 275 for Category B, and notes that a pseudo-randomizer improves lock stability.
 :::
+::::
 
 ## What operators and engineers see
 

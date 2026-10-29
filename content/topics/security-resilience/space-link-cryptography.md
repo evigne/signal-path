@@ -39,6 +39,10 @@ Implementers and reviewers need to know which algorithms are expected and which 
 
 AES is the block cipher. Counter mode turns it into a stream of key-dependent noise that is XORed with the data. GCM adds an authentication tag computed alongside, so one operation gives secrecy and tamper detection. Each use needs a fresh "number used once" (IV); using the same one twice with the same key can let an attacker forge messages.
 
+::::beginner{title="Lock, seal and serial number"}
+Authenticated encryption is like a box with a lock (confidentiality), a tamper seal (integrity and authenticity) and a serial number that must never repeat (the IV). Reuse a serial number with the same key and an attacker can start to learn what is inside — which is why counters must never go backwards, even after a reboot.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-352.0-B-2" loc="§3.1–3.3"}
@@ -66,9 +70,11 @@ These algorithms run inside the SDLS security function on each frame, keyed by t
 NIST requires that the probability of GCM ever being invoked with the same IV and key on two distinct inputs be no greater than 2⁻³²; repeating even one IV under a key may enable forgery, so this requirement is almost as important as keeping the key secret.
 :::
 
+::::expert{title="GCM IV length"}
 :::claim{label="standard" source="NIST-800-38D" loc="§5.2.1.1"}
 NIST recommends that GCM implementations restrict IVs to 96 bits for interoperability, efficiency and simplicity.
 :::
+::::
 
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§2.3.2.3.4"}
 With counter-based authenticated encryption, the SDLS IV field can also serve as the anti-replay sequence number, in which case the separate sequence number field is zero length.
@@ -76,9 +82,11 @@ With counter-based authenticated encryption, the SDLS IV field can also serve as
 
 3. **Limit use per key.**
 
+::::expert{title="GCM invocation limits"}
 :::claim{label="standard" source="NIST-800-38D" loc="§8.3"}
 Unless only 96-bit IVs from the deterministic construction are used, the total number of GCM authenticated-encryption invocations with a given key shall not exceed 2³².
 :::
+::::
 
 ## What operators and engineers see
 

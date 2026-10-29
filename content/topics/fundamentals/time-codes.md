@@ -39,6 +39,10 @@ Every telemetry value is plotted against a time stamp. Using the wrong epoch, ig
 
 A spacecraft clock is usually just a counter. CUC writes that counter as "seconds since an agreed start date" plus a binary fraction of a second. CDS instead writes "days since the start date" and "milliseconds since midnight". An optional first octet (the P-field) says which format and sizes are used; if it is left out, the format must be agreed in advance.
 
+::::beginner{title="Two clocks that drift apart"}
+Imagine two clocks: one that ticks perfectly forever (TAI), and one that is nudged now and then to stay in step with the Earth's rotation (UTC). They started together, but every leap second pushes them apart by one more second — today 37. Spacecraft often count on the perfect clock; people read the nudged one. Every timestamp must say which clock it uses.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-301.0-B-4" loc="§3.1.1"}
@@ -49,17 +53,21 @@ A time code has an optional preamble field (P-field) and a time field (T-field).
 CUC counts basic time units (seconds recommended) from an epoch, in 1–4 octets plus 0–3 octets of binary fraction (extendable with a second P-field octet); the recommended epoch is 1958 January 1 TAI, the code is not UTC-based and leap seconds do not apply.
 :::
 
+::::expert{title="CDS field layout"}
 :::claim{label="standard" source="CCSDS-301.0-B-4" loc="§3.3"}
 CDS has a 16- or 24-bit day count from 1958 January 1 (or an agency epoch), a 32-bit millisecond-of-day field and an optional 16-bit (microsecond) or 32-bit (picosecond) submillisecond field; it is UTC-based, so leap-second corrections apply. Its P-field identification is 100.
 :::
+::::
 
 ## Where in the chain
 
 Onboard, time codes go in the packet secondary header. On the ground, stations and SLE annotate frames with earth receive time, and archives index by both.
 
+::::expert{title="Time codes inside packet secondary headers"}
 :::claim{label="standard" source="CCSDS-133.0-B-2" loc="§4.1.4.2.2"}
 If a Space Packet secondary header carries time, its Time Code Field uses one of the CCSDS segmented or unsegmented binary time codes.
 :::
+::::
 
 ## How it works, step by step
 

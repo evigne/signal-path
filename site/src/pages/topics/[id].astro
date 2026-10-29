@@ -65,6 +65,7 @@ const toolLab = d.tool ? (await getCollection('labs')).find((l) => l.data.tool =
           <span class="inline-flex items-center gap-1"><Icon name="clock" size={16} />{minutes(d.est_minutes)}</span>
           {d.status !== 'published' && <span class="inline-flex items-center gap-1 rounded-full bg-subtle px-2 py-0.5 text-xs">Draft · not yet reviewed</span>}
         </div>
+        <p id="depth-note" class="t-small mt-2 text-fg-2" aria-live="polite" data-pagefind-ignore></p>
       </header>
 
       <div class="mt-6 grid gap-4 md:grid-cols-[minmax(0,1fr)]">

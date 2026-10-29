@@ -39,6 +39,10 @@ status: draft
 
 The radio spectrum is shared by everyone. An international treaty — the ITU Radio Regulations — divides it into bands and says which kinds of service may use each band and in which direction (up or down). National regulators then license individual stations. A band being "for space research" doesn't mean you can use it; you need a licence, and you share it with others.
 
+::::beginner{title="Lanes on a motorway"}
+The radio spectrum is like a motorway divided into lanes by international agreement. Each lane (band) is reserved for certain kinds of traffic, and you need permission to drive in it. Lower lanes (UHF, S) are forgiving and easy to use but narrow; higher lanes (X, Ka) are wider — more data — but need precise steering (pointed antennas) and suffer more in bad weather.
+::::
+
 ## Precise terminology
 
 - **Allocation:** an entry in the Table of Frequency Allocations giving a band to a service.

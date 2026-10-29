@@ -41,6 +41,10 @@ A recorded, perfectly authentic command sent again later is still authentic — 
 
 Each protected frame carries a counter that only goes up. The receiver remembers the highest counter it has accepted. A frame with a counter that is not higher is a repeat and is dropped; a frame that jumps too far ahead is also dropped, because a real link should not skip that many.
 
+::::beginner{title="A numbered ticket roll"}
+An anti-replay counter works like a numbered ticket roll at a deli counter: the server only accepts the next numbers in sequence. Someone holding an old ticket cannot jump the queue by showing it again. The security association is the agreement on which roll, which stamp and which rules apply on each lane.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-355.0-B-2" loc="§2.3.1.1, §2.3.1.2"}

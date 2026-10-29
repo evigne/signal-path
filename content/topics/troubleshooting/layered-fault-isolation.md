@@ -41,6 +41,10 @@ Under pressure, people jump to the most frightening explanation ("the spacecraft
 
 Start at the bottom: is there a signal at all? Then: can we read symbols? Can we find frames? Are frames passing their checks and arriving in order? Are packets complete? Is the data reaching our control centre and being processed correctly? The first "no" is where you dig.
 
+::::beginner{title="Checking a dead lamp"}
+If a lamp does not light, you do not start by rewiring the house. You check the bulb, then the switch, then the plug, then the fuse — in order — and stop at the first thing that is wrong. Layered fault isolation does the same along the signal chain: start at the bottom (is there a carrier?) and walk upward until you find the first layer that looks unhealthy.
+::::
+
 ## Precise terminology
 
 - **Layer indicator:** a counter, lock or flag that proves a layer is working.
@@ -78,9 +82,11 @@ Each APID has its own modulo-16,384 packet sequence count, so a packet gap with 
 
 For commanding, the CLCW gives the uplink's own evidence:
 
+::::expert{title="Uplink layers read from the CLCW"}
 :::claim{label="standard" source="CCSDS-232.0-B-4" loc="§4.2.1.8"}
 The CLCW carries No RF Available and No Bit Lock flags (uplink physical layer at the spacecraft) as well as Lockout, Wait and Retransmit flags (COP-1 acceptance), separating RF problems from protocol problems.
 :::
+::::
 
 ## What operators and engineers see
 

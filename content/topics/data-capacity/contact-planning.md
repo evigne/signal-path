@@ -39,6 +39,10 @@ Data return, command opportunities and anomaly response all depend on when the s
 
 A low orbit circles the Earth in about an hour and a half, and a station only sees the spacecraft while it is above the local horizon — usually for a few minutes. Ignoring the lowest part of the sky (the elevation mask) gives a cleaner signal but shorter passes. Add up the useful minutes per day and multiply by the rate to see what the plan can carry.
 
+::::beginner{title="Booking appointments with a moving patient"}
+Contact planning is like scheduling appointments with a patient who walks past your window only a few times a day, each time for a few minutes. You must know when they pass, book the right room (station), prepare the equipment before they arrive, and decide in advance what to talk about, because the window closes whether or not you are finished.
+::::
+
 ## Precise terminology
 
 - **AOS / LOS:** acquisition and loss of signal — the start and end of a pass.
@@ -67,9 +71,11 @@ For a circular Earth orbit the period grows with the orbit radius to the power 3
 2. **Apply masks and constraints** (terrain, licences, other users).
 3. **Predict Doppler** for each pass so stations can acquire.
 
+::::expert{title="Doppler ranges and why predictions matter"}
 :::claim{label="standard" source="CCSDS-401" loc="§2.1.3A"}
 For Category A Earth-to-space links CCSDS notes Doppler up to about ±80 kHz at 2 GHz and ±300 kHz at 7 GHz, usually predictable to better than ±1 kHz, which is why accurate pass predictions shorten acquisition.
 :::
+::::
 
 4. **Estimate volume** per pass from usable time, rate and overheads (see the data budget calculator).
 5. **Schedule** passes and reserve margin for retries and anomalies.

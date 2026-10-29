@@ -36,6 +36,10 @@ Data budgets, recorder sizes and downlink volumes are argued about in every miss
 
 "Kilo" means a thousand. Computers like powers of two, so people started using "kilo" for 1024 as well, and the two meanings got mixed. The fix is to say "kibi" (Ki) when you mean 1024. Separately, a bit is one binary digit and a byte (in space standards, an octet) is eight bits; lowercase b and uppercase B tell them apart.
 
+::::beginner{title="Two rulers that almost agree"}
+Imagine two rulers: one marked in steps of 1000, the other in steps of 1024. For small things they look the same, but the gap grows with size — about 2 % at kilo, 5 % at mega, 7 % at giga. A recorder quoted in GiB holds more than the same number in GB. Most budget mistakes come from reading one ruler and writing down the other.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="NIST-BINARY" loc="page"}

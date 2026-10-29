@@ -40,6 +40,10 @@ Ground software builds TC frames, or configures the component that does. Getting
 
 A TC frame is a short envelope for commands. Unlike telemetry frames, each one can be a different size. Its header says which spacecraft and lane (virtual channel) it is for, how long it is, whether it must go through the spacecraft's in-order acceptance check, and its sequence number in that lane.
 
+::::beginner{title="A numbered parcel service with signatures"}
+Telecommand frames are like numbered parcels sent to someone who signs for each one in order. If parcel 38 goes missing, the recipient refuses 39 and says 'I am still waiting for 38', and the sender resends from 38. The signature slip comes back on the downlink — that is the CLCW.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-232.0-B-4" loc="§4.1.1"}
@@ -50,9 +54,11 @@ A TC transfer frame is a 5-octet primary header, a data field of up to 1019 octe
 The primary header holds: version number (bits 0–1), Bypass Flag (bit 2), Control Command Flag (bit 3), two reserved spare bits (4–5, set to 00), Spacecraft Identifier (bits 6–15), Virtual Channel Identifier (bits 16–21), Frame Length (bits 22–31) and Frame Sequence Number N(S) (bits 32–39).
 :::
 
+::::expert{title="Frame Length off-by-one"}
 :::claim{label="standard" source="CCSDS-232.0-B-4" loc="§4.1.2.7"}
 The Frame Length field holds one fewer than the total octets in the frame, counted from the first header bit to the end of the FECF (or data field if no FECF); its 10 bits limit a TC frame to 1024 octets.
 :::
+::::
 
 ## Where in the chain
 
@@ -63,9 +69,11 @@ On the uplink, command packets (or other data units) go into TC frames per virtu
 1. **Choose the service type** with the two flags: Bypass 0/1 = Type-A (FARM checks) / Type-B (bypass), Control Command 0/1 = data (Type-D) / control command (Type-C). See the command lifecycle page.
 2. **Segment if needed.**
 
+::::expert{title="Segment header and MAP IDs"}
 :::claim{label="standard" source="CCSDS-232.0-B-4" loc="§4.1.3.2"}
 The optional 1-octet Segment Header (2-bit sequence flags and 6-bit MAP Identifier) is required on a virtual channel that has more than one MAP or carries data units larger than one frame; if used on a virtual channel it must be used in all its data frames, and it is never present in frames carrying control commands.
 :::
+::::
 
 3. **Number the frame** with N(S) from FOP-1 for Type-AD frames.
 

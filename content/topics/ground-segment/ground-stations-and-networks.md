@@ -48,6 +48,10 @@ Most missions don't own all their antennas. Passes are booked from networks, dat
 
 A ground station is a steerable dish plus radio equipment and computers. Before a pass it is configured for your spacecraft (frequencies, rates, coding), points at where the spacecraft will rise, locks on, and for the few minutes the spacecraft is above the horizon it receives telemetry and sends commands. The decoded data is shipped to your control centre, either live or as files afterwards.
 
+::::beginner{title="Renting airport gates"}
+A spacecraft operator rarely owns all its antennas — it books time on them, like an airline renting gates at airports around the world. The provider runs the gate (antenna, receiver, local network); the mission brings the schedule and says what each flight carries. The big choice is how much the gate staff unpack for you: hand over raw radio, sorted frames, or finished files later.
+::::
+
 ## Precise terminology
 
 - **Pass / contact:** a period when the spacecraft is visible and the station is tracking it (AOS to LOS).

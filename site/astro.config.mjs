@@ -8,6 +8,7 @@ import rehypeKatex from 'rehype-katex';
 import { unified } from '@astrojs/markdown-remark';
 import remarkClaims from './src/lib/remark-claims.mjs';
 import rehypeGlossary from './src/lib/rehype-glossary.mjs';
+import rehypeDepthSections from './src/lib/rehype-depth-sections.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [remarkDirective, remarkClaims, remarkMath],
-      rehypePlugins: [rehypeKatex, rehypeGlossary],
+      rehypePlugins: [rehypeKatex, rehypeGlossary, rehypeDepthSections],
     }),
   },
   vite: {

@@ -38,6 +38,10 @@ Arguments end faster when someone can say "232.0-B-4 §4.1.2.7". Knowing which b
 
 CCSDS publishes Recommended Standards (Blue Books) that you implement, Informational Reports (Green Books) that explain and give rationale, and other colours for practices and experiments. Each stage of the chain has one or two key Blue Books.
 
+::::beginner{title="A family of building codes"}
+CCSDS standards are like building codes: one for foundations (radio), one for wiring (coding and sync), one for rooms (frames), one for furniture (packets), and one for how buildings connect to the street (ground services). Blue Books are the binding codes, Green Books explain the thinking behind them, and Magenta Books are recommended practice. You need to know which code governs which part of the house.
+::::
+
 ## Precise terminology
 
 :::claim{label="standard" source="CCSDS-CAT" loc="snapshot 2026-10-28"}

@@ -40,6 +40,10 @@ In the middle of a pass nobody wants to open five standards. This page puts the 
 
 Packets are the application's envelopes; frames are the link's fixed or variable boxes that carry them. Each kind has its own header layout, its own counters and its own idea of reliability. Read the version number first, then use the right row.
 
+::::beginner{title="Different vehicles for different loads"}
+TM, TC, AOS and USLP are like a lorry, a courier van, a freight train and a modular vehicle. The lorry (TM) carries a steady flow of fixed-size crates down; the courier (TC) carries small, precious parcels up and gets a signature; the freight train (AOS) carries very high volumes; the modular vehicle (USLP) can be configured to do any of these jobs.
+::::
+
 ## Precise terminology
 
 | | Space Packet | TM frame | TC frame | AOS frame | USLP frame |
@@ -55,9 +59,11 @@ Packets are the application's envelopes; frames are the link's fixed or variable
 Space Packets are 7–65,542 octets with a 6-octet primary header, version 000, an 11-bit APID, a 14-bit per-APID sequence count and a length field equal to data-field octets minus one.
 :::
 
+::::expert{title="Header bit layouts of all four frame types"}
 :::claim{label="standard" source="CCSDS-132.0-B-3" loc="§4.1.1, §4.1.2"}
 TM frames have a 6-octet primary header with version 00, a 10-bit SCID, a 3-bit VCID and 8-bit master and virtual channel frame counts, and are constant in length within a mission phase.
 :::
+::::
 
 :::claim{label="standard" source="CCSDS-232.0-B-4" loc="§4.1.1, §4.1.2"}
 TC frames have a 5-octet header with version 00, a 10-bit SCID, a 6-bit VCID, a 10-bit frame length (total − 1, so at most 1024 octets) and an 8-bit frame sequence number.
