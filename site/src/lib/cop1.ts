@@ -132,3 +132,24 @@ export const setBusy = (s: Cop1, busy: boolean): Cop1 => {
   if (!busy && s.farm === 'Wait') return { ...s, busy, farm: 'Open', log: [...log, 'FARM: Wait → Open'] };
   return { ...s, busy, log };
 };
+
+/** Timer T1 expires with frames unacknowledged: FOP-1 retransmits them all (go-back-n). */
+export function timerExpiry(s: Cop1): Cop1 {
+  if (!s.sent.length) return { ...s, log: [...s.log, 'FOP: T1 expired — nothing unacknowledged'] };
+  let next: Cop1 = { ...s, fop: 'S2 Retransmit without wait', log: [...s.log, `FOP: T1 expired → S2, resend from N(S)=${s.sent[0]}`] };
+  for (const ns of s.sent) {
+    next = { ...next, log: [...next.log, `FOP: retransmit AD N(S)=${ns}`] };
+    next = next.dropNext ? { ...next, dropNext: false, log: [...next.log, `Link: frame N(S)=${ns} lost`] } : farmReceiveAD(next, ns);
+  }
+  return next;
+}
+
+/** Sliding-window zones for display (CCSDS 232.1-B-2 FARM-1: W, PW = NW = W/2). */
+export function windowZone(s: Cop1, ns: number): 'expected' | 'positive' | 'negative' | 'lockout' {
+  const ahead = mod(ns - s.vr);
+  const behind = mod(s.vr - 1 - ns);
+  if (ahead === 0) return 'expected';
+  if (ahead <= s.W / 2 - 1) return 'positive';
+  if (behind <= s.W / 2 - 1) return 'negative';
+  return 'lockout';
+}

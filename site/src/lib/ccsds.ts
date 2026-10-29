@@ -110,3 +110,63 @@ export function views(bytes: Uint8Array, offset: number, littleEndian: boolean) 
     float64: has(8) ? dv.getFloat64(offset, littleEndian) : null,
   };
 }
+
+const f = (bytes: Uint8Array, name: string, start: number, len: number, meaning: (v: number) => string): Field => {
+  const value = bits(bytes, start, len);
+  return { name, start, len, value, meaning: meaning(value) };
+};
+
+/** TM primary header as display fields (CCSDS 132.0-B-3 §4.1.2). */
+export function tmFields(bytes: Uint8Array): Field[] {
+  if (bytes.length < 6) throw new Error('A TM primary header is 6 octets');
+  return [
+    f(bytes, 'Transfer frame version', 0, 2, (v) => (v === 0 ? 'Version 1 (00)' : 'Not a TM frame')),
+    f(bytes, 'Spacecraft ID', 2, 10, (v) => `${v} (0x${v.toString(16).toUpperCase()})`),
+    f(bytes, 'Virtual channel ID', 12, 3, (v) => `VC${v}`),
+    f(bytes, 'OCF flag', 15, 1, (v) => (v ? 'OCF present (e.g. CLCW)' : 'no OCF')),
+    f(bytes, 'Master channel frame count', 16, 8, (v) => `${v} (mod 256)`),
+    f(bytes, 'Virtual channel frame count', 24, 8, (v) => `${v} (mod 256, per VC)`),
+    f(bytes, 'Secondary header flag', 32, 1, (v) => (v ? 'present' : 'absent')),
+    f(bytes, 'Synchronization flag', 33, 1, (v) => (v ? 'octet-synchronized data (no packets)' : 'packets')),
+    f(bytes, 'Packet order flag', 34, 1, (v) => String(v)),
+    f(bytes, 'Segment length ID', 35, 2, (v) => (v === 3 ? '11 (required when sync flag is 0)' : String(v))),
+    f(bytes, 'First header pointer', 37, 11, (v) => (v === 0x7ff ? 'no packet starts in this frame' : v === 0x7fe ? 'only idle data' : `first packet starts at data octet ${v}`)),
+  ];
+}
+
+/** TC primary header as display fields (CCSDS 232.0-B-4 §4.1.2). */
+export function tcFields(bytes: Uint8Array): Field[] {
+  if (bytes.length < 5) throw new Error('A TC primary header is 5 octets');
+  return [
+    f(bytes, 'Transfer frame version', 0, 2, (v) => (v === 0 ? 'Version 1 (00)' : 'Not a TC frame')),
+    f(bytes, 'Bypass flag', 2, 1, (v) => (v ? 'Type-B (bypass FARM checks)' : 'Type-A (sequence-controlled)')),
+    f(bytes, 'Control command flag', 3, 1, (v) => (v ? 'control command (directive)' : 'data')),
+    f(bytes, 'Reserved spare', 4, 2, (v) => String(v)),
+    f(bytes, 'Spacecraft ID', 6, 10, (v) => `${v} (0x${v.toString(16).toUpperCase()})`),
+    f(bytes, 'Virtual channel ID', 16, 6, (v) => `VC${v}`),
+    f(bytes, 'Frame length', 22, 10, (v) => `${v} → ${v + 1}-octet frame`),
+    f(bytes, 'Frame sequence number N(S)', 32, 8, (v) => `${v} (mod 256)`),
+  ];
+}
+
+/** Communications Link Control Word (CCSDS 232.0-B-4 §4.2.1). */
+export function clcwFields(bytes: Uint8Array): Field[] {
+  if (bytes.length < 4) throw new Error('A CLCW is 4 octets');
+  const flag = (on: string, off: string) => (v: number) => (v ? on : off);
+  return [
+    f(bytes, 'Control word type', 0, 1, (v) => (v === 0 ? 'CLCW (0)' : 'not a CLCW')),
+    f(bytes, 'CLCW version', 1, 2, (v) => String(v)),
+    f(bytes, 'Status field', 3, 3, (v) => `${v} (mission-defined)`),
+    f(bytes, 'COP in effect', 6, 2, (v) => (v === 1 ? 'COP-1' : String(v))),
+    f(bytes, 'Virtual channel ID', 8, 6, (v) => `VC${v}`),
+    f(bytes, 'Reserved spare', 14, 2, (v) => String(v)),
+    f(bytes, 'No RF available', 16, 1, flag('no RF', 'RF available')),
+    f(bytes, 'No bit lock', 17, 1, flag('no bit lock', 'bit lock')),
+    f(bytes, 'Lockout', 18, 1, flag('LOCKOUT', 'no lockout')),
+    f(bytes, 'Wait', 19, 1, flag('WAIT', 'no wait')),
+    f(bytes, 'Retransmit', 20, 1, flag('retransmit requested', 'no retransmit')),
+    f(bytes, 'FARM-B counter', 21, 2, (v) => String(v)),
+    f(bytes, 'Reserved spare', 23, 1, (v) => String(v)),
+    f(bytes, 'Report value N(R)', 24, 8, (v) => `next expected frame ${v}`),
+  ];
+}

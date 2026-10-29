@@ -5,6 +5,7 @@ import type { Locator, Page } from '@playwright/test';
 // Islands render on the server and hydrate later; interact only once the islands in
 // view have hydrated (client:visible islands off screen never will).
 async function hydrated(page: Page, within?: Locator) {
+  await page.waitForLoadState('networkidle');
   if (within) await within.scrollIntoViewIfNeeded();
   await page.waitForFunction(() =>
     [...document.querySelectorAll('astro-island[ssr]')].every((el) => {
@@ -21,6 +22,9 @@ const PAGES = [
   '/topics/sync-markers/',
   '/topics/space-packet-protocol/',
   '/paths/operator-conversation-fluency/',
+  '/paths/space-comms-101/',
+  '/topics/why-space-links-are-different/',
+  '/topics/anatomy-of-a-pass/',
   '/labs/space-packet-header-decoder/',
   '/labs/data-budget-calculator/',
   '/labs/telemetry-calibration-sandbox/',
@@ -143,4 +147,57 @@ test('packet decoder decodes the preset', async ({ page }) => {
   await page.getByLabel('APID as hex').fill('0x07E');
   await page.getByRole('button', { name: 'Check', exact: true }).click();
   await expect(page.getByText(/Correct: APID = 0x07E/)).toBeVisible();
+});
+
+test('decision tree runs all four scenarios', async ({ page }) => {
+  await page.goto('/labs/anomaly-decision-tree/');
+  await hydrated(page);
+  const pick = page.getByRole('group', { name: 'Scenario' });
+  for (const name of [/^A ·/, /^B ·/, /^C ·/, /^D ·/]) await expect(pick.getByRole('button', { name })).toBeVisible();
+  await expect(async () => {
+    await pick.getByRole('button', { name: /^D ·/ }).click();
+    await expect(page.getByLabel(/FARM-1 Lockout/)).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await page.getByLabel(/FARM-1 Lockout/).check();
+  await expect(page.getByText('✓ Correct', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Uplink decision tree' })).toBeVisible();
+});
+
+test('coding sandbox shows cited gains and the E mismatch', async ({ page }) => {
+  await page.goto('/labs/channel-coding-sandbox/');
+  await hydrated(page);
+  await expect(page.getByText('≈ 7.5 dB')).toBeVisible();
+  await page.getByLabel('Code', { exact: true }).selectOption('turbo');
+  await expect(page.getByText('≈ 9.0 dB')).toBeVisible();
+  await page.getByLabel('R-S decoder E').selectOption('8');
+  await page.getByLabel('Code', { exact: true }).selectOption('rs');
+  await expect(page.getByText('every codeword fails: configuration, not RF')).toBeVisible();
+});
+
+test('packet decoder rejects an injected version error and decodes a CLCW', async ({ page }) => {
+  await page.goto('/labs/space-packet-header-decoder/');
+  await hydrated(page);
+  await page.getByLabel('Inject error (flip a version bit)').check();
+  await expect(page.getByText(/Packet Version Number is not 000/)).toBeVisible();
+  await page.getByRole('tab', { name: /CLCW/ }).click();
+  await page.getByLabel('Preset').selectOption({ label: 'CLCW, Lockout' });
+  await expect(page.getByRole('cell', { name: 'LOCKOUT', exact: true })).toBeVisible();
+});
+
+test('walkthrough offers the closed loop', async ({ page }) => {
+  await page.goto('/labs/end-to-end-walkthrough/');
+  await hydrated(page);
+  // Retry the click in case it landed before hydration finished.
+  await expect(async () => {
+    await page.getByRole('button', { name: 'Both (closed loop)' }).click();
+    await expect(page.getByRole('list', { name: 'uplink stages in order' })).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await expect(page.getByRole('list', { name: 'downlink stages in order' })).toBeVisible();
+});
+
+test('beginner path is first and linked from home', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('link', { name: /New to space comms/ })).toHaveAttribute('href', '/paths/space-comms-101/');
+  await page.goto('/paths/');
+  await expect(page.locator('main ol.mt-8 > li').first()).toContainText('Space comms 101');
 });
