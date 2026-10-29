@@ -24,13 +24,13 @@ related_symptoms: [carrier-but-no-frame-lock, no-carrier]
 standards: [ccsds-401-0-b-32]
 sources:
   - {id: CCSDS-401, loc: "§1.5, §2.1.1, §2.1.3A, §2.4.9"}
+  - {id: AWS-GS-METRICS, loc: "metrics table"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
 next_review: pending
 status: draft
-open_issues:
-  - Add a source covering ground demodulator lock indicators (provider or equipment documentation) before describing specific displays as fact.
+open_issues: []
 ---
 
 ## Why it matters
@@ -77,6 +77,10 @@ Symbol clock recovery usually takes its timing from coded symbol transitions; CC
 ## What operators and engineers see
 
 Lock indicators normally come up in order: carrier, then symbol or bit, then frame. Reading them together localises a problem: no carrier points at RF, pointing, frequency or the spacecraft transmitter; carrier without symbol lock points at symbol-rate or modulation settings or low signal-to-noise; symbol lock without frame lock points at sync-marker, coding or randomizer settings.
+
+:::claim{label="practice" source="AWS-GS-METRICS" loc="metrics table"}
+As one provider's example, AWS Ground Station publishes per-contact metrics that include a carrier-recovery lock flag (1 or 0), C/N0 in dB-Hz and the carrier frequency offset (Doppler plus oscillator offset), a symbol-timing lock flag, error vector magnitude and symbol-rate offset, Es/N0, bit and block error rates, received power and antenna azimuth and elevation (checked 2026-10-29).
+:::
 
 :::claim{label="example" loc="fictional console"}
 `09:12:04Z carrier LOCK · 09:12:05Z symbol LOCK · 09:12:05Z frame SEARCH` — fictional; this order is what the *Carrier but no frame lock* symptom looks like.

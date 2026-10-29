@@ -24,13 +24,15 @@ standards: [ccsds-131-2-b-2, ccsds-131-3-b-2]
 sources:
   - {id: CCSDS-131.2-B-2, loc: "§1.1, §1.2, §1.6"}
   - {id: CCSDS-131.3-B-2, loc: "§1.2, §1.3"}
+  - {id: ETSI-DVBS2, loc: "§4.2"}
+  - {id: NASA-SOA-9, loc: "§9.2.8"}
+  - {id: CCSDS-131.2-B-2-COR1, loc: "§3.2.4, §8.1, §8.2.2 (no claims affected)"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
 next_review: pending
 status: draft
-open_issues:
-  - The catalogue lists CCSDS 131.2-B-2 Cor. 1 (October 2026), which is not in the local library; read it before publishing.
+open_issues: []
 ---
 
 ## Why it matters
@@ -53,6 +55,14 @@ Variable Coding and Modulation (VCM) changes the format on a predetermined sched
 
 :::claim{label="standard" source="CCSDS-131.3-B-2" loc="§1.2, §1.3"}
 CCSDS 131.3-B-2 defines how CCSDS transfer frames are carried over the DVB-S2 telecom standard (QPSK to 32APSK, LDPC-based codes at rates from 1/4 to 9/10, VCM and ACM), interfacing through the attached sync marker and sync-marked transfer frames, so commercial DVB-S2 equipment can be reused.
+:::
+
+:::claim{label="standard" source="ETSI-DVBS2" loc="§4.2"}
+DVB-S2 itself (ETSI EN 302 307-1) concatenates BCH outer and LDPC inner codes in FEC blocks of 64 800 or 16 200 bits; with VCM or ACM the modulation and code rate (MODCOD) can change from frame to frame but not within a frame. Physical-layer frames are built from 90-symbol slots with an optional raster of pilot symbols (36 every 16 slots) to help carrier recovery, and dummy frames fill gaps when no data is ready.
+:::
+
+:::claim{label="practice" source="NASA-SOA-9" loc="§9.2.8"}
+NASA's small-spacecraft state-of-the-art report notes that the Near Space Network tested DVB-S2 at Wallops Flight Facility, reaching 15 Mbps in a 5 MHz S-band channel with 16APSK and an LDPC rate-9/10 code.
 :::
 
 ## Where in the chain

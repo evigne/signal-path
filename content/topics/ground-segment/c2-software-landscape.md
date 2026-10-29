@@ -24,14 +24,15 @@ sources:
   - {id: OPENC3-HOME, loc: "home page"}
   - {id: OPENMCT-HOME, loc: "home page"}
   - {id: CFS-GSFC, loc: "capability page"}
+  - {id: YAMCS-SLE, loc: "About"}
+  - {id: YAMCS-COP1, loc: "COP-1 API"}
+  - {id: CFE-CCSDS-HDR, loc: "ccsds_hdr.h"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
 next_review: pending
 status: draft
-open_issues:
-  - Verify Yamcs SLE and COP-1 support in its full manual before stating it (ledger S2).
-  - Find a first-party statement of cFS's message format before describing its use of CCSDS packets (ledger S5).
+open_issues: []
 ---
 
 ## Why it matters
@@ -72,8 +73,20 @@ OpenC3 COSMOS is offered as an open-source Core edition and a paid Enterprise ed
 Open MCT, from NASA Ames with JPL and AMMOS, is a web-based mission operations data visualization framework for streaming and historical data, imagery, timelines and procedures; commanding and protocol decoding are not described on its home page (checked 2026-10-28).
 :::
 
+:::claim{label="practice" source="YAMCS-SLE" loc="About"}
+The Yamcs SLE plugin supports the SLE Return All Frames and Return Channel Frames services (online timely, online complete and offline) and Forward CLTU, citing CCSDS 911.1-B-4, 911.2-B-3, 912.1-B-4 and the 913.1-B-2 transport mapping — slightly older issues than the ones in this site's register (checked 2026-10-29).
+:::
+
+:::claim{label="practice" source="YAMCS-COP1" loc="COP-1 API"}
+Yamcs exposes COP-1 on virtual-channel TC links configured with `useCop1: true`, with operations to initialize, resume and disable it and to read or change its configuration and status (checked 2026-10-29).
+:::
+
 :::claim{label="practice" source="CFS-GSFC" loc="capability page"}
 NASA's core Flight System is a platform-independent, reusable flight software framework made of a platform support package, an OS abstraction layer and a core flight executive with a bus architecture and pluggable apps (page updated Oct 5, 2026).
+:::
+
+:::claim{label="practice" source="CFE-CCSDS-HDR" loc="modules/msg/fsw/inc/ccsds_hdr.h"}
+cFE's message module defines its messages around the CCSDS Space Packet primary header — stream ID (version, type, secondary-header flag, APID), sequence and length fields, stored big-endian — plus an optional mission-defined extended header, and asks software to use the CFE_MSG API rather than touching the fields directly.
 :::
 
 ## What operators and engineers see

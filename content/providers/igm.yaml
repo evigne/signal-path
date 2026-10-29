@@ -1,6 +1,6 @@
 id: igm
 name: IGM
-note: Name from the project brief; no first-party source identified. Awaiting clarification of which organization is meant (ledger G15).
+note: '“IGM” comes from the project brief. No ground-station provider of that name could be confirmed from first-party sources, so it is held back until the intended organisation is confirmed (ledger G15).'
 last_checked: pending
 cells:
   name: &id001

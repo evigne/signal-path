@@ -1255,6 +1255,158 @@
    "local_file": "—",
    "access_date": "2026-10-29",
    "review_due": "2027-04-29"
+  },
+  {
+   "id": "YAMCS-SLE",
+   "title": "Yamcs SLE — About",
+   "publisher": "Space Applications Services (Yamcs project)",
+   "doc_number": "—",
+   "date": "page © 2026, no version shown",
+   "url": "https://docs.yamcs.org/yamcs-sle/about/",
+   "source_type": "Software documentation (first-party)",
+   "topics": [
+    "SLE",
+    "RAF",
+    "RCF",
+    "FCLTU",
+    "C2 software"
+   ],
+   "terms": "Documentation of an open-source project; link and summarize.",
+   "reliability": "Primary for the product",
+   "status": "Live page read 2026-10-29",
+   "notes": "Yamcs SLE plugin supports RAF (CCSDS 911.1-B-4) and RCF (911.2-B-3) in online timely, online complete and offline variants, and FCLTU (912.1-B-4), over ISP1 (913.1-B-2). Note: cites older issues than the register's 911.1-B-5.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "YAMCS-COP1",
+   "title": "Yamcs HTTP API — COP-1",
+   "publisher": "Space Applications Services (Yamcs project)",
+   "doc_number": "—",
+   "date": "page © 2026",
+   "url": "https://docs.yamcs.org/yamcs-http-api/cop1/",
+   "source_type": "Software documentation (first-party)",
+   "topics": [
+    "COP-1",
+    "TC links",
+    "C2 software"
+   ],
+   "terms": "Documentation of an open-source project; link and summarize.",
+   "reliability": "Primary for the product",
+   "status": "Live page read 2026-10-29",
+   "notes": "COP-1 methods apply to virtual-channel TC links configured with useCop1: true; operations Initialize, Resume, Disable, Get/Update Config, Get/Subscribe Status.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "CFE-CCSDS-HDR",
+   "title": "cFE source: modules/msg/fsw/inc/ccsds_hdr.h",
+   "publisher": "NASA (core Flight System, nasa/cFE on GitHub)",
+   "doc_number": "cFS Draco",
+   "date": "© 2023, main branch read 2026-10-29",
+   "url": "https://github.com/nasa/cFE/blob/main/modules/msg/fsw/inc/ccsds_hdr.h",
+   "source_type": "Source code (first-party)",
+   "topics": [
+    "cFS",
+    "software bus",
+    "Space Packet header"
+   ],
+   "terms": "Apache License 2.0; link and summarize, do not copy code.",
+   "reliability": "Primary for the product",
+   "status": "Read 2026-10-29",
+   "notes": "Defines CCSDS_PrimaryHeader_t (StreamId, Sequence, Length = total length − 7) and an optional CCSDS_ExtendedHeader_t (mission subsystem/system IDs); headers are big-endian and accessed through the CFE_MSG API.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "AWS-GS-METRICS",
+   "title": "AWS Ground Station User Guide — View metrics with Amazon CloudWatch",
+   "publisher": "Amazon Web Services",
+   "doc_number": "—",
+   "date": "undated live page",
+   "url": "https://docs.aws.amazon.com/ground-station/latest/ug/metrics.html",
+   "source_type": "Provider documentation (first-party)",
+   "topics": [
+    "demodulator lock",
+    "Es/N0",
+    "BER",
+    "C/N0",
+    "antenna angles"
+   ],
+   "terms": "AWS documentation; link and summarize.",
+   "reliability": "Primary for the provider",
+   "status": "Live page read 2026-10-29",
+   "notes": "Metrics include CarrierFrequencyRecovery_Locked (1/0), _Cn0 (dB-Hz), _OffsetFrequency_Hz (Doppler and oscillator offset), SymbolTimingRecovery_Locked, _ErrorVectorMagnitude, _OffsetSymbolRate, Es/N0, BitErrorRate, BlockErrorRate, ReceivedPower (dBm), AzimuthAngle, ElevationAngle. First 60 s of a contact rarely yield meaningful metrics.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "ETSI-DVBS2",
+   "title": "ETSI EN 302 307-1: Digital Video Broadcasting (DVB); Second generation framing structure, channel coding and modulation systems… Part 1: DVB-S2",
+   "publisher": "ETSI",
+   "doc_number": "EN 302 307-1 V1.4.1",
+   "date": "2014-11",
+   "url": "https://www.etsi.org/deliver/etsi_en/302300_302399/30230701/01.04.01_60/en_30230701v010401p.pdf",
+   "source_type": "European standard",
+   "topics": [
+    "DVB-S2",
+    "BBFRAME",
+    "PLFRAME",
+    "MODCOD",
+    "ACM/VCM",
+    "pilots"
+   ],
+   "terms": "Free PDF from ETSI; cite and link, do not reproduce.",
+   "reliability": "Primary",
+   "status": "PDF read 2026-10-29",
+   "notes": "§4.2: BCH outer + LDPC inner codes, FEC blocks of 64 800 or 16 200 bits; VCM/ACM change MODCOD frame by frame but not within a frame; PL framing on 90-symbol slots with optional pilots (36 symbols every 16 slots; pilot-less mode gives 2.4 % more capacity); dummy PLFRAMEs when idle.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "CCSDS-131.2-B-2-COR1",
+   "title": "Technical Corrigendum 1 to CCSDS 131.2-B-2",
+   "publisher": "CCSDS",
+   "doc_number": "CCSDS 131.2-B-2 Cor. 1",
+   "date": "issue date May 2026 (catalogue: published October 2026)",
+   "url": "https://ccsds.org/searchpubs/entry/5181/",
+   "source_type": "Standard (corrigendum)",
+   "topics": [
+    "SCCC",
+    "pseudo-randomizer"
+   ],
+   "terms": "CCSDS publications are free; cite and link.",
+   "reliability": "Primary",
+   "status": "PDF read 2026-10-29",
+   "notes": "Changes §3.2.4, §8.1 and §8.2.2 only: SCCC randomizes with the 131.2-B-2 §8 randomizer instead of referencing 131.0-B (whose issue 5 moved to PN17); §8.2.2 typo fix. No Signal Path claim cites these sections.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
+  },
+  {
+   "id": "CCSDS-PUBS",
+   "title": "CCSDS Publications — Reproduction Permission Statement",
+   "publisher": "CCSDS",
+   "doc_number": "—",
+   "date": "page © 2026",
+   "url": "https://ccsds.org/publications/",
+   "source_type": "Publisher policy page",
+   "topics": [
+    "reuse terms",
+    "copyright"
+   ],
+   "terms": "Reasonable reuse of material in CCSDS documents is permitted with attribution; formal reprint permission via the CCSDS Secretariat.",
+   "reliability": "Primary (publisher policy)",
+   "status": "Live page read 2026-10-29",
+   "notes": "Signal Path still summarises and links rather than reproducing text; short attributed figures or tables would fall under 'reasonable reuse'.",
+   "local_file": "—",
+   "access_date": "2026-10-29",
+   "review_due": "2027-04-29"
   }
  ]
 }

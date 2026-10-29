@@ -6,7 +6,10 @@ import Icon from '../components/Icon.astro';
 import { sourceMap } from '../lib/site';
 
 const ORDER = ['ksat', 'leaf-space', 'aws-ground-station', 'atlas', 'ssc', 'igm'];
-const providers = (await getCollection('providers')).sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+const all = (await getCollection('providers')).sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+// A provider with nothing researched yet stays out of the table (no rows of placeholders).
+const pending = all.filter((p) => Object.values(p.data.cells).every((c) => c.state === 'to_research'));
+const providers = all.filter((p) => !pending.includes(p));
 const sources = await sourceMap();
 const ROWS: [string, string][] = [
   ['name', 'Legal name and current branding'],
@@ -72,5 +75,10 @@ const ROWS: [string, string][] = [
         </tbody>
       </table>
     </div>
+    {pending.length > 0 && (
+      <p class="t-small mt-4 max-w-[720px] text-fg-2">
+        Not in the table yet: {pending.map((p) => p.data.name).join(', ')}. {pending.map((p) => p.data.note).filter(Boolean).join(' ')}
+      </p>
+    )}
   </div>
 </Base>

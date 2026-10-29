@@ -123,3 +123,22 @@ Checked against **ITU Radio Regulations, Edition of 2024, Volume 1, Article 5 (T
 | S3 | OpenC3 COSMOS: decom, commanding, scripting, limits, logging | Confirmed | Home page: telemetry decom, commanding, Script Runner (Ruby/Python), limits and alerts, logging and replay; Core (open source) and Enterprise editions. | OPENC3-HOME |
 | S4 | Open MCT: NASA Ames web visualization, used for VIPER/lunar rovers | Partly confirmed | First-party: web-based mission operations data visualization framework from NASA Ames with JPL/AMMOS; named missions **not stated**. | OPENMCT-HOME |
 | S5 | cFS uses CCSDS Space Packet headers on its software bus | Unverified | GSFC page describes PSP, OSAL, cFE bus architecture and apps; **CCSDS packet use not stated** there. | CFS-GSFC |
+
+## 8. Next-phase research pass (2026-10-29)
+
+| ID | Claim / question | Result | Sources |
+| :-- | :-- | :-- | :-- |
+| R1 | Yamcs SLE support (was S2) | **Confirmed.** RAF and RCF (online timely, online complete, offline) and FCLTU, citing 911.1-B-4, 911.2-B-3, 912.1-B-4 and ISP1 913.1-B-2 — older issues than ours. | YAMCS-SLE |
+| R2 | Yamcs COP-1 support (was S2) | **Confirmed.** COP-1 on VC TC links with `useCop1: true`; initialize / resume / disable, config and status via HTTP API. | YAMCS-COP1 |
+| R3 | cFS uses CCSDS packet headers (was S5) | **Confirmed** from cFE source: `CCSDS_PrimaryHeader_t` plus optional extended header, big-endian, accessed via CFE_MSG. | CFE-CCSDS-HDR |
+| R4 | TAI − UTC today | **37 s** since 2017-01-01; no leap second end of 2026 (Bulletin C 72). Recheck each January/July. | IERS-BULC |
+| R5 | Ground demodulator lock indicators | **Confirmed for one provider:** AWS Ground Station CloudWatch metrics (carrier and symbol lock flags, C/N0, Es/N0, BER, EVM, offsets). | AWS-GS-METRICS |
+| R6 | DVB-S2 structure | **Confirmed** from EN 302 307-1 V1.4.1 §4.2 (BCH+LDPC, 64 800 / 16 200, VCM/ACM per frame, 90-symbol slots, pilots 36 per 16 slots). NASA NSN Wallops test 15 Mbps in 5 MHz S-band, 16APSK LDPC 9/10. | ETSI-DVBS2, NASA-SOA-9 §9.2.8 |
+| R7 | 131.2-B-2 Cor. 1 | **Read.** Issue date May 2026 (catalogue: Oct 2026). Changes §3.2.4, §8.1, §8.2.2 (SCCC randomizer reference; typo). No Signal Path claim affected. | CCSDS-131.2-B-2-COR1 |
+| R8 | 231.0-B-4 Cor. 1 | **Not found online** (catalogue search and web search 2026-10-29). Stays open. | — |
+| R9 | ECSS-E-ST-70-41C (PUS) | **Not read:** ecss.nl redirected to an ESA "site unavailable" page on 2026-10-29. No PUS claims added. | — |
+| R10 | Orbital period formula | **Confirmed** (archived NASA GSFC Stargaze page): T = 5063.5 s × (r/R_E)^1.5. Pass durations remain computed examples. | NASA-STARGAZE-K3 |
+| R11 | CCSDS reuse terms | **Confirmed:** "reasonable reuse … with attribution" (publications page). | CCSDS-PUBS |
+| R12 | NIST SP 800-38D revision | **Still pending:** revision announced 2024-03-06; no draft or final as of 2026-10-29. | NIST-800-38D (CSRC page) |
+| R13 | KSAT delivery/latency/support; AWS support/latency | **Still not public** on KSATlite page and AWS FAQ (rechecked). AWS FAQ confirms EC2, S3 and wideband DigIF delivery. | KSAT-LITE, AWS FAQ |
+| R14 | "IGM" provider | **Unresolved**; removed from the comparison table and shown as a note until the user confirms the organisation. | — |

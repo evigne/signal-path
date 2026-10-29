@@ -22,13 +22,13 @@ standards: [ccsds-301-0-b-4]
 sources:
   - {id: CCSDS-301.0-B-4, loc: "§3.1–3.3"}
   - {id: CCSDS-133.0-B-2, loc: "§4.1.4.2.2"}
+  - {id: IERS-BULC, loc: "Bulletin C 72"}
 owner: pending
 reviewer: pending
 last_reviewed: pending
 next_review: pending
 status: draft
-open_issues:
-  - Add a primary source for the current TAI−UTC offset (IERS bulletin) before showing UTC conversions with numbers.
+open_issues: []
 ---
 
 ## Why it matters
@@ -67,6 +67,10 @@ If a Space Packet secondary header carries time, its Time Code Field uses one of
 2. **Read the coarse part** (seconds or days and milliseconds).
 3. **Add the fraction** (CUC fine octets ÷ 256ⁿ, or CDS submilliseconds).
 4. **Convert to calendar time** from the epoch, in the right time scale (TAI for CUC level 1, UTC for CDS).
+
+:::claim{label="standard" source="IERS-BULC" loc="Bulletin C 72"}
+IERS Bulletin C 72 (6 July 2026) states that no leap second will be added at the end of December 2026 and that UTC − TAI has been −37 s since 2017 January 1, 0 h UTC, until further notice — so today TAI = UTC + 37 s. Recheck each bulletin before converting future dates.
+:::
 
 ## What operators and engineers see
 

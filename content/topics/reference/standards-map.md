@@ -27,7 +27,7 @@ last_reviewed: pending
 next_review: pending
 status: draft
 open_issues:
-  - CCSDS 231.0-B-4 Cor. 1 (July 2026) and 131.2-B-2 Cor. 1 (October 2026) are listed in the catalogue but are not in the local library; read them before publishing affected pages.
+  - CCSDS 231.0-B-4 Cor. 1 (July 2026) is listed in the catalogue but could not be found online on 2026-10-29; read it before publishing TC coding pages. (131.2-B-2 Cor. 1 was read — it changes only the SCCC randomizer reference and a typo.)
 ---
 
 ## Why it matters

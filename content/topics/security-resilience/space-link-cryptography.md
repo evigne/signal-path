@@ -28,7 +28,7 @@ last_reviewed: pending
 next_review: pending
 status: draft
 open_issues:
-  - NIST announced a revision of SP 800-38D (ledger N2); recheck before publishing.
+  - NIST announced on 2024-03-06 that it will revise SP 800-38D; as of 2026-10-29 no draft or final revision is published (CSRC page). Recheck before publishing.
 ---
 
 ## Why it matters

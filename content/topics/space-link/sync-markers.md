@@ -35,8 +35,7 @@ reviewer: pending
 last_reviewed: pending
 next_review: pending
 status: draft
-open_issues:
-  - Confirm CCSDS reuse terms before quoting any figure from 131.0-B-6.
+open_issues: []
 ---
 
 ## Why it matters
