@@ -29,6 +29,7 @@ Run from `site/`:
 | `npm run clean` | Remove build output and Astro's content cache (needed after changing a Markdown plugin) |
 | `npm run check` | clean + validate + typecheck + unit tests + build + internal link check |
 | `python3 -m http.server 4321 --directory dist` | Serve the built site locally |
+| `npm run deploy` | Build and deploy to Cloudflare Workers (static assets) — needs `npx wrangler login` once |
 
 `astro dev` may not start in sandboxed shells; building and serving `dist/` always works.
 
@@ -61,6 +62,10 @@ The lab logic lives in pure, tested modules so the UI and the content cannot dri
 | `src/lib/cop1.ts` | 6 COP-1 simulator | clean, drop/go-back-n, lockout/unlock, duplicate, wait, BD |
 | `src/lib/budget.ts` | 7 data budget | defaults and scenarios from the Penpot calculator |
 | `src/lib/chain.ts` | 8 walkthrough, 9 decision tree | — (data) |
+
+## Hosting
+
+Live at https://signal-path.vidhu-vigneshaero.workers.dev (Cloudflare Workers static assets, free plan). `wrangler.jsonc` names the Worker `signal-path` and serves `./dist`, with Astro's 404 page for unknown paths. For automatic deploys on push, the Worker's Workers Builds settings must be: root directory `site`, build command `npm run build`, deploy command `npx wrangler deploy`.
 
 ## Publishing rules
 
