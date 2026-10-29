@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+const sources = (await getCollection('sources')).sort((a, b) => a.id.localeCompare(b.id));
+const groups = [
+  { title: 'CCSDS standards and reports', test: (id: string) => id.startsWith('CCSDS') },
+  { title: 'Registries and regulation', test: (id: string) => /^(SANA|ITU)/.test(id) },
+  { title: 'Government and agency references', test: (id: string) => /^(NASA|NIST|CFS|OPENMCT)/.test(id) },
+  { title: 'Providers and software projects', test: (id: string) => !/^(CCSDS|SANA|ITU|NASA|NIST|CFS|OPENMCT)/.test(id) },
+];
+---
+<Base title="Source register" section="sources">
+  <div class="mx-auto max-w-[1200px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/section/reference/', label: 'Reference' }, { label: 'Source register' }]} />
+    <h1 class="t-h1 mt-4">Source register</h1>
+    <p class="t-body-lg mt-2 max-w-[760px] text-fg-2">{sources.length} sources with provenance, reuse terms and review dates. Claims on every page link here by ID. Standards are summarised in original words and linked, never reproduced.</p>
+    {groups.map((g) => (
+      <section class="mt-10">
+        <h2 class="t-h3">{g.title}</h2>
+        <ul class="mt-4 space-y-3">
+          {sources.filter((s) => g.test(s.id)).map((s) => (
+            <li id={s.id} class="card scroll-mt-32 p-4 text-sm target:ring-2 target:ring-[var(--border-focus)]">
+              <p class="font-mono text-xs text-fg-2">{s.id}</p>
+              <p class="mt-1 text-[15px] font-medium"><a href={s.data.url} rel="noopener">{s.data.title}</a></p>
+              <p class="mt-1 text-fg-2">{s.data.publisher}{s.data.doc_number && s.data.doc_number !== '—' ? ` · ${s.data.doc_number}` : ''} · {s.data.date} · {s.data.source_type}</p>
+              <dl class="mt-2 grid gap-x-6 gap-y-1 text-xs text-fg-2 sm:grid-cols-2">
+                <div><dt class="inline font-medium text-fg">Reliability: </dt><dd class="inline">{s.data.reliability}</dd></div>
+                <div><dt class="inline font-medium text-fg">Status: </dt><dd class="inline">{s.data.status}</dd></div>
+                <div><dt class="inline font-medium text-fg">Checked: </dt><dd class="inline">{s.data.access_date} · review due {s.data.review_due}</dd></div>
+                <div><dt class="inline font-medium text-fg">Terms: </dt><dd class="inline">{s.data.terms}</dd></div>
+              </dl>
+              {s.data.notes && <p class="mt-2 text-xs text-fg-2">{s.data.notes}</p>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,155 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LevelBadge from '../../components/LevelBadge.astro';
+import ChainStrip from '../../components/ChainStrip.astro';
+import SourceList from '../../components/SourceList.astro';
+import Icon from '../../components/Icon.astro';
+import Quiz from '../../components/islands/Quiz.tsx';
+import MarkDone from '../../components/islands/MarkDone.tsx';
+import { sectionTitle, topicHref, labHref, symptomHref, standardHref, glossaryHref, pathHref, minutes } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const topics = await getCollection('topics');
+  return topics.map((t) => ({ params: { id: t.id }, props: { topic: t } }));
+}
+
+const { topic } = Astro.props;
+const d = topic.data;
+const { Content, headings } = await render(topic);
+const toc = headings.filter((h) => h.depth === 2);
+
+const all = await getCollection('topics');
+const titleOf = new Map(all.map((t) => [t.id, t.data.title]));
+const siblings = all.filter((t) => t.data.section === d.section).sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const glossary = new Map((await getCollection('glossary')).map((g) => [g.id, g.data]));
+const labs = new Map((await getCollection('labs')).map((l) => [l.id, l.data]));
+const symptoms = new Map((await getCollection('symptoms')).map((s) => [s.id, s.data]));
+const standards = new Map((await getCollection('standards')).map((s) => [s.id, s.data]));
+const paths = (await getCollection('paths')).filter((p) => d.learning_paths.includes(p.id));
+const quiz = (await getCollection('quizzes')).find((q) => q.id === topic.id);
+---
+<Base title={d.title} description={d.definition} section={d.section}>
+  <div class="mx-auto grid max-w-[1440px] gap-8 px-4 py-8 md:px-8 lg:grid-cols-[248px_minmax(0,1fr)] xl:grid-cols-[264px_minmax(0,1fr)_240px]">
+    <aside class="hidden lg:block" aria-label={`${sectionTitle(d.section)} topics`} data-pagefind-ignore>
+      <nav class="sticky top-32">
+        <p class="t-overline mb-2 text-fg-2">{sectionTitle(d.section)}</p>
+        <ul class="space-y-0.5 text-sm">
+          {siblings.map((s) => (
+            <li>
+              <a href={topicHref(s.id)} aria-current={s.id === topic.id ? 'page' : undefined}
+                class:list={['block rounded-md px-3 py-1.5 no-underline', s.id === topic.id ? 'bg-accent-subtle font-medium text-link' : 'text-fg-2 hover:bg-subtle hover:text-fg']}>
+                {s.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="min-w-0">
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: `/section/${d.section}/`, label: sectionTitle(d.section) }, { label: d.title }]} />
+      <header class="mt-4">
+        <p class="t-overline text-fg-2">{sectionTitle(d.section)}</p>
+        <h1 class="t-h1 mt-1">{d.title}</h1>
+        <p class="t-body-lg mt-3 max-w-[720px] text-fg-2">{d.definition}</p>
+        <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-fg-2">
+          <LevelBadge level={d.level} />
+          <span class="inline-flex items-center gap-1"><Icon name="clock" size={16} />{minutes(d.est_minutes)}</span>
+          {d.status !== 'published' && <span class="inline-flex items-center gap-1 rounded-full bg-subtle px-2 py-0.5 text-xs">Draft · not yet reviewed</span>}
+        </div>
+      </header>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-[minmax(0,1fr)]">
+        <section aria-labelledby="objectives" class="card p-5">
+          <h2 id="objectives" class="t-h4 flex items-center gap-2"><Icon name="target" size={18} />You will be able to</h2>
+          <ul class="mt-2 space-y-1.5 text-[15px] leading-6">
+            {d.objectives.map((o) => <li class="flex gap-2"><span class="mt-1 text-link"><Icon name="check" size={16} /></span><span>{o}</span></li>)}
+          </ul>
+          {d.prerequisites.length > 0 && (
+            <p class="t-small mt-3 text-fg-2">Before this: {d.prerequisites.map((p, i) => <>{i > 0 && ', '}<a href={topicHref(p)}>{titleOf.get(p) ?? p}</a></>)}</p>
+          )}
+        </section>
+        <ChainStrip {...d.chain_position} />
+      </div>
+
+      <div class="prose-sp mt-8">
+        <Content />
+        <SourceList refs={d.sources} />
+      </div>
+
+      {quiz && (
+        <section aria-labelledby="check" class="mt-12 max-w-[720px]" data-pagefind-ignore>
+          <h2 id="check" class="t-h2">Check your understanding</h2>
+          <p class="t-small mt-1 text-fg-2">Answers stay in this page; nothing is stored or sent.</p>
+          <div class="mt-4"><Quiz client:visible items={quiz.data.items} quizId={quiz.id} /></div>
+        </section>
+      )}
+
+      <div class="mt-10" data-pagefind-ignore><MarkDone client:visible topicId={topic.id} /></div>
+
+      <section aria-labelledby="related" class="mt-12 grid max-w-[720px] gap-6 sm:grid-cols-2" data-pagefind-ignore>
+        <h2 id="related" class="sr-only">Related content</h2>
+        {d.related_topics.length > 0 && (
+          <div>
+            <p class="t-overline text-fg-2">Related topics</p>
+            <ul class="mt-2 space-y-1 text-sm">{d.related_topics.map((t) => <li><a href={topicHref(t)}>{titleOf.get(t) ?? t}</a></li>)}</ul>
+          </div>
+        )}
+        {d.glossary_terms.length > 0 && (
+          <div>
+            <p class="t-overline text-fg-2">Glossary</p>
+            <ul class="mt-2 space-y-1 text-sm">{d.glossary_terms.filter((g) => glossary.has(g)).map((g) => <li><a href={glossaryHref(g)}>{glossary.get(g)!.term}</a> <span class="text-fg-2">— {glossary.get(g)!.expansion}</span></li>)}</ul>
+          </div>
+        )}
+        {d.related_labs.length > 0 && (
+          <div>
+            <p class="t-overline text-fg-2">Labs</p>
+            <ul class="mt-2 space-y-1 text-sm">{d.related_labs.filter((l) => labs.has(l)).map((l) => <li><a href={labHref(l)}>{labs.get(l)!.title}</a></li>)}</ul>
+          </div>
+        )}
+        {d.related_symptoms.length > 0 && (
+          <div>
+            <p class="t-overline text-fg-2">Symptom guides</p>
+            <ul class="mt-2 space-y-1 text-sm">{d.related_symptoms.filter((s) => symptoms.has(s)).map((s) => <li><a href={symptomHref(s)}>{symptoms.get(s)!.title}</a></li>)}</ul>
+          </div>
+        )}
+        {d.standards.length > 0 && (
+          <div>
+            <p class="t-overline text-fg-2">Standards</p>
+            <ul class="mt-2 space-y-1 text-sm">{d.standards.filter((s) => standards.has(s)).map((s) => <li><a href={standardHref(s)}>{standards.get(s)!.doc_number}</a> <span class="text-fg-2">{standards.get(s)!.title}</span></li>)}</ul>
+          </div>
+        )}
+        {paths.length > 0 && (
+          <div>
+            <p class="t-overline text-fg-2">In learning paths</p>
+            <ul class="mt-2 space-y-1 text-sm">{paths.map((p) => <li><a href={pathHref(p.id)}>{p.data.title}</a></li>)}</ul>
+          </div>
+        )}
+      </section>
+
+      <section aria-labelledby="review" class="mt-10 max-w-[720px] rounded-lg border border-dashed border-line-strong p-4 text-sm text-fg-2" data-pagefind-ignore>
+        <h2 id="review" class="t-label text-fg">Review status</h2>
+        <p class="mt-1">Owner: {d.owner} · Reviewer: {d.reviewer} · Last reviewed: {d.last_reviewed} · Next review: {d.next_review}</p>
+        {d.open_issues.length > 0 && (
+          <>
+            <p class="mt-2 font-medium text-fg">Open questions on this page</p>
+            <ul class="mt-1 list-disc pl-5">{d.open_issues.map((o) => <li>{o}</li>)}</ul>
+          </>
+        )}
+      </section>
+    </article>
+
+    <aside class="hidden xl:block" aria-label="On this page" data-pagefind-ignore>
+      <nav class="sticky top-32 text-sm">
+        <p class="t-overline mb-2 text-fg-2">On this page</p>
+        <ul class="space-y-1 border-l border-line">
+          {toc.map((h) => <li><a href={`#${h.slug}`} class="-ml-px block border-l-2 border-transparent py-1 pl-3 text-fg-2 no-underline hover:border-line-strong hover:text-fg">{h.text}</a></li>)}
+          {quiz && <li><a href="#check" class="-ml-px block border-l-2 border-transparent py-1 pl-3 text-fg-2 no-underline hover:text-fg">Check your understanding</a></li>}
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</Base>

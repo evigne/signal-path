@@ -1,0 +1,21 @@
+---
+// "Where in the chain" strip from the Penpot topic template.
+interface Props { direction: 'downlink' | 'uplink' | 'both'; stage: string; before?: string; after?: string }
+const { direction, stage, before, after } = Astro.props;
+const dirText = direction === 'both' ? 'Downlink and uplink' : direction === 'downlink' ? 'Downlink (spacecraft → ground)' : 'Uplink (ground → spacecraft)';
+const color = direction === 'uplink' ? 'var(--diagram-uplink)' : direction === 'downlink' ? 'var(--diagram-downlink)' : 'var(--text-secondary)';
+---
+<section aria-label="Where in the chain" class="card flex flex-wrap items-center gap-3 p-4 text-sm">
+  <span class="t-overline text-fg-2">Where in the chain</span>
+  <span class="inline-flex items-center gap-1.5 font-medium" style={`color:${color}`}>
+    <svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M1 5h15m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    {dirText}
+  </span>
+  <ol class="flex flex-wrap items-center gap-2" aria-label="Neighbouring stages">
+    {after && <li class="rounded-md border border-dashed border-line-strong px-2 py-1 text-fg-2">{after}</li>}
+    {after && <li aria-hidden="true" class="text-fg-muted">→</li>}
+    <li class="rounded-md border-2 px-2 py-1 font-semibold" style={`border-color:${color}`} aria-current="step">{stage}</li>
+    {before && <li aria-hidden="true" class="text-fg-muted">→</li>}
+    {before && <li class="rounded-md border border-dashed border-line-strong px-2 py-1 text-fg-2">{before}</li>}
+  </ol>
+</section>

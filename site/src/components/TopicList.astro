@@ -1,0 +1,17 @@
+---
+import LevelBadge from './LevelBadge.astro';
+import { topicHref, minutes, type Topic } from '../lib/site';
+interface Props { topics: Topic[] }
+const { topics } = Astro.props;
+---
+<ul class="grid gap-3 md:grid-cols-2">
+  {topics.map((t) => (
+    <li>
+      <a href={topicHref(t.id)} class="card group flex h-full flex-col gap-1.5 p-4 text-fg no-underline hover:border-line-strong hover:bg-subtle">
+        <span class="t-h4 group-hover:text-link">{t.data.title}</span>
+        <span class="t-small text-fg-2">{t.data.definition}</span>
+        <span class="mt-auto flex items-center gap-2 pt-2 text-xs text-fg-muted"><LevelBadge level={t.data.level} />{minutes(t.data.est_minutes)}</span>
+      </a>
+    </li>
+  ))}
+</ul>

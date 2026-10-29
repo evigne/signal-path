@@ -1,0 +1,22 @@
+---
+import { sourceMap, sourceLabel } from '../lib/site';
+interface Props { refs: { id: string; loc?: string }[]; heading?: string }
+const { refs, heading } = Astro.props;
+const map = await sourceMap();
+---
+<div>
+  {heading && <h2 class="t-h3 mb-3">{heading}</h2>}
+  <ul class="space-y-3">
+    {refs.map((r) => {
+      const s = map.get(r.id);
+      if (!s) return null;
+      return (
+        <li class="card p-4 text-sm">
+          <p class="font-medium"><a href={s.data.url} rel="noopener" class="text-link">{s.data.title}</a>{r.loc && <span class="text-fg-2"> · {r.loc}</span>}</p>
+          <p class="mt-1 text-fg-2">{s.data.publisher} · {sourceLabel(s)} · {s.data.date}</p>
+          <p class="t-code-sm mt-1 text-fg-muted">Checked {s.data.access_date} · <a href={`/sources/#${s.id}`} class="text-fg-muted">{s.id}</a></p>
+        </li>
+      );
+    })}
+  </ul>
+</div>

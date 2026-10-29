@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LabelChip from '../../components/LabelChip.astro';
+import SourceList from '../../components/SourceList.astro';
+import { topicHref } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const s = await getCollection('symptoms');
+  return s.map((x) => ({ params: { id: x.id }, props: { sym: x } }));
+}
+const { sym } = Astro.props;
+const d = sym.data;
+const titles = new Map((await getCollection('topics')).map((t) => [t.id, t.data.title]));
+---
+<Base title={d.title} description={d.observables.join('; ')} section="symptoms">
+  <div class="mx-auto max-w-[960px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/section/troubleshooting/', label: 'Troubleshooting' }, { href: '/symptoms/', label: 'Symptom guides' }, { label: d.title }]} />
+    <p class="t-overline mt-4 text-fg-2">Symptom guide · {d.layer}</p>
+    <h1 class="t-h1 mt-1">{d.title}</h1>
+    <p class="mt-3 max-w-[720px] text-fg-2">Layered isolation is common practice; your mission's anomaly procedures decide who acts and what may be commanded.</p>
+
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <section class="card p-5"><h2 class="t-h4">What you observe</h2><ul class="mt-2 list-disc space-y-1 pl-5 text-[15px]">{d.observables.map((o) => <li>{o}</li>)}</ul></section>
+      <section class="card p-5"><h2 class="t-h4">Evidence to gather</h2><ul class="mt-2 list-disc space-y-1 pl-5 text-[15px]">{d.evidence_to_gather.map((o) => <li>{o}</li>)}</ul></section>
+    </div>
+
+    <section class="mt-6">
+      <h2 class="t-h3">Likely causes and how to test them</h2>
+      <ol class="mt-3 space-y-3">
+        {d.likely_causes.map((c, i) => (
+          <li class="card p-4">
+            <div class="flex flex-wrap items-center gap-2"><span class="t-overline text-fg-2">Cause {i + 1}</span><LabelChip label={c.label} /></div>
+            <p class="mt-1 font-medium">{c.cause}</p>
+            <p class="mt-1 text-[15px] text-fg-2"><span class="font-medium text-fg">Test:</span> {c.test}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="card mt-6 p-5">
+      <h2 class="t-h4">Questions to ask</h2>
+      <ul class="mt-2 list-disc space-y-1 pl-5 text-[15px]">{d.questions_to_ask.map((o) => <li>{o}</li>)}</ul>
+    </section>
+
+    {d.sample_log && (
+      <section class="mt-6">
+        <h2 class="t-h4">Sample log</h2>
+        <pre class="mt-2 overflow-x-auto rounded-lg bg-code p-4 text-[13px] leading-6 text-[var(--text-code)]"><code>{d.sample_log}</code></pre>
+        <p class="t-small mt-1 text-fg-2">Fictional data, not from a real mission.</p>
+      </section>
+    )}
+
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      {d.coordinate_with.length > 0 && <section class="card p-5"><h2 class="t-h4">Coordinate with</h2><ul class="mt-2 list-disc space-y-1 pl-5 text-[15px]">{d.coordinate_with.map((o) => <li>{o}</li>)}</ul></section>}
+      {d.related_topics.length > 0 && <section class="card p-5"><h2 class="t-h4">Learn the layer</h2><ul class="mt-2 space-y-1 text-[15px]">{d.related_topics.map((t) => <li><a href={topicHref(t)}>{titles.get(t) ?? t}</a></li>)}</ul></section>}
+    </div>
+    <div class="mt-8"><SourceList refs={d.sources} heading="Sources" /></div>
+  </div>
+</Base>

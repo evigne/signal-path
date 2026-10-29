@@ -1,0 +1,147 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { NAV } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  section?: string;
+}
+const { title, description = 'Learn spacecraft communications and operations, from bits to passes, with cited CCSDS sources and interactive labs.', section } = Astro.props;
+const pageTitle = title === 'Signal Path' ? title : `${title} · Signal Path`;
+const here = Astro.url.pathname;
+const isActive = (item: (typeof NAV)[number]) =>
+  (section && item.match.includes(section)) || here.startsWith(item.href);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      try {
+        var t = localStorage.getItem('sp-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
+      <div class="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-3 md:px-8">
+        <a href="/" class="flex items-center gap-2 text-fg no-underline">
+          <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="var(--bg-accent)"/><path d="M7 17c3-6 11-6 14 0M10 17c2-3 6-3 8 0" stroke="var(--text-on-accent)" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="14" cy="18" r="1.6" fill="var(--text-on-accent)"/></svg>
+          <span class="t-h4">Signal Path</span>
+        </a>
+        <form action="/search/" method="get" role="search" class="ml-auto hidden w-full max-w-sm md:block">
+          <label class="sr-only" for="site-search">Search topics, terms, symptoms</label>
+          <div class="relative">
+            <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-fg-muted"><Icon name="search" size={16} /></span>
+            <input id="site-search" name="q" type="search" placeholder="Search topics, terms, symptoms" class="w-full rounded-lg border border-line-strong bg-surface py-2 pl-9 pr-3 text-sm text-fg placeholder:text-fg-muted" />
+          </div>
+        </form>
+        <button type="button" id="theme-toggle" class="btn btn-secondary !px-3 !py-2" aria-label="Switch colour theme">
+          <span class="theme-icon-light"><Icon name="moon" size={16} /></span>
+          <span class="t-label hidden sm:inline">Theme</span>
+        </button>
+        <details class="relative md:hidden" id="mobile-menu">
+          <summary class="btn btn-secondary !px-3 !py-2 list-none" aria-label="Open menu"><Icon name="menu" size={18} /></summary>
+          <nav aria-label="Main" class="card absolute right-0 top-12 w-72 p-3 shadow-lg">
+            <form action="/search/" method="get" role="search" class="mb-2">
+              <label class="sr-only" for="site-search-m">Search</label>
+              <input id="site-search-m" name="q" type="search" placeholder="Search" class="field-input" />
+            </form>
+            <ul class="flex flex-col">
+              {NAV.map((item) => (
+                <li><a href={item.href} class="block rounded-md px-3 py-2 text-fg no-underline hover:bg-subtle" aria-current={isActive(item) ? 'page' : undefined}>{item.label}</a></li>
+              ))}
+              <li><a href="/paths/" class="block rounded-md px-3 py-2 text-fg no-underline hover:bg-subtle">Learning paths</a></li>
+            </ul>
+          </nav>
+        </details>
+      </div>
+      <nav aria-label="Main" class="mx-auto hidden max-w-[1440px] overflow-x-auto px-8 md:block">
+        <ul class="flex gap-1 pb-2 text-sm">
+          {NAV.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={['block whitespace-nowrap rounded-md px-3 py-1.5 no-underline', isActive(item) ? 'bg-accent-subtle font-medium text-link' : 'text-fg-2 hover:bg-subtle hover:text-fg']}
+                aria-current={isActive(item) ? 'page' : undefined}
+              >{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="flex-1" data-pagefind-body>
+      <slot />
+    </main>
+
+    <footer class="mt-16 border-t border-line bg-subtle" data-pagefind-ignore>
+      <div class="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 md:grid-cols-4 md:px-8">
+        <div>
+          <p class="t-h4">Signal Path</p>
+          <p class="t-small mt-2 text-fg-2">Scope: Signal Path teaches general spacecraft communications concepts for learning and reference. It does not replace mission-approved procedures, interface control documents, link configurations, command rules or security procedures. Examples and data are fictional.</p>
+        </div>
+        <div>
+          <p class="t-overline text-fg-2">Learn</p>
+          <ul class="t-small mt-2 space-y-1">
+            <li><a href="/start-here/">Start Here</a></li>
+            <li><a href="/paths/">Learning paths</a></li>
+            <li><a href="/labs/">Labs</a></li>
+            <li><a href="/symptoms/">Symptom guides</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="t-overline text-fg-2">Reference</p>
+          <ul class="t-small mt-2 space-y-1">
+            <li><a href="/glossary/">Glossary</a></li>
+            <li><a href="/standards/">Standards library</a></li>
+            <li><a href="/sources/">Source register</a></li>
+            <li><a href="/providers/">Ground-station providers</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="t-overline text-fg-2">About</p>
+          <ul class="t-small mt-2 space-y-1">
+            <li><a href="/about/#labels">Content labels</a></li>
+            <li><a href="/about/#accessibility">Accessibility</a></li>
+            <li><a href="/about/">About this site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mx-auto flex max-w-[1440px] flex-wrap justify-between gap-2 border-t border-line px-4 py-4 text-xs text-fg-muted md:px-8">
+        <span>Sources checked 2026-10-28 · see <a href="/sources/">source register</a></span>
+        <span>No analytics, cookies or third-party tracking.</span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var root = document.documentElement;
+          var dark = root.dataset.theme
+            ? root.dataset.theme === 'dark'
+            : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var next = dark ? 'light' : 'dark';
+          root.dataset.theme = next;
+          try { localStorage.setItem('sp-theme', next); } catch (e) {}
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            var m = document.getElementById('mobile-menu');
+            if (m && m.open) { m.open = false; m.querySelector('summary').focus(); }
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

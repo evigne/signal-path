@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LevelBadge from '../../components/LevelBadge.astro';
+import { labHref, minutes } from '../../lib/site';
+const labs = (await getCollection('labs')).sort((a, b) => a.data.tool - b.data.tool);
+const live = new Set([1, 2, 5, 7]);
+---
+<Base title="Labs" section="labs">
+  <div class="mx-auto max-w-[1200px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Labs' }]} />
+    <h1 class="t-h1 mt-4">Labs</h1>
+    <p class="t-body-lg mt-2 max-w-[720px] text-fg-2">Nine hands-on tools. Every input is fictional, every assumption is visible, and every formula is shown.</p>
+    <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {labs.map((l) => (
+        <li>
+          <a href={labHref(l.id)} class="card group flex h-full flex-col gap-2 p-5 text-fg no-underline hover:border-line-strong hover:bg-subtle">
+            <span class="t-overline text-fg-2">Tool {l.data.tool}{live.has(l.data.tool) ? ' · interactive' : ' · guided steps'}</span>
+            <span class="t-h4 group-hover:text-link">{l.data.title}</span>
+            <span class="t-small text-fg-2">{l.data.objectives[0]}</span>
+            <span class="mt-auto flex items-center gap-2 pt-2 text-xs text-fg-muted"><LevelBadge level={l.data.level} />{l.data.est_minutes && minutes(l.data.est_minutes)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

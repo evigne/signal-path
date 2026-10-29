@@ -1,0 +1,71 @@
+---
+// End-to-end chain diagram (Home and Start Here). Downlink teal, uplink orange, both
+// always labelled in text; organisation boundaries dashed. Static SVG; the stage list
+// below it is the text alternative.
+const stages = [
+  { org: 'Spacecraft', down: 'Packetize & frame', up: 'Accept & execute', downOut: 'out: frames', upIn: 'in: frames · out: commands' },
+  { org: 'Spacecraft', down: 'Code & transmit', up: 'Receive & decode', downOut: 'out: RF signal', upIn: 'in: RF signal' },
+  { org: 'Ground station', down: 'Demodulate & decode', up: 'Modulate & transmit', downOut: 'out: frames', upIn: 'in: CLTUs' },
+  { org: 'Provider network', down: 'Deliver to mission', up: 'Route to station', downOut: 'out: frames / files', upIn: 'in: command frames' },
+  { org: 'Mission control', down: 'Process & display', up: 'Validate & send', downOut: 'out: telemetry', upIn: 'out: commands' },
+];
+const W = 1120, colW = W / 5, boxW = 176, boxH = 64;
+const groups = [
+  { label: 'SPACE SEGMENT', x0: 0, x1: 2 },
+  { label: 'GROUND STATION & NETWORK (provider-operated)', x0: 2, x1: 4 },
+  { label: 'MISSION GROUND', x0: 4, x1: 5 },
+];
+---
+<figure class="card overflow-hidden p-4 md:p-6">
+  <div class="overflow-x-auto">
+    <svg viewBox={`0 0 ${W} 330`} class="min-w-[760px]" role="img" aria-labelledby="chain-title chain-desc">
+      <title id="chain-title">The end-to-end chain in both directions</title>
+      <desc id="chain-desc">Downlink runs left to right from spacecraft through ground station and provider network to mission control. Uplink runs right to left. Stages are listed in text below the diagram.</desc>
+      <defs>
+        <marker id="arr-down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="var(--diagram-downlink)" /></marker>
+        <marker id="arr-up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="var(--diagram-uplink)" /></marker>
+      </defs>
+      {groups.map((g) => (
+        <g>
+          <rect x={g.x0 * colW + 4} y="4" width={(g.x1 - g.x0) * colW - 8} height="322" rx="10" fill="none" stroke="var(--diagram-boundary)" stroke-dasharray="6 5" />
+          <text x={g.x0 * colW + 16} y="24" font-size="11" font-weight="600" letter-spacing="1" fill="var(--text-secondary)">{g.label}</text>
+        </g>
+      ))}
+      <text x="16" y="56" font-size="12" font-weight="600" fill="var(--diagram-downlink)">DOWNLINK · telemetry and payload data →</text>
+      {stages.map((s, i) => {
+        const x = i * colW + (colW - boxW) / 2;
+        return (
+          <g>
+            <rect x={x} y="66" width={boxW} height={boxH} rx="8" fill="var(--bg-surface)" stroke="var(--diagram-downlink)" stroke-width="2" />
+            <text x={x + 12} y="92" font-size="14" font-weight="600" fill="var(--text-primary)">{s.down}</text>
+            <text x={x + 12} y="114" font-size="12" font-family="var(--font-mono)" fill="var(--text-secondary)">{s.downOut}</text>
+            {i < 4 && <line x1={x + boxW + 2} y1="98" x2={x + colW - 2} y2="98" stroke="var(--diagram-downlink)" stroke-width="2" marker-end="url(#arr-down)" />}
+          </g>
+        );
+      })}
+      <text x={W - 16} y="196" text-anchor="end" font-size="12" font-weight="600" fill="var(--diagram-uplink)">← UPLINK · commands</text>
+      {stages.map((s, i) => {
+        const x = i * colW + (colW - boxW) / 2;
+        return (
+          <g>
+            <rect x={x} y="206" width={boxW} height={boxH} rx="8" fill="var(--bg-surface)" stroke="var(--diagram-uplink)" stroke-width="2" />
+            <text x={x + 12} y="232" font-size="14" font-weight="600" fill="var(--text-primary)">{s.up}</text>
+            <text x={x + 12} y="254" font-size="12" font-family="var(--font-mono)" fill="var(--text-secondary)">{s.upIn}</text>
+            {i > 0 && <line x1={x - 2} y1="238" x2={x - colW + boxW + 2} y2="238" stroke="var(--diagram-uplink)" stroke-width="2" marker-end="url(#arr-up)" />}
+          </g>
+        );
+      })}
+      <text x="16" y="306" font-size="11" fill="var(--text-secondary)">Dashed boxes are organisation boundaries. Who operates each stage varies by mission. Data is fictional.</text>
+    </svg>
+  </div>
+  <figcaption class="mt-4 grid gap-4 text-sm md:grid-cols-2">
+    <div>
+      <p class="font-semibold" style="color:var(--diagram-downlink)">Downlink, in order</p>
+      <ol class="mt-1 list-decimal pl-5 text-fg-2">{stages.map((s) => <li>{s.org}: {s.down} ({s.downOut})</li>)}</ol>
+    </div>
+    <div>
+      <p class="font-semibold" style="color:var(--diagram-uplink)">Uplink, in order</p>
+      <ol class="mt-1 list-decimal pl-5 text-fg-2">{[...stages].reverse().map((s) => <li>{s.org}: {s.up}</li>)}</ol>
+    </div>
+  </figcaption>
+</figure>

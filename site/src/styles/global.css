@@ -1,0 +1,169 @@
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "katex/dist/katex.min.css";
+@import "./tokens.css";
+@import "tailwindcss";
+
+@theme inline {
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-subtle: var(--bg-subtle);
+  --color-inverse: var(--bg-inverse);
+  --color-code: var(--bg-code);
+  --color-accent: var(--bg-accent);
+  --color-accent-subtle: var(--bg-accent-subtle);
+  --color-fg: var(--text-primary);
+  --color-fg-2: var(--text-secondary);
+  --color-fg-muted: var(--text-muted);
+  --color-link: var(--text-link);
+  --color-on-accent: var(--text-on-accent);
+  --color-line: var(--border-default);
+  --color-line-strong: var(--border-strong);
+  --color-focus: var(--border-focus);
+  --color-downlink: var(--diagram-downlink);
+  --color-uplink: var(--diagram-uplink);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  html {
+    background: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 26px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg-canvas);
+  }
+  :focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  a {
+    color: var(--text-link);
+    text-underline-offset: 3px;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Type ramp from the Penpot foundations */
+  .t-display { font-size: 48px; line-height: 56px; font-weight: 600; letter-spacing: -1px; }
+  .t-h1 { font-size: 36px; line-height: 44px; font-weight: 600; }
+  .t-h2 { font-size: 28px; line-height: 36px; font-weight: 600; }
+  .t-h3 { font-size: 22px; line-height: 30px; font-weight: 600; }
+  .t-h4 { font-size: 18px; line-height: 26px; font-weight: 600; }
+  .t-body-lg { font-size: 18px; line-height: 30px; }
+  .t-small { font-size: 14px; line-height: 22px; }
+  .t-label { font-size: 14px; line-height: 20px; font-weight: 500; }
+  .t-label-sm { font-size: 12px; line-height: 16px; font-weight: 500; }
+  .t-overline { font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .t-code { font-family: var(--font-mono); font-size: 14px; line-height: 22px; }
+  .t-code-sm { font-family: var(--font-mono); font-size: 12px; line-height: 18px; }
+
+  @media (max-width: 639px) {
+    .t-display { font-size: 36px; line-height: 44px; }
+    .t-h1 { font-size: 30px; line-height: 38px; }
+    .t-h2 { font-size: 24px; line-height: 32px; }
+  }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Long-form article body */
+  .prose-sp {
+    max-width: var(--measure);
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .prose-sp h2 { font-size: 28px; line-height: 36px; font-weight: 600; margin: 48px 0 16px; scroll-margin-top: 96px; }
+  .prose-sp h3 { font-size: 22px; line-height: 30px; font-weight: 600; margin: 32px 0 12px; scroll-margin-top: 96px; }
+  .prose-sp p { margin: 0 0 16px; }
+  .prose-sp ul, .prose-sp ol { margin: 0 0 16px; padding-left: 24px; }
+  .prose-sp ul { list-style: disc; }
+  .prose-sp ol { list-style: decimal; }
+  .prose-sp li { margin: 4px 0; }
+  .prose-sp strong { font-weight: 600; }
+  .prose-sp code { font-size: 0.85em; background: var(--bg-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-sm); padding: 1px 5px; }
+  .prose-sp pre { background: var(--bg-code); color: var(--text-code); border-radius: var(--radius-md); padding: 16px; overflow-x: auto; font-size: 14px; line-height: 22px; margin: 0 0 16px; }
+  .prose-sp pre code { background: none; border: 0; padding: 0; color: inherit; }
+  .prose-sp table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 22px; margin: 8px 0 20px; display: block; overflow-x: auto; }
+  .prose-sp th, .prose-sp td { border-bottom: 1px solid var(--border-default); padding: 8px 12px; text-align: left; vertical-align: top; }
+  .prose-sp th { font-weight: 600; background: var(--bg-subtle); }
+
+  /* Content labels — icon + text + tint, never colour alone */
+  .label-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; line-height: 16px; font-weight: 600;
+    padding: 3px 8px; border-radius: var(--radius-pill);
+    border: 1px solid currentColor;
+  }
+  .label-standard { color: var(--tag-standard-fg); background: var(--tag-standard-bg); }
+  .label-practice { color: var(--tag-practice-fg); background: var(--tag-practice-bg); }
+  .label-example { color: var(--tag-example-fg); background: var(--tag-example-bg); }
+  .label-mission { color: var(--tag-mission-fg); background: var(--tag-mission-bg); }
+
+  .claim {
+    margin: 16px 0 20px;
+    border-left: 4px solid var(--claim-fg);
+    background: var(--claim-bg);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 12px 16px 12px 16px;
+    font-size: 17px; line-height: 28px;
+  }
+  .claim > :last-child { margin-bottom: 0; }
+  .claim-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .claim-cite { font-family: var(--font-mono); font-size: 12px; line-height: 18px; color: var(--text-secondary); }
+  .claim-cite a { color: var(--text-secondary); }
+  .claim-standard { --claim-fg: var(--tag-standard-fg); --claim-bg: color-mix(in srgb, var(--tag-standard-bg) 70%, var(--bg-surface)); }
+  .claim-practice { --claim-fg: var(--tag-practice-fg); --claim-bg: color-mix(in srgb, var(--tag-practice-bg) 70%, var(--bg-surface)); }
+  .claim-example { --claim-fg: var(--tag-example-fg); --claim-bg: color-mix(in srgb, var(--tag-example-bg) 70%, var(--bg-surface)); }
+  .claim-mission { --claim-fg: var(--tag-mission-fg); --claim-bg: color-mix(in srgb, var(--tag-mission-bg) 70%, var(--bg-surface)); }
+  .claim .claim-body p { margin: 0 0 8px; }
+  .claim .claim-body table { font-size: 14px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; line-height: 20px; font-weight: 500;
+    border-radius: var(--radius-md); padding: 10px 16px;
+    border: 1px solid transparent; text-decoration: none; cursor: pointer;
+  }
+  .btn-primary { background: var(--bg-accent); color: var(--text-on-accent); }
+  .btn-secondary { background: var(--bg-surface); color: var(--text-primary); border-color: var(--border-strong); }
+  .btn-ghost { background: transparent; color: var(--text-link); }
+
+  .field-input {
+    font-family: var(--font-mono); font-size: 14px; line-height: 20px;
+    background: var(--bg-surface); color: var(--text-primary);
+    border: 1px solid var(--border-strong); border-radius: var(--radius-md);
+    padding: 8px 10px; width: 100%;
+  }
+
+  .skip-link {
+    position: absolute; left: 8px; top: -60px; z-index: 100;
+    background: var(--bg-surface); color: var(--text-primary);
+    padding: 8px 12px; border-radius: var(--radius-md); border: 2px solid var(--border-focus);
+  }
+  .skip-link:focus { top: 8px; }
+}

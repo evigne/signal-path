@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LabelChip from '../components/LabelChip.astro';
+---
+<Base title="About">
+  <div class="mx-auto max-w-[760px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'About' }]} />
+    <h1 class="t-h1 mt-4">About Signal Path</h1>
+    <div class="prose-sp mt-6">
+      <p>Signal Path teaches spacecraft communications and operations for engineers who work beside operators, mission control and ground-system teams: what happens to data between a sensor and a screen, and to commands on the way back.</p>
+      <h2 id="scope">Scope</h2>
+      <p>This is general education. It does not replace mission-approved procedures, interface control documents, link configurations, command rules or security procedures. All example data — headers, logs, keys, counters, pass plans — is fictional.</p>
+      <h2 id="labels">Content labels</h2>
+      <p>Every factual statement carries one of four labels, shown with an icon and text so colour is never the only cue:</p>
+      <ul>
+        <li><LabelChip label="standard" /> — required or defined by a cited standard; the citation names the document and section.</li>
+        <li><LabelChip label="practice" /> — widely used but not required; still cited.</li>
+        <li><LabelChip label="example" /> — fictional, for teaching.</li>
+        <li><LabelChip label="mission" /> — your mission decides; check your own documents.</li>
+      </ul>
+      <h2 id="sources">Sources</h2>
+      <p>Facts come from first-party sources — CCSDS standards, the ITU Radio Regulations, NIST, agency and provider pages — recorded in the <a href="/sources/">source register</a> with the date checked and reuse terms. Standards are summarised in original words and linked, never reproduced. Unknowns are marked as unknown.</p>
+      <h2 id="accessibility">Accessibility</h2>
+      <p>The site targets WCAG 2.2 AA: keyboard operation with a visible focus ring, text alternatives for diagrams and charts, labels that do not rely on colour, reduced-motion support, reflow at high zoom, and light and dark themes that follow your system setting (or the theme button).</p>
+      <h2 id="privacy">Privacy</h2>
+      <p>No analytics, cookies or third-party tracking. Fonts are served from this site. Learning-path progress and the theme choice are kept only in your browser's local storage.</p>
+    </div>
+  </div>
+</Base>

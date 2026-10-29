@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+interface Props { href: string; kind?: string; title: string; text?: string; meta?: string; icon?: 'book' | 'flask' | 'alert' | 'layers' | 'flag' | 'info' }
+const { href, kind, title, text, meta, icon = 'book' } = Astro.props;
+---
+<a href={href} class="card group flex h-full flex-col gap-2 p-5 text-fg no-underline transition-colors hover:border-line-strong hover:bg-subtle">
+  {kind && <span class="t-overline flex items-center gap-1.5 text-fg-2"><Icon name={icon} size={14} />{kind}</span>}
+  <span class="t-h4 text-fg group-hover:text-link">{title}</span>
+  {text && <span class="t-small text-fg-2">{text}</span>}
+  {meta && <span class="t-label-sm mt-auto pt-2 text-fg-muted">{meta}</span>}
+</a>

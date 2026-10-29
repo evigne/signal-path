@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import { sourceMap } from '../lib/site';
+
+const ORDER = ['ksat', 'leaf-space', 'aws-ground-station', 'atlas', 'ssc', 'igm'];
+const providers = (await getCollection('providers')).sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+const sources = await sourceMap();
+const ROWS: [string, string][] = [
+  ['name', 'Legal name and current branding'],
+  ['locations', 'Station locations and coverage'],
+  ['bands', 'Frequency bands supported'],
+  ['service_modes', 'Service modes'],
+  ['scheduling', 'Scheduling interface or API'],
+  ['data_delivery', 'Data delivery to mission control'],
+  ['latency', 'Latency and delivery options'],
+  ['support', 'Support model'],
+  ['public_docs', 'Public interface documentation'],
+];
+---
+<Base title="Ground-station providers" section="providers">
+  <div class="mx-auto max-w-[1440px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/section/reference/', label: 'Reference' }, { label: 'Ground-station providers' }]} />
+    <h1 class="t-h1 mt-4">Ground-station providers</h1>
+    <p class="t-body-lg mt-2 max-w-[760px] text-fg-2">Values come from each provider's own website or documentation, cited by source ID with the date checked. Unknowns are marked, never guessed. Provider offerings change; confirm with the provider before planning.</p>
+    <ul class="mt-4 flex flex-wrap gap-4 text-sm">
+      <li class="flex items-center gap-1.5"><span class="text-[var(--status-ok-fg)]"><Icon name="check-circle" size={16} /></span>Cited fact</li>
+      <li class="flex items-center gap-1.5"><span class="text-fg-2"><Icon name="info" size={16} /></span>Not publicly specified (pages checked)</li>
+      <li class="flex items-center gap-1.5"><span class="text-[var(--status-warn-fg)]"><Icon name="clock" size={16} /></span>To research — first-party source needed</li>
+    </ul>
+
+    <div class="card mt-6 overflow-x-auto">
+      <table class="w-full min-w-[1100px] text-left text-sm">
+        <caption class="sr-only">Provider comparison, checked 2026-10-28</caption>
+        <thead class="bg-subtle">
+          <tr>
+            <th scope="col" class="w-52 p-3">Attribute</th>
+            {providers.map((p) => <th scope="col" class="p-3">{p.data.name}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {ROWS.map(([key, label]) => (
+            <tr class="border-t border-line align-top">
+              <th scope="row" class="p-3 font-medium">{label}</th>
+              {providers.map((p) => {
+                const c = p.data.cells[key];
+                if (!c) return <td class="p-3">—</td>;
+                return (
+                  <td class="p-3">
+                    {c.state === 'cited' && (
+                      <div class="flex gap-1.5">
+                        <span class="mt-0.5 shrink-0 text-[var(--status-ok-fg)]"><Icon name="check-circle" size={16} label="Cited" /></span>
+                        <div>
+                          <p>{c.value}</p>
+                          <p class="mt-1 font-mono text-xs text-fg-2">{(c.sources ?? []).map((s, i) => <>{i > 0 && ', '}<a href={`/sources/#${s.id}`} title={sources.get(s.id)?.data.title}>[{s.id}]</a></>)}</p>
+                        </div>
+                      </div>
+                    )}
+                    {c.state === 'not_public' && <div class="flex gap-1.5 text-fg-2"><span class="mt-0.5 shrink-0"><Icon name="info" size={16} label="Not public" /></span><p>{c.value ?? 'Not publicly specified (pages checked)'}</p></div>}
+                    {c.state === 'to_research' && <div class="flex gap-1.5 text-[var(--status-warn-fg)]"><span class="mt-0.5 shrink-0"><Icon name="clock" size={16} label="To research" /></span><p>To research — cite first-party source</p></div>}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+          <tr class="border-t border-line align-top text-xs text-fg-2">
+            <th scope="row" class="p-3 font-medium">Last checked</th>
+            {providers.map((p) => <td class="p-3">{p.data.last_checked}{p.data.note && <p class="mt-1">{p.data.note}</p>}</td>)}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Base>

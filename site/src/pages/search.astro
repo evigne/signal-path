@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<Base title="Search">
+  <div class="mx-auto max-w-[880px] px-4 py-8 md:px-8" data-pagefind-ignore>
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Search' }]} />
+    <h1 class="t-h1 mt-4">Search</h1>
+    <p class="mt-2 text-fg-2">Search topics, glossary terms, standards, labs and symptom guides. The index is built with the site and runs in your browser.</p>
+    <form class="mt-6" role="search" id="search-form">
+      <label for="q" class="t-label">Search terms</label>
+      <div class="mt-1 flex gap-2">
+        <input id="q" name="q" type="search" class="field-input !text-base" autocomplete="off" />
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
+    <p id="status" class="t-small mt-4 text-fg-2" aria-live="polite"></p>
+    <ol id="results" class="mt-4 space-y-3"></ol>
+  </div>
+  <script is:inline type="module">
+    const form = document.getElementById('search-form');
+    const input = document.getElementById('q');
+    const status = document.getElementById('status');
+    const results = document.getElementById('results');
+    let pf;
+    async function load() {
+      if (pf) return pf;
+      try {
+        pf = await import('/pagefind/pagefind.js');
+        await pf.init();
+      } catch (e) {
+        status.textContent = 'Search index not available in this build (run the production build to create it).';
+        pf = null;
+      }
+      return pf;
+    }
+    const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    async function run(q) {
+      results.innerHTML = '';
+      if (!q.trim()) { status.textContent = ''; return; }
+      const p = await load();
+      if (!p) return;
+      status.textContent = 'Searching…';
+      const r = await p.search(q);
+      const data = await Promise.all(r.results.slice(0, 20).map((x) => x.data()));
+      status.textContent = `${r.results.length} result${r.results.length === 1 ? '' : 's'} for “${q}”`;
+      for (const d of data) {
+        const li = document.createElement('li');
+        li.className = 'card p-4';
+        li.innerHTML = `<a class="t-h4" href="${esc(d.url)}">${esc(d.meta.title || d.url)}</a><p class="t-small mt-1 text-fg-2">${d.excerpt}</p>`;
+        results.appendChild(li);
+      }
+    }
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = input.value;
+      history.replaceState(null, '', `?q=${encodeURIComponent(q)}`);
+      run(q);
+    });
+    const initial = new URLSearchParams(location.search).get('q');
+    if (initial) { input.value = initial; run(initial); }
+  </script>
+</Base>

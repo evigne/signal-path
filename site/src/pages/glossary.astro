@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LabelChip from '../components/LabelChip.astro';
+import { topicHref, sourceMap, sourceLabel } from '../lib/site';
+
+const terms = (await getCollection('glossary')).sort((a, b) => a.data.term.localeCompare(b.data.term, 'en', { sensitivity: 'base' }));
+const titles = new Map((await getCollection('topics')).map((t) => [t.id, t.data.title]));
+const termOf = new Map(terms.map((t) => [t.id, t.data.term]));
+const sources = await sourceMap();
+const letters = [...new Set(terms.map((t) => t.data.term[0].toUpperCase()))];
+---
+<Base title="Glossary" section="glossary">
+  <div class="mx-auto max-w-[960px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/section/reference/', label: 'Reference' }, { label: 'Glossary' }]} />
+    <h1 class="t-h1 mt-4">Glossary</h1>
+    <p class="t-body-lg mt-2 text-fg-2">{terms.length} terms, each with a plain definition, the precise meaning and its source.</p>
+    <nav aria-label="Jump to letter" class="mt-4 flex flex-wrap gap-1 text-sm">
+      {letters.map((l) => <a href={`#letter-${l}`} class="rounded-md border border-line px-2 py-1 no-underline hover:bg-subtle">{l}</a>)}
+    </nav>
+    {letters.map((l) => (
+      <section class="mt-8" aria-labelledby={`letter-${l}`}>
+        <h2 id={`letter-${l}`} class="t-h3 border-b border-line pb-1">{l}</h2>
+        <dl class="mt-3 space-y-4">
+          {terms.filter((t) => t.data.term[0].toUpperCase() === l).map((t) => (
+            <div id={t.id} class="card scroll-mt-32 p-4">
+              <dt class="flex flex-wrap items-baseline gap-2">
+                <span class="t-h4">{t.data.term}</span>
+                {t.data.expansion && t.data.expansion !== t.data.term && <span class="text-fg-2">{t.data.expansion}</span>}
+                {t.data.layer && <span class="t-label-sm text-fg-muted">{t.data.layer}</span>}
+              </dt>
+              <dd class="mt-2 space-y-2 text-[15px]">
+                <p>{t.data.plain_definition}</p>
+                <p class="text-fg-2"><span class="font-medium text-fg">Precisely:</span> {t.data.precise_meaning}</p>
+                {t.data.example_usage && <p class="t-small text-fg-2">Example: {t.data.example_usage}</p>}
+                <div class="flex flex-wrap items-center gap-2 pt-1 text-xs text-fg-2">
+                  <LabelChip label={t.data.label} />
+                  {t.data.sources.map((s) => { const src = sources.get(s.id); return src && <a href={`/sources/#${s.id}`} class="font-mono">{sourceLabel(src)}{s.loc ? ` ${s.loc}` : ''}</a>; })}
+                </div>
+                {(t.data.topics.length > 0 || t.data.related_terms.length > 0) && (
+                  <p class="t-small text-fg-2">
+                    {t.data.topics.length > 0 && <>Topics: {t.data.topics.map((x, i) => <>{i > 0 && ', '}<a href={topicHref(x)}>{titles.get(x) ?? x}</a></>)}</>}
+                    {t.data.related_terms.length > 0 && <> · See also: {t.data.related_terms.map((x, i) => <>{i > 0 && ', '}<a href={`#${x}`}>{termOf.get(x) ?? x}</a></>)}</>}
+                  </p>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))}
+  </div>
+</Base>

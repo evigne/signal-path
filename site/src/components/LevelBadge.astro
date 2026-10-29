@@ -1,0 +1,12 @@
+---
+interface Props { level: string }
+const { level } = Astro.props;
+const bars = level === 'intro' ? 1 : level === 'core' ? 2 : 3;
+const text = ({ intro: 'Intro', core: 'Core', advanced: 'Advanced' } as Record<string, string>)[level] ?? level;
+---
+<span class="inline-flex items-center gap-1.5 rounded-full border border-line-strong px-2 py-0.5 text-xs font-medium text-fg-2">
+  <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+    {[0, 1, 2].map((i) => <rect x={1 + i * 4} y={8 - i * 3} width="2.5" height={3 + i * 3} rx="0.5" fill={i < bars ? 'currentColor' : 'var(--border-strong)'} />)}
+  </svg>
+  {text}
+</span>

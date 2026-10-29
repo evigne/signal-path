@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TopicList from '../../components/TopicList.astro';
+import Card from '../../components/Card.astro';
+import { SECTIONS, symptomHref } from '../../lib/site';
+
+export function getStaticPaths() {
+  return SECTIONS.filter((s) => !['start-here', 'labs'].includes(s.id)).map((s) => ({ params: { id: s.id }, props: { section: s } }));
+}
+const { section } = Astro.props;
+const topics = (await getCollection('topics')).filter((t) => t.data.section === section.id).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const subsections = [...new Set(topics.map((t) => t.data.subsection ?? ''))];
+const SUB: Record<string, string> = {
+  'rf-and-bands': 'RF, bands and tracking',
+  'synchronization-and-coding': 'Synchronization and coding',
+  'data-link-and-packets': 'Data links and packets',
+  '': 'Topics',
+};
+const symptoms = section.id === 'troubleshooting' ? (await getCollection('symptoms')).sort((a, b) => a.data.title.localeCompare(b.data.title)) : [];
+---
+<Base title={section.title} description={section.blurb} section={section.id}>
+  <div class="mx-auto max-w-[1200px] px-4 py-8 md:px-8">
+    <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: section.title }]} />
+    <h1 class="t-h1 mt-4">{section.title}</h1>
+    <p class="t-body-lg mt-2 max-w-[720px] text-fg-2">{section.blurb}</p>
+
+    {subsections.map((sub) => (
+      <section class="mt-10">
+        {subsections.length > 1 && <h2 class="t-h3 mb-4">{SUB[sub] ?? sub}</h2>}
+        <TopicList topics={topics.filter((t) => (t.data.subsection ?? '') === sub)} />
+      </section>
+    ))}
+
+    {section.id === 'troubleshooting' && (
+      <section class="mt-12">
+        <h2 class="t-h3 mb-4">Symptom guides</h2>
+        <div class="grid gap-3 md:grid-cols-2">
+          {symptoms.map((s) => <Card href={symptomHref(s.id)} kind={s.data.layer} icon="alert" title={s.data.title} text={s.data.observables[0]} />)}
+        </div>
+      </section>
+    )}
+
+    {section.id === 'reference' && (
+      <section class="mt-12">
+        <h2 class="t-h3 mb-4">Reference tools</h2>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Card href="/glossary/" kind="Glossary" icon="book" title="Glossary" text="Plain and precise definitions, with sources." />
+          <Card href="/standards/" kind="Library" icon="layers" title="Standards library" text="Every standard the site cites, with issue, scope and corrigenda." />
+          <Card href="/providers/" kind="Comparison" icon="flag" title="Ground-station providers" text="First-party facts, dated; unknowns marked." />
+          <Card href="/sources/" kind="Register" icon="info" title="Source register" text="Provenance, terms and review dates for every source." />
+        </div>
+      </section>
+    )}
+  </div>
+</Base>

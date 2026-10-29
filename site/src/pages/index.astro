@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ChainDiagram from '../components/ChainDiagram.astro';
+import Card from '../components/Card.astro';
+import LabelChip from '../components/LabelChip.astro';
+import LevelBadge from '../components/LevelBadge.astro';
+import Icon from '../components/Icon.astro';
+import { sortedPaths, pathHref, topicHref, labHref, symptomHref, standardHref } from '../lib/site';
+
+const paths = await sortedPaths();
+const topics = await getCollection('topics');
+const labs = await getCollection('labs');
+const symptoms = await getCollection('symptoms');
+const claimCount = topics.reduce((n, t) => n + (t.body?.match(/^:::claim\{/gm)?.length ?? 0), 0);
+const firstTopic = (p: (typeof paths)[number]) => p.data.modules[0]?.topics[0];
+---
+<Base title="Signal Path">
+  <section class="border-b border-line bg-surface">
+    <div class="mx-auto grid max-w-[1440px] gap-10 px-4 py-12 md:px-8 lg:grid-cols-[minmax(0,1fr)_420px] lg:py-16">
+      <div>
+        <p class="t-overline text-link">Spacecraft communications &amp; operations</p>
+        <h1 class="t-display mt-3 max-w-[760px]">Follow data from a spacecraft sensor to a mission screen — and commands back.</h1>
+        <p class="t-body-lg mt-4 max-w-[680px] text-fg-2">
+          Learn how telemetry flows down and commands go up — through onboard software, RF, ground stations and provider networks to mission control — then learn to troubleshoot it layer by layer.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="btn btn-primary" href={pathHref('operator-conversation-fluency')}>Start the core path <Icon name="arrow-right" size={16} /></a>
+          <a class="btn btn-secondary" href="/start-here/">Browse all topics</a>
+        </div>
+      </div>
+      <div class="card p-5">
+        <p class="t-overline text-fg-2">What is here</p>
+        <dl class="mt-3 grid grid-cols-2 gap-4">
+          <div><dt class="t-small text-fg-2">Topics</dt><dd class="t-h2">{topics.length}</dd></div>
+          <div><dt class="t-small text-fg-2">Learning paths</dt><dd class="t-h2">{paths.length}</dd></div>
+          <div><dt class="t-small text-fg-2">Labs</dt><dd class="t-h2">{labs.length}</dd></div>
+          <div><dt class="t-small text-fg-2">Cited claims</dt><dd class="t-h2">{claimCount}</dd></div>
+        </dl>
+        <p class="t-small mt-4 text-fg-2">Every factual statement is labelled and linked to a dated source in the <a href="/sources/">source register</a>. All example data is fictional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1440px] px-4 py-12 md:px-8" aria-labelledby="chain">
+    <h2 id="chain" class="t-h2">The end-to-end system</h2>
+    <p class="mt-2 max-w-[720px] text-fg-2">Two directions through the same chain. Each stage has an owner, a data unit and its own failure modes.</p>
+    <div class="mt-6"><ChainDiagram /></div>
+    <p class="mt-3 text-sm"><a href={topicHref('end-to-end-system')}>Read: The end-to-end system →</a></p>
+  </section>
+
+  <section class="mx-auto max-w-[1440px] px-4 py-8 md:px-8" aria-labelledby="paths">
+    <h2 id="paths" class="t-h2">Learning paths</h2>
+    <p class="mt-2 max-w-[720px] text-fg-2">Pick a path for your role. Paths share topics, so progress in one counts in the others.</p>
+    <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+      {paths.map((p, i) => (
+        <a href={pathHref(p.id)} class="card group flex flex-col gap-2 p-5 text-fg no-underline hover:border-line-strong hover:bg-subtle">
+          <span class="t-overline text-fg-2">Path {i + 1}</span>
+          <span class="t-h4 group-hover:text-link">{p.data.title}</span>
+          <span class="t-small text-fg-2">{p.data.audience}</span>
+          <span class="mt-auto flex items-center gap-2 pt-3 text-xs text-fg-muted">
+            <LevelBadge level={p.data.level} />
+            {p.id === 'fast-reference' ? 'As needed' : `${p.data.est_hours[0]}–${p.data.est_hours[1]} h`} · {p.data.modules.length} modules
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-[1440px] px-4 py-8 md:px-8" aria-labelledby="labels">
+    <h2 id="labels" class="t-h2">How content is labelled</h2>
+    <p class="mt-2 max-w-[720px] text-fg-2">Every claim carries one of four labels, with an icon and text, never colour alone. "Mission-specific" always means: check your own mission documents.</p>
+    <ul class="mt-4 flex flex-wrap gap-3">
+      <li><LabelChip label="standard" /></li>
+      <li><LabelChip label="practice" /></li>
+      <li><LabelChip label="example" /></li>
+      <li><LabelChip label="mission" /></li>
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-[1440px] px-4 py-8 md:px-8" aria-labelledby="popular">
+    <h2 id="popular" class="t-h2">Popular starting points</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <Card href={topicHref('uplink-and-downlink')} kind="Topic" icon="book" title="Uplink and downlink" text="What flows in each direction, and why the two paths differ." meta="Intro · 15–20 min" />
+      <Card href={labHref('space-packet-header-decoder')} kind="Lab" icon="flask" title="Packet header decoder" text="Decode a fictional Space Packet primary header field by field." meta="Core · 15–25 min" />
+      <Card href={symptomHref('carrier-but-no-frame-lock')} kind="Symptom" icon="alert" title="Carrier but no frame lock" text="Evidence to gather and layers to check when frames never sync." meta="Troubleshooting" />
+      <Card href={standardHref('ccsds-133-0-b-2')} kind="Standard" icon="layers" title="Space Packet Protocol" text="CCSDS 133.0-B-2: scope, structure and what the mission must define." meta="Reference" />
+    </div>
+  </section>
+</Base>

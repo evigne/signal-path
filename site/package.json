@@ -1,0 +1,48 @@
+{
+  "name": "signal-path",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "../.venv/bin/python ../content/tools/validate.py",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "test": "vitest run tests/unit",
+    "test:e2e": "playwright test",
+    "check": "npm run validate && npm test && npm run build",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.5",
+    "@astrojs/react": "^7.1.2",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "astro": "^7.4.3",
+    "katex": "^0.19.1",
+    "react": "^19.3.1",
+    "react-aria-components": "^1.22.1",
+    "react-dom": "^19.3.1",
+    "rehype-katex": "^7.0.1",
+    "remark-directive": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "tailwindcss": "^4.3.3",
+    "unist-util-visit": "^5.2.0",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6",
+    "pagefind": "^1.5.2",
+    "vitest": "^5.0.5"
+  },
+  "private": true
+}

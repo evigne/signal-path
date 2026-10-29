@@ -1,0 +1,185 @@
+/*
+ * Signal Path design tokens.
+ * Source of truth: the Penpot file (token sets primitives, mode/light, mode/dark, scale),
+ * including decision-log changes: diagram boundary ink.500 in light mode, dark status
+ * backgrounds teal.900 (ok) and rose.900 (error).
+ * Edit here and in Penpot together.
+ */
+
+:root {
+  /* Primitives */
+  --ink-0: #ffffff;
+  --ink-50: #f6f7f9;
+  --ink-100: #eceff3;
+  --ink-200: #d9dee5;
+  --ink-300: #b8c0cc;
+  --ink-400: #8c96a8;
+  --ink-500: #66728a;
+  --ink-600: #46536e;
+  --ink-700: #2b3752;
+  --ink-800: #1c2740;
+  --ink-900: #111a2e;
+  --ink-950: #0b1220;
+  --cobalt-50: #eef3ff;
+  --cobalt-300: #93b0f5;
+  --cobalt-500: #3b6fe0;
+  --cobalt-600: #2a57c4;
+  --cobalt-900: #12285a;
+  --violet-50: #f2efff;
+  --violet-300: #b9a8ff;
+  --violet-700: #5136c2;
+  --violet-900: #261a5c;
+  --teal-50: #e6f6f4;
+  --teal-300: #7ad3c7;
+  --teal-700: #0f6b63;
+  --teal-900: #0a3532;
+  --amber-50: #fff4e0;
+  --amber-300: #f5c46b;
+  --amber-700: #8a5200;
+  --amber-900: #3d2600;
+  --rose-50: #ffedf1;
+  --rose-300: #f7a1b5;
+  --rose-700: #a81e40;
+  --rose-900: #4a0c1c;
+  --green-50: #e8f6ec;
+  --green-300: #86d09b;
+  --green-700: #166534;
+  --red-50: #fdecec;
+  --red-300: #f2a3a3;
+  --red-700: #b42318;
+  --orange-300: #fdba74;
+  --orange-600: #c2560c;
+
+  /* Semantic — light */
+  --bg-canvas: var(--ink-50);
+  --bg-surface: var(--ink-0);
+  --bg-subtle: var(--ink-100);
+  --bg-inverse: var(--ink-950);
+  --bg-code: var(--ink-900);
+  --bg-accent: var(--cobalt-600);
+  --bg-accent-subtle: var(--cobalt-50);
+  --text-primary: var(--ink-950);
+  --text-secondary: var(--ink-600);
+  --text-muted: var(--ink-500);
+  --text-link: var(--cobalt-600);
+  --text-on-accent: var(--ink-0);
+  --text-code: var(--ink-100);
+  --border-default: var(--ink-200);
+  --border-strong: var(--ink-300);
+  --border-focus: var(--cobalt-500);
+  --tag-standard-fg: var(--violet-700);
+  --tag-standard-bg: var(--violet-50);
+  --tag-practice-fg: var(--teal-700);
+  --tag-practice-bg: var(--teal-50);
+  --tag-example-fg: var(--amber-700);
+  --tag-example-bg: var(--amber-50);
+  --tag-mission-fg: var(--rose-700);
+  --tag-mission-bg: var(--rose-50);
+  --status-ok-fg: var(--green-700);
+  --status-ok-bg: var(--green-50);
+  --status-warn-fg: var(--amber-700);
+  --status-warn-bg: var(--amber-50);
+  --status-error-fg: var(--red-700);
+  --status-error-bg: var(--red-50);
+  --diagram-downlink: var(--teal-700);
+  --diagram-uplink: var(--orange-600);
+  --diagram-boundary: var(--ink-500);
+
+  /* Scale */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 96px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --measure: 720px;
+  --sidenav: 264px;
+  --toc: 240px;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  color-scheme: light;
+}
+
+/* Semantic — dark (system preference unless the reader chose light) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-canvas: var(--ink-950);
+    --bg-surface: var(--ink-900);
+    --bg-subtle: var(--ink-800);
+    --bg-inverse: var(--ink-50);
+    --bg-code: var(--ink-800);
+    --bg-accent: var(--cobalt-300);
+    --bg-accent-subtle: var(--cobalt-900);
+    --text-primary: var(--ink-50);
+    --text-secondary: var(--ink-300);
+    --text-muted: var(--ink-400);
+    --text-link: var(--cobalt-300);
+    --text-on-accent: var(--ink-950);
+    --border-default: var(--ink-700);
+    --border-strong: var(--ink-600);
+    --border-focus: var(--cobalt-300);
+    --tag-standard-fg: var(--violet-300);
+    --tag-standard-bg: var(--violet-900);
+    --tag-practice-fg: var(--teal-300);
+    --tag-practice-bg: var(--teal-900);
+    --tag-example-fg: var(--amber-300);
+    --tag-example-bg: var(--amber-900);
+    --tag-mission-fg: var(--rose-300);
+    --tag-mission-bg: var(--rose-900);
+    --status-ok-fg: var(--green-300);
+    --status-ok-bg: var(--teal-900);
+    --status-warn-fg: var(--amber-300);
+    --status-warn-bg: var(--amber-900);
+    --status-error-fg: var(--red-300);
+    --status-error-bg: var(--rose-900);
+    --diagram-downlink: var(--teal-300);
+    --diagram-uplink: var(--orange-300);
+    --diagram-boundary: var(--ink-400);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg-canvas: var(--ink-950);
+  --bg-surface: var(--ink-900);
+  --bg-subtle: var(--ink-800);
+  --bg-inverse: var(--ink-50);
+  --bg-code: var(--ink-800);
+  --bg-accent: var(--cobalt-300);
+  --bg-accent-subtle: var(--cobalt-900);
+  --text-primary: var(--ink-50);
+  --text-secondary: var(--ink-300);
+  --text-muted: var(--ink-400);
+  --text-link: var(--cobalt-300);
+  --text-on-accent: var(--ink-950);
+  --border-default: var(--ink-700);
+  --border-strong: var(--ink-600);
+  --border-focus: var(--cobalt-300);
+  --tag-standard-fg: var(--violet-300);
+  --tag-standard-bg: var(--violet-900);
+  --tag-practice-fg: var(--teal-300);
+  --tag-practice-bg: var(--teal-900);
+  --tag-example-fg: var(--amber-300);
+  --tag-example-bg: var(--amber-900);
+  --tag-mission-fg: var(--rose-300);
+  --tag-mission-bg: var(--rose-900);
+  --status-ok-fg: var(--green-300);
+  --status-ok-bg: var(--teal-900);
+  --status-warn-fg: var(--amber-300);
+  --status-warn-bg: var(--amber-900);
+  --status-error-fg: var(--red-300);
+  --status-error-bg: var(--rose-900);
+  --diagram-downlink: var(--teal-300);
+  --diagram-uplink: var(--orange-300);
+  --diagram-boundary: var(--ink-400);
+  color-scheme: dark;
+}
