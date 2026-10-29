@@ -163,6 +163,27 @@
     padding: 8px 10px; width: 100%;
   }
 
+  /* Glossary term with definition tooltip (hover and keyboard focus) */
+  .gloss { position: relative; }
+  .gloss-term {
+    color: inherit;
+    text-decoration: underline dotted;
+    text-decoration-color: var(--text-link);
+    text-underline-offset: 4px;
+  }
+  .gloss-tip {
+    position: absolute; left: 0; bottom: calc(100% + 8px); z-index: 30;
+    width: max-content; max-width: min(320px, 80vw);
+    background: var(--bg-inverse); color: var(--bg-surface);
+    font-size: 14px; line-height: 21px; font-weight: 400;
+    padding: 10px 12px; border-radius: var(--radius-md);
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.18);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 120ms ease;
+  }
+  .gloss-tip strong { display: block; font-weight: 600; margin-bottom: 2px; }
+  .gloss:hover .gloss-tip, .gloss:focus-within .gloss-tip { opacity: 1; visibility: visible; }
+
   .skip-link {
     position: absolute; left: 8px; top: -60px; z-index: 100;
     background: var(--bg-surface); color: var(--text-primary);

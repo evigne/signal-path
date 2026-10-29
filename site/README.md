@@ -25,7 +25,8 @@ Run from `site/`:
 | `npm test` | Unit tests: every worked example and tool model |
 | `npm run build` | Build to `dist/` and generate the Pagefind index |
 | `npm run test:e2e` | Accessibility and behaviour tests against `dist/` (run `npm run build` first; first time: `npx playwright install chromium`) |
-| `npm run check` | validate + unit tests + build |
+| `npm run clean` | Remove build output and Astro's content cache (needed after changing a Markdown plugin) |
+| `npm run check` | clean + validate + unit tests + build + internal link check |
 | `python3 -m http.server 4321 --directory dist` | Serve the built site locally |
 
 `astro dev` may not start in sandboxed shells; building and serving `dist/` always works.
@@ -46,7 +47,7 @@ Run from `site/`:
 
 `:::claim{label source loc}` blocks are rendered by `src/lib/remark-claims.mjs`: a label chip
 (icon + text), the claim, and citations linked to the register. The build **fails** on an unknown
-source ID or a standard/practice claim without a source.
+source ID or a standard/practice claim without a source. `src/lib/rehype-glossary.mjs` links the first use of each of a topic's `glossary_terms` to the glossary with a definition tooltip.
 
 ## Tool models
 
