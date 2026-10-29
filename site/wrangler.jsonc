@@ -1,0 +1,11 @@
+{
+  // Static site on Workers Static Assets (free plan). No Worker script: Cloudflare serves
+  // the Astro build in ./dist directly. Name must match the Worker in the dashboard.
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "signal-path",
+  "compatibility_date": "2026-10-29",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
